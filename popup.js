@@ -18,7 +18,15 @@ let state = {
   foundWords: [],
   score: 0,
   currentInput: '',
-  puzzle: null
+  puzzle: null,
+  playerId: null,
+  socket: null,
+  multiplayer: {
+    nickname: '',
+    roomCode: null,
+    teammates: [],
+    step: 'setup' // setup, menu, join, active
+  }
 };
 
 // DOM Elements
@@ -45,6 +53,28 @@ const els = {
       document.getElementById('cell-5'),
       document.getElementById('cell-6')
     ]
+  },
+  multi: {
+    screen: document.getElementById('multiplayer-screen'),
+    setup: document.getElementById('multi-setup'),
+    menu: document.getElementById('multi-menu'),
+    join: document.getElementById('multi-join'),
+    active: document.getElementById('multi-active'),
+    nicknameInput: document.getElementById('nickname-input'),
+    roomCodeInput: document.getElementById('room-code-input'),
+    displayNickname: document.getElementById('display-nickname'),
+    activeRoomCode: document.getElementById('active-room-code'),
+    playerList: document.getElementById('player-list'),
+    btns: {
+      open: document.getElementById('multiplayer-btn'),
+      close: document.getElementById('close-multi-btn'),
+      saveNickname: document.getElementById('save-nickname-btn'),
+      createRoom: document.getElementById('create-room-btn'),
+      joinRoom: document.getElementById('join-room-btn'),
+      confirmJoin: document.getElementById('join-confirm-btn'),
+      backToMenu: document.getElementById('join-back-btn'),
+      leaveRoom: document.getElementById('leave-room-btn')
+    }
   }
 };
 
@@ -52,6 +82,19 @@ document.addEventListener('DOMContentLoaded', initGame);
 
 async function initGame() {
   await loadState();
+
+  // Initialize playerId if missing
+  if (!state.playerId) {
+    state.playerId = crypto.randomUUID();
+    saveState();
+  }
+
+  // Initialize Socket connection
+  if (typeof io !== 'undefined') {
+    state.socket = io('http://localhost:3000'); // Default local server
+    setupSocketListeners();
+  }
+
   if (!state.puzzle) {
     selectDailyPuzzle();
   }
@@ -99,7 +142,11 @@ async function loadState() {
   return new Promise(resolve => {
     chrome.storage.local.get(['sb_state'], (result) => {
       if (result.sb_state) {
-        state = result.sb_state;
+        // Merge with defaults to ensure new fields like multiplayer are present
+        state = { ...state, ...result.sb_state };
+        if (result.sb_state.multiplayer) {
+          state.multiplayer = { ...state.multiplayer, ...result.sb_state.multiplayer };
+        }
       }
       resolve();
     });
@@ -170,6 +217,15 @@ function handleEnter() {
   if (result.valid) {
     addWord(word, result.score, result.isPangram);
     showMessage(result.isPangram ? "Pangram! +" + result.score : "Nice! +" + result.score, 1500);
+
+    // Sync with server if in a room
+    if (state.multiplayer.roomCode && state.socket) {
+      state.socket.emit('submit-word', {
+        roomCode: state.multiplayer.roomCode,
+        word: word,
+        nickname: state.multiplayer.nickname
+      });
+    }
   } else {
     shakeInput();
     showMessage(result.error, 1000);
@@ -468,6 +524,28 @@ function setupEventListeners() {
     if (e.target === modal) modal.style.display = 'none';
   });
 
+  // Multiplayer Listeners
+  els.multi.btns.open.addEventListener('click', renderMultiplayerScreen);
+  els.multi.btns.close.addEventListener('click', closeMultiplayerScreen);
+  els.multi.btns.saveNickname.addEventListener('click', handleSaveNickname);
+  els.multi.btns.createRoom.addEventListener('click', handleCreateRoom);
+  els.multi.btns.joinRoom.addEventListener('click', handleJoinRoom);
+  els.multi.btns.confirmJoin.addEventListener('click', handleConfirmJoin);
+  els.multi.btns.backToMenu.addEventListener('click', () => {
+    state.multiplayer.step = 'menu';
+    renderMultiplayerScreen();
+  });
+  els.multi.btns.leaveRoom.addEventListener('click', handleLeaveRoom);
+
+  els.multi.activeRoomCode.addEventListener('click', () => {
+    const code = els.multi.activeRoomCode.textContent;
+    if (code) {
+      navigator.clipboard.writeText(code).then(() => {
+        showMessage("Room code copied!", 2000);
+      });
+    }
+  });
+
   els.toggleWordsBtn.addEventListener('click', () => {
     const isHidden = els.wordsList.style.display === 'none';
     if (isHidden) {
@@ -520,4 +598,166 @@ if (!document.getElementById('shake-style')) {
   }
   `;
   document.head.appendChild(style);
+}
+// Multiplayer Logic
+function setupSocketListeners() {
+  const socket = state.socket;
+  if (!socket) return;
+
+  socket.on('room-created', (roomState) => {
+    state.multiplayer.roomCode = roomState.roomCode;
+    state.multiplayer.step = 'active';
+    state.multiplayer.teammates = roomState.players.filter(p => p.playerId !== state.playerId);
+    saveState();
+    renderMultiplayerScreen();
+    showMessage(`Room ${roomState.roomCode} Created!`, 2000);
+  });
+
+  socket.on('joined-room', (roomState) => {
+    state.multiplayer.roomCode = roomState.roomCode;
+    state.multiplayer.step = 'active';
+    state.multiplayer.teammates = roomState.players.filter(p => p.playerId !== state.playerId);
+
+    // Sync words found by others
+    roomState.foundWords.forEach(word => {
+      if (!state.foundWords.includes(word)) {
+        state.foundWords.push(word);
+        state.score += calculateWordScore(word);
+      }
+    });
+
+    saveState();
+    renderPuzzle(); // Refresh found words list
+    renderMultiplayerScreen();
+    showMessage(`Joined Room ${roomState.roomCode}`, 2000);
+  });
+
+  socket.on('player-joined', ({ playerId, nickname }) => {
+    state.multiplayer.teammates.push({ playerId, nickname, online: true });
+    renderTeammates();
+    showMessage(`${nickname} joined!`, 2000);
+  });
+
+  socket.on('player-offline', ({ playerId }) => {
+    const tm = state.multiplayer.teammates.find(p => p.playerId === playerId);
+    if (tm) tm.online = false;
+    renderTeammates();
+  });
+
+  socket.on('word-found', ({ word, nickname }) => {
+    if (!state.foundWords.includes(word)) {
+      state.foundWords.push(word);
+      state.score += calculateWordScore(word);
+      saveState();
+      renderFoundWords();
+      updateScoreUI();
+      showMessage(`${nickname} found: ${word}`, 2000);
+    }
+  });
+
+  socket.on('error-msg', ({ message }) => {
+    showMessage(message, 3000);
+  });
+}
+
+function renderMultiplayerScreen() {
+  const m = state.multiplayer;
+  const elsM = els.multi;
+
+  // Show only the current step
+  elsM.setup.classList.add('hidden');
+  elsM.menu.classList.add('hidden');
+  elsM.join.classList.add('hidden');
+  elsM.active.classList.add('hidden');
+
+  if (!m.nickname) {
+    elsM.setup.classList.remove('hidden');
+  } else if (m.step === 'menu') {
+    elsM.displayNickname.textContent = m.nickname;
+    elsM.menu.classList.remove('hidden');
+  } else if (m.step === 'join') {
+    elsM.join.classList.remove('hidden');
+  } else if (m.step === 'active') {
+    elsM.activeRoomCode.textContent = m.roomCode;
+    renderTeammates();
+    elsM.active.classList.remove('hidden');
+  }
+
+  elsM.screen.style.display = 'flex';
+}
+
+function renderTeammates() {
+  const list = els.multi.playerList;
+  list.innerHTML = '';
+
+  // Add self
+  const me = document.createElement('div');
+  me.className = 'player-item online';
+  me.innerHTML = `<div class="status-dot"></div> <span>${state.multiplayer.nickname} (You)</span>`;
+  list.appendChild(me);
+
+  // Add others
+  state.multiplayer.teammates.forEach(t => {
+    const item = document.createElement('div');
+    item.className = `player-item ${t.online ? 'online' : ''}`;
+    item.innerHTML = `<div class="status-dot"></div> <span>${t.nickname}</span>`;
+    list.appendChild(item);
+  });
+}
+
+function closeMultiplayerScreen() {
+  els.multi.screen.style.display = 'none';
+}
+
+function handleSaveNickname() {
+  const nick = els.multi.nicknameInput.value.trim();
+  if (nick) {
+    state.multiplayer.nickname = nick;
+    state.multiplayer.step = 'menu';
+    saveState();
+    renderMultiplayerScreen();
+  } else {
+    showMessage("Please enter a nickname", 2000);
+  }
+}
+
+function handleCreateRoom() {
+  if (state.socket) {
+    state.socket.emit('create-room', {
+      playerId: state.playerId,
+      nickname: state.multiplayer.nickname,
+      puzzleId: state.puzzleId
+    });
+  } else {
+    showMessage("Not connected to server", 2000);
+  }
+}
+
+function handleJoinRoom() {
+  state.multiplayer.step = 'join';
+  renderMultiplayerScreen();
+}
+
+function handleConfirmJoin() {
+  const code = els.multi.roomCodeInput.value.trim();
+  if (code && state.socket) {
+    state.socket.emit('join-room', {
+      roomCode: code,
+      playerId: state.playerId,
+      nickname: state.multiplayer.nickname
+    });
+  } else if (!code) {
+    showMessage("Please enter a room code", 2000);
+  } else {
+    showMessage("Not connected to server", 2000);
+  }
+}
+
+function handleLeaveRoom() {
+  state.multiplayer.roomCode = null;
+  state.multiplayer.step = 'menu';
+  state.multiplayer.teammates = [];
+  saveState();
+  // Simple way to reset state and clear socket rooms
+  window.location.reload();
 }

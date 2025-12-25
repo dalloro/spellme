@@ -31,6 +31,15 @@
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
         </button>
+        <button id="multiplayer-btn" class="header-btn" title="Multiplayer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </button>
         <button id="restart-btn" class="header-btn" title="New Random Puzzle">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="23 4 23 10 17 10"></polyline>
@@ -90,9 +99,57 @@
         </div>
       </div>
     </div>
+
+    <!-- Multiplayer Screen -->
+    <div id="multiplayer-screen" class="multi-screen">
+      <div class="multi-header">
+        <h3>Multiplayer</h3>
+        <button id="close-multi-btn">&times;</button>
+      </div>
+
+      <!-- Step 1: Set Nickname -->
+      <div id="multi-setup" class="multi-step">
+        <p>Choose a nickname to start playing with others.</p>
+        <input type="text" id="nickname-input" placeholder="Your Nickname" maxlength="15">
+        <button id="save-nickname-btn" class="primary-btn">Continue</button>
+      </div>
+
+      <!-- Step 2: Main Menu -->
+      <div id="multi-menu" class="multi-step hidden">
+        <p>Logged in as <strong id="display-nickname"></strong></p>
+        <div class="multi-actions">
+          <button id="create-room-btn" class="primary-btn">Create Room</button>
+          <button id="join-room-btn" class="secondary-btn">Join Room</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Join Room -->
+      <div id="multi-join" class="multi-step hidden">
+        <p>Enter the room code shared with you.</p>
+        <input type="text" id="room-code-input" placeholder="e.g. Swift-Bumble-42">
+        <div class="multi-actions">
+          <button id="join-confirm-btn" class="primary-btn">Join</button>
+          <button id="join-back-btn" class="secondary-btn">Back</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Active Room -->
+      <div id="multi-active" class="multi-step hidden">
+        <div class="room-info">
+          <span>Room Code:</span>
+          <strong id="active-room-code"></strong>
+        </div>
+        <div class="player-list-container">
+          <p>Players:</p>
+          <div id="player-list" class="player-list"></div>
+        </div>
+        <button id="leave-room-btn" class="danger-btn">Leave Room</button>
+      </div>
+    </div>
   </div>
   <script src="words.js"></script>
   <script src="puzzles.js"></script>
+  <script src="socket.io.min.js"></script>
   <script src="popup.js"></script>
 </body>
 
