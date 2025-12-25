@@ -1,4 +1,6 @@
 rules_version = '2';
+
+// Testing automated deployment v1
 service cloud.firestore {
   match /databases/{database}/documents {
     // Rooms collection
