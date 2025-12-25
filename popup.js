@@ -65,6 +65,8 @@ const els = {
     displayNickname: document.getElementById('display-nickname'),
     activeRoomCode: document.getElementById('active-room-code'),
     playerList: document.getElementById('player-list'),
+    banner: document.getElementById('multiplayer-banner'),
+    bannerCode: document.getElementById('banner-room-code'),
     btns: {
       open: document.getElementById('multiplayer-btn'),
       close: document.getElementById('close-multi-btn'),
@@ -91,17 +93,31 @@ async function initGame() {
 
   // Initialize Socket connection
   if (typeof io !== 'undefined') {
-    state.socket = io('http://localhost:3000'); // Default local server
+    const isLocal = true; // Set to false when deploying to production
+    const prodUrl = 'https://efemeridi-95622.web.app';
+    state.socket = io(isLocal ? 'http://localhost:3000' : prodUrl);
     setupSocketListeners();
   }
 
   if (!state.puzzle) {
-    selectDailyPuzzle();
+    loadNYTDailyPuzzle();
+  } else {
+    loadPuzzle(state.puzzleId);
+  }
+
+  // Auto-sync puzzle if already in a room on init
+  if (state.multiplayer.roomCode && state.socket) {
+    state.socket.emit('join-room', {
+      roomCode: state.multiplayer.roomCode,
+      playerId: state.playerId,
+      nickname: state.multiplayer.nickname
+    });
   }
 
   renderPuzzle();
   updateScoreUI();
   renderFoundWords();
+  renderMultiplayerBanner(); // Update banner on init
   setupEventListeners();
 
   // Input focus simulation
@@ -118,20 +134,48 @@ function selectDailyPuzzle() {
 function selectRandomPuzzle() {
   const index = Math.floor(Math.random() * Object.keys(PUZZLES).length);
   loadPuzzle(index);
+  showMessage("New Random Puzzle!", 1000);
+
+  // Sync with room if active
+  if (state.multiplayer.roomCode && state.socket) {
+    state.socket.emit('update-puzzle', {
+      roomCode: state.multiplayer.roomCode,
+      puzzleId: state.puzzleId,
+      nickname: state.multiplayer.nickname
+    });
+  }
 }
 
-function loadPuzzle(index) {
-  const puzzle = PUZZLES[index] || PUZZLES["0"];
-  state.puzzleId = index;
-  state.puzzle = puzzle;
-  state.foundWords = [];
-  state.score = 0;
-  state.currentInput = '';
+function loadPuzzle(indexOrId) {
+  let puzzle;
+  let id;
 
-  saveState();
-  renderPuzzle();
-  updateScoreUI();
-  renderFoundWords();
+  if (typeof indexOrId === 'number') {
+    id = indexOrId;
+    puzzle = PUZZLES[id];
+  } else if (typeof indexOrId === 'string' && indexOrId.startsWith('nyt-')) {
+    // If it's an NYT ID and it matches what we already have, do nothing
+    // If it's different, we need to re-fetch/load NYT
+    if (state.puzzleId !== indexOrId) {
+      loadNYTDailyPuzzle(false); // Pass false to avoid re-broadcasting
+    }
+    return;
+  } else {
+    id = parseInt(indexOrId);
+    puzzle = PUZZLES[id];
+  }
+
+  if (puzzle) {
+    state.puzzleId = id;
+    state.puzzle = puzzle;
+    state.foundWords = [];
+    state.score = 0;
+    state.currentInput = ''; // Ensure currentInput is cleared
+    saveState();
+    renderPuzzle();
+    updateScoreUI();
+    renderFoundWords();
+  }
 }
 
 function saveState() {
@@ -238,7 +282,7 @@ function handleEnter() {
   }, 500);
 }
 
-async function loadNYTDailyPuzzle() {
+async function loadNYTDailyPuzzle(shouldBroadcast = true) {
   showMessage("Fetching NYT Daily...", 2000);
   try {
     const response = await fetch('https://nytbee.com/');
@@ -341,23 +385,36 @@ async function loadNYTDailyPuzzle() {
       maxScore += score;
     });
 
-    // Update state
-    state.puzzleId = "nyt-" + new Date().toISOString().split('T')[0];
-    state.puzzle = {
+    const today = new Date();
+    const dateStr = today.toISOString().split('T')[0];
+    const puzzle = {
       letters: [center, ...outer].map(l => l.toLowerCase()),
       words: uniqueWords.map(w => w.toLowerCase()),
       maxScore: maxScore
     };
+
+    // 4. Update state and UI
+    state.puzzleId = `nyt-${dateStr}`;
+    state.puzzle = puzzle;
     state.foundWords = [];
     state.score = 0;
-    state.currentInput = '';
-
+    state.currentInput = ''; // Ensure currentInput is cleared
     saveState();
     renderPuzzle();
     updateScoreUI();
     renderFoundWords();
+    renderMultiplayerBanner(); // Update banner when puzzle changes
     showMessage("NYT Daily Loaded!", 2000);
 
+    // CRITICAL FIX: Sync with room if active
+    if (shouldBroadcast && state.multiplayer.roomCode && state.socket) {
+      console.log("Broadcasting NYT puzzle sync...");
+      state.socket.emit('update-puzzle', {
+        roomCode: state.multiplayer.roomCode,
+        puzzleId: state.puzzleId,
+        nickname: state.multiplayer.nickname
+      });
+    }
   } catch (err) {
     console.error(err);
     showMessage("Error loading NYT Daily: " + err.message, 3000);
@@ -599,6 +656,21 @@ if (!document.getElementById('shake-style')) {
   `;
   document.head.appendChild(style);
 }
+function renderMultiplayerBanner() {
+  const m = state.multiplayer;
+  const banner = els.multi.banner;
+
+  if (m.roomCode && m.step === 'active') {
+    banner.classList.remove('hidden');
+    // Count only online players
+    const onlineTeammates = m.teammates ? m.teammates.filter(t => t.online) : [];
+    const count = onlineTeammates.length + 1;
+    els.multi.bannerCode.textContent = `${m.roomCode} (${count} player${count > 1 ? 's' : ''})`;
+  } else {
+    banner.classList.add('hidden');
+  }
+}
+
 // Multiplayer Logic
 function setupSocketListeners() {
   const socket = state.socket;
@@ -610,6 +682,7 @@ function setupSocketListeners() {
     state.multiplayer.teammates = roomState.players.filter(p => p.playerId !== state.playerId);
     saveState();
     renderMultiplayerScreen();
+    renderMultiplayerBanner(); // Update banner
     showMessage(`Room ${roomState.roomCode} Created!`, 2000);
   });
 
@@ -617,6 +690,12 @@ function setupSocketListeners() {
     state.multiplayer.roomCode = roomState.roomCode;
     state.multiplayer.step = 'active';
     state.multiplayer.teammates = roomState.players.filter(p => p.playerId !== state.playerId);
+
+    // CRITICAL FIX: Sync Puzzle ID and load correct letters
+    if (String(roomState.puzzleId) !== String(state.puzzleId)) {
+      console.log(`Syncing puzzle to ${roomState.puzzleId}`);
+      loadPuzzle(roomState.puzzleId);
+    }
 
     // Sync words found by others
     roomState.foundWords.forEach(word => {
@@ -627,21 +706,30 @@ function setupSocketListeners() {
     });
 
     saveState();
-    renderPuzzle(); // Refresh found words list
-    renderMultiplayerScreen();
-    showMessage(`Joined Room ${roomState.roomCode}`, 2000);
+    renderPuzzle(); // Refresh UI with new letters and found words
+
+    // Only show screen if were NOT already in a valid active state
+    // This prevents the screen from popping up on extension open
+    if (els.multi.screen.style.display === 'flex') {
+      renderMultiplayerScreen();
+    }
+
+    renderMultiplayerBanner(); // Update banner
+    showMessage(`Joined Room ${roomState.roomCode}. Letters synced!`, 3000);
   });
 
-  socket.on('player-joined', ({ playerId, nickname }) => {
-    state.multiplayer.teammates.push({ playerId, nickname, online: true });
+  socket.on('players-updated', ({ players }) => {
+    state.multiplayer.teammates = players.filter(p => p.playerId !== state.playerId);
     renderTeammates();
-    showMessage(`${nickname} joined!`, 2000);
+    renderMultiplayerBanner(); // Update banner (count might have changed)
   });
 
-  socket.on('player-offline', ({ playerId }) => {
-    const tm = state.multiplayer.teammates.find(p => p.playerId === playerId);
-    if (tm) tm.online = false;
-    renderTeammates();
+  socket.on('puzzle-synced', ({ puzzleId, nickname }) => {
+    if (String(state.puzzleId) !== String(puzzleId)) {
+      loadPuzzle(puzzleId);
+      renderMultiplayerBanner(); // Ensure banner is fresh
+      showMessage(`${nickname} changed the puzzle!`, 3000);
+    }
   });
 
   socket.on('word-found', ({ word, nickname }) => {
@@ -696,12 +784,14 @@ function renderTeammates() {
   me.innerHTML = `<div class="status-dot"></div> <span>${state.multiplayer.nickname} (You)</span>`;
   list.appendChild(me);
 
-  // Add others
+  // Add others (only online)
   state.multiplayer.teammates.forEach(t => {
-    const item = document.createElement('div');
-    item.className = `player-item ${t.online ? 'online' : ''}`;
-    item.innerHTML = `<div class="status-dot"></div> <span>${t.nickname}</span>`;
-    list.appendChild(item);
+    if (t.online) {
+      const item = document.createElement('div');
+      item.className = 'player-item online';
+      item.innerHTML = `<div class="status-dot"></div> <span>${t.nickname}</span>`;
+      list.appendChild(item);
+    }
   });
 }
 
@@ -754,6 +844,12 @@ function handleConfirmJoin() {
 }
 
 function handleLeaveRoom() {
+  if (state.socket && state.multiplayer.roomCode) {
+    state.socket.emit('leave-room', {
+      roomCode: state.multiplayer.roomCode,
+      playerId: state.playerId
+    });
+  }
   state.multiplayer.roomCode = null;
   state.multiplayer.step = 'menu';
   state.multiplayer.teammates = [];

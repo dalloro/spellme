@@ -244,8 +244,40 @@ header {
   animation: fadeIn 0.3s ease-out;
 }
 
-.multi-step.hidden {
-  display: none;
+/* Multiplayer Banner (Material Chip Style) */
+.multiplayer-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 12px;
+  border-radius: 16px;
+  margin: 12px auto;
+  font-size: 12px;
+  color: var(--text-color);
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: fit-content;
+  transition: background 0.2s ease;
+}
+
+.multiplayer-banner:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.banner-icon {
+  color: #f7da21;
+  /* Match the center letter yellow */
+}
+
+.banner-text #banner-room-code {
+  color: #f7da21;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .multi-step p {

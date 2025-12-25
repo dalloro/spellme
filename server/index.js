@@ -20,8 +20,8 @@ const io = new Server(httpServer, {
     }
 });
 
-// Port mapping for local and cloud deployment
-const PORT = process.env.PORT || 3000;
+// Port mapping for local and cloud deployment (Cloud Run uses PORT)
+const PORT = process.env.PORT || 8080;
 
 // In-memory room state (will be backed by Firestore in the next step)
 const rooms = new Map();
@@ -29,10 +29,26 @@ const rooms = new Map();
 io.on('connection', (socket) => {
     console.log('User connected:', socket.id);
 
+    // Simple rate limiting per socket
+    let lastEventTime = 0;
+    const RATE_LIMIT_MS = 200; // max 5 events per second
+
+    const checkRateLimit = () => {
+        const now = Date.now();
+        if (now - lastEventTime < RATE_LIMIT_MS) return false;
+        lastEventTime = now;
+        return true;
+    };
+
     // --- ROOM MANAGEMENT ---
 
     // Player creates a new room
     socket.on('create-room', async ({ playerId, nickname, puzzleId }) => {
+        if (!checkRateLimit()) return;
+
+        // Payload size sanity check
+        if (nickname.length > 30 || String(puzzleId).length > 50) return;
+
         const roomCode = generateRoomCode();
 
         const roomState = {
@@ -43,22 +59,28 @@ io.on('connection', (socket) => {
         };
 
         rooms.set(roomCode, roomState);
-        await saveRoom(roomCode, roomState);
+
+        // Non-blocking Firestore save
+        saveRoom(roomCode, roomState).catch(err => console.error("Firestore Error:", err));
 
         socket.join(roomCode);
-
         socket.emit('room-created', roomState);
-        console.log(`Room created & persisted: ${roomCode} by ${nickname}`);
+        console.log(`Room created: ${roomCode} by ${nickname}`);
     });
 
     // Player joins an existing room
     socket.on('join-room', async ({ roomCode, playerId, nickname }) => {
+        if (!checkRateLimit()) return;
+        if (nickname.length > 30 || roomCode.length > 30) return;
+
         let room = rooms.get(roomCode);
 
         // Fallback to Firestore if not in memory
         if (!room) {
             room = await getRoom(roomCode);
-            if (room) rooms.set(roomCode, room);
+            if (room) {
+                rooms.set(roomCode, room);
+            }
         }
 
         if (!room) {
@@ -72,33 +94,76 @@ io.on('connection', (socket) => {
         } else {
             playerExists.socketId = socket.id;
             playerExists.online = true;
+            playerExists.nickname = nickname; // Update nickname
         }
 
         socket.join(roomCode);
 
-        // Notify the joiner of the current room state
-        socket.emit('joined-room', room);
+        // Send back current state
+        socket.emit('joined-room', {
+            roomCode: room.roomCode,
+            puzzleId: room.puzzleId,
+            foundWords: room.foundWords,
+            players: room.players
+        });
 
-        // Notify others in the room
-        socket.to(roomCode).emit('player-joined', { playerId, nickname });
+        // Broadcast updated list to everyone
+        io.to(roomCode).emit('players-updated', { players: room.players });
+
+        // Update Firestore in background
+        saveRoom(roomCode, room).catch(err => console.error("Firestore Update Error:", err));
+
         console.log(`User ${nickname} joined room: ${roomCode}`);
+    });
+
+    // Player explicitly leaves room
+    socket.on('leave-room', ({ roomCode, playerId }) => {
+        const room = rooms.get(roomCode);
+        if (room) {
+            room.players = room.players.filter(p => p.playerId !== playerId);
+            socket.leave(roomCode);
+
+            // If room is empty, we could delete it, but for now just broadcast update
+            io.to(roomCode).emit('players-updated', { players: room.players });
+            saveRoom(roomCode, room).catch(err => console.error("Firestore Update Error:", err));
+        }
     });
 
     // --- GAMEPLAY RELAY ---
 
+    // Sync puzzle for everyone in the room
+    socket.on('update-puzzle', async ({ roomCode, puzzleId, nickname }) => {
+        if (!checkRateLimit()) return;
+        if (String(puzzleId).length > 50) return;
+
+        const room = rooms.get(roomCode);
+        if (!room) return;
+
+        room.puzzleId = puzzleId;
+        room.foundWords = []; // Reset words for new puzzle
+
+        saveRoom(roomCode, room).catch(err => console.error("Firestore Sync Error:", err));
+
+        io.to(roomCode).emit('puzzle-synced', { puzzleId, nickname });
+        console.log(`[${roomCode}] ${nickname} changed puzzle to ${puzzleId}`);
+    });
+
     // Player finds a word
     socket.on('submit-word', async ({ roomCode, word, nickname }) => {
+        if (!checkRateLimit()) return;
+        if (word.length > 30) return; // Prevent massive strings
+
         const room = rooms.get(roomCode);
         if (!room) return;
 
         // Avoid duplicates
         if (!room.foundWords.includes(word)) {
             room.foundWords.push(word);
-            await addWordToRoom(roomCode, word);
+            addWordToRoom(roomCode, word).catch(err => console.error("Firestore Word Error:", err));
 
-            // Mirror/broadcast to everyone in the room (including sender just to be sure)
+            // Mirror/broadcast to everyone in the room
             io.to(roomCode).emit('word-found', { word, nickname });
-            console.log(`[${roomCode}] ${nickname} found: ${word} (persisted)`);
+            console.log(`[${roomCode}] ${nickname} found: ${word}`);
         }
     });
 
@@ -106,16 +171,15 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('User disconnected:', socket.id);
 
-        // Mark player as offline in any rooms they were in
         rooms.forEach((room, code) => {
-            const p = room.players.find(p => p.socketId === socket.id);
-            if (p) {
+            const index = room.players.findIndex(p => p.socketId === socket.id);
+            if (index !== -1) {
+                const p = room.players[index];
                 p.online = false;
-                io.to(code).emit('player-offline', { playerId: p.playerId });
+                // Broadcast updated list so everyone knows they are offline
+                io.to(code).emit('players-updated', { players: room.players });
             }
         });
-
-        // Option: Cleanup empty rooms after some time
     });
 });
 
