@@ -4,10 +4,10 @@ import {
   getFirestore, doc, setDoc, getDoc, updateDoc, onSnapshot, Timestamp, connectFirestoreEmulator, deleteField
 } from 'firebase/firestore';
 
-// Firebase config (Spark Plan compatible)
+// Firebase config (Injected at build time via esbuild)
 const firebaseConfig = {
-  apiKey: "AIzaSyDummyKeyForFreeTier", // Placeholder for Spark plan
-  projectId: "spelling-bee-relay-1025"
+  apiKey: process.env.FIREBASE_API_KEY,
+  projectId: process.env.RELAY_PROJECT_ID
 };
 
 // Initialize Firebase
