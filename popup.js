@@ -14,14 +14,25 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// --- EMULATOR CONFIGURATION ---
-// Set to true for local testing; false for production Firebase
-const useEmulator = true;
+// --- ENVIRONMENT CONFIGURATION ---
+// Default to Remote (false) unless localStorage says otherwise
+const useEmulator = localStorage.getItem('sb_use_emulator') === 'true';
 
 if (useEmulator) {
-  console.log("Using Firestore Emulator at 127.0.0.1:8080");
+  console.log("%c>>> MULTIPLAYER: CONNECTED TO LOCAL EMULATOR (127.0.0.1:8080) <<<", "color: #f7da21; font-weight: bold; background: #000; padding: 2px 5px;");
   connectFirestoreEmulator(db, '127.0.0.1', 8080);
+} else {
+  console.log("%c>>> MULTIPLAYER: CONNECTED TO REMOTE FIREBASE <<<", "color: #4ecdc4; font-weight: bold; background: #000; padding: 2px 5px;");
 }
+
+// Global helper to switch environments from the console
+globalThis.switchMultiplayerEnv = () => {
+  const nextValue = !useEmulator;
+  localStorage.setItem('sb_use_emulator', nextValue);
+  console.log(`Switching to ${nextValue ? 'LOCAL' : 'REMOTE'} environment. Reloading...`);
+  location.reload();
+};
+console.log("Registered global helper: switchMultiplayerEnv()");
 
 // Game Constants
 const LEVELS = [
