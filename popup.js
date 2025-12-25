@@ -94,7 +94,7 @@ async function initGame() {
   // Initialize Socket connection
   if (typeof io !== 'undefined') {
     const isLocal = true; // Set to false when deploying to production
-    const prodUrl = 'https://efemeridi-95622.web.app';
+    const prodUrl = 'https://spelling-bee-relay-1025.web.app';
     state.socket = io(isLocal ? 'http://localhost:3000' : prodUrl);
     setupSocketListeners();
   }
