@@ -7,7 +7,9 @@
     "storage"
   ],
   "host_permissions": [
-    "https://nytbee.com/*"
+    "https://nytbee.com/*",
+    "https://spelling-bee-relay.onrender.com/*",
+    "http://localhost:3000/*"
   ],
   "action": {
     "default_popup": "popup.html",

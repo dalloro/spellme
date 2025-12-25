@@ -93,8 +93,8 @@ async function initGame() {
 
   // Initialize Socket connection
   if (typeof io !== 'undefined') {
-    const isLocal = true; // Set to false when deploying to production
-    const prodUrl = 'https://spelling-bee-relay-1025.web.app';
+    const isLocal = true; // Set to false when your Render server is live!
+    const prodUrl = 'https://spelling-bee-relay.onrender.com';
     state.socket = io(isLocal ? 'http://localhost:3000' : prodUrl);
     setupSocketListeners();
   }
