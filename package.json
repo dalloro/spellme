@@ -1,8 +1,16 @@
 {
     "name": "spelling-bee-extension",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "Chrome extension for the Spelling Bee game",
     "scripts": {
-        "zip": "zip -r spelling-bee-extension.zip manifest.json popup.html popup.js popup.css words.js puzzles.js icons/"
+        "build": "esbuild popup.js --bundle --outfile=dist/popup_bundle.js",
+        "watch": "esbuild popup.js --bundle --outfile=dist/popup_bundle.js --watch",
+        "zip": "zip -r spelling-bee-extension.zip manifest.json popup.html dist/ icons/ words.js puzzles.js popup.css"
+    },
+    "dependencies": {
+        "firebase": "^11.1.0"
+    },
+    "devDependencies": {
+        "esbuild": "^0.24.2"
     }
 }

@@ -93,6 +93,7 @@
     <div class="words-list-container">
       <div class="words-header">
         <span id="found-count">0 words</span>
+        <button id="toggle-attribution-btn" class="mode-btn" title="Cycle attribution modes">👤</button>
         <button id="toggle-words-btn">Hide</button>
       </div>
       <div id="words-list" class="words-list"></div>
@@ -127,7 +128,8 @@
 
       <!-- Step 2: Main Menu -->
       <div id="multi-menu" class="multi-step hidden">
-        <p>Logged in as <strong id="display-nickname"></strong></p>
+        <p>Logged in as <strong id="display-nickname"></strong> <a href="#" id="edit-nickname-menu"
+            class="edit-link">(edit)</a></p>
         <div class="multi-actions">
           <button id="create-room-btn" class="primary-btn">Create Room</button>
           <button id="join-room-btn" class="secondary-btn">Join Room</button>
@@ -147,11 +149,11 @@
       <!-- Step 4: Active Room -->
       <div id="multi-active" class="multi-step hidden">
         <div class="room-info">
-          <span>Room Code:</span>
+          <span>ROOM CODE:</span>
           <strong id="active-room-code"></strong>
         </div>
         <div class="player-list-container">
-          <p>Players:</p>
+          <p>Players: <a href="#" id="edit-nickname-room" class="edit-link">(edit nickname)</a></p>
           <div id="player-list" class="player-list"></div>
         </div>
         <button id="leave-room-btn" class="danger-btn">Leave Room</button>
@@ -160,8 +162,7 @@
   </div>
   <script src="words.js"></script>
   <script src="puzzles.js"></script>
-  <script src="socket.io.min.js"></script>
-  <script src="popup.js"></script>
+  <script src="dist/popup_bundle.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,28 @@
+// Firebase Imports
+import { initializeApp } from 'firebase/app';
+import {
+  getFirestore, doc, setDoc, getDoc, updateDoc, onSnapshot, Timestamp, connectFirestoreEmulator, deleteField
+} from 'firebase/firestore';
+
+// Firebase config (Spark Plan compatible)
+const firebaseConfig = {
+  apiKey: "AIzaSyDummyKeyForFreeTier", // Placeholder for Spark plan
+  projectId: "spelling-bee-relay-1025"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// --- EMULATOR CONFIGURATION ---
+// Set to true for local testing; false for production Firebase
+const useEmulator = true;
+
+if (useEmulator) {
+  console.log("Using Firestore Emulator at 127.0.0.1:8080");
+  connectFirestoreEmulator(db, '127.0.0.1', 8080);
+}
+
 // Game Constants
 const LEVELS = [
   { name: 'Beginner', pct: 0 },
@@ -14,67 +39,93 @@ const LEVELS = [
 
 // State
 let state = {
-  puzzleId: null,
-  foundWords: [],
-  score: 0,
+  playerId: localStorage.getItem('sb_playerId') || crypto.randomUUID(),
   currentInput: '',
+  foundWords: [],
+  wordFinders: {}, // Track who found each word { word: nickname }
+  score: 0,
   puzzle: null,
-  playerId: null,
-  socket: null,
+  puzzleId: null,
+  attributionMode: 0, // 0 = none, 1 = colors, 2 = sections
   multiplayer: {
-    nickname: '',
     roomCode: null,
+    nickname: localStorage.getItem('sb_nickname') || '',
     teammates: [],
-    step: 'setup' // setup, menu, join, active
-  }
+    step: 'nickname'
+  },
+  dbRefs: {}
 };
+localStorage.setItem('sb_playerId', state.playerId);
 
 // DOM Elements
+// DOM Elements
 const els = {
-  input: document.getElementById('input-text'),
+  input: document.getElementById('word-input') || document.getElementById('input-text'),
   cursor: document.querySelector('.cursor'),
-  score: document.getElementById('score'),
-  levelText: document.getElementById('current-level'),
-  messageArea: document.getElementById('message-area'),
+  score: document.getElementById('score-value') || document.getElementById('score'),
+  messageArea: document.getElementById('message-toast') || document.getElementById('message-area'),
+  hive: document.getElementById('hive-container'),
+  levelText: document.getElementById('rank-label') || document.getElementById('current-level'),
+  bar: document.getElementById('progress-fill'),
   wordsList: document.getElementById('words-list'),
   foundCount: document.getElementById('found-count'),
   toggleWordsBtn: document.getElementById('toggle-words-btn'),
-  deleteBtn: document.getElementById('delete-btn'),
-  enterBtn: document.getElementById('enter-btn'),
+  toggleAttributionBtn: document.getElementById('toggle-attribution-btn'),
+  deleteBtn: document.querySelector('.action-btn.delete') || document.getElementById('delete-btn'),
+  enterBtn: document.querySelector('.action-btn.enter') || document.getElementById('enter-btn'),
+  restartBtn: document.getElementById('restart-btn'),
   shuffleBtn: document.getElementById('shuffle-btn'),
-  dotsContainer: document.querySelector('.dots-container'),
+  dotsContainer: document.querySelector('.dots-container'), // Restoring dotsContainer which was missing
+
   cells: {
     center: document.getElementById('cell-center'),
     outer: [
-      document.getElementById('cell-1'),
-      document.getElementById('cell-2'),
-      document.getElementById('cell-3'),
-      document.getElementById('cell-4'),
-      document.getElementById('cell-5'),
-      document.getElementById('cell-6')
+      document.getElementById('cell-1'), document.getElementById('cell-2'), document.getElementById('cell-3'),
+      document.getElementById('cell-4'), document.getElementById('cell-5'), document.getElementById('cell-6')
     ]
   },
+
+  // Multiplayer Elements
   multi: {
+    btn: document.getElementById('multiplayer-btn'),
     screen: document.getElementById('multiplayer-screen'),
-    setup: document.getElementById('multi-setup'),
-    menu: document.getElementById('multi-menu'),
-    join: document.getElementById('multi-join'),
-    active: document.getElementById('multi-active'),
+    closeBtn: document.getElementById('close-multi-btn'),
+
+    // Steps
+    stepNickname: document.getElementById('multi-setup') || document.getElementById('multi-nickname'),
+    stepMenu: document.getElementById('multi-menu'),
+    stepJoin: document.getElementById('multi-join'),
+    stepActive: document.getElementById('multi-active'),
+
+    // Inputs/Buttons
     nicknameInput: document.getElementById('nickname-input'),
+    saveNicknameBtn: document.getElementById('save-nickname-btn'),
+    createRoomBtn: document.getElementById('create-room-btn'),
     roomCodeInput: document.getElementById('room-code-input'),
-    displayNickname: document.getElementById('display-nickname'),
+    confirmJoinBtn: document.getElementById('confirm-join-btn') || document.getElementById('join-confirm-btn'),
+    backBtn: document.getElementById('back-to-menu-btn') || document.getElementById('join-back-btn'),
+    leaveBtn: document.getElementById('leave-room-btn'),
+
+    // Displays
     activeRoomCode: document.getElementById('active-room-code'),
     playerList: document.getElementById('player-list'),
+    displayNickname: document.getElementById('display-nickname'),
+    editNicknameMenu: document.getElementById('edit-nickname-menu'),
+    editNicknameRoom: document.getElementById('edit-nickname-room'),
+
+    // Banner
     banner: document.getElementById('multiplayer-banner'),
-    bannerCode: document.getElementById('banner-room-code'),
+    bannerRoomCode: document.getElementById('banner-room-code'),
+
+    // Legacy btn group if needed?
     btns: {
       open: document.getElementById('multiplayer-btn'),
       close: document.getElementById('close-multi-btn'),
       saveNickname: document.getElementById('save-nickname-btn'),
       createRoom: document.getElementById('create-room-btn'),
       joinRoom: document.getElementById('join-room-btn'),
-      confirmJoin: document.getElementById('join-confirm-btn'),
-      backToMenu: document.getElementById('join-back-btn'),
+      confirmJoin: document.getElementById('confirm-join-btn') || document.getElementById('join-confirm-btn'),
+      backToMenu: document.getElementById('back-to-menu-btn') || document.getElementById('join-back-btn'),
       leaveRoom: document.getElementById('leave-room-btn')
     }
   }
@@ -91,26 +142,23 @@ async function initGame() {
     saveState();
   }
 
-  // Initialize Socket connection
-  if (typeof io !== 'undefined') {
-    const isLocal = true; // Set to false when your Render server is live!
-    const prodUrl = 'https://spelling-bee-relay.onrender.com';
-    state.socket = io(isLocal ? 'http://localhost:3000' : prodUrl);
-    setupSocketListeners();
+
+  try {
+    if (!state.puzzle) {
+      await loadNYTDailyPuzzle();
+    } else {
+      loadPuzzle(state.puzzleId);
+    }
+  } catch (e) {
+    console.error("Init Error:", e);
   }
 
-  if (!state.puzzle) {
-    loadNYTDailyPuzzle();
-  } else {
-    loadPuzzle(state.puzzleId);
-  }
-
-  // Auto-sync puzzle if already in a room on init
-  if (state.multiplayer.roomCode && state.socket) {
-    state.socket.emit('join-room', {
-      roomCode: state.multiplayer.roomCode,
-      playerId: state.playerId,
-      nickname: state.multiplayer.nickname
+  // Auto-sync puzzle if already in a room on init (silent, don't show screen)
+  if (state.multiplayer.roomCode) {
+    joinFirebaseRoom(state.multiplayer.roomCode, false).catch(err => {
+      console.warn("Auto-join failed:", err);
+      state.multiplayer.roomCode = null;
+      saveState();
     });
   }
 
@@ -137,12 +185,8 @@ function selectRandomPuzzle() {
   showMessage("New Random Puzzle!", 1000);
 
   // Sync with room if active
-  if (state.multiplayer.roomCode && state.socket) {
-    state.socket.emit('update-puzzle', {
-      roomCode: state.multiplayer.roomCode,
-      puzzleId: state.puzzleId,
-      nickname: state.multiplayer.nickname
-    });
+  if (state.multiplayer.roomCode) {
+    syncPuzzleToFirebase(state.puzzleId);
   }
 }
 
@@ -262,14 +306,8 @@ function handleEnter() {
     addWord(word, result.score, result.isPangram);
     showMessage(result.isPangram ? "Pangram! +" + result.score : "Nice! +" + result.score, 1500);
 
-    // Sync with server if in a room
-    if (state.multiplayer.roomCode && state.socket) {
-      state.socket.emit('submit-word', {
-        roomCode: state.multiplayer.roomCode,
-        word: word,
-        nickname: state.multiplayer.nickname
-      });
-    }
+    // Broadcast word if in room
+    submitWordToFirebase(word);
   } else {
     shakeInput();
     showMessage(result.error, 1000);
@@ -349,83 +387,374 @@ async function loadNYTDailyPuzzle(shouldBroadcast = true) {
       throw new Error("Could not find letters on page");
     }
 
-    // 3. Determine Center Letter
-    // If we have less than 7 words, finding the letter common to ALL might be risky.
-    // If Method A or B worked, the first letter is the center.
-    let center = letters[0];
-
-    // Cross-reference with word list if we have enough words
-    if (wordList.length > 3) {
-      const common = letters.filter(l => wordList.every(w => w.toUpperCase().includes(l)));
-      if (common.length === 1) {
-        center = common[0];
-      } else if (common.length > 1) {
-        // If multiple are common, keep the one we currently think is center if it's in the common list
-        if (common.includes(center)) {
-          // Stay with current center
-        } else {
-          center = common[0]; // fallback to first common
-        }
-      }
-    }
-
-    const outer = letters.filter(l => l !== center);
-
-    if (wordList.length === 0) {
-      throw new Error("Could not find word list on page");
-    }
-
-    const uniqueWords = Array.from(new Set(wordList)).sort();
+    // --- Success Path ---
+    const dateStr = new Date().toISOString().split('T')[0];
+    const pid = 'nyt-' + dateStr;
+    const center = letters[0];
+    const outer = letters.slice(1);
 
     // Calculate max score
-    let maxScore = 0;
-    uniqueWords.forEach(w => {
-      let score = (w.length === 4) ? 1 : w.length;
-      if (new Set(w).size === 7) score += 7;
-      maxScore += score;
-    });
+    const maxScore = wordList.reduce((acc, word) => {
+      let s = (word.length === 4) ? 1 : word.length;
+      if (new Set(word).size === 7) s += 7;
+      return acc + s;
+    }, 0);
 
-    const today = new Date();
-    const dateStr = today.toISOString().split('T')[0];
-    const puzzle = {
-      letters: [center, ...outer].map(l => l.toLowerCase()),
-      words: uniqueWords.map(w => w.toLowerCase()),
-      maxScore: maxScore
+    state.puzzleId = pid;
+    state.puzzle = {
+      id: pid,
+      letters: letters, // [center, ...outer]
+      words: wordList,
+      maxScore: maxScore,
+      author: 'NYT Daily'
     };
-
-    // 4. Update state and UI
-    state.puzzleId = `nyt-${dateStr}`;
-    state.puzzle = puzzle;
     state.foundWords = [];
     state.score = 0;
-    state.currentInput = ''; // Ensure currentInput is cleared
+    state.currentInput = '';
+
     saveState();
     renderPuzzle();
     updateScoreUI();
     renderFoundWords();
-    renderMultiplayerBanner(); // Update banner when puzzle changes
+    renderMultiplayerBanner();
     showMessage("NYT Daily Loaded!", 2000);
 
-    // CRITICAL FIX: Sync with room if active
-    if (shouldBroadcast && state.multiplayer.roomCode && state.socket) {
+    if (shouldBroadcast && state.multiplayer.roomCode) {
       console.log("Broadcasting NYT puzzle sync...");
-      state.socket.emit('update-puzzle', {
-        roomCode: state.multiplayer.roomCode,
-        puzzleId: state.puzzleId,
-        nickname: state.multiplayer.nickname
-      });
+      syncPuzzleToFirebase(state.puzzleId);
     }
+
   } catch (err) {
     console.error(err);
     showMessage("Error loading NYT Daily: " + err.message, 3000);
   }
 }
 
+// --- MULTIPLAYER LOGIC (FIREBASE) ---
+
+function generateRoomCode() {
+  const adjs = ['Happy', 'Lucky', 'Sunny', 'Cool', 'Bright', 'Swift', 'Calm'];
+  const nouns = ['Bee', 'Hive', 'Honey', 'Comb', 'Wing', 'Pollen', 'Nectar'];
+  const num = Math.floor(Math.random() * 99) + 1;
+  const adj = adjs[Math.floor(Math.random() * adjs.length)];
+  const noun = nouns[Math.floor(Math.random() * nouns.length)];
+  return `${adj}-${noun}-${num}`;
+}
+
+async function joinFirebaseRoom(roomCode, showScreen = true) {
+  const roomRef = doc(db, 'rooms', roomCode);
+  const snapshot = await getDoc(roomRef);
+  if (!snapshot.exists()) {
+    throw new Error("Room not found");
+  }
+
+  // Add/update player in players map
+  const playerKey = `players.${state.playerId}`;
+  await updateDoc(roomRef, {
+    [playerKey]: {
+      nickname: state.multiplayer.nickname,
+      online: true,
+      lastActive: Timestamp.now()
+    }
+  });
+
+  subscribeToRoom(roomCode);
+  startHeartbeat(roomCode);
+
+  state.multiplayer.roomCode = roomCode;
+  state.multiplayer.step = 'active';
+  saveState();
+
+  // Only show screen if explicitly requested (not on silent auto-join)
+  if (showScreen) {
+    renderMultiplayerScreen();
+  } else {
+    renderMultiplayerBanner();
+  }
+}
+
+async function createFirebaseRoom() {
+  const roomCode = generateRoomCode();
+  const roomRef = doc(db, 'rooms', roomCode);
+
+  const initialData = {
+    createdAt: Timestamp.now(),
+    puzzleId: state.puzzleId,
+    foundWords: {},
+    players: {
+      [state.playerId]: {
+        nickname: state.multiplayer.nickname,
+        online: true,
+        lastActive: Timestamp.now()
+      }
+    }
+  };
+
+  await setDoc(roomRef, initialData);
+
+  subscribeToRoom(roomCode);
+  startHeartbeat(roomCode);
+
+  state.multiplayer.roomCode = roomCode;
+  state.multiplayer.step = 'active';
+  saveState();
+  renderMultiplayerScreen();
+  return roomCode;
+}
+
+let unsubscribeRoom = null;
+
+function subscribeToRoom(roomCode) {
+  // Unsubscribe from previous room if any
+  if (unsubscribeRoom) unsubscribeRoom();
+
+  const roomRef = doc(db, 'rooms', roomCode);
+  unsubscribeRoom = onSnapshot(roomRef, (snapshot) => {
+    const data = snapshot.data();
+    if (!data) return;
+
+    // 1. Sync Players (with heartbeat-based online status)
+    if (data.players) {
+      const now = Date.now();
+      const playersList = Object.entries(data.players).map(([uid, p]) => {
+        // Consider offline if lastActive > 90 seconds ago
+        const lastActive = p.lastActive?.toMillis ? p.lastActive.toMillis() : 0;
+        const isOnline = p.online && (now - lastActive < 90000);
+        return {
+          playerId: uid,
+          nickname: p.nickname,
+          online: isOnline
+        };
+      });
+      state.multiplayer.teammates = playersList.filter(p => p.playerId !== state.playerId);
+      renderTeammates();
+      renderMultiplayerBanner();
+    }
+
+    // 2. Sync Found Words
+    if (data.foundWords) {
+      const serverFound = Object.keys(data.foundWords);
+      let newWordsFound = false;
+
+      serverFound.forEach(word => {
+        // Store the finder for attribution display
+        state.wordFinders[word] = data.foundWords[word];
+
+        if (!state.foundWords.includes(word)) {
+          const finder = data.foundWords[word];
+          if (finder !== state.multiplayer.nickname) {
+            showMessage(`${finder} found ${word}!`, 2000);
+          }
+          state.foundWords.push(word);
+          const score = calculateScore(word);
+          state.score += score;
+          newWordsFound = true;
+        }
+      });
+
+      if (newWordsFound) {
+        state.foundWords.sort();
+        saveState();
+        renderFoundWords();
+        updateScoreUI();
+      }
+    }
+
+    // 3. Sync Puzzle
+    if (data.puzzleId && data.puzzleId !== state.puzzleId) {
+      console.log("Remote puzzle change detected:", data.puzzleId);
+      loadPuzzle(data.puzzleId);
+    }
+  });
+}
+
+let heartbeatInterval = null;
+
+function startHeartbeat(roomCode) {
+  if (heartbeatInterval) clearInterval(heartbeatInterval);
+
+  const sendHeartbeat = async () => {
+    try {
+      const roomRef = doc(db, 'rooms', roomCode);
+      const playerKey = `players.${state.playerId}.lastActive`;
+      await updateDoc(roomRef, { [playerKey]: Timestamp.now() });
+    } catch (e) {
+      console.warn("Heartbeat failed:", e);
+    }
+  };
+
+  sendHeartbeat(); // Initial
+  heartbeatInterval = setInterval(sendHeartbeat, 30000); // Every 30s
+}
+
+async function submitWordToFirebase(word) {
+  if (!state.multiplayer.roomCode) return;
+  const roomRef = doc(db, 'rooms', state.multiplayer.roomCode);
+  const wordKey = `foundWords.${word}`;
+  await updateDoc(roomRef, { [wordKey]: state.multiplayer.nickname });
+}
+
+async function syncPuzzleToFirebase(puzzleId) {
+  if (!state.multiplayer.roomCode) return;
+  const roomRef = doc(db, 'rooms', state.multiplayer.roomCode);
+  await updateDoc(roomRef, { puzzleId: puzzleId, foundWords: {} });
+}
+
+async function leaveFirebaseRoom() {
+  if (state.multiplayer.roomCode) {
+    const roomRef = doc(db, 'rooms', state.multiplayer.roomCode);
+    const playerKey = `players.${state.playerId}`;
+    try {
+      await updateDoc(roomRef, { [playerKey]: deleteField() });
+    } catch (e) {
+      console.warn("Leave room error:", e);
+    }
+  }
+  if (heartbeatInterval) clearInterval(heartbeatInterval);
+  if (unsubscribeRoom) unsubscribeRoom();
+  state.multiplayer.roomCode = null;
+  state.multiplayer.step = 'menu';
+  saveState();
+  location.reload();
+}
+
+function calculateScore(word) {
+  if (word.length === 4) return 1;
+  let score = word.length;
+  if (new Set(word).size === 7) score += 7;
+  return score;
+}
+
+function renderMultiplayerBanner() {
+  if (state.multiplayer.roomCode) {
+    els.multi.banner.style.display = 'flex';
+    els.multi.bannerRoomCode.innerText = state.multiplayer.roomCode;
+  } else {
+    els.multi.banner.style.display = 'none';
+  }
+}
+
+function renderTeammates() {
+  const list = els.multi.playerList;
+  list.innerHTML = '';
+
+  // Add Self
+  const selfItem = document.createElement('div');
+  selfItem.className = 'player-item self';
+  selfItem.innerHTML = `<span class="status-dot online"></span> ${state.multiplayer.nickname} (You)`;
+  list.appendChild(selfItem);
+
+  state.multiplayer.teammates.forEach(p => {
+    const item = document.createElement('div');
+    item.className = 'player-item';
+    const statusClass = p.online ? 'online' : 'offline';
+    item.innerHTML = `<span class="status-dot ${statusClass}"></span> ${p.nickname}`;
+    list.appendChild(item);
+  });
+}
+
+function renderMultiplayerScreen() {
+  els.multi.screen.style.display = 'flex';
+
+  // Hide all steps using classList
+  els.multi.stepNickname.classList.add('hidden');
+  els.multi.stepMenu.classList.add('hidden');
+  els.multi.stepJoin.classList.add('hidden');
+  els.multi.stepActive.classList.add('hidden');
+
+  const step = state.multiplayer.step;
+
+  // Auto-advance if nickname is set but step is 'nickname'
+  if (step === 'nickname' && state.multiplayer.nickname) {
+    state.multiplayer.step = 'menu';
+    renderMultiplayerScreen();
+    return;
+  }
+
+  // Show display nickname if we have it
+  if (state.multiplayer.nickname && els.multi.displayNickname) {
+    els.multi.displayNickname.innerText = state.multiplayer.nickname;
+  }
+
+  if (step === 'nickname') {
+    els.multi.stepNickname.classList.remove('hidden');
+  } else if (step === 'menu') {
+    els.multi.stepMenu.classList.remove('hidden');
+  } else if (step === 'join') {
+    els.multi.stepJoin.classList.remove('hidden');
+  } else if (step === 'active') {
+    els.multi.stepActive.classList.remove('hidden');
+    els.multi.activeRoomCode.innerText = state.multiplayer.roomCode;
+    renderTeammates();
+  }
+}
+
+function closeMultiplayerScreen() {
+  els.multi.screen.style.display = 'none';
+}
+
+function handleSaveNickname() {
+  const val = els.multi.nicknameInput.value.trim();
+  if (val) {
+    state.multiplayer.nickname = val;
+    localStorage.setItem('sb_nickname', val);
+
+    // Update nickname in Firebase if in a room
+    if (state.multiplayer.roomCode) {
+      const roomRef = doc(db, 'rooms', state.multiplayer.roomCode);
+      const playerKey = `players.${state.playerId}.nickname`;
+      updateDoc(roomRef, { [playerKey]: val }).catch(e => console.warn("Nickname update failed:", e));
+    }
+
+    state.multiplayer.step = 'menu';
+    renderMultiplayerScreen();
+  }
+}
+
+async function handleCreateRoom() {
+  els.multi.createRoomBtn.disabled = true;
+  try {
+    await createFirebaseRoom();
+    // Subscription handles UI
+  } catch (e) {
+    console.error(e);
+    alert("Error: " + e.message);
+    els.multi.createRoomBtn.disabled = false;
+  }
+}
+
+function handleJoinRoom() {
+  state.multiplayer.step = 'join';
+  renderMultiplayerScreen();
+}
+
+async function handleConfirmJoin() {
+  const code = els.multi.roomCodeInput.value.trim();
+  if (!code) return;
+  els.multi.confirmJoinBtn.disabled = true;
+  try {
+    await joinFirebaseRoom(code);
+  } catch (e) {
+    alert(e.message);
+    els.multi.confirmJoinBtn.disabled = false;
+  }
+}
+
+function handleLeaveRoom() {
+  if (confirm("Leave this room?")) {
+    leaveFirebaseRoom();
+  }
+}
+
+
 function validateWord(word) {
   if (word.length < 4) return { valid: false, error: "Too short" };
-  if (!word.includes(state.puzzle.letters[0])) return { valid: false, error: "Missing center letter" };
 
-  const allowed = new Set(state.puzzle.letters);
+  // Normalize letters to lowercase for comparison
+  const centerLetter = state.puzzle.letters[0].toLowerCase();
+  if (!word.includes(centerLetter)) return { valid: false, error: "Missing center letter" };
+
+  const allowed = new Set(state.puzzle.letters.map(l => l.toLowerCase()));
   for (let char of word) {
     if (!allowed.has(char)) return { valid: false, error: "Bad letter" };
   }
@@ -450,12 +779,17 @@ function addWord(word, scoreVal, isPangram) {
   state.foundWords.push(word);
   state.score += scoreVal;
   state.foundWords.sort();
+
+  // Track self as the finder for attribution
+  state.wordFinders[word] = state.multiplayer.nickname || 'You';
+
   saveState();
   updateScoreUI();
   renderFoundWords();
 }
 
 function updateScoreUI() {
+  if (!state.puzzle) return;
   els.score.innerText = state.score;
   els.foundCount.innerText = `${state.foundWords.length} word${state.foundWords.length !== 1 ? 's' : ''}`;
 
@@ -500,12 +834,76 @@ function updateScoreUI() {
 
 function renderFoundWords() {
   els.wordsList.innerHTML = '';
-  state.foundWords.forEach(w => {
-    const span = document.createElement('span');
-    span.className = 'found-word';
-    span.innerText = w;
-    els.wordsList.appendChild(span);
-  });
+
+  const mode = state.attributionMode;
+
+  if (mode === 0) {
+    // Mode 0: No attribution, just list words
+    state.foundWords.forEach(w => {
+      const span = document.createElement('span');
+      span.className = 'found-word';
+      span.innerText = w;
+      els.wordsList.appendChild(span);
+    });
+  } else if (mode === 1) {
+    // Mode 1: Colors by player
+    const playerColors = {};
+    let colorIndex = 0;
+    const colors = ['#f7da21', '#4ecdc4', '#ff6b6b', '#a8e6cf', '#dfe6e9', '#fd79a8', '#74b9ff'];
+
+    state.foundWords.forEach(w => {
+      const finder = state.wordFinders[w] || state.multiplayer.nickname || 'You';
+      if (!playerColors[finder]) {
+        playerColors[finder] = colors[colorIndex % colors.length];
+        colorIndex++;
+      }
+
+      const span = document.createElement('span');
+      span.className = 'found-word';
+      span.style.color = playerColors[finder];
+      span.innerText = w;
+      els.wordsList.appendChild(span);
+    });
+  } else if (mode === 2) {
+    // Mode 2: Sections by player
+    const wordsByPlayer = {};
+
+    state.foundWords.forEach(w => {
+      const finder = state.wordFinders[w] || state.multiplayer.nickname || 'You';
+      if (!wordsByPlayer[finder]) wordsByPlayer[finder] = [];
+      wordsByPlayer[finder].push(w);
+    });
+
+    // Sort: current user first, then others alphabetically
+    const myNickname = state.multiplayer.nickname || 'You';
+    const sortedPlayers = Object.keys(wordsByPlayer).sort((a, b) => {
+      if (a === myNickname) return -1;
+      if (b === myNickname) return 1;
+      return a.localeCompare(b);
+    });
+
+    sortedPlayers.forEach(player => {
+      const section = document.createElement('div');
+      section.className = 'word-section';
+
+      const header = document.createElement('div');
+      header.className = 'word-section-header';
+      header.innerText = player === myNickname ? `You (${wordsByPlayer[player].length})` : `${player} (${wordsByPlayer[player].length})`;
+      section.appendChild(header);
+
+      const wordsContainer = document.createElement('div');
+      wordsContainer.className = 'word-section-words';
+      wordsByPlayer[player].forEach(w => {
+        const span = document.createElement('span');
+        span.className = 'found-word';
+        span.innerText = w;
+        wordsContainer.appendChild(span);
+      });
+      section.appendChild(wordsContainer);
+
+      els.wordsList.appendChild(section);
+    });
+  }
 }
 
 function showMessage(msg, duration) {
@@ -594,6 +992,48 @@ function setupEventListeners() {
   });
   els.multi.btns.leaveRoom.addEventListener('click', handleLeaveRoom);
 
+  // Edit Nickname Links (Menu & Room)
+  const editHandler = (e) => {
+    e.preventDefault();
+
+    const currentName = state.multiplayer.nickname;
+    const newName = prompt("Enter new nickname:", currentName);
+
+    if (newName && newName.trim() !== "") {
+      const val = newName.trim();
+      state.multiplayer.nickname = val;
+      localStorage.setItem('sb_nickname', val);
+
+      // Update Firebase if in a room
+      if (state.multiplayer.roomCode) {
+        const roomRef = doc(db, 'rooms', state.multiplayer.roomCode);
+        const playerKey = `players.${state.playerId}.nickname`;
+        updateDoc(roomRef, { [playerKey]: val }).catch(e => console.warn("Nickname update failed:", e));
+      }
+
+      // Update UI
+      if (els.multi.displayNickname) els.multi.displayNickname.innerText = val;
+      renderMultiplayerScreen(); // Re-render to update lists/banners
+    }
+  };
+
+  if (els.multi.editNicknameMenu) {
+    els.multi.editNicknameMenu.addEventListener('click', editHandler);
+  }
+  if (els.multi.editNicknameRoom) {
+    els.multi.editNicknameRoom.addEventListener('click', editHandler);
+  }
+
+  // Attribution Mode Toggle (cycles 0 -> 1 -> 2 -> 0)
+  if (els.toggleAttributionBtn) {
+    const modeIcons = ['👤', '🎨', '📋']; // none, colors, sections
+    els.toggleAttributionBtn.addEventListener('click', () => {
+      state.attributionMode = (state.attributionMode + 1) % 3;
+      els.toggleAttributionBtn.innerText = modeIcons[state.attributionMode];
+      renderFoundWords();
+    });
+  }
+
   els.multi.activeRoomCode.addEventListener('click', () => {
     const code = els.multi.activeRoomCode.textContent;
     if (code) {
@@ -655,205 +1095,4 @@ if (!document.getElementById('shake-style')) {
   }
   `;
   document.head.appendChild(style);
-}
-function renderMultiplayerBanner() {
-  const m = state.multiplayer;
-  const banner = els.multi.banner;
-
-  if (m.roomCode && m.step === 'active') {
-    banner.classList.remove('hidden');
-    // Count only online players
-    const onlineTeammates = m.teammates ? m.teammates.filter(t => t.online) : [];
-    const count = onlineTeammates.length + 1;
-    els.multi.bannerCode.textContent = `${m.roomCode} (${count} player${count > 1 ? 's' : ''})`;
-  } else {
-    banner.classList.add('hidden');
-  }
-}
-
-// Multiplayer Logic
-function setupSocketListeners() {
-  const socket = state.socket;
-  if (!socket) return;
-
-  socket.on('room-created', (roomState) => {
-    state.multiplayer.roomCode = roomState.roomCode;
-    state.multiplayer.step = 'active';
-    state.multiplayer.teammates = roomState.players.filter(p => p.playerId !== state.playerId);
-    saveState();
-    renderMultiplayerScreen();
-    renderMultiplayerBanner(); // Update banner
-    showMessage(`Room ${roomState.roomCode} Created!`, 2000);
-  });
-
-  socket.on('joined-room', (roomState) => {
-    state.multiplayer.roomCode = roomState.roomCode;
-    state.multiplayer.step = 'active';
-    state.multiplayer.teammates = roomState.players.filter(p => p.playerId !== state.playerId);
-
-    // CRITICAL FIX: Sync Puzzle ID and load correct letters
-    if (String(roomState.puzzleId) !== String(state.puzzleId)) {
-      console.log(`Syncing puzzle to ${roomState.puzzleId}`);
-      loadPuzzle(roomState.puzzleId);
-    }
-
-    // Sync words found by others
-    roomState.foundWords.forEach(word => {
-      if (!state.foundWords.includes(word)) {
-        state.foundWords.push(word);
-        state.score += calculateWordScore(word);
-      }
-    });
-
-    saveState();
-    renderPuzzle(); // Refresh UI with new letters and found words
-
-    // Only show screen if were NOT already in a valid active state
-    // This prevents the screen from popping up on extension open
-    if (els.multi.screen.style.display === 'flex') {
-      renderMultiplayerScreen();
-    }
-
-    renderMultiplayerBanner(); // Update banner
-    showMessage(`Joined Room ${roomState.roomCode}. Letters synced!`, 3000);
-  });
-
-  socket.on('players-updated', ({ players }) => {
-    state.multiplayer.teammates = players.filter(p => p.playerId !== state.playerId);
-    renderTeammates();
-    renderMultiplayerBanner(); // Update banner (count might have changed)
-  });
-
-  socket.on('puzzle-synced', ({ puzzleId, nickname }) => {
-    if (String(state.puzzleId) !== String(puzzleId)) {
-      loadPuzzle(puzzleId);
-      renderMultiplayerBanner(); // Ensure banner is fresh
-      showMessage(`${nickname} changed the puzzle!`, 3000);
-    }
-  });
-
-  socket.on('word-found', ({ word, nickname }) => {
-    if (!state.foundWords.includes(word)) {
-      state.foundWords.push(word);
-      state.score += calculateWordScore(word);
-      saveState();
-      renderFoundWords();
-      updateScoreUI();
-      showMessage(`${nickname} found: ${word}`, 2000);
-    }
-  });
-
-  socket.on('error-msg', ({ message }) => {
-    showMessage(message, 3000);
-  });
-}
-
-function renderMultiplayerScreen() {
-  const m = state.multiplayer;
-  const elsM = els.multi;
-
-  // Show only the current step
-  elsM.setup.classList.add('hidden');
-  elsM.menu.classList.add('hidden');
-  elsM.join.classList.add('hidden');
-  elsM.active.classList.add('hidden');
-
-  if (!m.nickname) {
-    elsM.setup.classList.remove('hidden');
-  } else if (m.step === 'menu') {
-    elsM.displayNickname.textContent = m.nickname;
-    elsM.menu.classList.remove('hidden');
-  } else if (m.step === 'join') {
-    elsM.join.classList.remove('hidden');
-  } else if (m.step === 'active') {
-    elsM.activeRoomCode.textContent = m.roomCode;
-    renderTeammates();
-    elsM.active.classList.remove('hidden');
-  }
-
-  elsM.screen.style.display = 'flex';
-}
-
-function renderTeammates() {
-  const list = els.multi.playerList;
-  list.innerHTML = '';
-
-  // Add self
-  const me = document.createElement('div');
-  me.className = 'player-item online';
-  me.innerHTML = `<div class="status-dot"></div> <span>${state.multiplayer.nickname} (You)</span>`;
-  list.appendChild(me);
-
-  // Add others (only online)
-  state.multiplayer.teammates.forEach(t => {
-    if (t.online) {
-      const item = document.createElement('div');
-      item.className = 'player-item online';
-      item.innerHTML = `<div class="status-dot"></div> <span>${t.nickname}</span>`;
-      list.appendChild(item);
-    }
-  });
-}
-
-function closeMultiplayerScreen() {
-  els.multi.screen.style.display = 'none';
-}
-
-function handleSaveNickname() {
-  const nick = els.multi.nicknameInput.value.trim();
-  if (nick) {
-    state.multiplayer.nickname = nick;
-    state.multiplayer.step = 'menu';
-    saveState();
-    renderMultiplayerScreen();
-  } else {
-    showMessage("Please enter a nickname", 2000);
-  }
-}
-
-function handleCreateRoom() {
-  if (state.socket) {
-    state.socket.emit('create-room', {
-      playerId: state.playerId,
-      nickname: state.multiplayer.nickname,
-      puzzleId: state.puzzleId
-    });
-  } else {
-    showMessage("Not connected to server", 2000);
-  }
-}
-
-function handleJoinRoom() {
-  state.multiplayer.step = 'join';
-  renderMultiplayerScreen();
-}
-
-function handleConfirmJoin() {
-  const code = els.multi.roomCodeInput.value.trim();
-  if (code && state.socket) {
-    state.socket.emit('join-room', {
-      roomCode: code,
-      playerId: state.playerId,
-      nickname: state.multiplayer.nickname
-    });
-  } else if (!code) {
-    showMessage("Please enter a room code", 2000);
-  } else {
-    showMessage("Not connected to server", 2000);
-  }
-}
-
-function handleLeaveRoom() {
-  if (state.socket && state.multiplayer.roomCode) {
-    state.socket.emit('leave-room', {
-      roomCode: state.multiplayer.roomCode,
-      playerId: state.playerId
-    });
-  }
-  state.multiplayer.roomCode = null;
-  state.multiplayer.step = 'menu';
-  state.multiplayer.teammates = [];
-  saveState();
-  // Simple way to reset state and clear socket rooms
-  window.location.reload();
 }

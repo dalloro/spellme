@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Rooms collection
+    match /rooms/{roomId} {
+      // Anyone can read room data
+      allow read: if true;
+      // Anyone can create a room
+      allow create: if true;
+      // Anyone can update room data (for simplicity; tighten for production)
+      allow update: if true;
+      // Allow delete (for cleanup)
+      allow delete: if true;
+    }
+  }
+}

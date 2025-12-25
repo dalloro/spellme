@@ -653,3 +653,80 @@ header {
   border-bottom: 1px solid #444;
   padding-bottom: 2px;
 }
+
+/* Attribution Toggle */
+.toggle-attribution {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #888;
+}
+
+.toggle-attribution input {
+  display: none;
+}
+
+.toggle-attribution input:checked+span {
+  color: var(--highlight-color);
+}
+
+/* Mode Button */
+.mode-btn {
+  background: transparent;
+  border: 1px solid #555;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #888;
+  transition: all 0.2s ease;
+}
+
+.mode-btn:hover {
+  border-color: var(--highlight-color);
+  color: var(--highlight-color);
+}
+
+/* Edit Nickname Link */
+.edit-link {
+  color: #888;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.edit-link:hover {
+  color: var(--highlight-color);
+}
+
+/* Word Attribution Badge */
+.word-attribution {
+  font-size: 0.7rem;
+  color: #666;
+  margin-left: 4px;
+}
+
+.word-attribution.self {
+  color: var(--highlight-color);
+}
+
+/* Word Sections (Mode 2) */
+.word-section {
+  margin-bottom: 12px;
+}
+
+.word-section-header {
+  font-size: 0.75rem;
+  color: var(--highlight-color);
+  font-weight: 600;
+  margin-bottom: 4px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #333;
+}
+
+.word-section-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
