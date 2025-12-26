@@ -220,6 +220,24 @@ function setupEventListeners() {
 
     els.multi.editNicknameMenu.onclick = (e) => { e.preventDefault(); handleEditNickname(); };
     els.multi.editNicknameRoom.onclick = (e) => { e.preventDefault(); handleEditNickname(); };
+
+    // Global keyboard support for desktop users
+    document.addEventListener('keydown', (e) => {
+        // Don't intercept if user is typing in a real input field (nickname, room code, etc)
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
+
+        const key = e.key.toLowerCase();
+        if (key === 'backspace') {
+            handleDelete();
+            e.preventDefault();
+        } else if (key === 'enter') {
+            handleEnter();
+            e.preventDefault();
+        } else if (state.puzzle && state.puzzle.letters.map(l => l.toLowerCase()).includes(key)) {
+            handleInput(key);
+            e.preventDefault();
+        }
+    });
 }
 
 function handleInput(letter) {
