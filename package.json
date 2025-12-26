@@ -1,6 +1,6 @@
 {
     "name": "spelling-bee-extension",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "description": "Chrome extension for the Spelling Bee game",
     "scripts": {
         "build": "node scripts/build.js",
