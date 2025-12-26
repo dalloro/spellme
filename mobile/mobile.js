@@ -193,6 +193,11 @@ function setupEventListeners() {
     els.nytDailyBtn = document.getElementById('nyt-daily-btn');
     els.nytDailyBtn.onclick = () => loadNYTDailyPuzzle();
 
+    // Ranking modal trigger
+    els.levelContainer = document.querySelector('.level-container');
+    els.levelContainer.onclick = openRankingsModal;
+    els.levelContainer.style.cursor = 'pointer';
+
     els.multi.btn.onclick = renderMultiplayerScreen;
     els.multi.closeBtn.onclick = () => els.multi.screen.style.display = 'none';
     els.multi.saveNicknameBtn.onclick = handleSaveNickname;
@@ -329,7 +334,10 @@ function renderFoundWords() {
 
 async function loadNYTDailyPuzzle(sync = true) {
     try {
-        const res = await fetch('https://nytbee.com/');
+        // Use CORS proxy to bypass browser restrictions
+        const proxyUrl = "https://corsproxy.io/?";
+        const targetUrl = encodeURIComponent('https://nytbee.com/');
+        const res = await fetch(proxyUrl + targetUrl);
         const html = await res.text();
         const doc = new DOMParser().parseFromString(html, 'text/html');
         const scripts = Array.from(doc.querySelectorAll('script')).map(s => s.textContent).join(' ');
@@ -343,7 +351,36 @@ async function loadNYTDailyPuzzle(sync = true) {
         state.foundWords = []; state.score = 0;
         saveLocalState(); renderPuzzle(); updateScoreUI(); renderFoundWords();
         if (sync && state.multiplayer.roomCode) syncPuzzleToFirebase(state.puzzleId);
-    } catch (e) { showMessage("NYT Load Failed", 2000); }
+    } catch (e) {
+        console.error("NYT Load Error:", e);
+        showMessage("NYT Load Failed", 2000);
+    }
+}
+
+function openRankingsModal() {
+    const modal = document.getElementById('rankings-modal');
+    const list = document.getElementById('rankings-list');
+    list.innerHTML = '';
+
+    const max = state.puzzle.maxScore;
+    LEVELS.forEach(l => {
+        const row = document.createElement('div');
+        row.className = `ranking-row ${state.score >= Math.floor(max * l.pct) ? 'reached' : ''}`;
+        row.innerHTML = `<span>${l.name}</span><span>${Math.floor(max * l.pct)}</span>`;
+        list.appendChild(row);
+    });
+
+    modal.style.display = 'block';
+
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+    document.getElementById('close-rankings-btn').onclick = () => {
+        modal.style.display = 'none';
+    };
 }
 
 // Multiplayer Helpers (Minimal version of popup.js)
