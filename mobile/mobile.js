@@ -185,13 +185,17 @@ function setupEventListeners() {
     els.enterBtn.onclick = handleEnter;
     els.shuffleBtn.onclick = shuffleLetters;
     els.restartBtn.onclick = () => {
+        if (state.multiplayer.roomCode && !confirm("This will change the game for EVERYONE in the room. Continue?")) return;
         const id = Math.floor(Math.random() * Object.keys(PUZZLES).length);
         loadPuzzleById(id);
         if (state.multiplayer.roomCode) syncPuzzleToFirebase(state.puzzleId);
     };
 
     els.nytDailyBtn = document.getElementById('nyt-daily-btn');
-    els.nytDailyBtn.onclick = () => loadNYTDailyPuzzle();
+    els.nytDailyBtn.onclick = () => {
+        if (state.multiplayer.roomCode && !confirm("This will change the game for EVERYONE in the room to the NYT Daily. Continue?")) return;
+        loadNYTDailyPuzzle();
+    };
 
     // Ranking modal trigger
     els.levelContainer = document.querySelector('.level-container');

@@ -242,43 +242,43 @@ header {
     top: 95px;
 }
 
-/* Mathematically perfect offsets for 6px spacing */
+/* Mathematically perfect offsets for 6px spacing (Decimal precision) */
 #cell-1 {
     left: 100px;
-    top: 2px;
+    top: 2.4px;
 }
 
-/* Top: 95 - 93 */
+/* Top: Center - 92.6 */
 #cell-2 {
-    left: 180px;
-    top: 49px;
+    left: 180.2px;
+    top: 48.7px;
 }
 
-/* Top Right: 100+80, 95-46 */
+/* Top Right: Center + (80.2, -46.3) */
 #cell-3 {
-    left: 180px;
-    top: 141px;
+    left: 180.2px;
+    top: 141.3px;
 }
 
-/* Bottom Right: 100+80, 95+46 */
+/* Bottom Right: Center + (80.2, 46.3) */
 #cell-4 {
     left: 100px;
-    top: 188px;
+    top: 187.6px;
 }
 
-/* Bottom: 95 + 93 */
+/* Bottom: Center + 92.6 */
 #cell-5 {
-    left: 20px;
-    top: 141px;
+    left: 19.8px;
+    top: 141.3px;
 }
 
-/* Bottom Left: 100-80, 95+46 */
+/* Bottom Left: Center + (-80.2, 46.3) */
 #cell-6 {
-    left: 20px;
-    top: 49px;
+    left: 19.8px;
+    top: 48.7px;
 }
 
-/* Top Left: 100-80, 95-46 */
+/* Top Left: Center + (-80.2, -46.3) */
 
 .controls {
     display: flex;
