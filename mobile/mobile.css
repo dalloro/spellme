@@ -213,7 +213,8 @@ header {
 .cell {
     position: absolute;
     width: 100px;
-    height: 90px;
+    height: 86.6px;
+    /* Correct height for a regular flat-top hexagon */
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     background-color: var(--hive-color);
     color: var(--hive-text-color);
@@ -241,43 +242,43 @@ header {
     top: 95px;
 }
 
-/* Perfect hexagonal grid offsets for Flat-Top with 6px spacing */
+/* Mathematically perfect offsets for 6px spacing */
 #cell-1 {
     left: 100px;
-    top: -1px;
+    top: 2px;
 }
 
-/* Top */
+/* Top: 95 - 93 */
 #cell-2 {
     left: 180px;
-    top: 46px;
+    top: 49px;
 }
 
-/* Top Right */
+/* Top Right: 100+80, 95-46 */
 #cell-3 {
     left: 180px;
-    top: 144px;
+    top: 141px;
 }
 
-/* Bottom Right */
+/* Bottom Right: 100+80, 95+46 */
 #cell-4 {
     left: 100px;
-    top: 191px;
+    top: 188px;
 }
 
-/* Bottom */
+/* Bottom: 95 + 93 */
 #cell-5 {
     left: 20px;
-    top: 144px;
+    top: 141px;
 }
 
-/* Bottom Left */
+/* Bottom Left: 100-80, 95+46 */
 #cell-6 {
     left: 20px;
-    top: 46px;
+    top: 49px;
 }
 
-/* Top Left */
+/* Top Left: 100-80, 95-46 */
 
 .controls {
     display: flex;
