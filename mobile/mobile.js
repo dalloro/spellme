@@ -363,7 +363,7 @@ function openRankingsModal() {
     list.innerHTML = '';
 
     const max = state.puzzle.maxScore;
-    LEVELS.forEach(l => {
+    [...LEVELS].reverse().forEach(l => {
         const row = document.createElement('div');
         row.className = `ranking-row ${state.score >= Math.floor(max * l.pct) ? 'reached' : ''}`;
         row.innerHTML = `<span>${l.name}</span><span>${Math.floor(max * l.pct)}</span>`;
@@ -410,17 +410,42 @@ function subscribeToRoom(code) {
             renderTeammates();
         }
         if (d.foundWords) {
+            let changed = false;
             Object.keys(d.foundWords).forEach(w => {
-                state.wordFinders[w] = d.foundWords[w];
+                const finder = d.foundWords[w];
+                state.wordFinders[w] = finder;
                 if (!state.foundWords.includes(w)) {
-                    state.foundWords.push(w); state.score += validateWord(w).score || 0;
-                    if (d.foundWords[w] !== state.multiplayer.nickname) showMessage(`${d.foundWords[w]} found ${w}`, 2000);
+                    state.foundWords.push(w);
+                    changed = true;
+                    if (finder !== state.multiplayer.nickname) {
+                        showMessage(`${finder} found ${w}`, 2000);
+                    }
                 }
             });
-            state.foundWords.sort(); saveLocalState(); renderFoundWords(); updateScoreUI();
+
+            if (changed || state.foundWords.length > 0) {
+                // Ensure the score is always recalculated from the latest list to keep everyone in sync
+                state.score = state.foundWords.reduce((acc, w) => {
+                    const res = validateWordLookup(w);
+                    return acc + (res.valid ? res.score : 0);
+                }, 0);
+                state.foundWords.sort();
+                saveLocalState();
+                renderFoundWords();
+                updateScoreUI();
+            }
         }
         if (d.puzzleId && d.puzzleId !== state.puzzleId) loadPuzzleById(d.puzzleId);
     });
+}
+
+/**
+ * Minimal version of validateWord for lookups (doesn't check state.foundWords)
+ */
+function validateWordLookup(word) {
+    if (!state.puzzle || !state.puzzle.words.includes(word)) return { valid: false };
+    const isPangram = new Set(word).size === 7;
+    return { valid: true, score: word.length === 4 ? 1 : word.length + (isPangram ? 7 : 0) };
 }
 
 function renderTeammates() {
