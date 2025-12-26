@@ -411,7 +411,8 @@ async function joinFirebaseRoom(code, show = true) {
     await updateDoc(ref, { [`players.${state.playerId}`]: { nickname: state.multiplayer.nickname, online: true, lastActive: Timestamp.now() } });
     state.multiplayer.roomCode = code; state.multiplayer.step = 'active'; saveLocalState();
     subscribeToRoom(code);
-    if (show) renderMultiplayerScreen(); else renderMultiplayerBanner();
+    renderMultiplayerBanner(); // Always update banner
+    if (show) renderMultiplayerScreen();
 }
 
 async function createFirebaseRoom() {
@@ -419,7 +420,9 @@ async function createFirebaseRoom() {
     const ref = doc(db, 'rooms', code);
     await setDoc(ref, { createdAt: Timestamp.now(), puzzleId: state.puzzleId, foundWords: {}, players: { [state.playerId]: { nickname: state.multiplayer.nickname, online: true, lastActive: Timestamp.now() } } });
     state.multiplayer.roomCode = code; state.multiplayer.step = 'active'; saveLocalState();
-    subscribeToRoom(code); renderMultiplayerScreen();
+    subscribeToRoom(code);
+    renderMultiplayerBanner();
+    renderMultiplayerScreen();
 }
 
 let unsub = null;
