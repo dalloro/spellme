@@ -241,40 +241,40 @@ header {
     top: 95px;
 }
 
-/* Perfect hexagonal grid offsets for Flat-Top with 4px spacing */
+/* Perfect hexagonal grid offsets for Flat-Top with 6px spacing */
 #cell-1 {
     left: 100px;
-    top: 1px;
+    top: -1px;
 }
 
 /* Top */
 #cell-2 {
-    left: 178px;
-    top: 48px;
+    left: 180px;
+    top: 46px;
 }
 
 /* Top Right */
 #cell-3 {
-    left: 178px;
-    top: 142px;
+    left: 180px;
+    top: 144px;
 }
 
 /* Bottom Right */
 #cell-4 {
     left: 100px;
-    top: 189px;
+    top: 191px;
 }
 
 /* Bottom */
 #cell-5 {
-    left: 22px;
-    top: 142px;
+    left: 20px;
+    top: 144px;
 }
 
 /* Bottom Left */
 #cell-6 {
-    left: 22px;
-    top: 48px;
+    left: 20px;
+    top: 46px;
 }
 
 /* Top Left */

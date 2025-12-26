@@ -60,7 +60,15 @@ async function build() {
     const mobileAssets = ['index.html', 'mobile.css', 'words.js', 'puzzles.js', 'icons'];
     mobileAssets.forEach(asset => copy(path.join(MOBILE_SRC, asset), path.join(MOBILE_DIST_DIR, asset)));
 
-    console.log(`✅ Mobile Web App ready in mobile/dist/`);
+    // Cache-busting for mobile
+    const version = Date.now();
+    const mobileHtmlPath = path.join(MOBILE_DIST_DIR, 'index.html');
+    adjustHtml(mobileHtmlPath, /mobile\.css/g, `mobile.css?v=${version}`);
+    adjustHtml(mobileHtmlPath, /mobile_bundle\.js/g, `mobile_bundle.js?v=${version}`);
+    adjustHtml(mobileHtmlPath, /words\.js/g, `words.js?v=${version}`);
+    adjustHtml(mobileHtmlPath, /puzzles\.js/g, `puzzles.js?v=${version}`);
+
+    console.log(`✅ Mobile Web App ready in mobile/dist/ (Version: ${version})`);
 }
 
 function copy(src, dest) {
@@ -75,7 +83,7 @@ function copy(src, dest) {
 function adjustHtml(path, target, replacement) {
     if (!fs.existsSync(path)) return;
     let content = fs.readFileSync(path, 'utf8');
-    content = content.replace(target, replacement);
+    content = content.split(target).join(replacement);
     fs.writeFileSync(path, content);
 }
 
