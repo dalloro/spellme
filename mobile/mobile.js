@@ -732,8 +732,38 @@ async function joinFirebaseRoom(code, show = true) {
     state.multiplayer.roomCode = cleanCode; // Lowercase ID
     state.multiplayer.displayCode = data.code || cleanCode; // Mixed display
     state.multiplayer.step = 'active';
+
+    // === INITIAL SYNC: Language, Puzzle, and FoundWords ===
+    // This ensures joining players see all existing words immediately
+
+    // 1. Sync language first
+    if (data.language && data.language !== state.language) {
+        state.language = data.language;
+        localStorage.setItem('sb_language', data.language);
+        updateLanguageUI();
+    }
+
+    // 2. Load the room's puzzle (this resets foundWords, which we'll repopulate next)
+    if (data.puzzleId && data.puzzleId !== state.puzzleId) {
+        await loadPuzzleById(data.puzzleId);
+    }
+
+    // 3. Sync foundWords from room data (populate with existing words)
+    if (data.foundWords) {
+        state.foundWords = Object.keys(data.foundWords);
+        state.wordFinders = { ...data.foundWords }; // { word: playerId }
+        state.score = state.foundWords.reduce((acc, w) => {
+            const res = validateWordLookup(w);
+            return acc + (res.valid ? res.score : 0);
+        }, 0);
+        state.foundWords.sort();
+        renderFoundWords();
+        updateScoreUI();
+    }
+
     saveLocalState();
 
+    // Now subscribe to future updates
     subscribeToRoom(cleanCode);
     renderMultiplayerBanner();
     if (show) renderMultiplayerScreen();
