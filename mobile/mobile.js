@@ -464,6 +464,15 @@ function openRankingsModal() {
 }
 
 // Multiplayer Helpers (Minimal version of popup.js)
+function generateRoomCode() {
+    const adjs = ['Happy', 'Lucky', 'Sunny', 'Cool', 'Bright', 'Swift', 'Calm'];
+    const nouns = ['Bee', 'Hive', 'Honey', 'Comb', 'Wing', 'Pollen', 'Nectar'];
+    const num = Math.floor(Math.random() * 99) + 1;
+    const adj = adjs[Math.floor(Math.random() * adjs.length)];
+    const noun = nouns[Math.floor(Math.random() * nouns.length)];
+    return `${adj}-${noun}-${num}`;
+}
+
 async function joinFirebaseRoom(code, show = true) {
     const cleanCode = code.toLowerCase().trim();
     const ref = doc(db, 'rooms', cleanCode);
