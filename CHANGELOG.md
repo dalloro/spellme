@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/dalloro/spelling-bee-extension/compare/v2.5.0...v2.6.0) (2025-12-27)
+
+
+### Features
+
+* add prominent download badge to README ([74ebae5](https://github.com/dalloro/spelling-bee-extension/commit/74ebae5af02a98a6ca207af6c87912f66f3c462c))
+
 # [2.5.0](https://github.com/dalloro/spelling-bee-extension/compare/v2.4.0...v2.5.0) (2025-12-27)
 
 

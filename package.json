@@ -1,6 +1,6 @@
 {
     "name": "spelling-bee-extension",
-    "version": "2.5.0",
+    "version": "2.6.0",
     "repository": "https://github.com/dalloro/spelling-bee-extension.git",
     "description": "Chrome extension for the Spelling Bee game",
     "scripts": {
