@@ -340,71 +340,43 @@ async function loadNYTDailyPuzzle(shouldBroadcast = true) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
 
-    // 1. Try to find the word list first as it's the most reliable source for letters too
-    // NYTbee often has links like <a id="link-definition-word" ...>
-    let wordList = Array.from(doc.querySelectorAll('a[id^="link-definition-"]'))
+    // 1. Extract the words (most reliable source)
+    const wordList = Array.from(doc.querySelectorAll('a[id^="link-definition-"]'))
       .map(a => a.id.replace('link-definition-', '').toLowerCase())
       .filter(w => w.length >= 4);
 
-    // Alternative word list selectors
-    if (wordList.length === 0) {
-      wordList = Array.from(doc.querySelectorAll('#main-answer-list .flex-list-item, #all-answers li, .answer-list li'))
-        .map(li => li.textContent.trim().toLowerCase())
-        .filter(w => w.length >= 4);
-    }
+    if (wordList.length === 0) throw new Error("No words found on page");
 
-    // 2. Extract letters
-    let letters = [];
+    // 2. Identify the true center letter (must be in every word)
+    let commonChars = new Set(wordList[0].split(''));
+    wordList.forEach(w => {
+      const charSet = new Set(w.split(''));
+      commonChars = new Set([...commonChars].filter(x => charSet.has(x)));
+    });
+    const centerLetter = Array.from(commonChars)[0]?.toUpperCase();
+    if (!centerLetter) throw new Error("Center letter detection failed");
 
-    // Method A: Bokeh Plot data (most reliable recent format)
-    // Look for ["P","A","G","I","N","R","W"] or ["P", "A", "G", "I", "N", "R", "W"]
+    // 3. Extract all candidate 7-letter sets from scripts
     const scriptText = Array.from(doc.querySelectorAll('script')).map(s => s.textContent).join(' ');
-    // Improved regex to find the 7-letter array and extract all letters
-    const bokehMatch = scriptText.match(/\[\s*"([A-Z])"(?:\s*,\s*"([A-Z])"){6}\s*\]/i);
-    if (bokehMatch) {
-      // Re-extract using global match to get all 7
-      const allLettersMatch = bokehMatch[0].match(/[A-Z]/gi);
-      if (allLettersMatch && allLettersMatch.length === 7) {
-        letters = allLettersMatch.map(l => l.toUpperCase());
+    const letterArrays = scriptText.match(/\[\s*"[A-Z]"(?:\s*,\s*"[A-Z]"){6}\s*\]/gi) || [];
+
+    let foundLetters = null;
+    for (const arrStr of letterArrays) {
+      const candidate = arrStr.match(/[A-Z]/gi).map(l => l.toUpperCase());
+      if (candidate.includes(centerLetter)) {
+        // Found the right set. Order it: [center, ...others]
+        const others = candidate.filter(l => l !== centerLetter);
+        foundLetters = [centerLetter, ...others];
+        break;
       }
     }
 
-    // Method B: Try to extract from Page Title (often contains letters like "P (A G I N R W)")
-    if (letters.length < 7) {
-      const titleMatch = doc.title.match(/([A-Z])\s*\(\s*([A-Z\s]+)\s*\)/i);
-      if (titleMatch) {
-        const centerLetter = titleMatch[1].toUpperCase();
-        const outerLetters = titleMatch[2].match(/[A-Z]/gi).map(l => l.toUpperCase());
-        letters = [centerLetter, ...outerLetters];
-      }
-    }
-
-    // Method C: Fallback to old selectors
-    if (letters.length < 7) {
-      const lettersText = doc.querySelector('#today-letters')?.textContent.trim().toUpperCase() ||
-        doc.querySelector('.pangram')?.textContent.trim().toUpperCase();
-      letters = lettersText ? lettersText.match(/[A-Z]/g) : [];
-    }
-
-    // Method D: Infer from word list if we have words but no letters
-    if (letters.length < 7 && wordList.length > 0) {
-      const allChars = new Set(wordList.join('').toUpperCase().split(''));
-      if (allChars.size === 7) {
-        letters = Array.from(allChars);
-      }
-    }
-
-    if (letters.length < 7) {
-      throw new Error("Could not find letters on page");
-    }
+    if (!foundLetters) throw new Error("Could not match letters to word list");
 
     // --- Success Path ---
     const dateStr = new Date().toISOString().split('T')[0];
     const pid = 'nyt-' + dateStr;
-    const center = letters[0];
-    const outer = letters.slice(1);
 
-    // Calculate max score
     const maxScore = wordList.reduce((acc, word) => {
       let s = (word.length === 4) ? 1 : word.length;
       if (new Set(word).size === 7) s += 7;
@@ -414,7 +386,7 @@ async function loadNYTDailyPuzzle(shouldBroadcast = true) {
     state.puzzleId = pid;
     state.puzzle = {
       id: pid,
-      letters: letters, // [center, ...outer]
+      letters: foundLetters,
       words: wordList,
       maxScore: maxScore,
       author: 'NYT Daily'
