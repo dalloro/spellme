@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const packageJson = require('../package.json');
-const manifestPath = path.join(__dirname, '../manifest.json');
+const manifestPath = path.join(__dirname, '../extension/manifest.json');
 
 if (fs.existsSync(manifestPath)) {
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
