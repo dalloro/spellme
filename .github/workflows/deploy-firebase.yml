@@ -28,8 +28,17 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Tests
-        run: npm test
+      - name: Setup Java (for Firestore Emulator)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Run Tests (with Emulator)
+        run: firebase emulators:exec --project spelling-bee-extension "npm test"
 
       - name: Build Unified Assets
         run: npm run build
@@ -41,9 +50,6 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
 
       - name: Deploy Firestore Rules
         run: firebase deploy --only firestore --project "${{ secrets.RELAY_PROJECT_ID }}" --token "${{ secrets.FIREBASE_TOKEN }}"
