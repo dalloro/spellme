@@ -6,7 +6,15 @@ const archiver = require('archiver');
 const DIST_DIR = path.join(__dirname, '../dist');
 const MOBILE_DIST_DIR = path.join(__dirname, '../mobile/dist');
 const ROOT_DIR = path.join(__dirname, '..');
-const ZIP_FILE = path.join(ROOT_DIR, 'spelling-bee-extension.zip');
+
+// Get version from package.json
+const packageJson = require(path.join(ROOT_DIR, 'package.json'));
+const version = packageJson.version;
+
+// Support versioned zip name via env or fallback to default
+const ZIP_NAME = process.env.ZIP_NAME || `spelling-bee-extension-v${version}.zip`;
+const ZIP_FILE = path.join(ROOT_DIR, ZIP_NAME);
+const LATEST_ZIP_FILE = path.join(ROOT_DIR, 'spelling-bee-extension.zip');
 
 // Inject secrets from environment variables (fallback to placeholders for local dev)
 const defines = {
@@ -39,7 +47,9 @@ async function build() {
     adjustHtml(path.join(DIST_DIR, 'popup.html'), 'src="dist/popup_bundle.js"', 'src="popup_bundle.js"');
 
     await zipDirectory(DIST_DIR, ZIP_FILE);
+    fs.copyFileSync(ZIP_FILE, LATEST_ZIP_FILE); // Keep a "latest" copy too
     console.log(`✅ Extension ready at ${ZIP_FILE}`);
+    console.log(`✅ Latest copy at ${LATEST_ZIP_FILE}`);
 
     // 2. MOBILE WEB APP BUILD
     console.log('📱 Building Mobile Web App...');
