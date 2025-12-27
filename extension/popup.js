@@ -3,7 +3,8 @@ import { initializeApp } from 'firebase/app';
 import {
   getFirestore, doc, setDoc, getDoc, updateDoc, onSnapshot, Timestamp, connectFirestoreEmulator, deleteField
 } from 'firebase/firestore';
-import { validateWord as coreValidateWord, findWordsForLetters } from './utils/game-logic.js';
+import { validateWord as coreValidateWord, findWordsForLetters } from '../utils/game-logic.js';
+import { LEVELS, LANGUAGE_CONFIG } from '../utils/constants.js';
 
 // Firebase config (Injected at build time via esbuild)
 const firebaseConfig = {
@@ -35,19 +36,7 @@ globalThis.switchMultiplayerEnv = () => {
 };
 console.log("Registered global helper: switchMultiplayerEnv()");
 
-// Game Constants - level keys map to localized strings
-const LEVELS = [
-  { key: 'beginner', pct: 0 },
-  { key: 'goodStart', pct: 0.02 },
-  { key: 'movingUp', pct: 0.05 },
-  { key: 'good', pct: 0.08 },
-  { key: 'solid', pct: 0.15 },
-  { key: 'niceLvl', pct: 0.25 },
-  { key: 'great', pct: 0.40 },
-  { key: 'amazing', pct: 0.50 },
-  { key: 'genius', pct: 0.70 },
-  { key: 'queenBee', pct: 1.0 }
-];
+// LEVELS imported from utils/constants.js
 
 // State
 let state = {
@@ -72,11 +61,7 @@ let state = {
 window.state = state;
 localStorage.setItem('sb_playerId', state.playerId);
 
-// Language Configuration
-const LANGUAGE_CONFIG = {
-  en: { name: 'English', flag: '🇺🇸', dailyName: 'NYT Daily' },
-  it: { name: 'Italiano', flag: '🇮🇹', dailyName: 'Apegramma' }
-};
+// LANGUAGE_CONFIG imported from utils/constants.js
 
 // Language-specific data (will be set based on current language)
 // PUZZLES and VALID_WORDS are globals loaded via script tags
