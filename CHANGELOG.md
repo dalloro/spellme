@@ -1,3 +1,10 @@
+## [4.0.2](https://github.com/dalloro/spelling-bee-extension/compare/v4.0.1...v4.0.2) (2025-12-27)
+
+
+### Bug Fixes
+
+* resolve ReferenceError by correcting language file paths ([dbf7846](https://github.com/dalloro/spelling-bee-extension/commit/dbf78465d4583af491210290015bfaeee152cf17))
+
 ## [4.0.1](https://github.com/dalloro/spelling-bee-extension/compare/v4.0.0...v4.0.1) (2025-12-27)
 
 
