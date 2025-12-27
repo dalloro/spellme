@@ -323,39 +323,49 @@ function renderFoundWords() {
     const mode = state.attributionMode;
     const playersMap = state.multiplayer.rawPlayers || {};
 
+    // Define consistent colors and mapping
+    const colors = ["#f7da21", "#4ecdc4", "#ff6b6b", "#a8e6cf", "#dfe6e9", "#fd79a8", "#74b9ff"];
+    const idToColor = {}; let cIdx = 0;
+
+    // Pre-calculate colors for consistency
+    state.foundWords.forEach(w => {
+        const finderId = state.wordFinders[w];
+        if (finderId && !idToColor[finderId]) idToColor[finderId] = colors[cIdx++ % colors.length];
+    });
+
     if (mode === 0) {
         state.foundWords.forEach(w => {
             const s = document.createElement('span'); s.innerText = w; s.className = 'found-word';
             els.wordsList.appendChild(s);
         });
     } else if (mode === 1) {
-        const colors = ["#f7da21", "#4ecdc4", "#ff6b6b", "#a8e6cf", "#dfe6e9", "#fd79a8", "#74b9ff"];
-        const idToColor = {}; let cIdx = 0;
         state.foundWords.forEach(w => {
             const finderId = state.wordFinders[w];
-            if (!idToColor[finderId]) idToColor[finderId] = colors[cIdx++ % colors.length];
-            const s = document.createElement('span'); s.innerText = w; s.style.color = idToColor[finderId]; s.className = 'found-word';
+            const color = idToColor[finderId] || '#ccc';
+            const s = document.createElement('span'); s.innerText = w; s.style.color = color; s.className = 'found-word';
             els.wordsList.appendChild(s);
         });
     } else {
-        const sections = {};
+        const sections = {}; // Map of playerId to words
         state.foundWords.forEach(w => {
             const finderId = state.wordFinders[w];
-            const displayName = getDisplayName(finderId, playersMap);
-            if (!sections[displayName]) sections[displayName] = [];
-            sections[displayName].push(w);
+            if (!sections[finderId]) sections[finderId] = [];
+            sections[finderId].push(w);
         });
 
-        const myName = getDisplayName(state.playerId, playersMap);
         Object.keys(sections).sort((a, b) => {
-            if (a === myName) return -1;
-            if (b === myName) return 1;
-            return a.localeCompare(b);
-        }).forEach(f => {
+            if (a === state.playerId) return -1;
+            if (b === state.playerId) return 1;
+            const nameA = getDisplayName(a, playersMap);
+            const nameB = getDisplayName(b, playersMap);
+            return nameA.localeCompare(nameB);
+        }).forEach(pid => {
+            const displayName = getDisplayName(pid, playersMap);
+            const color = idToColor[pid] || '#ccc';
             const sec = document.createElement('div'); sec.className = 'word-section';
-            sec.innerHTML = `<div class="word-section-header">${f} (${sections[f].length})</div><div class="word-section-words"></div>`;
-            sections[f].forEach(w => {
-                const s = document.createElement('span'); s.innerText = w; s.className = 'found-word';
+            sec.innerHTML = `<div class="word-section-header" style="color: ${color}">${displayName} (${sections[pid].length})</div><div class="word-section-words"></div>`;
+            sections[pid].forEach(w => {
+                const s = document.createElement('span'); s.innerText = w; s.style.color = color; s.className = 'found-word';
                 sec.querySelector('.word-section-words').appendChild(s);
             });
             els.wordsList.appendChild(sec);

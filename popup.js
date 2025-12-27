@@ -849,6 +849,20 @@ function renderFoundWords() {
   const mode = state.attributionMode;
   const playersMap = state.multiplayer.rawPlayers || {};
 
+  // Define consistent colors and mapping
+  const colors = ['#f7da21', '#4ecdc4', '#ff6b6b', '#a8e6cf', '#dfe6e9', '#fd79a8', '#74b9ff'];
+  const playerColors = {};
+  let colorIndex = 0;
+
+  // Pre-calculate colors for all finders to ensure consistency
+  state.foundWords.forEach(w => {
+    const finderId = state.wordFinders[w];
+    if (finderId && !playerColors[finderId]) {
+      playerColors[finderId] = colors[colorIndex % colors.length];
+      colorIndex++;
+    }
+  });
+
   if (mode === 0) {
     // Mode 0: No attribution, just list words
     state.foundWords.forEach(w => {
@@ -859,56 +873,54 @@ function renderFoundWords() {
     });
   } else if (mode === 1) {
     // Mode 1: Colors by player
-    const playerColors = {};
-    let colorIndex = 0;
-    const colors = ['#f7da21', '#4ecdc4', '#ff6b6b', '#a8e6cf', '#dfe6e9', '#fd79a8', '#74b9ff'];
-
     state.foundWords.forEach(w => {
       const finderId = state.wordFinders[w];
-      if (!playerColors[finderId]) {
-        playerColors[finderId] = colors[colorIndex % colors.length];
-        colorIndex++;
-      }
+      const color = playerColors[finderId] || '#ccc';
 
       const span = document.createElement('span');
       span.className = 'found-word';
-      span.style.color = playerColors[finderId];
+      span.style.color = color;
       span.innerText = w;
       els.wordsList.appendChild(span);
     });
   } else if (mode === 2) {
     // Mode 2: Sections by player
-    const wordsByPlayer = {};
+    const wordsByPlayer = {}; // Map of playerId to words
 
     state.foundWords.forEach(w => {
       const finderId = state.wordFinders[w];
-      const displayName = getDisplayName(finderId, playersMap);
-      if (!wordsByPlayer[displayName]) wordsByPlayer[displayName] = [];
-      wordsByPlayer[displayName].push(w);
+      if (!wordsByPlayer[finderId]) wordsByPlayer[finderId] = [];
+      wordsByPlayer[finderId].push(w);
     });
 
-    // Sort: current user first, then others alphabetically
-    const myName = getDisplayName(state.playerId, playersMap);
-    const sortedPlayers = Object.keys(wordsByPlayer).sort((a, b) => {
-      if (a === myName) return -1;
-      if (b === myName) return 1;
-      return a.localeCompare(b);
+    // Sort players: current user first, then others alphabetically by display name
+    const sortedPlayerIds = Object.keys(wordsByPlayer).sort((a, b) => {
+      if (a === state.playerId) return -1;
+      if (b === state.playerId) return 1;
+      const nameA = getDisplayName(a, playersMap);
+      const nameB = getDisplayName(b, playersMap);
+      return nameA.localeCompare(nameB);
     });
 
-    sortedPlayers.forEach(player => {
+    sortedPlayerIds.forEach(pid => {
+      const displayName = getDisplayName(pid, playersMap);
+      const color = playerColors[pid] || '#ccc';
+
       const section = document.createElement('div');
       section.className = 'word-section';
 
       const header = document.createElement('div');
       header.className = 'word-section-header';
-      header.innerText = `${player} (${wordsByPlayer[player].length})`;
+      header.style.color = color; // Apply color to header too
+      header.innerText = `${displayName} (${wordsByPlayer[pid].length})`;
       section.appendChild(header);
 
       const wordsContainer = document.createElement('div');
       wordsContainer.className = 'word-section-words';
-      wordsByPlayer[player].forEach(w => {
+      wordsByPlayer[pid].forEach(w => {
         const span = document.createElement('span');
         span.className = 'found-word';
+        span.style.color = color; // Apply color to grouped words
         span.innerText = w;
         wordsContainer.appendChild(span);
       });
