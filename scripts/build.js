@@ -43,11 +43,33 @@ async function build() {
         define: defines
     });
 
-    const extensionAssets = ['manifest.json', 'popup.html', 'popup.css', 'words.js', 'puzzles.js', 'icons'];
-    extensionAssets.forEach(asset => copy(path.join(ROOT_DIR, asset), path.join(DIST_DIR, asset)));
+    const extensionAssets = ['manifest.json', 'popup.html', 'popup.css', 'words.js', 'puzzles.js', 'icons', 'lang'];
+    extensionAssets.forEach(asset => {
+        const src = path.join(ROOT_DIR, asset);
+        const dest = path.join(DIST_DIR, asset);
+        copy(src, dest);
 
-    // Adjust HTML
+        // Post-copy cleanup: Remove massive files from the extension bundle
+        if (asset === 'lang') {
+            const itWordsPath = path.join(dest, 'it/words_it.js');
+            const itRawPath = path.join(dest, 'it/raw_dictionary.txt');
+            if (fs.existsSync(itWordsPath)) {
+                console.log('🗑️  Removing large dictionary from extension bundle...');
+                fs.unlinkSync(itWordsPath);
+            }
+            if (fs.existsSync(itRawPath)) {
+                console.log('🗑️  Removing raw source dictionary from extension bundle...');
+                fs.unlinkSync(itRawPath);
+            }
+        }
+    });
+
+    // Adjust HTML: Remove the massive dictionary script tag and swap bundle path
+    adjustHtml(path.join(DIST_DIR, 'popup.html'), '<script src="lang/it/words_it.js"></script>', '<!-- words_it.js excluded -->');
     adjustHtml(path.join(DIST_DIR, 'popup.html'), 'src="dist/popup_bundle.js"', 'src="popup_bundle.js"');
+
+    // Copy strings.js correctly
+    copy(path.join(ROOT_DIR, 'lang/strings.js'), path.join(DIST_DIR, 'lang/strings.js'));
 
     await zipDirectory(DIST_DIR, ZIP_FILE);
     console.log(`✅ Extension ready at ${ZIP_FILE}`);
@@ -71,13 +93,25 @@ async function build() {
     const mobileAssets = ['index.html', 'mobile.css', 'words.js', 'puzzles.js', 'icons'];
     mobileAssets.forEach(asset => copy(path.join(MOBILE_SRC, asset), path.join(MOBILE_DIST_DIR, asset)));
 
-    // Cache-busting for mobile
+    // Copy Italian and common language files for mobile - EXCLUDING THE MASSIVE DICTIONARY
+    const itLangDir = path.join(MOBILE_DIST_DIR, 'lang', 'it');
+    const commonLangDir = path.join(MOBILE_DIST_DIR, 'lang');
+    fs.mkdirSync(itLangDir, { recursive: true });
+
+    // Copy strings.js to mobile
+    copy(path.join(ROOT_DIR, 'lang/strings.js'), path.join(commonLangDir, 'strings.js'));
+    // Note: skipping words_it.js to save 65MB
+    copy(path.join(ROOT_DIR, 'lang/it/puzzles_it.js'), path.join(itLangDir, 'puzzles_it.js'));
+
+    // Cache-busting and HTML cleanup for mobile
     const version = Date.now();
     const mobileHtmlPath = path.join(MOBILE_DIST_DIR, 'index.html');
+    adjustHtml(mobileHtmlPath, '<script src="lang/it/words_it.js"></script>', '<!-- words_it.js excluded -->');
     adjustHtml(mobileHtmlPath, /mobile\.css/g, `mobile.css?v=${version}`);
     adjustHtml(mobileHtmlPath, /mobile_bundle\.js/g, `mobile_bundle.js?v=${version}`);
     adjustHtml(mobileHtmlPath, /words\.js/g, `words.js?v=${version}`);
     adjustHtml(mobileHtmlPath, /puzzles\.js/g, `puzzles.js?v=${version}`);
+    adjustHtml(mobileHtmlPath, /lang\/strings\.js/g, `lang/strings.js?v=${version}`);
 
     console.log(`✅ Mobile Web App ready in mobile/dist/ (Version: ${version})`);
 }

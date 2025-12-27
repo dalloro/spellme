@@ -3,6 +3,7 @@ import { initializeApp } from 'firebase/app';
 import {
     getFirestore, doc, setDoc, getDoc, updateDoc, onSnapshot, Timestamp, connectFirestoreEmulator, deleteField
 } from 'firebase/firestore';
+import { validateWord as coreValidateWord, findWordsForLetters } from '../utils/game-logic.js';
 
 // Firebase config (Injected at build time via esbuild)
 const firebaseConfig = {
@@ -29,18 +30,18 @@ globalThis.switchMultiplayerEnv = () => {
     location.reload();
 };
 
-// Game Constants
+// Game Constants - level keys map to localized strings
 const LEVELS = [
-    { name: 'Beginner', pct: 0 },
-    { name: 'Good Start', pct: 0.02 },
-    { name: 'Moving Up', pct: 0.05 },
-    { name: 'Good', pct: 0.08 },
-    { name: 'Solid', pct: 0.15 },
-    { name: 'Nice', pct: 0.25 },
-    { name: 'Great', pct: 0.40 },
-    { name: 'Amazing', pct: 0.50 },
-    { name: 'Genius', pct: 0.70 },
-    { name: 'Queen Bee', pct: 1.0 }
+    { key: 'beginner', pct: 0 },
+    { key: 'goodStart', pct: 0.02 },
+    { key: 'movingUp', pct: 0.05 },
+    { key: 'good', pct: 0.08 },
+    { key: 'solid', pct: 0.15 },
+    { key: 'niceLvl', pct: 0.25 },
+    { key: 'great', pct: 0.40 },
+    { key: 'amazing', pct: 0.50 },
+    { key: 'genius', pct: 0.70 },
+    { key: 'queenBee', pct: 1.0 }
 ];
 
 // State
@@ -52,15 +53,35 @@ let state = {
     score: 0,
     puzzle: null,
     puzzleId: null,
+    language: localStorage.getItem('sb_language') || 'en',
     attributionMode: 0,
     multiplayer: {
         roomCode: null,
         nickname: localStorage.getItem('sb_nickname') || '',
         teammates: [],
         step: 'nickname'
-    }
+    },
+    dbRefs: {}
 };
 localStorage.setItem('sb_playerId', state.playerId);
+
+// Expose state globally for translations
+window.state = state;
+
+// Language Configuration
+const LANGUAGE_CONFIG = {
+    en: { name: 'English', flag: '🇺🇸', dailyName: 'NYT Daily' },
+    it: { name: 'Italiano', flag: '🇮🇹', dailyName: 'Apegramma' }
+};
+
+// Language-specific data helpers
+function getCurrentPuzzles() {
+    return state.language === 'it' ? (typeof PUZZLES_IT !== 'undefined' ? PUZZLES_IT : {}) : PUZZLES;
+}
+
+function getCurrentValidWords() {
+    return state.language === 'it' ? (typeof VALID_WORDS_IT !== 'undefined' ? VALID_WORDS_IT : new Set()) : VALID_WORDS;
+}
 
 const els = {
     input: document.getElementById('input-text'),
@@ -115,7 +136,7 @@ async function initGame() {
     loadLocalState();
 
     if (!state.puzzle) {
-        await loadNYTDailyPuzzle();
+        await loadDailyPuzzle();
     } else {
         loadPuzzleById(state.puzzleId);
     }
@@ -131,6 +152,7 @@ async function initGame() {
     updateScoreUI();
     renderFoundWords();
     renderMultiplayerBanner();
+    updateLanguageUI();
     setupEventListeners();
 }
 
@@ -151,7 +173,12 @@ function loadPuzzleById(id) {
         if (state.puzzleId !== id) loadNYTDailyPuzzle(false);
         return;
     }
-    const p = PUZZLES[id];
+    if (typeof id === 'string' && id.startsWith('apegramma-')) {
+        if (state.puzzleId !== id) loadApegrammaDailyPuzzle(false);
+        return;
+    }
+    const puzzles = getCurrentPuzzles();
+    const p = puzzles[id];
     if (p) {
         state.puzzleId = id;
         state.puzzle = p;
@@ -185,7 +212,7 @@ function setupEventListeners() {
     els.enterBtn.onclick = handleEnter;
     els.shuffleBtn.onclick = shuffleLetters;
     els.restartBtn.onclick = () => {
-        if (state.multiplayer.roomCode && !confirm("This will change the game for EVERYONE in the room. Continue?")) return;
+        if (state.multiplayer.roomCode && !confirm(t('confirmChangeGame'))) return;
         const id = Math.floor(Math.random() * Object.keys(PUZZLES).length);
         loadPuzzleById(id);
         if (state.multiplayer.roomCode) syncPuzzleToFirebase(state.puzzleId);
@@ -193,9 +220,37 @@ function setupEventListeners() {
 
     els.nytDailyBtn = document.getElementById('nyt-daily-btn');
     els.nytDailyBtn.onclick = () => {
-        if (state.multiplayer.roomCode && !confirm("This will change the game for EVERYONE in the room to the NYT Daily. Continue?")) return;
-        loadNYTDailyPuzzle();
+        if (state.multiplayer.roomCode && !confirm(t('confirmChangeGame'))) return;
+        loadDailyPuzzle();
     };
+
+    // Language selector
+    const langBtn = document.getElementById('lang-btn');
+    const langMenu = document.getElementById('lang-menu');
+
+    if (langBtn && langMenu) {
+        langBtn.onclick = (e) => {
+            e.stopPropagation();
+            langMenu.classList.toggle('hidden');
+        };
+
+        langMenu.querySelectorAll('button[data-lang]').forEach(btn => {
+            btn.onclick = () => {
+                const lang = btn.dataset.lang;
+                langMenu.classList.add('hidden');
+                if (lang !== state.language) {
+                    switchLanguage(lang);
+                }
+                // Update global reference
+                window.state = state;
+            };
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            langMenu.classList.add('hidden');
+        });
+    }
 
     // Ranking modal trigger
     els.levelContainer = document.querySelector('.level-container');
@@ -269,7 +324,7 @@ function handleEnter() {
         saveLocalState();
         updateScoreUI();
         renderFoundWords();
-        showMessage(result.isPangram ? "Pangram!" : "Nice!", 1500);
+        showMessage(result.isPangram ? t('pangram') : t('nice'), 1500);
         submitWordToFirebase(word);
     } else {
         showMessage(result.error, 1000);
@@ -278,15 +333,9 @@ function handleEnter() {
 }
 
 function validateWord(word) {
-    if (word.length < 4) return { valid: false, error: "Too short" };
-    const center = state.puzzle.letters[0].toLowerCase();
-    if (!word.includes(center)) return { valid: false, error: "Missing center" };
-    const allowed = new Set(state.puzzle.letters.map(l => l.toLowerCase()));
-    for (let c of word) if (!allowed.has(c)) return { valid: false, error: "Bad letter" };
-    if (!state.puzzle.words.includes(word)) return { valid: false, error: "Not a word" };
-    if (state.foundWords.includes(word)) return { valid: false, error: "Already found" };
-    const isPangram = new Set(word).size === 7;
-    return { valid: true, score: word.length === 4 ? 1 : word.length + (isPangram ? 7 : 0), isPangram };
+    const result = coreValidateWord(word, state.puzzle, state.foundWords, getCurrentValidWords());
+    if (!result.valid) return { valid: false, error: t(result.error) };
+    return result;
 }
 
 function showMessage(msg, time) {
@@ -301,7 +350,7 @@ function updateScoreUI() {
     const max = state.puzzle.maxScore;
     let levelIdx = 0;
     LEVELS.forEach((l, i) => { if (state.score >= Math.floor(max * l.pct)) levelIdx = i; });
-    els.levelText.innerText = LEVELS[levelIdx].name;
+    els.levelText.innerText = t(LEVELS[levelIdx].key);
 
     els.dotsContainer.innerHTML = '';
     const fill = document.createElement('div');
@@ -318,7 +367,7 @@ function updateScoreUI() {
 }
 
 function renderFoundWords() {
-    els.foundCount.innerText = `${state.foundWords.length} words`;
+    els.foundCount.innerText = `${state.foundWords.length} ${state.foundWords.length !== 1 ? t('words') : t('word')}`;
     els.wordsList.innerHTML = '';
     const mode = state.attributionMode;
     const playersMap = state.multiplayer.rawPlayers || {};
@@ -374,10 +423,10 @@ function renderFoundWords() {
 }
 
 function getDisplayName(pid, players) {
-    if (!pid) return "Unknown";
+    if (!pid) return t('unknown');
     const p = players[pid];
-    if (!p) return pid.length > 20 ? "Ghost" : pid; // Fallback for legacy nicknames strings
-    const nick = p.nickname || "Anonymous";
+    if (!p) return pid.length > 20 ? t('ghost') : pid;
+    const nick = p.nickname || t('anonymous');
 
     // Check for duplicates
     const twins = Object.entries(players)
@@ -399,7 +448,7 @@ async function loadNYTDailyPuzzle(sync = true) {
 
         // 1. Extract the words
         const words = Array.from(doc.querySelectorAll('a[id^="link-definition-"]')).map(a => a.id.split('-').pop().toLowerCase());
-        if (!words.length) throw new Error("No words found");
+        if (!words.length) throw new Error(t('noWordsFound'));
 
         // 2. Identify the true center letter (must be in every word)
         let commonLetters = new Set(words[0].split(''));
@@ -408,7 +457,7 @@ async function loadNYTDailyPuzzle(sync = true) {
             commonLetters = new Set([...commonLetters].filter(x => wordSet.has(x)));
         });
         const centerLetter = Array.from(commonLetters)[0]?.toUpperCase();
-        if (!centerLetter) throw new Error("Center letter detection failed");
+        if (!centerLetter) throw new Error(t('centerLetterError'));
 
         // 3. Extract all candidate 7-letter sets from scripts
         const scripts = Array.from(doc.querySelectorAll('script')).map(s => s.textContent).join(' ');
@@ -425,7 +474,7 @@ async function loadNYTDailyPuzzle(sync = true) {
             }
         }
 
-        if (!foundLetters) throw new Error("Could not match letters to word list");
+        if (!foundLetters) throw new Error(t('matchesLetterError'));
 
         state.puzzleId = 'nyt-' + new Date().toISOString().split('T')[0];
         state.puzzle = {
@@ -443,8 +492,211 @@ async function loadNYTDailyPuzzle(sync = true) {
         if (sync && state.multiplayer.roomCode) syncPuzzleToFirebase(state.puzzleId);
     } catch (e) {
         console.error("NYT Load Error:", e);
-        showMessage("NYT Load Failed", 2000);
+        showMessage(t('nytLoadFailed'), 2000);
     }
+}
+
+// Language-agnostic Daily Puzzle Loader
+async function loadDailyPuzzle(shouldBroadcast = true) {
+    if (state.language === 'it') {
+        await loadApegrammaDailyPuzzle(shouldBroadcast);
+    } else {
+        await loadNYTDailyPuzzle(shouldBroadcast);
+    }
+}
+
+// Load Italian "Apegramma" (Mapped to local daily puzzle for reliability)
+// Load Italian "Apegramma" (Scraping laregione.ch via proxy with local fallback)
+async function loadApegrammaDailyPuzzle(shouldBroadcast = true) {
+    showMessage(t('fetchingApegramma'), 2000); // reuse existing key
+    try {
+        const proxyUrl = "https://corsproxy.io/?";
+        const targetUrl = encodeURIComponent('https://www.laregione.ch/giochi/apegramma');
+        const response = await fetch(proxyUrl + targetUrl);
+        if (!response.ok) throw new Error("Fetch failed");
+        const html = await response.text();
+        const match = html.match(/<div[^>]*id="jsonDati"[^>]*>(.*?)<\/div>/);
+        if (!match) throw new Error("Data not found");
+
+        const json = JSON.parse(match[1]);
+        if (!json.data || !json.data.letters) throw new Error("Invalid data structure");
+
+        const d = json.data;
+        const central = d.central.toLowerCase();
+        const lettersArr = d.letters.toLowerCase().split(' ').map(s => s.trim()).filter(l => l);
+        const others = lettersArr.filter(l => l !== central).sort();
+        const allLetters = [central, ...others];
+        const validWords = Object.keys(d.validWords);
+
+        let maxScore = 0;
+        validWords.forEach(w => {
+            let s = (w.length === 4) ? 1 : w.length;
+            if (new Set(w).size === 7) s += 7;
+            maxScore += s;
+        });
+
+        const dateStr = new Date().toISOString().split('T')[0];
+        const pid = 'apegramma-' + dateStr;
+
+        state.puzzleId = pid;
+        state.puzzle = {
+            id: pid,
+            letters: allLetters,
+            words: validWords,
+            maxScore: maxScore,
+            author: 'Apegramma Daily'
+        };
+
+        // Success UI Update
+        state.foundWords = [];
+        state.score = 0;
+        state.currentInput = '';
+
+        saveLocalState();
+        renderPuzzle();
+        updateScoreUI();
+        renderFoundWords();
+        renderMultiplayerBanner();
+        updateLanguageUI();
+        showMessage(t('apegrammLoaded'), 2000);
+
+        if (shouldBroadcast && state.multiplayer.roomCode) {
+            syncPuzzleToFirebase(state.puzzleId);
+        }
+
+    } catch (scrapeErr) {
+        console.warn("Scraping failed, trying local fallback", scrapeErr);
+        try {
+            // Fallback: Deterministic local puzzle
+            const today = new Date();
+            const puzzles = getCurrentPuzzles();
+            const count = Object.keys(puzzles).length;
+            if (count === 0) throw new Error("No Italian puzzles loaded");
+
+            const idx = (today.getFullYear() * 366 + today.getMonth() * 31 + today.getDate()) % count;
+            const puzzle = puzzles[idx];
+
+            const dateStr = new Date().toISOString().split('T')[0];
+            const pid = 'apegramma-' + dateStr;
+
+            state.puzzleId = pid;
+            state.puzzle = { ...puzzle, id: pid, author: 'Apegramma Daily (Offline)' };
+
+            state.foundWords = [];
+            state.score = 0;
+            state.currentInput = '';
+
+            saveLocalState();
+            renderPuzzle();
+            updateScoreUI();
+            renderFoundWords();
+            renderMultiplayerBanner();
+            updateLanguageUI();
+            showMessage(t('apegrammLoaded'), 2000);
+
+            if (shouldBroadcast && state.multiplayer.roomCode) {
+                syncPuzzleToFirebase(state.puzzleId);
+            }
+        } catch (localErr) {
+            console.error(localErr);
+            showMessage(t('errorLoadingApegramma'), 3000);
+        }
+    }
+}
+
+
+// Switch language and reload puzzle
+function switchLanguage(langCode) {
+    if (!LANGUAGE_CONFIG[langCode]) return;
+
+    // Confirmation if in multiplayer active room
+    if (state.multiplayer.roomCode && state.multiplayer.step === 'active') {
+        const confirmed = confirm(t('confirmChangeGame'));
+        if (!confirmed) return;
+    }
+
+    // Save preference
+    state.language = langCode;
+    localStorage.setItem('sb_language', langCode);
+
+    // Reset game state for new language
+    state.foundWords = [];
+    state.score = 0;
+    state.currentInput = '';
+
+    // Load new random puzzle for the language (or daily if preferred, but random is safer)
+    const puzzles = getCurrentPuzzles();
+    const ids = Object.keys(puzzles);
+    const randomId = ids[Math.floor(Math.random() * ids.length)];
+
+    // Directly set puzzle data
+    state.puzzleId = randomId;
+    state.puzzle = puzzles[randomId];
+
+    saveLocalState();
+
+    // UI Updates
+    updateLanguageUI();
+    renderPuzzle();
+    updateScoreUI();
+    renderFoundWords();
+
+    if (state.multiplayer.roomCode) {
+        syncPuzzleToFirebase(state.puzzleId);
+    } else {
+        showMessage(t('newRandomPuzzle'), 1000);
+    }
+}
+
+function updateLanguageUI() {
+    const config = LANGUAGE_CONFIG[state.language];
+    if (!config) return;
+
+    const flagEl = document.getElementById('lang-flag');
+    if (flagEl) flagEl.textContent = config.flag;
+
+    const dailyBtn = document.getElementById('nyt-daily-btn');
+    // Use localized title or generic
+    if (dailyBtn) dailyBtn.title = config.dailyName;
+
+    const setText = (id, key) => { const el = document.getElementById(id); if (el) el.innerText = t(key); };
+    const setPlaceholder = (id, key) => { const el = document.getElementById(id); if (el) el.placeholder = t(key); };
+
+    // Controls
+    setText('delete-btn', 'delete');
+    setText('enter-btn', 'enter');
+
+    // Toggle Button
+    const isHidden = els.wordsList.classList.contains('hidden');
+    els.toggleWordsBtn.textContent = isHidden ? t('show') : t('hide');
+
+    // Multiplayer Buttons
+    setText('save-nickname-btn', 'continue');
+    setText('create-room-btn', 'createRoom');
+    setText('join-room-btn', 'joinRoom');
+    setText('join-confirm-btn', 'join');
+    setText('join-back-btn', 'back');
+    setText('leave-room-btn', 'leaveRoom');
+
+    // Headings & Text
+    const setupP = document.querySelector('#multi-setup p');
+    if (setupP) setupP.innerText = t('chooseNickname');
+
+    const joinP = document.querySelector('#multi-join p');
+    if (joinP) joinP.innerText = t('enterRoomCode');
+
+    const multiHeader = document.querySelector('.multi-header h3');
+    if (multiHeader) multiHeader.innerText = t('multiplayer');
+
+    const rankingHeader = document.querySelector('.modal-header h2');
+    if (rankingHeader) rankingHeader.innerText = t('rankings');
+
+    // Placeholders
+    setPlaceholder('nickname-input', 'anonymous');
+    setPlaceholder('room-code-input', 'roomCode');
+
+    // Re-render dynamic text
+    if (typeof updateScoreUI === 'function') updateScoreUI();
 }
 
 function openRankingsModal() {
@@ -486,17 +738,28 @@ function generateRoomCode() {
 async function joinFirebaseRoom(code, show = true) {
     const cleanCode = code.toLowerCase().trim();
     const ref = doc(db, 'rooms', cleanCode);
+    const snap = await getDoc(ref);
+    if (!snap.exists()) throw new Error("Room not found");
+
     await updateDoc(ref, { [`players.${state.playerId}`]: { nickname: state.multiplayer.nickname, online: true, lastActive: Timestamp.now() } });
-    state.multiplayer.roomCode = cleanCode; state.multiplayer.step = 'active'; saveLocalState();
+
+    const data = snap.data();
+    state.multiplayer.roomCode = cleanCode; // Lowercase ID
+    state.multiplayer.displayCode = data.code || cleanCode; // Mixed display
+    state.multiplayer.step = 'active';
+    saveLocalState();
+
     subscribeToRoom(cleanCode);
-    renderMultiplayerBanner(); // Always update banner
+    renderMultiplayerBanner();
     if (show) renderMultiplayerScreen();
 }
 
 async function handleCreateRoom() {
-    const code = generateRoomCode().toLowerCase(); // Ensure lowercase
+    const code = generateRoomCode(); // Mixed
+    const id = code.toLowerCase(); // ID
     const p = state.puzzle;
-    await setDoc(doc(db, 'rooms', code), {
+    await setDoc(doc(db, 'rooms', id), {
+        code: code, // specific display code
         puzzleId: state.puzzleId,
         createdAt: Timestamp.now(),
         players: { [state.playerId]: { nickname: state.multiplayer.nickname, online: true, lastActive: Timestamp.now() } },
@@ -508,7 +771,7 @@ async function handleCreateRoom() {
 function handleConfirmJoin() {
     const code = els.multi.roomCodeInput.value.trim().toLowerCase();
     if (!code) return;
-    joinFirebaseRoom(code).catch(e => showMessage("Room not found", 2000));
+    joinFirebaseRoom(code).catch(e => showMessage(t('roomNotFound'), 2000));
 }
 
 let unsub = null;
@@ -537,7 +800,7 @@ function subscribeToRoom(code) {
                     changed = true;
                     if (finderId !== state.playerId) {
                         const name = getDisplayName(finderId, d.players || {});
-                        showMessage(`${name} found ${w}`, 2000);
+                        showMessage(`${name} ${t('foundWord')} ${w}`, 2000);
                     }
                 }
             });
@@ -554,6 +817,14 @@ function subscribeToRoom(code) {
                 updateScoreUI();
             }
         }
+
+        // Handle Language Sync
+        if (d.language && d.language !== state.language) {
+            state.language = d.language;
+            localStorage.setItem('sb_language', d.language);
+            updateLanguageUI();
+        }
+
         if (d.puzzleId && d.puzzleId !== state.puzzleId) loadPuzzleById(d.puzzleId);
     });
 }
@@ -576,7 +847,7 @@ function renderTeammates() {
         const name = getDisplayName(p.playerId, players);
         div.innerHTML = `
             <div class="player-status ${p.online ? 'online' : 'offline'}"></div>
-            <span>${name} ${p.playerId === state.playerId ? '(You)' : ''}</span>
+            <span>${name} ${p.playerId === state.playerId ? `(${t('you')})` : ''}</span>
         `;
         els.multi.playerList.appendChild(div);
     });
@@ -590,7 +861,7 @@ function renderMultiplayerScreen() {
     if (step === 'nickname') els.multi.stepNickname.classList.remove('hidden');
     else if (step === 'menu') { els.multi.stepMenu.classList.remove('hidden'); els.multi.displayNickname.innerText = state.multiplayer.nickname; }
     else if (step === 'join') els.multi.stepJoin.classList.remove('hidden');
-    else if (step === 'active') { els.multi.stepActive.classList.remove('hidden'); els.multi.activeRoomCode.innerText = state.multiplayer.roomCode; renderTeammates(); }
+    else if (step === 'active') { els.multi.stepActive.classList.remove('hidden'); els.multi.activeRoomCode.innerText = state.multiplayer.displayCode || state.multiplayer.roomCode; renderTeammates(); }
 }
 
 function handleSaveNickname() {
@@ -611,7 +882,7 @@ function handleSaveNickname() {
     }
 }
 
-function handleLeaveRoom() { if (confirm("Leave?")) { state.multiplayer.roomCode = null; state.multiplayer.step = 'menu'; saveLocalState(); location.reload(); } }
+function handleLeaveRoom() { if (confirm(t('leaveRoomConfirm'))) { state.multiplayer.roomCode = null; state.multiplayer.step = 'menu'; saveLocalState(); location.reload(); } }
 function handleEditNickname() {
     const n = prompt("New nickname:", state.multiplayer.nickname);
     if (n && n.trim()) {
@@ -637,14 +908,20 @@ function submitWordToFirebase(word) {
         });
     }
 }
+// Sync puzzle to Firebase
 async function syncPuzzleToFirebase(pid) {
     if (!state.multiplayer.roomCode) return;
-    const ref = doc(db, 'rooms', state.multiplayer.roomCode);
-    const snap = await getDoc(ref);
-    if (snap.exists() && snap.data().puzzleId === pid) return; // Skip if same
-    await updateDoc(ref, { puzzleId: pid, foundWords: {} });
+    try {
+        const ref = doc(db, 'rooms', state.multiplayer.roomCode.toLowerCase());
+        // Sync Language AND Puzzle atomically
+        await updateDoc(ref, {
+            puzzleId: pid,
+            language: state.language,
+            foundWords: {}
+        });
+    } catch (e) { console.warn("Sync failed", e); }
 }
-function renderMultiplayerBanner() { if (state.multiplayer.roomCode) { els.multi.banner.classList.remove('hidden'); els.multi.bannerRoomCode.innerText = state.multiplayer.roomCode; } else els.multi.banner.classList.add('hidden'); }
+function renderMultiplayerBanner() { if (state.multiplayer.roomCode) { els.multi.banner.classList.remove('hidden'); els.multi.bannerRoomCode.innerText = state.multiplayer.displayCode || state.multiplayer.roomCode; } else els.multi.banner.classList.add('hidden'); }
 function shuffleLetters() {
     if (!state.puzzle) return;
     const letters = state.puzzle.letters.slice(1);

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Spelling Bee",
-  "version": "2.6.0",
+  "version": "3.0.0",
   "description": "A NYT-style Spelling Bee game.",
   "permissions": [
     "storage"
@@ -10,10 +10,12 @@
     "https://nytbee.com/*",
     "https://*.firebaseio.com/*",
     "https://*.googleapis.com/*",
-    "http://127.0.0.1:8080/*"
+    "http://127.0.0.1:8080/*",
+    "https://www.corriere.it/*",
+    "https://www.laregione.ch/*"
   ],
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://nytbee.com https://*.firebaseio.com https://*.googleapis.com http://127.0.0.1:8080 ws://127.0.0.1:8080;"
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://nytbee.com https://*.firebaseio.com https://*.googleapis.com http://127.0.0.1:8080 ws://127.0.0.1:8080 https://www.corriere.it https://www.laregione.ch;"
   },
   "action": {
     "default_popup": "popup.html",

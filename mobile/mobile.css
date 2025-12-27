@@ -157,6 +157,41 @@ header {
     background: rgba(255, 255, 255, 0.15);
 }
 
+/* Language Dropdown Menu */
+.dropdown-menu {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background-color: rgba(30, 30, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 4px 0;
+    z-index: 200;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-menu button:active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#lang-flag {
+    font-size: 1.2rem;
+}
+
 .input-area {
     display: flex;
     justify-content: center;

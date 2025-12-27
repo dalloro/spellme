@@ -1,11 +1,14 @@
 {
     "name": "spelling-bee-extension",
-    "version": "2.6.0",
+    "version": "3.0.0",
     "repository": "https://github.com/dalloro/spelling-bee-extension.git",
     "description": "Chrome extension for the Spelling Bee game",
     "scripts": {
         "build": "node scripts/build.js",
-        "watch": "esbuild popup.js --bundle --outfile=dist/popup_bundle.js --watch"
+        "watch": "esbuild popup.js --bundle --outfile=dist/popup_bundle.js --watch",
+        "test": "vitest run",
+        "generate:dictionary:it": "node scripts/generate-italian-dictionary.js",
+        "generate:puzzles:it": "node scripts/generate-italian-puzzles.js"
     },
     "dependencies": {
         "firebase": "^11.1.0"
@@ -18,6 +21,9 @@
         "@semantic-release/npm": "^13.1.3",
         "archiver": "^7.0.1",
         "esbuild": "^0.24.2",
-        "semantic-release": "^25.0.2"
+        "firebase-admin": "^13.6.0",
+        "jsdom": "^27.4.0",
+        "semantic-release": "^25.0.2",
+        "vitest": "^4.0.16"
     }
 }

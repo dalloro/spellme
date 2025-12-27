@@ -82,4 +82,19 @@ This command:
 5. Zips the extension for distribution.
 
 ---
+
+### 🇮🇹 Italian Language Support
+The Italian version uses an expanded dictionary (~4.2M words) for puzzle generation. To keep the extension lightweight, the full dictionary is **excluded** from the production bundle.
+
+**To generate more Italian puzzles:**
+```bash
+# 1. Ensure the raw dictionary is present (lang/it/raw_dictionary.txt)
+# 2. Process the dictionary
+npm run generate:dictionary:it
+# 3. Append 1000 new unique puzzles
+npm run generate:puzzles:it
+```
+The generator automatically tracks existing puzzles to ensure no duplicates are created.
+
+---
 *Maintained with care* 🐝

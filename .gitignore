@@ -3,3 +3,5 @@ node_modules/
 *.log
 dist/
 *.zip
+lang/it/raw_dictionary.txt
+lang/it/words_it.js
