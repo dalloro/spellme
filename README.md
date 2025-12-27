@@ -7,7 +7,7 @@ A clean, modern implementation of the Spelling Bee word game, featuring official
 The easiest way to play is to install the Chrome Extension:
 [![Download Latest ZIP](https://img.shields.io/badge/Download-Latest%20ZIP-brightgreen?style=for-the-badge&logo=github)](https://github.com/dalloro/spelling-bee-extension/releases/latest/download/spelling-bee-extension-v2.6.0.zip)
 
-*To install: Download the zip, hexport it, go to `chrome://extensions/`, enable "Developer Mode", and click "Load unpacked" on the folder.*
+*To install: Download the zip, extract it into a folder, go to `chrome://extensions/`, enable "Developer Mode", and click "Load unpacked" on the folder.*
 
 ## 🏗️ Architecture (Dual-Project)
 
