@@ -199,7 +199,23 @@ function selectDailyPuzzle() {
 
 function selectRandomPuzzle() {
   const puzzles = getCurrentPuzzles();
-  const index = Math.floor(Math.random() * Object.keys(puzzles).length);
+  const keys = Object.keys(puzzles);
+  if (keys.length <= 1) {
+    if (keys.length === 1) loadPuzzle(0); // Fail safe
+    return;
+  }
+
+  let index;
+  let attempts = 0;
+  // Get current ID if numeric (random puzzles are numeric)
+  const currentId = typeof state.puzzleId === 'number' ? state.puzzleId : -1;
+
+  do {
+    const randomKey = Math.floor(Math.random() * keys.length);
+    index = parseInt(keys[randomKey]); // Assuming keys are "0", "1"... which they are.
+    attempts++;
+  } while (index === currentId && attempts < 10);
+
   loadPuzzle(index);
   showMessage(t('newRandomPuzzle'), 1000);
 
