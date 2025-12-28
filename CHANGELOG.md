@@ -1,3 +1,10 @@
+# [4.4.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.3.1...v4.4.0) (2025-12-28)
+
+
+### Features
+
+* implement automated room cleanup via GitHub Actions (Zero Billing) ([8e5ccf7](https://github.com/dalloro/spelling-bee-extension/commit/8e5ccf73b6a9f8ad0faa64bf2744734cf4fc4f97))
+
 ## [4.3.1](https://github.com/dalloro/spelling-bee-extension/compare/v4.3.0...v4.3.1) (2025-12-28)
 
 
