@@ -9,15 +9,19 @@ The easiest way to play is to install the Chrome Extension:
 
 *To install: Download the zip, extract it into a folder, go to `chrome://extensions/`, enable "Developer Mode", and click "Load unpacked" on the folder.*
 
-## 🏗️ Architecture (Dual-Project)
+## 🏗️ Architecture
 
-The project uses a split Firebase architecture for maximum isolation and security:
-- **Project A (Relay)**: Handles the Firestore multiplayer backend (`spelling-bee-relay-1025`).
-- **Project B (Hosting)**: Hosts the standalone mobile web app (`spelling-bee-mobile`).
+The project is structured around three core components that work together to provide a seamless gaming experience:
 
-## 📱 Mobile Web App
-The touch-optimized web version is live at:
-🔗 **[https://spelling-bee-mobile.web.app/](https://spelling-bee-mobile.web.app/)**
+### 1. 📡 Real-Time Game Relay
+A dedicated Firebase backend that acts as the multiplayer engine. It manages live room synchronization, tracks guessed words across teammates, and ensures a shared game state in real-time using Firestore.
+
+### 2. 📱 Mobile-First Web App
+A fully responsive web application optimized for mobile browsers, but equally functional on desktop. It allows users to play directly in their browser without any installation.
+🔗 **Live at: [https://spelling-bee-mobile.web.app/](https://spelling-bee-mobile.web.app/)**
+
+### 3. 🧩 Chrome Extension
+A companion extension that provides instant, embedded access to the game via a browser action popup. It’s the perfect way to jump into a puzzle quickly while browsing.
 
 ---
 
