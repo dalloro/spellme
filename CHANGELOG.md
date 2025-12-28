@@ -1,3 +1,11 @@
+## [4.4.2](https://github.com/dalloro/spelling-bee-extension/compare/v4.4.1...v4.4.2) (2025-12-28)
+
+
+### Bug Fixes
+
+* disable double-tap zoom on mobile devices ([60121a7](https://github.com/dalloro/spelling-bee-extension/commit/60121a7bf893f19e5571358da6a8451f435ba125))
+* move blinking cursor to the end of the typed word ([97c43d7](https://github.com/dalloro/spelling-bee-extension/commit/97c43d7525c4da583ff2dea06e24d77abd8ad8db))
+
 ## [4.4.1](https://github.com/dalloro/spelling-bee-extension/compare/v4.4.0...v4.4.1) (2025-12-28)
 
 
