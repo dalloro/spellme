@@ -1,5 +1,5 @@
 // MIT License
-// Copyright (c) 2025 dalloro
+// Copyright (c) 2025 Livio Dalloro
 // See LICENSE file for details.
 
 // Firebase Imports - v2.3.2

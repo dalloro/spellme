@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // MIT License
-// Copyright (c) 2025 dalloro
+// Copyright (c) 2025 Livio Dalloro
 // See LICENSE file for details.
 
 /**
