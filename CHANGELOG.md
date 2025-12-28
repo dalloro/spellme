@@ -1,3 +1,10 @@
+## [4.2.1](https://github.com/dalloro/spelling-bee-extension/compare/v4.2.0...v4.2.1) (2025-12-28)
+
+
+### Bug Fixes
+
+* resolve Italian random game responsiveness in web app ([506a367](https://github.com/dalloro/spelling-bee-extension/commit/506a3676fbaa0310fa3a38cce59c4f43ea1ec83d))
+
 # [4.2.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.1.1...v4.2.0) (2025-12-28)
 
 
