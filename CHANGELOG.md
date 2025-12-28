@@ -1,3 +1,10 @@
+## [4.5.3](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.2...v4.5.3) (2025-12-28)
+
+
+### Bug Fixes
+
+* automate version sync, resolve extension sharing silence, and disable mobile pinch-zoom ([7c6b21f](https://github.com/dalloro/spelling-bee-extension/commit/7c6b21ffb7a702229906f4c2a61c5065d8ca5407))
+
 ## [4.5.2](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.1...v4.5.2) (2025-12-28)
 
 
