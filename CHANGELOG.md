@@ -1,3 +1,10 @@
+## [4.5.2](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.1...v4.5.2) (2025-12-28)
+
+
+### Bug Fixes
+
+* resolve extension share button failure with clipboardWrite permission and robust feedback ([eeac8b5](https://github.com/dalloro/spelling-bee-extension/commit/eeac8b521b641734103ac1e2a44eed732289b9e1))
+
 ## [4.5.1](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.0...v4.5.1) (2025-12-28)
 
 
