@@ -1,3 +1,10 @@
+# [4.5.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.4.2...v4.5.0) (2025-12-28)
+
+
+### Features
+
+* implement URL-based room sharing across platforms ([149e27f](https://github.com/dalloro/spelling-bee-extension/commit/149e27f7c3738d960a06d8ab4b8a4ca6f0f89c8a))
+
 ## [4.4.2](https://github.com/dalloro/spelling-bee-extension/compare/v4.4.1...v4.4.2) (2025-12-28)
 
 
