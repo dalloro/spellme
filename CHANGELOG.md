@@ -1,3 +1,10 @@
+# [4.3.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.2.1...v4.3.0) (2025-12-28)
+
+
+### Features
+
+* implement Firestore TTL (168h) for multiplayer rooms ([e4fe55e](https://github.com/dalloro/spelling-bee-extension/commit/e4fe55e4e228392c2971d5205b490558ffe34eb3))
+
 ## [4.2.1](https://github.com/dalloro/spelling-bee-extension/compare/v4.2.0...v4.2.1) (2025-12-28)
 
 
