@@ -24,28 +24,49 @@ const db = admin.firestore();
 
 async function cleanup() {
     console.log("Starting room cleanup...");
-
-    // Find rooms where expiresAt is in the past
     const now = admin.firestore.Timestamp.now();
-    const snapshot = await db.collection('rooms')
+    const sevenDaysAgo = admin.firestore.Timestamp.fromMillis(Date.now() - 168 * 60 * 60 * 1000);
+
+    const toDelete = new Set();
+
+    // 1. Cleanup by expiresAt (New rooms)
+    const expiredSnapshot = await db.collection('rooms')
         .where('expiresAt', '<', now)
-        .limit(500) // Firestore batch limit
+        .get();
+    expiredSnapshot.forEach(doc => toDelete.add(doc.ref));
+    console.log(`Found ${expiredSnapshot.size} rooms expired by 'expiresAt'.`);
+
+    // 2. Cleanup by createdAt (Legacy rooms or forgot to refresh)
+    // We check rooms created > 7 days ago. If they don't have a future 'expiresAt', we delete them.
+    const legacySnapshot = await db.collection('rooms')
+        .where('createdAt', '<', sevenDaysAgo)
         .get();
 
-    if (snapshot.empty) {
-        console.log("No expired rooms found.");
+    legacySnapshot.forEach(doc => {
+        const data = doc.data();
+        // If it has NO expiresAt, it's a legacy room -> Delete.
+        // If it HAS expiresAt but it's in the past -> Already handled or delete.
+        if (!data.expiresAt || data.expiresAt.toMillis() < Date.now()) {
+            toDelete.add(doc.ref);
+        }
+    });
+    console.log(`Checked ${legacySnapshot.size} old rooms. Total unique deletions: ${toDelete.size}`);
+
+    if (toDelete.size === 0) {
+        console.log("No rooms to delete.");
         return;
     }
 
-    console.log(`Found ${snapshot.size} expired rooms. Deleting...`);
-
     const batch = db.batch();
-    snapshot.forEach(doc => {
-        batch.delete(doc.ref);
-    });
+    let count = 0;
+    for (const ref of toDelete) {
+        batch.delete(ref);
+        count++;
+        if (count >= 500) break; // Firestore batch limit
+    }
 
     await batch.commit();
-    console.log("Batch deletion committed successfully.");
+    console.log(`Batch deletion of ${count} rooms committed successfully.`);
 }
 
 cleanup()
