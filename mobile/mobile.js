@@ -751,7 +751,11 @@ async function joinFirebaseRoom(code, show = true) {
     const snap = await getDoc(ref);
     if (!snap.exists()) throw new Error("Room not found");
 
-    await updateDoc(ref, { [`players.${state.playerId}`]: { nickname: state.multiplayer.nickname, online: true, lastActive: Timestamp.now() } });
+    const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
+    await updateDoc(ref, {
+        [`players.${state.playerId}`]: { nickname: state.multiplayer.nickname, online: true, lastActive: Timestamp.now() },
+        expiresAt: expiresAt
+    });
 
     const data = snap.data();
     state.multiplayer.roomCode = cleanCode; // Lowercase ID
@@ -798,10 +802,12 @@ async function handleCreateRoom() {
     const code = generateRoomCode(); // Mixed
     const id = code.toLowerCase(); // ID
     const p = state.puzzle;
+    const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
     await setDoc(doc(db, 'rooms', id), {
         code: code, // specific display code
         puzzleId: state.puzzleId,
         createdAt: Timestamp.now(),
+        expiresAt: expiresAt,
         players: { [state.playerId]: { nickname: state.multiplayer.nickname, online: true, lastActive: Timestamp.now() } },
         foundWords: {}
     });
@@ -943,8 +949,10 @@ function handleEditNickname() {
 
 function submitWordToFirebase(word) {
     if (state.multiplayer.roomCode) {
+        const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
         updateDoc(doc(db, 'rooms', state.multiplayer.roomCode), {
-            [`foundWords.${word}`]: state.playerId // Store playerId instead of nickname
+            [`foundWords.${word}`]: state.playerId,
+            expiresAt: expiresAt
         });
     }
 }

@@ -1,3 +1,7 @@
+// MIT License
+// Copyright (c) 2025 Livio Dalloro
+// See LICENSE file for details.
+
 // Italian Puzzles for Spelling Bee
 // Generated from Italian word dictionary
 // Total puzzles: 1000

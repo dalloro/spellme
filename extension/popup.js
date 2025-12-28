@@ -667,12 +667,14 @@ async function joinFirebaseRoom(roomCode, showScreen = true) {
 
   // Add/update player in players map
   const playerKey = `players.${state.playerId}`;
+  const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
   await updateDoc(roomRef, {
     [playerKey]: {
       nickname: state.multiplayer.nickname,
       online: true,
       lastActive: Timestamp.now()
-    }
+    },
+    expiresAt: expiresAt
   });
 
   const data = snapshot.data();
@@ -729,6 +731,7 @@ async function createFirebaseRoom() {
 
   const initialData = {
     createdAt: Timestamp.now(),
+    expiresAt: Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000),
     code: roomCode, // Store mixed-case for display
     puzzleId: state.puzzleId,
     language: state.language,
@@ -842,7 +845,11 @@ function startHeartbeat(roomCode) {
     try {
       const roomRef = doc(db, 'rooms', roomCode);
       const playerKey = `players.${state.playerId}.lastActive`;
-      await updateDoc(roomRef, { [playerKey]: Timestamp.now() });
+      const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
+      await updateDoc(roomRef, {
+        [playerKey]: Timestamp.now(),
+        expiresAt: expiresAt
+      });
     } catch (e) {
       console.warn("Heartbeat failed:", e);
     }
@@ -856,7 +863,11 @@ async function submitWordToFirebase(word) {
   if (!state.multiplayer.roomCode) return;
   const roomRef = doc(db, 'rooms', state.multiplayer.roomCode);
   const wordKey = `foundWords.${word}`;
-  await updateDoc(roomRef, { [wordKey]: state.playerId }); // Store playerId instead of nickname
+  const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
+  await updateDoc(roomRef, {
+    [wordKey]: state.playerId,
+    expiresAt: expiresAt
+  });
 }
 
 async function syncPuzzleToFirebase(puzzleId) {

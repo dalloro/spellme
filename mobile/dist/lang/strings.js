@@ -1,6 +1,10 @@
 // UI String Localization for Multi-Language Spelling Bee
 // Contains all user-facing strings in English and Italian
 
+// MIT License
+// Copyright (c) 2025 Livio Dalloro
+// See LICENSE file for details.
+
 const STRINGS = {
     en: {
         // Validation messages
