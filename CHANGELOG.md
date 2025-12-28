@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.0.3...v4.1.0) (2025-12-28)
+
+
+### Features
+
+* implement puzzle balancing logic for English and Italian ([5f232ff](https://github.com/dalloro/spelling-bee-extension/commit/5f232fff1ba619c75a048ac7226798d548701be1))
+
 ## [4.0.3](https://github.com/dalloro/spelling-bee-extension/compare/v4.0.2...v4.0.3) (2025-12-28)
 
 
