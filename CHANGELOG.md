@@ -1,3 +1,10 @@
+## [4.4.1](https://github.com/dalloro/spelling-bee-extension/compare/v4.4.0...v4.4.1) (2025-12-28)
+
+
+### Bug Fixes
+
+* update cleanup script to handle legacy rooms without expiresAt ([19c90bd](https://github.com/dalloro/spelling-bee-extension/commit/19c90bd74229f583f3e5abc6fb445d027edf8f05))
+
 # [4.4.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.3.1...v4.4.0) (2025-12-28)
 
 
