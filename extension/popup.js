@@ -784,41 +784,74 @@ async function createFirebaseRoom() {
   return roomCode;
 }
 
-async function handleShareRoom() {
-  const originalText = els.multi.shareRoomBtnMenu ? els.multi.shareRoomBtnMenu.innerText : null;
+async function handleShareRoom(e) {
+  const btn = e.currentTarget;
+  const originalHtml = btn.innerHTML;
+  const isMenuBtn = btn.id === 'share-room-btn-menu';
 
   if (!state.multiplayer.roomCode) {
     try {
-      if (els.multi.shareRoomBtnMenu) els.multi.shareRoomBtnMenu.innerText = state.language === 'it' ? 'Creazione stanza...' : 'Creating room...';
+      btn.disabled = true;
+      if (isMenuBtn) {
+        btn.innerText = state.language === 'it' ? 'Creazione stanza...' : 'Creating room...';
+      }
       await createFirebaseRoom();
     } catch (e) {
       console.error("Failed to create room for sharing:", e);
-      if (originalText && els.multi.shareRoomBtnMenu) els.multi.shareRoomBtnMenu.innerText = originalText;
+      btn.innerHTML = originalHtml;
+      btn.disabled = false;
+      alert(state.language === 'it' ? 'Errore nella creazione della stanza.' : 'Failed to create room.');
       return;
     }
   }
 
-  if (originalText && els.multi.shareRoomBtnMenu) els.multi.shareRoomBtnMenu.innerText = originalText;
+  btn.innerHTML = originalHtml;
+  btn.disabled = false;
 
-  const code = state.multiplayer.displayCode || state.multiplayer.roomCode.toUpperCase();
+  const code = (state.multiplayer.displayCode || state.multiplayer.roomCode || '').toUpperCase();
+  if (!code) return;
+
   // Point to the mobile web app URL for sharing
   const url = `https://spelling-bee-mobile.web.app/?room=${code}`;
 
   copyToClipboard(url);
 }
 
-function copyToClipboard(text) {
-  // Robust method for extensions
+async function copyToClipboard(text) {
+  try {
+    // Try modern API first (now with manifest permission)
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+      const msg = state.language === 'it' ? 'Link copiato!' : 'Link copied!';
+      showMessage(msg, 2000);
+      return;
+    }
+  } catch (err) {
+    console.warn('Modern clipboard API failed, trying fallback', err);
+  }
+
+  // Fallback: Textarea method
   const textArea = document.createElement("textarea");
   textArea.value = text;
+  // Ensure it's not visible but still works
+  textArea.style.position = "fixed";
+  textArea.style.left = "-9999px";
+  textArea.style.top = "0";
   document.body.appendChild(textArea);
+  textArea.focus();
   textArea.select();
   try {
-    document.execCommand('copy');
-    const msg = state.language === 'it' ? 'Link copiato!' : 'Link copied!';
-    showMessage(msg, 2000);
+    const successful = document.execCommand('copy');
+    if (successful) {
+      const msg = state.language === 'it' ? 'Link copiato!' : 'Link copied!';
+      showMessage(msg, 2000);
+    } else {
+      throw new Error('execCommand returned false');
+    }
   } catch (err) {
     console.error('Fallback copy failed', err);
+    // Ultimate fallback for extension if everything fails: alert the user with the link
+    prompt(state.language === 'it' ? 'Copia questo link:' : 'Copy this link:', text);
   }
   document.body.removeChild(textArea);
 }
