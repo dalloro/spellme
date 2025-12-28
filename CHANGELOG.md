@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/dalloro/spelling-bee-extension/compare/v4.3.0...v4.3.1) (2025-12-28)
+
+
+### Bug Fixes
+
+* ensure expiresAt is updated on puzzle sync ([41181d6](https://github.com/dalloro/spelling-bee-extension/commit/41181d6344024bee6f1c79c7f294936de3c12140))
+
 # [4.3.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.2.1...v4.3.0) (2025-12-28)
 
 
