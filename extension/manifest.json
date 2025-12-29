@@ -13,10 +13,11 @@
     "https://*.googleapis.com/*",
     "http://127.0.0.1:8080/*",
     "https://www.corriere.it/*",
-    "https://www.laregione.ch/*"
+    "https://www.laregione.ch/*",
+    "https://corsproxy.io/*"
   ],
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://nytbee.com https://*.firebaseio.com https://*.googleapis.com http://127.0.0.1:8080 ws://127.0.0.1:8080 https://www.corriere.it https://www.laregione.ch;"
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://nytbee.com https://*.firebaseio.com https://*.googleapis.com http://127.0.0.1:8080 ws://127.0.0.1:8080 https://www.corriere.it https://www.laregione.ch https://corsproxy.io;"
   },
   "action": {
     "default_popup": "popup.html",

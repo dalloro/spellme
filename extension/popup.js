@@ -474,8 +474,10 @@ async function loadNYTDailyPuzzle(shouldBroadcast = true) {
 async function loadApegrammaDailyPuzzle(shouldBroadcast = true) {
   showMessage(t('fetchingApegramma'), 2000);
   try {
-    // Attempt scraping from laregione.ch
-    const response = await fetch('https://www.laregione.ch/giochi/apegramma');
+    // Attempt scraping from laregione.ch via proxy (matches webapp for reliability)
+    const proxyUrl = "https://corsproxy.io/?";
+    const targetUrl = encodeURIComponent('https://www.laregione.ch/giochi/apegramma');
+    const response = await fetch(proxyUrl + targetUrl);
     if (!response.ok) throw new Error("Fetch failed");
     const html = await response.text();
     const match = html.match(/<div[^>]*id="jsonDati"[^>]*>(.*?)<\/div>/);
@@ -502,6 +504,7 @@ async function loadApegrammaDailyPuzzle(shouldBroadcast = true) {
 
     const dateStr = new Date().toISOString().split('T')[0];
     const pid = 'apegramma-' + dateStr;
+    const isNewPuzzle = state.puzzleId !== pid;
 
     state.puzzleId = pid;
     state.puzzle = {
