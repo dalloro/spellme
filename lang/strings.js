@@ -89,7 +89,9 @@ const STRINGS = {
         // Language
         language: "Language",
         english: "English",
-        italiano: "Italiano"
+        italiano: "Italiano",
+        scoreLabel: "Score:",
+        newRandomPuzzleTitle: "New Random Puzzle"
     },
 
     it: {
@@ -175,7 +177,9 @@ const STRINGS = {
         // Language
         language: "Lingua",
         english: "English",
-        italiano: "Italiano"
+        italiano: "Italiano",
+        scoreLabel: "Punteggio:",
+        newRandomPuzzleTitle: "Nuovo puzzle casuale"
     }
 };
 

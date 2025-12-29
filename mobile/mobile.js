@@ -698,6 +698,12 @@ function updateLanguageUI() {
 
     const setText = (id, key) => { const el = document.getElementById(id); if (el) el.innerText = t(key); };
     const setPlaceholder = (id, key) => { const el = document.getElementById(id); if (el) el.placeholder = t(key); };
+    const setTitle = (id, key) => { const el = document.getElementById(id); if (el) el.title = t(key); };
+
+    setTitle('multiplayer-btn', 'multiplayer');
+    setTitle('lang-btn', 'language');
+    setTitle('restart-btn', 'newRandomPuzzleTitle');
+    setText('score-label', 'scoreLabel');
 
     // Controls
     setText('delete-btn', 'delete');
