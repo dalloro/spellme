@@ -1,3 +1,10 @@
+## [4.6.1](https://github.com/dalloro/spelling-bee-extension/compare/v4.6.0...v4.6.1) (2025-12-29)
+
+
+### Bug Fixes
+
+* **ux:** clean mobile share link text and localize extension tooltip ([71f3df1](https://github.com/dalloro/spelling-bee-extension/commit/71f3df1ba9a226b8d88f950d939f0c958cb10ba3))
+
 # [4.6.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.12...v4.6.0) (2025-12-29)
 
 
