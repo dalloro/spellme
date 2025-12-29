@@ -1,3 +1,10 @@
+## [4.5.7](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.6...v4.5.7) (2025-12-29)
+
+
+### Bug Fixes
+
+* **multiplayer:** robust real-time cleanup and heartbeat for mobile ([7c4a7c8](https://github.com/dalloro/spelling-bee-extension/commit/7c4a7c88337c69a0df0c8c55db32f3b2450c4e7b))
+
 ## [4.5.6](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.5...v4.5.6) (2025-12-29)
 
 
