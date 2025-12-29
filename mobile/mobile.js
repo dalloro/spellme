@@ -11,6 +11,7 @@ import { validateWord as coreValidateWord, findWordsForLetters } from '../utils/
 import { LEVELS, LANGUAGE_CONFIG } from '../utils/constants.js';
 import { generateRoomCode } from '../utils/multiplayer.js';
 import { fetchNYTDailyPuzzle, fetchApegrammaDailyPuzzle } from '../utils/puzzle-loaders.js';
+import { submitWordToFirebase as coreSubmitWord, syncPuzzleToFirebase as coreSyncPuzzle, sendHeartbeat as coreSendHeartbeat } from '../utils/firebase-sync.js';
 
 // Firebase config (Injected at build time via esbuild)
 const firebaseConfig = {
@@ -839,17 +840,9 @@ function handleConfirmJoin() {
     joinFirebaseRoom(code).catch(e => showMessage(t('roomNotFound'), 2000));
 }
 
+// sendHeartbeat wrapper using shared firebase-sync.js
 async function sendHeartbeat() {
-    if (!state.multiplayer.roomCode) return;
-    const ref = doc(db, 'rooms', state.multiplayer.roomCode);
-    try {
-        await updateDoc(ref, {
-            [`players.${state.playerId}.online`]: true,
-            [`players.${state.playerId}.lastActive`]: Timestamp.now()
-        });
-    } catch (e) {
-        console.warn("Heartbeat failed:", e);
-    }
+    await coreSendHeartbeat(db, state.multiplayer.roomCode, state.playerId);
 }
 
 function subscribeToRoom(code) {
@@ -1003,29 +996,14 @@ function handleEditNickname() {
     }
 }
 
+// submitWordToFirebase wrapper using shared firebase-sync.js
 function submitWordToFirebase(word) {
-    if (state.multiplayer.roomCode) {
-        const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
-        updateDoc(doc(db, 'rooms', state.multiplayer.roomCode), {
-            [`foundWords.${word}`]: state.playerId,
-            expiresAt: expiresAt
-        });
-    }
+    coreSubmitWord(db, state.multiplayer.roomCode, word, state.playerId);
 }
-// Sync puzzle to Firebase
+
+// syncPuzzleToFirebase wrapper using shared firebase-sync.js
 async function syncPuzzleToFirebase(pid) {
-    if (!state.multiplayer.roomCode) return;
-    try {
-        const ref = doc(db, 'rooms', state.multiplayer.roomCode.toLowerCase());
-        // Sync Language AND Puzzle atomically
-        const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
-        await updateDoc(ref, {
-            puzzleId: pid,
-            language: state.language,
-            foundWords: {},
-            expiresAt: expiresAt
-        });
-    } catch (e) { console.warn("Sync failed", e); }
+    await coreSyncPuzzle(db, state.multiplayer.roomCode, pid, state.language);
 }
 function renderMultiplayerBanner() { if (state.multiplayer.roomCode) { els.multi.banner.classList.remove('hidden'); els.multi.bannerRoomCode.innerText = state.multiplayer.displayCode || state.multiplayer.roomCode; } else els.multi.banner.classList.add('hidden'); }
 function shuffleLetters() {

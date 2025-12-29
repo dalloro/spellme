@@ -11,6 +11,7 @@ import { validateWord as coreValidateWord, findWordsForLetters } from '../utils/
 import { LEVELS, LANGUAGE_CONFIG } from '../utils/constants.js';
 import { generateRoomCode } from '../utils/multiplayer.js';
 import { fetchNYTDailyPuzzle, fetchApegrammaDailyPuzzle } from '../utils/puzzle-loaders.js';
+import { submitWordToFirebase as coreSubmitWord, syncPuzzleToFirebase as coreSyncPuzzle, sendHeartbeat as coreSendHeartbeat } from '../utils/firebase-sync.js';
 
 // Firebase config (Injected at build time via esbuild)
 const firebaseConfig = {
@@ -871,54 +872,21 @@ function subscribeToRoom(roomCode) {
 
 let heartbeatInterval = null;
 
+// startHeartbeat wrapper using shared firebase-sync.js
 function startHeartbeat(roomCode) {
   if (heartbeatInterval) clearInterval(heartbeatInterval);
-
-  const sendHeartbeat = async () => {
-    try {
-      const roomRef = doc(db, 'rooms', roomCode);
-      const playerKey = `players.${state.playerId}.lastActive`;
-      const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
-      await updateDoc(roomRef, {
-        [playerKey]: Timestamp.now(),
-        expiresAt: expiresAt
-      });
-    } catch (e) {
-      console.warn("Heartbeat failed:", e);
-    }
-  };
-
-  sendHeartbeat(); // Initial
-  heartbeatInterval = setInterval(sendHeartbeat, 30000); // Every 30s
+  coreSendHeartbeat(db, roomCode, state.playerId); // Initial
+  heartbeatInterval = setInterval(() => coreSendHeartbeat(db, roomCode, state.playerId), 30000);
 }
 
+// submitWordToFirebase wrapper using shared firebase-sync.js
 async function submitWordToFirebase(word) {
-  if (!state.multiplayer.roomCode) return;
-  const roomRef = doc(db, 'rooms', state.multiplayer.roomCode);
-  const wordKey = `foundWords.${word}`;
-  const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
-  await updateDoc(roomRef, {
-    [wordKey]: state.playerId,
-    expiresAt: expiresAt
-  });
+  await coreSubmitWord(db, state.multiplayer.roomCode, word, state.playerId);
 }
 
+// syncPuzzleToFirebase wrapper using shared firebase-sync.js
 async function syncPuzzleToFirebase(puzzleId) {
-  if (!state.multiplayer.roomCode) return;
-  try {
-    const roomId = state.multiplayer.roomCode.toLowerCase();
-    const roomRef = doc(db, 'rooms', roomId);
-    const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
-    // Don't check for existence/difference here, force update to ensure language sync
-    await updateDoc(roomRef, {
-      puzzleId: puzzleId,
-      language: state.language,
-      foundWords: {},
-      expiresAt: expiresAt
-    });
-  } catch (err) {
-    console.error("Error syncing puzzle:", err);
-  }
+  await coreSyncPuzzle(db, state.multiplayer.roomCode, puzzleId, state.language);
 }
 
 async function leaveFirebaseRoom() {
