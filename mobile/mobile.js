@@ -804,12 +804,10 @@ async function handleShareRoom() {
 
     const code = state.multiplayer.displayCode || state.multiplayer.roomCode.toUpperCase();
     const url = `${window.location.origin}${window.location.pathname}?room=${code}`;
-    const shareText = state.language === 'it' ? 'Entra nella mia stanza di Spelling Bee!' : 'Join my Spelling Bee room!';
 
     if (navigator.share) {
         navigator.share({
-            title: 'Spelling Bee Multiplayer',
-            text: shareText,
+            title: 'Spelling Bee Team Play',
             url: url
         }).catch(() => copyToClipboard(url));
     } else {

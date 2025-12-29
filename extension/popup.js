@@ -576,6 +576,10 @@ function updateLanguageUI() {
   // Re-render things that depend on language
   renderFoundWords();
   updateScoreUI();
+
+  // Localize tooltips
+  const multiBtn = document.getElementById('multiplayer-btn');
+  if (multiBtn) multiBtn.title = t('multiplayer');
 }
 
 // Load appropriate daily puzzle based on current language
