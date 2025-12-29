@@ -12,6 +12,7 @@ import { LEVELS, LANGUAGE_CONFIG } from '../utils/constants.js';
 import { generateRoomCode } from '../utils/multiplayer.js';
 import { fetchNYTDailyPuzzle, fetchApegrammaDailyPuzzle } from '../utils/puzzle-loaders.js';
 import { submitWordToFirebase as coreSubmitWord, syncPuzzleToFirebase as coreSyncPuzzle, sendHeartbeat as coreSendHeartbeat } from '../utils/firebase-sync.js';
+import { createRoom as coreCreateRoom, addPlayerToRoom, removePlayerFromRoom } from '../utils/room-manager.js';
 
 // Firebase config (Injected at build time via esbuild)
 const firebaseConfig = {
@@ -729,17 +730,8 @@ function openRankingsModal() {
 
 async function joinFirebaseRoom(code, show = true) {
     const cleanCode = code.toLowerCase().trim();
-    const ref = doc(db, 'rooms', cleanCode);
-    const snap = await getDoc(ref);
-    if (!snap.exists()) throw new Error("Room not found");
-
-    const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
-    await updateDoc(ref, {
-        [`players.${state.playerId}`]: { nickname: state.multiplayer.nickname, online: true, lastActive: Timestamp.now() },
-        expiresAt: expiresAt
-    });
-
-    const data = snap.data();
+    // Use shared addPlayerToRoom to join and get room data
+    const data = await addPlayerToRoom(db, cleanCode, state.playerId, state.multiplayer.nickname);
     state.multiplayer.roomCode = cleanCode; // Lowercase ID
     state.multiplayer.displayCode = data.code || cleanCode; // Mixed display
     state.multiplayer.step = 'active';
@@ -785,20 +777,11 @@ async function joinFirebaseRoom(code, show = true) {
     }
 }
 
+// handleCreateRoom using shared room-manager.js
 async function handleCreateRoom() {
-    const code = generateRoomCode(); // Mixed
-    const id = code.toLowerCase(); // ID
-    const p = state.puzzle;
-    const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
-    await setDoc(doc(db, 'rooms', id), {
-        code: code, // specific display code
-        puzzleId: state.puzzleId,
-        language: state.language, // also sync language on create
-        createdAt: Timestamp.now(),
-        expiresAt: expiresAt,
-        players: { [state.playerId]: { nickname: state.multiplayer.nickname, online: true, lastActive: Timestamp.now() } },
-        foundWords: {}
-    });
+    const code = generateRoomCode();
+    const id = code.toLowerCase();
+    await coreCreateRoom(db, id, code, state.puzzleId, state.language, state.playerId, state.multiplayer.nickname);
     await joinFirebaseRoom(code);
 }
 
@@ -961,17 +944,11 @@ function handleSaveNickname() {
     }
 }
 
+// handleLeaveRoom using shared room-manager.js
 async function handleLeaveRoom() {
     if (confirm(t('leaveRoomConfirm'))) {
         if (heartbeatInterval) clearInterval(heartbeatInterval);
-        if (state.multiplayer.roomCode) {
-            const ref = doc(db, 'rooms', state.multiplayer.roomCode);
-            try {
-                await updateDoc(ref, { [`players.${state.playerId}`]: deleteField() });
-            } catch (e) {
-                console.warn("Error removing player on leave:", e);
-            }
-        }
+        await removePlayerFromRoom(db, state.multiplayer.roomCode, state.playerId);
         state.multiplayer.roomCode = null;
         state.multiplayer.step = 'menu';
         saveLocalState();

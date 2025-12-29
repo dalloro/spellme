@@ -12,6 +12,7 @@ import { LEVELS, LANGUAGE_CONFIG } from '../utils/constants.js';
 import { generateRoomCode } from '../utils/multiplayer.js';
 import { fetchNYTDailyPuzzle, fetchApegrammaDailyPuzzle } from '../utils/puzzle-loaders.js';
 import { submitWordToFirebase as coreSubmitWord, syncPuzzleToFirebase as coreSyncPuzzle, sendHeartbeat as coreSendHeartbeat } from '../utils/firebase-sync.js';
+import { createRoom as coreCreateRoom, addPlayerToRoom, removePlayerFromRoom } from '../utils/room-manager.js';
 
 // Firebase config (Injected at build time via esbuild)
 const firebaseConfig = {
@@ -600,25 +601,10 @@ async function joinFirebaseRoom(roomCode, showScreen = true) {
     }
   }
   cleanCode = cleanCode.toLowerCase();
-  const roomRef = doc(db, 'rooms', cleanCode);
-  const snapshot = await getDoc(roomRef);
-  if (!snapshot.exists()) {
-    throw new Error("Room not found");
-  }
 
-  // Add/update player in players map
-  const playerKey = `players.${state.playerId}`;
-  const expiresAt = Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000);
-  await updateDoc(roomRef, {
-    [playerKey]: {
-      nickname: state.multiplayer.nickname,
-      online: true,
-      lastActive: Timestamp.now()
-    },
-    expiresAt: expiresAt
-  });
+  // Use shared addPlayerToRoom to join and get room data
+  const data = await addPlayerToRoom(db, cleanCode, state.playerId, state.multiplayer.nickname);
 
-  const data = snapshot.data();
   state.multiplayer.roomCode = cleanCode; // ID must be lowercase
   state.multiplayer.displayCode = data.code || cleanCode; // Display Mixed
   state.multiplayer.step = 'active';
@@ -665,34 +651,18 @@ async function joinFirebaseRoom(roomCode, showScreen = true) {
   }
 }
 
+// createFirebaseRoom using shared room-manager.js
 async function createFirebaseRoom() {
   const roomCode = generateRoomCode();
   const roomId = roomCode.toLowerCase();
-  const roomRef = doc(db, 'rooms', roomId);
 
-  const initialData = {
-    createdAt: Timestamp.now(),
-    expiresAt: Timestamp.fromMillis(Date.now() + 168 * 60 * 60 * 1000),
-    code: roomCode, // Store mixed-case for display
-    puzzleId: state.puzzleId,
-    language: state.language,
-    foundWords: {},
-    players: {
-      [state.playerId]: {
-        nickname: state.multiplayer.nickname,
-        online: true,
-        lastActive: Timestamp.now()
-      }
-    }
-  };
-
-  await setDoc(roomRef, initialData);
+  await coreCreateRoom(db, roomId, roomCode, state.puzzleId, state.language, state.playerId, state.multiplayer.nickname);
 
   subscribeToRoom(roomId);
   startHeartbeat(roomId);
 
-  state.multiplayer.roomCode = roomId; // ID must be lowercase
-  state.multiplayer.displayCode = roomCode; // Display Mixed
+  state.multiplayer.roomCode = roomId;
+  state.multiplayer.displayCode = roomCode;
   state.multiplayer.step = 'active';
   saveState();
   renderMultiplayerScreen();
@@ -889,16 +859,9 @@ async function syncPuzzleToFirebase(puzzleId) {
   await coreSyncPuzzle(db, state.multiplayer.roomCode, puzzleId, state.language);
 }
 
+// leaveFirebaseRoom using shared room-manager.js
 async function leaveFirebaseRoom() {
-  if (state.multiplayer.roomCode) {
-    const roomRef = doc(db, 'rooms', state.multiplayer.roomCode);
-    const playerKey = `players.${state.playerId}`;
-    try {
-      await updateDoc(roomRef, { [playerKey]: deleteField() });
-    } catch (e) {
-      console.warn("Leave room error:", e);
-    }
-  }
+  await removePlayerFromRoom(db, state.multiplayer.roomCode, state.playerId);
   if (heartbeatInterval) clearInterval(heartbeatInterval);
   if (unsubscribeRoom) unsubscribeRoom();
   state.multiplayer.roomCode = null;
