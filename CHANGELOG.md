@@ -1,3 +1,10 @@
+## [4.5.12](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.11...v4.5.12) (2025-12-29)
+
+
+### Bug Fixes
+
+* **ci:** remove redundant emulator wrapper in workflow ([3254b4e](https://github.com/dalloro/spelling-bee-extension/commit/3254b4e7860755cd0454df88e69c475b81607c83))
+
 ## [4.5.11](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.10...v4.5.11) (2025-12-29)
 
 
