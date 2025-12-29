@@ -1,3 +1,10 @@
+## [4.5.8](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.7...v4.5.8) (2025-12-29)
+
+
+### Bug Fixes
+
+* **mobile:** extend localization to header button hints and score label ([54f3871](https://github.com/dalloro/spelling-bee-extension/commit/54f3871bbc9ca2400f751189a4caddb9215164cc))
+
 ## [4.5.7](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.6...v4.5.7) (2025-12-29)
 
 
