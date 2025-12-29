@@ -1,3 +1,10 @@
+# [4.6.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.12...v4.6.0) (2025-12-29)
+
+
+### Features
+
+* **ux:** rename multiplayer to team play and add total words to rankings ([fb59e40](https://github.com/dalloro/spelling-bee-extension/commit/fb59e40e55fb803f666a902dea43504475d0b4a5))
+
 ## [4.5.12](https://github.com/dalloro/spelling-bee-extension/compare/v4.5.11...v4.5.12) (2025-12-29)
 
 
