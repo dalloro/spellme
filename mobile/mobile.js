@@ -168,7 +168,7 @@ function loadLocalState() {
     const saved = localStorage.getItem('sb_mobile_state');
     if (saved) {
         const parsed = JSON.parse(saved);
-        state = { ...state, ...parsed };
+        Object.assign(state, parsed);
     }
 }
 
@@ -282,8 +282,6 @@ function setupEventListeners() {
                 if (lang !== state.language) {
                     switchLanguage(lang);
                 }
-                // Update global reference
-                window.state = state;
             };
         });
 
@@ -755,6 +753,8 @@ function updateLanguageUI() {
 
     // Re-render dynamic text
     if (typeof updateScoreUI === 'function') updateScoreUI();
+    if (typeof renderFoundWords === 'function') renderFoundWords();
+    if (state.multiplayer.step === 'active' && typeof renderTeammates === 'function') renderTeammates();
 }
 
 function openRankingsModal() {
