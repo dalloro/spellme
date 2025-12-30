@@ -9,6 +9,12 @@ const OUTPUT_FILE = path.join(__dirname, '../lang/it/words_it_lemmas.js');
 const MAX_RANGO = 30000;
 const MIN_LENGTH = 4;
 
+// Manual Allow List for definitely common words missing from CoLFIS
+const MANUAL_ALLOW_LIST = new Set([
+    'predare',
+    'ardere'
+]);
+
 // Tags to accept (Morph-it format)
 // Only accepting base forms: Infinitive Verbs, Masculine Singular Nouns/Adjectives
 const VALID_TAGS = [
