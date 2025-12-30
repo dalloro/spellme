@@ -132,6 +132,13 @@ async function processWords() {
     console.log(`  Filtered (Rare/Not in CoLFIS): ${stats.rare}`);
     console.log(`  Kept Valid Lemmas: ${finalSet.size}`);
 
+    // Force include manual allow list words even if they were missing from Morph-it!
+    MANUAL_ALLOW_LIST.forEach(word => {
+        if (word.length >= MIN_LENGTH) {
+            finalSet.add(word);
+        }
+    });
+
     // 3. Write Output
     const sortedWords = Array.from(finalSet).sort();
     const jsContent = `// Italian Lemma Dictionary for Spelling Bee
