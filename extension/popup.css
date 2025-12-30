@@ -22,10 +22,16 @@ See LICENSE file for details.
 
 /* Total Words Row Style */
 .total-words-row {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
   font-weight: bold;
   border-bottom: 2px solid #ddd;
   margin-bottom: 5px;
-  padding-bottom: 5px;
+  padding: 10px 0;
+  color: #fff;
+  min-height: 24px;
+  width: 100%;
 }
 
 body {
