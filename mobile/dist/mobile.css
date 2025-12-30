@@ -245,6 +245,14 @@ header {
     }
 }
 
+/* Total Words Row Style */
+.total-words-row {
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
 /* Hive Styling - Polished Math */
 .hive-container {
     flex: 1;

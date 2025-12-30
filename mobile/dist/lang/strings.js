@@ -51,13 +51,14 @@ const STRINGS = {
         show: "Show",
 
         // Multiplayer
-        multiplayer: "Multiplayer",
+        multiplayer: "Team Play",
         createRoom: "Create Room",
         joinRoom: "Join Room",
         joinRoomManually: "Join Room manually",
         leaveRoom: "Leave Room",
         shareRoomLink: "Share Room Link",
         roomCode: "ROOM CODE",
+        totalWords: "Total words",
         room: "Room",
         players: "Players",
         edit: "edit",
@@ -91,7 +92,8 @@ const STRINGS = {
         english: "English",
         italiano: "Italiano",
         scoreLabel: "Score:",
-        newRandomPuzzleTitle: "New Random Puzzle"
+        newRandomPuzzleTitle: "New Random Puzzle",
+        loadDailyPuzzleTitle: "Load Daily Puzzle"
     },
 
     it: {
@@ -139,13 +141,14 @@ const STRINGS = {
         show: "Mostra",
 
         // Multiplayer
-        multiplayer: "Multigiocatore",
+        multiplayer: "Gioco di Squadra",
         createRoom: "Crea Stanza",
         joinRoom: "Entra in Stanza",
         joinRoomManually: "Entra in stanza manualmente",
         leaveRoom: "Esci dalla Stanza",
         shareRoomLink: "Condividi l'indirizzo della stanza",
         roomCode: "CODICE STANZA",
+        totalWords: "Parole totali",
         room: "Stanza",
         players: "Giocatori",
         edit: "modifica",
@@ -179,7 +182,8 @@ const STRINGS = {
         english: "English",
         italiano: "Italiano",
         scoreLabel: "Punteggio:",
-        newRandomPuzzleTitle: "Nuovo puzzle casuale"
+        newRandomPuzzleTitle: "Nuovo puzzle casuale",
+        loadDailyPuzzleTitle: "Carica Puzzle Quotidiano"
     }
 };
 
