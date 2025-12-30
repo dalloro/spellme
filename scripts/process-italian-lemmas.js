@@ -9,7 +9,7 @@ const OUTPUT_FILE = path.join(__dirname, '../lang/it/words_it_lemmas.js');
 const MAX_RANGO = 50000;
 const MIN_LENGTH = 4;
 
-// Manual Allow List for definitely common words missing from CoLFIS
+// Manual Allow List for definitely common words missing from CoLFIS or filtered by POS
 const MANUAL_ALLOW_LIST = new Set([
     'predare',
     'ardere',
@@ -17,11 +17,25 @@ const MANUAL_ALLOW_LIST = new Set([
     'pomo',
     'omone',
     'marrano',
-    'mormone'
+    'mormone',
+    'sotto',
+    'finito',
+    'molto',
+    'bene',
+    'male',
+    'prima',
+    'dopo',
+    'sopra',
+    'dentro',
+    'fuori',
+    'oggi',
+    'ieri',
+    'domani'
 ]);
 
 // Tags to accept (Morph-it format)
 // Only accepting base forms: Infinitive Verbs, Masculine Singular Nouns/Adjectives
+// Adding Adverbs, Prepositions as they are base forms.
 const VALID_TAGS = [
     'VER:inf',      // Verb Infinitive (e.g., VER:inf+pres)
     'NOUN-M:s',     // Noun Masculine Singular
@@ -29,7 +43,10 @@ const VALID_TAGS = [
     'NOUN:s',       // Generic Singular Noun
     'ADJ:pos+m+s',  // Adjective Masculine Singular (Correct Morph-it tag)
     'ADJ:pos+f+s',  // Adjective Feminine Singular (Correct Morph-it tag)
-    'ADJ:s'         // Generic Singular Adjective (Fallback)
+    'ADJ:s',        // Generic Singular Adjective (Fallback)
+    'ADV',          // Adverbs (e.g., bene, male, sotto)
+    'PRE',          // Prepositions (e.g., sotto, sopra)
+    'CON'           // Conjunctions
 ];
 
 async function processWords() {
