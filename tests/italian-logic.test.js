@@ -1,5 +1,6 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { describe, test, expect, beforeAll } from 'vitest';
 
 describe('Italian Game Logic', () => {
     let puzzles;
