@@ -1,3 +1,10 @@
+## [4.6.4](https://github.com/dalloro/spelling-bee-extension/compare/v4.6.3...v4.6.4) (2025-12-30)
+
+
+### Bug Fixes
+
+* **popup:** force visibility of total words row with css ([de7c8df](https://github.com/dalloro/spelling-bee-extension/commit/de7c8dff7029486467303cd63a35cc0ef92d333e))
+
 ## [4.6.3](https://github.com/dalloro/spelling-bee-extension/compare/v4.6.2...v4.6.3) (2025-12-30)
 
 
