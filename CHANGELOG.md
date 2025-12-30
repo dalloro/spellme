@@ -1,3 +1,11 @@
+# [4.9.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.8.0...v4.9.0) (2025-12-30)
+
+
+### Features
+
+* **it:** expand dictionary to 50k Rango and add more common words ([54b6e4c](https://github.com/dalloro/spelling-bee-extension/commit/54b6e4cf31d990dc6b06d470e5ed06440abaf82a))
+* **ui:** refactor header into two rows and add github link ([5985622](https://github.com/dalloro/spelling-bee-extension/commit/5985622ee05d845442ce9cd38a76ca7ad526c4cb))
+
 # [4.8.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.7.0...v4.8.0) (2025-12-30)
 
 
