@@ -92,7 +92,8 @@ const STRINGS = {
         english: "English",
         italiano: "Italiano",
         scoreLabel: "Score:",
-        newRandomPuzzleTitle: "New Random Puzzle"
+        newRandomPuzzleTitle: "New Random Puzzle",
+        loadDailyPuzzleTitle: "Load Daily Puzzle"
     },
 
     it: {
@@ -181,7 +182,8 @@ const STRINGS = {
         english: "English",
         italiano: "Italiano",
         scoreLabel: "Punteggio:",
-        newRandomPuzzleTitle: "Nuovo puzzle casuale"
+        newRandomPuzzleTitle: "Nuovo puzzle casuale",
+        loadDailyPuzzleTitle: "Carica Puzzle Quotidiano"
     }
 };
 

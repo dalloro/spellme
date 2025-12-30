@@ -580,6 +580,16 @@ function updateLanguageUI() {
   // Localize tooltips
   const multiBtn = document.getElementById('multiplayer-btn');
   if (multiBtn) multiBtn.title = t('multiplayer');
+
+  const dailyBtn = document.getElementById('nyt-daily-btn');
+  if (dailyBtn) dailyBtn.title = t('loadDailyPuzzleTitle');
+
+  const restartBtn = document.getElementById('restart-btn');
+  if (restartBtn) restartBtn.title = t('newRandomPuzzleTitle');
+
+  // Localize Score Label
+  const scoreLabel = document.getElementById('score-label');
+  if (scoreLabel) scoreLabel.innerText = t('scoreLabel');
 }
 
 // Load appropriate daily puzzle based on current language
