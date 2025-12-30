@@ -1,3 +1,10 @@
+# [4.10.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.9.0...v4.10.0) (2025-12-30)
+
+
+### Features
+
+* **it:** properly expand dictionary and regenerate puzzles with all requested words ([6ae13bb](https://github.com/dalloro/spelling-bee-extension/commit/6ae13bb8e4d9e05238e0e06f7862033d954fb51c))
+
 # [4.9.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.8.0...v4.9.0) (2025-12-30)
 
 
