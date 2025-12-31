@@ -93,10 +93,13 @@ async function build() {
     if (fs.existsSync(MOBILE_DIST)) fs.rmSync(MOBILE_DIST, { recursive: true, force: true });
     fs.mkdirSync(MOBILE_DIST, { recursive: true });
 
+    const cacheVersion = Date.now();
+    const bundleName = `mobile_bundle_${cacheVersion}.js`;
+
     await esbuild.build({
         entryPoints: [path.join(MOBILE_SRC, 'mobile.js')],
         bundle: true,
-        outfile: path.join(MOBILE_DIST, 'mobile_bundle.js'),
+        outfile: path.join(MOBILE_DIST, bundleName),
         minify: true,
         sourcemap: true,
         platform: 'browser',
@@ -118,16 +121,15 @@ async function build() {
     copy(path.join(LANG_DIR, 'it/puzzles_it.js'), path.join(itLangDist, 'puzzles_it.js'));
 
     // Cache-busting and HTML cleanup for mobile
-    const cacheVersion = Date.now();
     const mobileHtmlPath = path.join(MOBILE_DIST, 'index.html');
     adjustHtml(mobileHtmlPath, '<script src="lang/it/words_it.js"></script>', '<!-- words_it.js excluded -->');
     adjustHtml(mobileHtmlPath, /mobile\.css/g, `mobile.css?v=${cacheVersion}`);
-    adjustHtml(mobileHtmlPath, /mobile_bundle\.js/g, `mobile_bundle.js?v=${cacheVersion}`);
+    adjustHtml(mobileHtmlPath, /mobile_bundle\.js/g, bundleName);
     adjustHtml(mobileHtmlPath, /words\.js/g, `words.js?v=${cacheVersion}`);
     adjustHtml(mobileHtmlPath, /puzzles\.js/g, `puzzles.js?v=${cacheVersion}`);
     adjustHtml(mobileHtmlPath, /lang\/strings\.js/g, `lang/strings.js?v=${cacheVersion}`);
 
-    console.log(`✅ Mobile Web App ready in mobile/dist/ (Version: ${cacheVersion})`);
+    console.log(`✅ Mobile Web App ready in mobile/dist/ (Bundle: ${bundleName})`);
 }
 
 function copy(src, dest) {
