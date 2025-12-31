@@ -1,3 +1,11 @@
+## [4.13.2](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.1...v4.13.2) (2025-12-31)
+
+
+### Bug Fixes
+
+* **rendering:** add safety checks to prevent crash on old puzzle data structure ([feb4a0d](https://github.com/dalloro/spelling-bee-extension/commit/feb4a0de22093aa3c9a9084053e215d615dd2121))
+* **rendering:** robust shuffleLetters and additional safety ([51f93cc](https://github.com/dalloro/spelling-bee-extension/commit/51f93ccdb4671a301e1ac36f3bab96c8fe820e4d))
+
 ## [4.13.1](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.0...v4.13.1) (2025-12-31)
 
 
