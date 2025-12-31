@@ -1,3 +1,10 @@
+## [4.13.5](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.4...v4.13.5) (2025-12-31)
+
+
+### Bug Fixes
+
+* **mobile:** add versioning, critical error recovery and deep diagnostics ([7d0f3f0](https://github.com/dalloro/spelling-bee-extension/commit/7d0f3f014f3c3df8188794b27d16986beb2db646))
+
 ## [4.13.4](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.3...v4.13.4) (2025-12-31)
 
 
