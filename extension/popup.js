@@ -353,8 +353,10 @@ function shuffleLetters() {
   }
 
   els.cells.outer.forEach((cell, i) => {
-    cell.textContent = outer[i].toUpperCase();
-    cell.dataset.letter = outer[i];
+    if (outer[i]) {
+      cell.textContent = outer[i].toUpperCase();
+      cell.dataset.letter = outer[i];
+    }
     cell.style.transition = 'none';
     cell.style.transform = 'scale(0.8)';
     setTimeout(() => {

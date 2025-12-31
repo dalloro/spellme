@@ -1013,5 +1013,10 @@ function shuffleLetters() {
         const j = Math.floor(Math.random() * (i + 1));
         [letters[i], letters[j]] = [letters[j], letters[i]];
     }
-    els.cells.outer.forEach((cell, i) => { cell.textContent = letters[i].toUpperCase(); cell.dataset.letter = letters[i]; });
+    els.cells.outer.forEach((cell, i) => {
+        if (letters[i]) {
+            cell.textContent = letters[i].toUpperCase();
+            cell.dataset.letter = letters[i];
+        }
+    });
 }
