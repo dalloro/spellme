@@ -20,6 +20,20 @@ See LICENSE file for details.
 </head>
 
 <body>
+    <script>
+        // Emergency repair for broken state from previous buggy version
+        try {
+            const saved = localStorage.getItem('sb_mobile_state');
+            if (saved) {
+                const state = JSON.parse(saved);
+                if (state.puzzle && (!Array.isArray(state.puzzle.letters) || state.puzzle.letters.length < 7)) {
+                    console.warn("Repairing broken session...");
+                    localStorage.removeItem('sb_mobile_state');
+                    location.reload();
+                }
+            }
+        } catch (e) { }
+    </script>
     <div class="container mobile-container">
         <header class="two-rows">
             <div class="header-row top-row">
