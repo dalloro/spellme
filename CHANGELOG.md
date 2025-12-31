@@ -1,3 +1,10 @@
+## [4.13.6](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.5...v4.13.6) (2025-12-31)
+
+
+### Bug Fixes
+
+* **mobile:** final hardened version with atomic cache busting ([c81097a](https://github.com/dalloro/spelling-bee-extension/commit/c81097a04006637d00614c8cc98ec8a723cac942))
+
 ## [4.13.5](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.4...v4.13.5) (2025-12-31)
 
 
