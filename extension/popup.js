@@ -311,6 +311,17 @@ async function loadState() {
 function renderPuzzle() {
   const p = state.puzzle;
   if (!p) return;
+
+  // Safety check: Ensure letters is an array of 7 elements
+  if (!Array.isArray(p.letters) || p.letters.length < 7) {
+    console.warn("Invalid puzzle format detected. Resetting...");
+    state.puzzle = null;
+    state.puzzleId = null;
+    saveState();
+    setTimeout(() => selectRandomPuzzle(), 100);
+    return;
+  }
+
   els.cells.center.textContent = p.letters[0].toUpperCase();
   els.cells.center.dataset.letter = p.letters[0];
   updateOuterLetters();
@@ -318,10 +329,16 @@ function renderPuzzle() {
 
 function updateOuterLetters() {
   const p = state.puzzle;
+  if (!p || !Array.isArray(p.letters)) return;
   const outerLetters = p.letters.slice(1);
   els.cells.outer.forEach((cell, i) => {
-    cell.textContent = outerLetters[i].toUpperCase();
-    cell.dataset.letter = outerLetters[i];
+    if (outerLetters[i]) {
+      cell.textContent = outerLetters[i].toUpperCase();
+      cell.dataset.letter = outerLetters[i];
+    } else {
+      cell.textContent = '';
+      cell.dataset.letter = '';
+    }
   });
 }
 

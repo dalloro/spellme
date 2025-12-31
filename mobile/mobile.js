@@ -242,11 +242,28 @@ function selectRandomPuzzle() {
 
 function renderPuzzle() {
     if (!state.puzzle) return;
+
+    // Safety check: Ensure letters is an array of 7 elements
+    if (!Array.isArray(state.puzzle.letters) || state.puzzle.letters.length < 7) {
+        console.warn("Invalid puzzle format detected. Resetting...");
+        state.puzzle = null;
+        state.puzzleId = null;
+        saveLocalState();
+        setTimeout(() => selectRandomPuzzle(), 100);
+        return;
+    }
+
     els.cells.center.textContent = state.puzzle.letters[0].toUpperCase();
     const outer = state.puzzle.letters.slice(1);
     els.cells.outer.forEach((cell, i) => {
-        cell.textContent = outer[i].toUpperCase();
-        cell.dataset.letter = outer[i];
+        // Double check for individual items
+        if (outer[i]) {
+            cell.textContent = outer[i].toUpperCase();
+            cell.dataset.letter = outer[i];
+        } else {
+            cell.textContent = '';
+            cell.dataset.letter = '';
+        }
     });
 }
 
