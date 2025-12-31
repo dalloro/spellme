@@ -1,9 +1,16 @@
 // Pre-computed English Puzzles (Overhauled)
 // word count: 30-70, target score: 250.
 const PUZZLES = {
-  "eabistu": {
-    "center": "e",
-    "letters": "abistu",
+  "0": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "i",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "abuse",
       "abuses",
@@ -61,9 +68,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "eaclnru": {
-    "center": "e",
-    "letters": "aclnru",
+  "1": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "l",
+      "n",
+      "r",
+      "u"
+    ],
     "words": [
       "acne",
       "acre",
@@ -126,9 +140,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "racdelw": {
-    "center": "r",
-    "letters": "acdelw",
+  "2": {
+    "letters": [
+      "r",
+      "a",
+      "c",
+      "d",
+      "e",
+      "l",
+      "w"
+    ],
     "words": [
       "acre",
       "arcade",
@@ -190,9 +211,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "eabcilr": {
-    "center": "e",
-    "letters": "abcilr",
+  "3": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "c",
+      "i",
+      "l",
+      "r"
+    ],
     "words": [
       "able",
       "acre",
@@ -252,9 +280,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "ebglnos": {
-    "center": "e",
-    "letters": "bglnos",
+  "4": {
+    "letters": [
+      "e",
+      "b",
+      "g",
+      "l",
+      "n",
+      "o",
+      "s"
+    ],
     "words": [
       "bell",
       "belle",
@@ -315,9 +350,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "eacdhpt": {
-    "center": "e",
-    "letters": "acdhpt",
+  "5": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "d",
+      "h",
+      "p",
+      "t"
+    ],
     "words": [
       "accept",
       "accepted",
@@ -376,9 +418,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "acdehpt": {
-    "center": "a",
-    "letters": "cdehpt",
+  "6": {
+    "letters": [
+      "a",
+      "c",
+      "d",
+      "e",
+      "h",
+      "p",
+      "t"
+    ],
     "words": [
       "accept",
       "accepted",
@@ -442,9 +491,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "rdefmop": {
-    "center": "r",
-    "letters": "defmop",
+  "7": {
+    "letters": [
+      "r",
+      "d",
+      "e",
+      "f",
+      "m",
+      "o",
+      "p"
+    ],
     "words": [
       "deeper",
       "deer",
@@ -509,9 +565,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "ebdhort": {
-    "center": "e",
-    "letters": "bdhort",
+  "8": {
+    "letters": [
+      "e",
+      "b",
+      "d",
+      "h",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "beer",
       "beet",
@@ -568,9 +631,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "ladefrt": {
-    "center": "l",
-    "letters": "adefrt",
+  "9": {
+    "letters": [
+      "l",
+      "a",
+      "d",
+      "e",
+      "f",
+      "r",
+      "t"
+    ],
     "words": [
       "alert",
       "alerted",
@@ -633,9 +703,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "ednprtv": {
-    "center": "e",
-    "letters": "dnprtv",
+  "10": {
+    "letters": [
+      "e",
+      "d",
+      "n",
+      "p",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -693,9 +770,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "ndefiot": {
-    "center": "n",
-    "letters": "defiot",
+  "11": {
+    "letters": [
+      "n",
+      "d",
+      "e",
+      "f",
+      "i",
+      "o",
+      "t"
+    ],
     "words": [
       "defend",
       "defended",
@@ -753,9 +837,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "hadenrt": {
-    "center": "h",
-    "letters": "adenrt",
+  "12": {
+    "letters": [
+      "h",
+      "a",
+      "d",
+      "e",
+      "n",
+      "r",
+      "t"
+    ],
     "words": [
       "adhere",
       "ahead",
@@ -812,9 +903,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "oelnstv": {
-    "center": "o",
-    "letters": "elnstv",
+  "13": {
+    "letters": [
+      "o",
+      "e",
+      "l",
+      "n",
+      "s",
+      "t",
+      "v"
+    ],
     "words": [
       "evolve",
       "leone",
@@ -884,9 +982,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "nadeghi": {
-    "center": "n",
-    "letters": "adeghi",
+  "14": {
+    "letters": [
+      "n",
+      "a",
+      "d",
+      "e",
+      "g",
+      "h",
+      "i"
+    ],
     "words": [
       "again",
       "ageing",
@@ -943,9 +1048,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "ehmorsw": {
-    "center": "e",
-    "letters": "hmorsw",
+  "15": {
+    "letters": [
+      "e",
+      "h",
+      "m",
+      "o",
+      "r",
+      "s",
+      "w"
+    ],
     "words": [
       "error",
       "errors",
@@ -1002,9 +1114,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "eablrvy": {
-    "center": "e",
-    "letters": "ablrvy",
+  "16": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "l",
+      "r",
+      "v",
+      "y"
+    ],
     "words": [
       "abbey",
       "able",
@@ -1067,9 +1186,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "lacenry": {
-    "center": "l",
-    "letters": "acenry",
+  "17": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "e",
+      "n",
+      "r",
+      "y"
+    ],
     "words": [
       "alley",
       "ally",
@@ -1123,9 +1249,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "pacehis": {
-    "center": "p",
-    "letters": "acehis",
+  "18": {
+    "letters": [
+      "p",
+      "a",
+      "c",
+      "e",
+      "h",
+      "i",
+      "s"
+    ],
     "words": [
       "apache",
       "apaches",
@@ -1179,9 +1312,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "laehrty": {
-    "center": "l",
-    "letters": "aehrty",
+  "19": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "h",
+      "r",
+      "t",
+      "y"
+    ],
     "words": [
       "alert",
       "alley",
@@ -1240,9 +1380,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "laefrty": {
-    "center": "l",
-    "letters": "aefrty",
+  "20": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "f",
+      "r",
+      "t",
+      "y"
+    ],
     "words": [
       "alert",
       "alley",
@@ -1304,9 +1451,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "beilstu": {
-    "center": "b",
-    "letters": "eilstu",
+  "21": {
+    "letters": [
+      "b",
+      "e",
+      "i",
+      "l",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "beet",
       "beetle",
@@ -1363,9 +1517,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "racelny": {
-    "center": "r",
-    "letters": "acelny",
+  "22": {
+    "letters": [
+      "r",
+      "a",
+      "c",
+      "e",
+      "l",
+      "n",
+      "y"
+    ],
     "words": [
       "acre",
       "aeryn",
@@ -1423,9 +1584,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "daeorsu": {
-    "center": "d",
-    "letters": "aeorsu",
+  "23": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "o",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "address",
       "addressed",
@@ -1486,9 +1654,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "eablsuv": {
-    "center": "e",
-    "letters": "ablsuv",
+  "24": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "l",
+      "s",
+      "u",
+      "v"
+    ],
     "words": [
       "able",
       "abuse",
@@ -1551,9 +1726,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "adenorw": {
-    "center": "a",
-    "letters": "denorw",
+  "25": {
+    "letters": [
+      "a",
+      "d",
+      "e",
+      "n",
+      "o",
+      "r",
+      "w"
+    ],
     "words": [
       "adored",
       "adorn",
@@ -1619,9 +1801,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "nghiosw": {
-    "center": "n",
-    "letters": "ghiosw",
+  "26": {
+    "letters": [
+      "n",
+      "g",
+      "h",
+      "i",
+      "o",
+      "s",
+      "w"
+    ],
     "words": [
       "going",
       "goon",
@@ -1674,9 +1863,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "tadeisv": {
-    "center": "t",
-    "letters": "adeisv",
+  "27": {
+    "letters": [
+      "t",
+      "a",
+      "d",
+      "e",
+      "i",
+      "s",
+      "v"
+    ],
     "words": [
       "aditi",
       "asset",
@@ -1732,9 +1928,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "abceilr": {
-    "center": "a",
-    "letters": "bceilr",
+  "28": {
+    "letters": [
+      "a",
+      "b",
+      "c",
+      "e",
+      "i",
+      "l",
+      "r"
+    ],
     "words": [
       "able",
       "acre",
@@ -1801,9 +2004,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "lacertv": {
-    "center": "l",
-    "letters": "acertv",
+  "29": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "e",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "alert",
       "altar",
@@ -1860,9 +2070,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "labcert": {
-    "center": "l",
-    "letters": "abcert",
+  "30": {
+    "letters": [
+      "l",
+      "a",
+      "b",
+      "c",
+      "e",
+      "r",
+      "t"
+    ],
     "words": [
       "able",
       "alert",
@@ -1923,9 +2140,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "teghosu": {
-    "center": "t",
-    "letters": "eghosu",
+  "31": {
+    "letters": [
+      "t",
+      "e",
+      "g",
+      "h",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "ghetto",
       "ghost",
@@ -1981,9 +2205,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "hceostu": {
-    "center": "h",
-    "letters": "ceostu",
+  "32": {
+    "letters": [
+      "h",
+      "c",
+      "e",
+      "o",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "cheese",
       "cheeses",
@@ -2042,9 +2273,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "aelnrtu": {
-    "center": "a",
-    "letters": "elnrtu",
+  "33": {
+    "letters": [
+      "a",
+      "e",
+      "l",
+      "n",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "alert",
       "altar",
@@ -2109,9 +2347,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "aehopst": {
-    "center": "a",
-    "letters": "ehopst",
+  "34": {
+    "letters": [
+      "a",
+      "e",
+      "h",
+      "o",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "appease",
       "asset",
@@ -2177,9 +2422,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "taehpry": {
-    "center": "t",
-    "letters": "aehpry",
+  "35": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "h",
+      "p",
+      "r",
+      "y"
+    ],
     "words": [
       "apart",
       "apathy",
@@ -2241,9 +2493,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "sdeiotu": {
-    "center": "s",
-    "letters": "deiotu",
+  "36": {
+    "letters": [
+      "s",
+      "d",
+      "e",
+      "i",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "deeds",
       "desist",
@@ -2299,9 +2558,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "tabegos": {
-    "center": "t",
-    "letters": "abegos",
+  "37": {
+    "letters": [
+      "t",
+      "a",
+      "b",
+      "e",
+      "g",
+      "o",
+      "s"
+    ],
     "words": [
       "abbot",
       "abbott",
@@ -2362,9 +2628,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "taegops": {
-    "center": "t",
-    "letters": "aegops",
+  "38": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "g",
+      "o",
+      "p",
+      "s"
+    ],
     "words": [
       "asset",
       "assets",
@@ -2433,9 +2706,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "acdehmt": {
-    "center": "a",
-    "letters": "cdehmt",
+  "39": {
+    "letters": [
+      "a",
+      "c",
+      "d",
+      "e",
+      "h",
+      "m",
+      "t"
+    ],
     "words": [
       "ache",
       "achmed",
@@ -2501,9 +2781,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "bdemors": {
-    "center": "b",
-    "letters": "demors",
+  "40": {
+    "letters": [
+      "b",
+      "d",
+      "e",
+      "m",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "bedroom",
       "bedrooms",
@@ -2552,9 +2839,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "badeils": {
-    "center": "b",
-    "letters": "adeils",
+  "41": {
+    "letters": [
+      "b",
+      "a",
+      "d",
+      "e",
+      "i",
+      "l",
+      "s"
+    ],
     "words": [
       "abed",
       "able",
@@ -2613,9 +2907,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "ecdhinr": {
-    "center": "e",
-    "letters": "cdhinr",
+  "42": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "h",
+      "i",
+      "n",
+      "r"
+    ],
     "words": [
       "cheer",
       "cheered",
@@ -2673,9 +2974,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "tceinsz": {
-    "center": "t",
-    "letters": "ceinsz",
+  "43": {
+    "letters": [
+      "t",
+      "c",
+      "e",
+      "i",
+      "n",
+      "s",
+      "z"
+    ],
     "words": [
       "cent",
       "cents",
@@ -2723,9 +3031,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "tabceks": {
-    "center": "t",
-    "letters": "abceks",
+  "44": {
+    "letters": [
+      "t",
+      "a",
+      "b",
+      "c",
+      "e",
+      "k",
+      "s"
+    ],
     "words": [
       "asset",
       "assets",
@@ -2785,9 +3100,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "naghisv": {
-    "center": "n",
-    "letters": "aghisv",
+  "45": {
+    "letters": [
+      "n",
+      "a",
+      "g",
+      "h",
+      "i",
+      "s",
+      "v"
+    ],
     "words": [
       "again",
       "aging",
@@ -2839,9 +3161,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "sacfort": {
-    "center": "s",
-    "letters": "acfort",
+  "46": {
+    "letters": [
+      "s",
+      "a",
+      "c",
+      "f",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "across",
       "actors",
@@ -2900,9 +3229,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "rbdehot": {
-    "center": "r",
-    "letters": "bdehot",
+  "47": {
+    "letters": [
+      "r",
+      "b",
+      "d",
+      "e",
+      "h",
+      "o",
+      "t"
+    ],
     "words": [
       "beer",
       "beret",
@@ -2957,9 +3293,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "sbcdeir": {
-    "center": "s",
-    "letters": "bcdeir",
+  "48": {
+    "letters": [
+      "s",
+      "b",
+      "c",
+      "d",
+      "e",
+      "i",
+      "r"
+    ],
     "words": [
       "bedside",
       "beers",
@@ -3007,9 +3350,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "adeflnt": {
-    "center": "a",
-    "letters": "deflnt",
+  "49": {
+    "letters": [
+      "a",
+      "d",
+      "e",
+      "f",
+      "l",
+      "n",
+      "t"
+    ],
     "words": [
       "anna",
       "antenna",
@@ -3074,9 +3424,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "laberty": {
-    "center": "l",
-    "letters": "aberty",
+  "50": {
+    "letters": [
+      "l",
+      "a",
+      "b",
+      "e",
+      "r",
+      "t",
+      "y"
+    ],
     "words": [
       "able",
       "alert",
@@ -3138,9 +3495,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "idenrtu": {
-    "center": "i",
-    "letters": "denrtu",
+  "51": {
+    "letters": [
+      "i",
+      "d",
+      "e",
+      "n",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "denied",
       "diet",
@@ -3194,9 +3558,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "laceinp": {
-    "center": "l",
-    "letters": "aceinp",
+  "52": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "e",
+      "i",
+      "n",
+      "p"
+    ],
     "words": [
       "alien",
       "alliance",
@@ -3254,9 +3625,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "ceinprs": {
-    "center": "c",
-    "letters": "einprs",
+  "53": {
+    "letters": [
+      "c",
+      "e",
+      "i",
+      "n",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "creep",
       "creeper",
@@ -3301,9 +3679,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "aceistv": {
-    "center": "a",
-    "letters": "ceistv",
+  "54": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "i",
+      "s",
+      "t",
+      "v"
+    ],
     "words": [
       "access",
       "activate",
@@ -3355,9 +3740,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "tbelmrs": {
-    "center": "t",
-    "letters": "belmrs",
+  "55": {
+    "letters": [
+      "t",
+      "b",
+      "e",
+      "l",
+      "m",
+      "r",
+      "s"
+    ],
     "words": [
       "beet",
       "beetle",
@@ -3412,9 +3804,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "nadehrt": {
-    "center": "n",
-    "letters": "adehrt",
+  "56": {
+    "letters": [
+      "n",
+      "a",
+      "d",
+      "e",
+      "h",
+      "r",
+      "t"
+    ],
     "words": [
       "anna",
       "antenna",
@@ -3471,9 +3870,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "taeglmr": {
-    "center": "t",
-    "letters": "aeglmr",
+  "57": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "g",
+      "l",
+      "m",
+      "r"
+    ],
     "words": [
       "alert",
       "altar",
@@ -3535,9 +3941,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "ladefit": {
-    "center": "l",
-    "letters": "adefit",
+  "58": {
+    "letters": [
+      "l",
+      "a",
+      "d",
+      "e",
+      "f",
+      "i",
+      "t"
+    ],
     "words": [
       "affiliated",
       "allied",
@@ -3610,9 +4023,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "eabdorw": {
-    "center": "e",
-    "letters": "abdorw",
+  "59": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "d",
+      "o",
+      "r",
+      "w"
+    ],
     "words": [
       "abed",
       "abode",
@@ -3675,9 +4095,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "ecinotv": {
-    "center": "e",
-    "letters": "cinotv",
+  "60": {
+    "letters": [
+      "e",
+      "c",
+      "i",
+      "n",
+      "o",
+      "t",
+      "v"
+    ],
     "words": [
       "cent",
       "cite",
@@ -3732,9 +4159,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "daenruw": {
-    "center": "d",
-    "letters": "aenruw",
+  "61": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "n",
+      "r",
+      "u",
+      "w"
+    ],
     "words": [
       "award",
       "awarded",
@@ -3798,9 +4232,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "eghilnt": {
-    "center": "e",
-    "letters": "ghilnt",
+  "62": {
+    "letters": [
+      "e",
+      "g",
+      "h",
+      "i",
+      "l",
+      "n",
+      "t"
+    ],
     "words": [
       "eight",
       "eighteen",
@@ -3849,9 +4290,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "daelstu": {
-    "center": "d",
-    "letters": "aelstu",
+  "63": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "l",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "adult",
       "adults",
@@ -3915,9 +4363,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "eclortu": {
-    "center": "e",
-    "letters": "clortu",
+  "64": {
+    "letters": [
+      "e",
+      "c",
+      "l",
+      "o",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "cell",
       "cello",
@@ -3976,9 +4431,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "scdehlo": {
-    "center": "s",
-    "letters": "cdehlo",
+  "65": {
+    "letters": [
+      "s",
+      "c",
+      "d",
+      "e",
+      "h",
+      "l",
+      "o"
+    ],
     "words": [
       "cells",
       "cheese",
@@ -4036,9 +4498,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "deipstu": {
-    "center": "d",
-    "letters": "eipstu",
+  "66": {
+    "letters": [
+      "d",
+      "e",
+      "i",
+      "p",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -4094,9 +4563,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "aeglrvy": {
-    "center": "a",
-    "letters": "eglrvy",
+  "67": {
+    "letters": [
+      "a",
+      "e",
+      "g",
+      "l",
+      "r",
+      "v",
+      "y"
+    ],
     "words": [
       "agree",
       "algae",
@@ -4159,9 +4635,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "rcelotu": {
-    "center": "r",
-    "letters": "celotu",
+  "68": {
+    "letters": [
+      "r",
+      "c",
+      "e",
+      "l",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "clutter",
       "collector",
@@ -4220,9 +4703,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "laegrty": {
-    "center": "l",
-    "letters": "aegrty",
+  "69": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "g",
+      "r",
+      "t",
+      "y"
+    ],
     "words": [
       "alert",
       "algae",
@@ -4278,9 +4768,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "lehistw": {
-    "center": "l",
-    "letters": "ehistw",
+  "70": {
+    "letters": [
+      "l",
+      "e",
+      "h",
+      "i",
+      "s",
+      "t",
+      "w"
+    ],
     "words": [
       "elite",
       "heel",
@@ -4340,9 +4837,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "ecilnot": {
-    "center": "e",
-    "letters": "cilnot",
+  "71": {
+    "letters": [
+      "e",
+      "c",
+      "i",
+      "l",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "cell",
       "cello",
@@ -4401,9 +4905,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "rbdegit": {
-    "center": "r",
-    "letters": "bdegit",
+  "72": {
+    "letters": [
+      "r",
+      "b",
+      "d",
+      "e",
+      "g",
+      "i",
+      "t"
+    ],
     "words": [
       "beer",
       "beret",
@@ -4462,9 +4973,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "haderty": {
-    "center": "h",
-    "letters": "aderty",
+  "73": {
+    "letters": [
+      "h",
+      "a",
+      "d",
+      "e",
+      "r",
+      "t",
+      "y"
+    ],
     "words": [
       "adhere",
       "ahead",
@@ -4521,9 +5039,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "dacensv": {
-    "center": "d",
-    "letters": "acensv",
+  "74": {
+    "letters": [
+      "d",
+      "a",
+      "c",
+      "e",
+      "n",
+      "s",
+      "v"
+    ],
     "words": [
       "accessed",
       "advance",
@@ -4574,9 +5099,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "dceinov": {
-    "center": "d",
-    "letters": "ceinov",
+  "75": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "i",
+      "n",
+      "o",
+      "v"
+    ],
     "words": [
       "code",
       "coded",
@@ -4624,9 +5156,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "adelmno": {
-    "center": "a",
-    "letters": "delmno",
+  "76": {
+    "letters": [
+      "a",
+      "d",
+      "e",
+      "l",
+      "m",
+      "n",
+      "o"
+    ],
     "words": [
       "almond",
       "alone",
@@ -4696,9 +5235,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "eadflru": {
-    "center": "e",
-    "letters": "adflru",
+  "77": {
+    "letters": [
+      "e",
+      "a",
+      "d",
+      "f",
+      "l",
+      "r",
+      "u"
+    ],
     "words": [
       "area",
       "dale",
@@ -4773,9 +5319,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "ncdegil": {
-    "center": "n",
-    "letters": "cdegil",
+  "78": {
+    "letters": [
+      "n",
+      "c",
+      "d",
+      "e",
+      "g",
+      "i",
+      "l"
+    ],
     "words": [
       "ceiling",
       "cling",
@@ -4826,9 +5379,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "lceopsu": {
-    "center": "l",
-    "letters": "ceopsu",
+  "79": {
+    "letters": [
+      "l",
+      "c",
+      "e",
+      "o",
+      "p",
+      "s",
+      "u"
+    ],
     "words": [
       "cell",
       "cello",
@@ -4896,9 +5456,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "rabelop": {
-    "center": "r",
-    "letters": "abelop",
+  "80": {
+    "letters": [
+      "r",
+      "a",
+      "b",
+      "e",
+      "l",
+      "o",
+      "p"
+    ],
     "words": [
       "apparel",
       "appear",
@@ -4965,9 +5532,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "rcenotv": {
-    "center": "r",
-    "letters": "cenotv",
+  "81": {
+    "letters": [
+      "r",
+      "c",
+      "e",
+      "n",
+      "o",
+      "t",
+      "v"
+    ],
     "words": [
       "center",
       "centre",
@@ -5020,9 +5594,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "ldemost": {
-    "center": "l",
-    "letters": "demost",
+  "82": {
+    "letters": [
+      "l",
+      "d",
+      "e",
+      "m",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "dell",
       "dole",
@@ -5088,9 +5669,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "icegnor": {
-    "center": "i",
-    "letters": "cegnor",
+  "83": {
+    "letters": [
+      "i",
+      "c",
+      "e",
+      "g",
+      "n",
+      "o",
+      "r"
+    ],
     "words": [
       "cicero",
       "coercion",
@@ -5138,9 +5726,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "ebilmos": {
-    "center": "e",
-    "letters": "bilmos",
+  "84": {
+    "letters": [
+      "e",
+      "b",
+      "i",
+      "l",
+      "m",
+      "o",
+      "s"
+    ],
     "words": [
       "bell",
       "belle",
@@ -5200,9 +5795,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "laceimr": {
-    "center": "l",
-    "letters": "aceimr",
+  "85": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "e",
+      "i",
+      "m",
+      "r"
+    ],
     "words": [
       "aerial",
       "alaric",
@@ -5263,9 +5865,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "eadginv": {
-    "center": "e",
-    "letters": "adginv",
+  "86": {
+    "letters": [
+      "e",
+      "a",
+      "d",
+      "g",
+      "i",
+      "n",
+      "v"
+    ],
     "words": [
       "aged",
       "ageing",
@@ -5325,9 +5934,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "labcden": {
-    "center": "l",
-    "letters": "abcden",
+  "87": {
+    "letters": [
+      "l",
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "n"
+    ],
     "words": [
       "able",
       "babble",
@@ -5388,9 +6004,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "cadehlr": {
-    "center": "c",
-    "letters": "adehlr",
+  "88": {
+    "letters": [
+      "c",
+      "a",
+      "d",
+      "e",
+      "h",
+      "l",
+      "r"
+    ],
     "words": [
       "ache",
       "acre",
@@ -5444,9 +6067,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "lacehrt": {
-    "center": "l",
-    "letters": "acehrt",
+  "89": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "e",
+      "h",
+      "r",
+      "t"
+    ],
     "words": [
       "alert",
       "altar",
@@ -5503,9 +6133,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "eabflpr": {
-    "center": "e",
-    "letters": "abflpr",
+  "90": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "f",
+      "l",
+      "p",
+      "r"
+    ],
     "words": [
       "able",
       "apparel",
@@ -5578,9 +6215,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "acelnru": {
-    "center": "a",
-    "letters": "celnru",
+  "91": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "l",
+      "n",
+      "r",
+      "u"
+    ],
     "words": [
       "acne",
       "acre",
@@ -5639,9 +6283,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "oehmrsw": {
-    "center": "o",
-    "letters": "ehmrsw",
+  "92": {
+    "letters": [
+      "o",
+      "e",
+      "h",
+      "m",
+      "r",
+      "s",
+      "w"
+    ],
     "words": [
       "error",
       "errors",
@@ -5703,9 +6354,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "seghotu": {
-    "center": "s",
-    "letters": "eghotu",
+  "93": {
+    "letters": [
+      "s",
+      "e",
+      "g",
+      "h",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "ghost",
       "ghosts",
@@ -5762,9 +6420,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "ncdefio": {
-    "center": "n",
-    "letters": "cdefio",
+  "94": {
+    "letters": [
+      "n",
+      "c",
+      "d",
+      "e",
+      "f",
+      "i",
+      "o"
+    ],
     "words": [
       "cocoon",
       "coffin",
@@ -5820,9 +6485,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "rbdeimo": {
-    "center": "r",
-    "letters": "bdeimo",
+  "95": {
+    "letters": [
+      "r",
+      "b",
+      "d",
+      "e",
+      "i",
+      "m",
+      "o"
+    ],
     "words": [
       "bedroom",
       "beer",
@@ -5883,9 +6555,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "hadeist": {
-    "center": "h",
-    "letters": "adeist",
+  "96": {
+    "letters": [
+      "h",
+      "a",
+      "d",
+      "e",
+      "i",
+      "s",
+      "t"
+    ],
     "words": [
       "ahead",
       "atheist",
@@ -5939,9 +6618,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "eabckst": {
-    "center": "e",
-    "letters": "abckst",
+  "97": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "c",
+      "k",
+      "s",
+      "t"
+    ],
     "words": [
       "abscess",
       "access",
@@ -6007,9 +6693,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "odefmrs": {
-    "center": "o",
-    "letters": "defmrs",
+  "98": {
+    "letters": [
+      "o",
+      "d",
+      "e",
+      "f",
+      "m",
+      "r",
+      "s"
+    ],
     "words": [
       "dodo",
       "dome",
@@ -6074,9 +6767,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "oaehlrs": {
-    "center": "o",
-    "letters": "aehlrs",
+  "99": {
+    "letters": [
+      "o",
+      "a",
+      "e",
+      "h",
+      "l",
+      "r",
+      "s"
+    ],
     "words": [
       "aloha",
       "also",
@@ -6139,9 +6839,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "sabegot": {
-    "center": "s",
-    "letters": "abegot",
+  "100": {
+    "letters": [
+      "s",
+      "a",
+      "b",
+      "e",
+      "g",
+      "o",
+      "t"
+    ],
     "words": [
       "asbestos",
       "asset",
@@ -6198,9 +6905,16 @@ const PUZZLES = {
     ],
     "maxScore": 229
   },
-  "sabelov": {
-    "center": "s",
-    "letters": "abelov",
+  "101": {
+    "letters": [
+      "s",
+      "a",
+      "b",
+      "e",
+      "l",
+      "o",
+      "v"
+    ],
     "words": [
       "absolve",
       "also",
@@ -6265,9 +6979,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "pcdeort": {
-    "center": "p",
-    "letters": "cdeort",
+  "102": {
+    "letters": [
+      "p",
+      "c",
+      "d",
+      "e",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "coop",
       "cooped",
@@ -6325,9 +7046,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "naghiks": {
-    "center": "n",
-    "letters": "aghiks",
+  "103": {
+    "letters": [
+      "n",
+      "a",
+      "g",
+      "h",
+      "i",
+      "k",
+      "s"
+    ],
     "words": [
       "again",
       "aging",
@@ -6386,9 +7114,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "radegow": {
-    "center": "r",
-    "letters": "adegow",
+  "104": {
+    "letters": [
+      "r",
+      "a",
+      "d",
+      "e",
+      "g",
+      "o",
+      "w"
+    ],
     "words": [
       "adored",
       "agree",
@@ -6455,9 +7190,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "scelmou": {
-    "center": "s",
-    "letters": "celmou",
+  "105": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "l",
+      "m",
+      "o",
+      "u"
+    ],
     "words": [
       "cells",
       "close",
@@ -6516,9 +7258,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "paeortv": {
-    "center": "p",
-    "letters": "aeortv",
+  "106": {
+    "letters": [
+      "p",
+      "a",
+      "e",
+      "o",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "apart",
       "appear",
@@ -6580,9 +7329,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "cenrstu": {
-    "center": "c",
-    "letters": "enrstu",
+  "107": {
+    "letters": [
+      "c",
+      "e",
+      "n",
+      "r",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "cent",
       "center",
@@ -6629,9 +7385,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "eabdorv": {
-    "center": "e",
-    "letters": "abdorv",
+  "108": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "d",
+      "o",
+      "r",
+      "v"
+    ],
     "words": [
       "abed",
       "abode",
@@ -6695,9 +7458,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "eacmopr": {
-    "center": "e",
-    "letters": "acmopr",
+  "109": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "m",
+      "o",
+      "p",
+      "r"
+    ],
     "words": [
       "acre",
       "appear",
@@ -6764,9 +7534,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "ielmost": {
-    "center": "i",
-    "letters": "elmost",
+  "110": {
+    "letters": [
+      "i",
+      "e",
+      "l",
+      "m",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "elite",
       "emit",
@@ -6833,9 +7610,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "definot": {
-    "center": "d",
-    "letters": "efinot",
+  "111": {
+    "letters": [
+      "d",
+      "e",
+      "f",
+      "i",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -6891,9 +7675,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "icegnpr": {
-    "center": "i",
-    "letters": "cegnpr",
+  "112": {
+    "letters": [
+      "i",
+      "c",
+      "e",
+      "g",
+      "n",
+      "p",
+      "r"
+    ],
     "words": [
       "creeping",
       "eerie",
@@ -6945,9 +7736,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "oeklnst": {
-    "center": "o",
-    "letters": "eklnst",
+  "113": {
+    "letters": [
+      "o",
+      "e",
+      "k",
+      "l",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "knoll",
       "knot",
@@ -7013,9 +7811,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "eadnpsx": {
-    "center": "e",
-    "letters": "adnpsx",
+  "114": {
+    "letters": [
+      "e",
+      "a",
+      "d",
+      "n",
+      "p",
+      "s",
+      "x"
+    ],
     "words": [
       "annex",
       "apex",
@@ -7071,9 +7876,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "rdeinow": {
-    "center": "r",
-    "letters": "deinow",
+  "115": {
+    "letters": [
+      "r",
+      "d",
+      "e",
+      "i",
+      "n",
+      "o",
+      "w"
+    ],
     "words": [
       "deer",
       "diner",
@@ -7131,9 +7943,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "echnstu": {
-    "center": "e",
-    "letters": "chnstu",
+  "116": {
+    "letters": [
+      "e",
+      "c",
+      "h",
+      "n",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "cent",
       "cents",
@@ -7186,9 +8005,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "taegnpr": {
-    "center": "t",
-    "letters": "aegnpr",
+  "117": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "g",
+      "n",
+      "p",
+      "r"
+    ],
     "words": [
       "agent",
       "antenna",
@@ -7247,9 +8073,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "sdehotu": {
-    "center": "s",
-    "letters": "dehotu",
+  "118": {
+    "letters": [
+      "s",
+      "d",
+      "e",
+      "h",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "deeds",
       "dose",
@@ -7314,9 +8147,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "eaclmor": {
-    "center": "e",
-    "letters": "aclmor",
+  "119": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "l",
+      "m",
+      "o",
+      "r"
+    ],
     "words": [
       "acre",
       "area",
@@ -7381,9 +8221,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "neprstv": {
-    "center": "n",
-    "letters": "eprstv",
+  "120": {
+    "letters": [
+      "n",
+      "e",
+      "p",
+      "r",
+      "s",
+      "t",
+      "v"
+    ],
     "words": [
       "enter",
       "enters",
@@ -7432,9 +8279,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "hcorstu": {
-    "center": "h",
-    "letters": "corstu",
+  "121": {
+    "letters": [
+      "h",
+      "c",
+      "o",
+      "r",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "chorus",
       "chou",
@@ -7490,9 +8344,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "tceilos": {
-    "center": "t",
-    "letters": "ceilos",
+  "122": {
+    "letters": [
+      "t",
+      "c",
+      "e",
+      "i",
+      "l",
+      "o",
+      "s"
+    ],
     "words": [
       "cite",
       "cities",
@@ -7556,9 +8417,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "ndegilw": {
-    "center": "n",
-    "letters": "degilw",
+  "123": {
+    "letters": [
+      "n",
+      "d",
+      "e",
+      "g",
+      "i",
+      "l",
+      "w"
+    ],
     "words": [
       "denied",
       "ding",
@@ -7609,9 +8477,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "sceiklp": {
-    "center": "s",
-    "letters": "ceiklp",
+  "124": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "i",
+      "k",
+      "l",
+      "p"
+    ],
     "words": [
       "cells",
       "clicks",
@@ -7669,9 +8544,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "eblortu": {
-    "center": "e",
-    "letters": "blortu",
+  "125": {
+    "letters": [
+      "e",
+      "b",
+      "l",
+      "o",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "beer",
       "beet",
@@ -7735,9 +8617,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "ebilrty": {
-    "center": "e",
-    "letters": "bilrty",
+  "126": {
+    "letters": [
+      "e",
+      "b",
+      "i",
+      "l",
+      "r",
+      "t",
+      "y"
+    ],
     "words": [
       "beer",
       "beet",
@@ -7794,9 +8683,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "lefiosw": {
-    "center": "l",
-    "letters": "efiosw",
+  "127": {
+    "letters": [
+      "l",
+      "e",
+      "f",
+      "i",
+      "o",
+      "s",
+      "w"
+    ],
     "words": [
       "feel",
       "feels",
@@ -7866,9 +8762,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "gaelrst": {
-    "center": "g",
-    "letters": "aelrst",
+  "128": {
+    "letters": [
+      "g",
+      "a",
+      "e",
+      "l",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "agree",
       "agrees",
@@ -7926,9 +8829,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "daeklst": {
-    "center": "d",
-    "letters": "aeklst",
+  "129": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "k",
+      "l",
+      "s",
+      "t"
+    ],
     "words": [
       "dada",
       "dale",
@@ -7985,9 +8895,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "ghiknst": {
-    "center": "g",
-    "letters": "hiknst",
+  "130": {
+    "letters": [
+      "g",
+      "h",
+      "i",
+      "k",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "gist",
       "high",
@@ -8037,9 +8954,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "oacehls": {
-    "center": "o",
-    "letters": "acehls",
+  "131": {
+    "letters": [
+      "o",
+      "a",
+      "c",
+      "e",
+      "h",
+      "l",
+      "s"
+    ],
     "words": [
       "alcohol",
       "aloha",
@@ -8099,9 +9023,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "defhins": {
-    "center": "d",
-    "letters": "efhins",
+  "132": {
+    "letters": [
+      "d",
+      "e",
+      "f",
+      "h",
+      "i",
+      "n",
+      "s"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -8158,9 +9089,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "pcdeoru": {
-    "center": "p",
-    "letters": "cdeoru",
+  "133": {
+    "letters": [
+      "p",
+      "c",
+      "d",
+      "e",
+      "o",
+      "r",
+      "u"
+    ],
     "words": [
       "coop",
       "cooped",
@@ -8216,9 +9154,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "obdersv": {
-    "center": "o",
-    "letters": "bdersv",
+  "134": {
+    "letters": [
+      "o",
+      "b",
+      "d",
+      "e",
+      "r",
+      "s",
+      "v"
+    ],
     "words": [
       "boob",
       "boobs",
@@ -8272,9 +9217,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "ecilost": {
-    "center": "e",
-    "letters": "cilost",
+  "135": {
+    "letters": [
+      "e",
+      "c",
+      "i",
+      "l",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "cell",
       "cello",
@@ -8333,9 +9285,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "oaehpst": {
-    "center": "o",
-    "letters": "aehpst",
+  "136": {
+    "letters": [
+      "o",
+      "a",
+      "e",
+      "h",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "atop",
       "hoop",
@@ -8404,9 +9363,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "abeilrv": {
-    "center": "a",
-    "letters": "beilrv",
+  "137": {
+    "letters": [
+      "a",
+      "b",
+      "e",
+      "i",
+      "l",
+      "r",
+      "v"
+    ],
     "words": [
       "able",
       "aerial",
@@ -8470,9 +9436,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "rdefipt": {
-    "center": "r",
-    "letters": "defipt",
+  "138": {
+    "letters": [
+      "r",
+      "d",
+      "e",
+      "f",
+      "i",
+      "p",
+      "t"
+    ],
     "words": [
       "deeper",
       "deer",
@@ -8536,9 +9509,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "oefilns": {
-    "center": "o",
-    "letters": "efilns",
+  "139": {
+    "letters": [
+      "o",
+      "e",
+      "f",
+      "i",
+      "l",
+      "n",
+      "s"
+    ],
     "words": [
       "felon",
       "felonies",
@@ -8598,9 +9578,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "deflors": {
-    "center": "d",
-    "letters": "eflors",
+  "140": {
+    "letters": [
+      "d",
+      "e",
+      "f",
+      "l",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -8662,9 +9649,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "nadelpt": {
-    "center": "n",
-    "letters": "adelpt",
+  "141": {
+    "letters": [
+      "n",
+      "a",
+      "d",
+      "e",
+      "l",
+      "p",
+      "t"
+    ],
     "words": [
       "anna",
       "antenna",
@@ -8722,9 +9716,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "daefrtw": {
-    "center": "d",
-    "letters": "aefrtw",
+  "142": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "f",
+      "r",
+      "t",
+      "w"
+    ],
     "words": [
       "afterward",
       "award",
@@ -8782,9 +9783,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "aeilmpr": {
-    "center": "a",
-    "letters": "eilmpr",
+  "143": {
+    "letters": [
+      "a",
+      "e",
+      "i",
+      "l",
+      "m",
+      "p",
+      "r"
+    ],
     "words": [
       "aerial",
       "alarm",
@@ -8859,9 +9867,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "scghint": {
-    "center": "s",
-    "letters": "cghint",
+  "144": {
+    "letters": [
+      "s",
+      "c",
+      "g",
+      "h",
+      "i",
+      "n",
+      "t"
+    ],
     "words": [
       "gist",
       "highs",
@@ -8909,9 +9924,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "caeorsw": {
-    "center": "c",
-    "letters": "aeorsw",
+  "145": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "o",
+      "r",
+      "s",
+      "w"
+    ],
     "words": [
       "access",
       "acre",
@@ -8965,9 +9987,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "sainotv": {
-    "center": "s",
-    "letters": "ainotv",
+  "146": {
+    "letters": [
+      "s",
+      "a",
+      "i",
+      "n",
+      "o",
+      "t",
+      "v"
+    ],
     "words": [
       "assassin",
       "assassins",
@@ -9010,9 +10039,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "mabdeor": {
-    "center": "m",
-    "letters": "abdeor",
+  "147": {
+    "letters": [
+      "m",
+      "a",
+      "b",
+      "d",
+      "e",
+      "o",
+      "r"
+    ],
     "words": [
       "amber",
       "ammo",
@@ -9075,9 +10111,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "ngikmos": {
-    "center": "n",
-    "letters": "gikmos",
+  "148": {
+    "letters": [
+      "n",
+      "g",
+      "i",
+      "k",
+      "m",
+      "o",
+      "s"
+    ],
     "words": [
       "going",
       "goon",
@@ -9134,9 +10177,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "dbenoru": {
-    "center": "d",
-    "letters": "benoru",
+  "149": {
+    "letters": [
+      "d",
+      "b",
+      "e",
+      "n",
+      "o",
+      "r",
+      "u"
+    ],
     "words": [
       "bend",
       "bender",
@@ -9196,9 +10246,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "laceirv": {
-    "center": "l",
-    "letters": "aceirv",
+  "150": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "e",
+      "i",
+      "r",
+      "v"
+    ],
     "words": [
       "aerial",
       "alaric",
@@ -9258,9 +10315,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "ecdpstu": {
-    "center": "e",
-    "letters": "cdpstu",
+  "151": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "p",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "cute",
       "cutest",
@@ -9315,9 +10379,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "lehnost": {
-    "center": "l",
-    "letters": "ehnost",
+  "152": {
+    "letters": [
+      "l",
+      "e",
+      "h",
+      "n",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "heel",
       "heels",
@@ -9381,9 +10452,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "ecdgiln": {
-    "center": "e",
-    "letters": "cdgiln",
+  "153": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "g",
+      "i",
+      "l",
+      "n"
+    ],
     "words": [
       "ceiling",
       "cell",
@@ -9437,9 +10515,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "ediknsy": {
-    "center": "e",
-    "letters": "diknsy",
+  "154": {
+    "letters": [
+      "e",
+      "d",
+      "i",
+      "k",
+      "n",
+      "s",
+      "y"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -9498,9 +10583,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "dcefint": {
-    "center": "d",
-    "letters": "cefint",
+  "155": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "f",
+      "i",
+      "n",
+      "t"
+    ],
     "words": [
       "cited",
       "decent",
@@ -9551,9 +10643,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "daelorv": {
-    "center": "d",
-    "letters": "aelorv",
+  "156": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "l",
+      "o",
+      "r",
+      "v"
+    ],
     "words": [
       "adored",
       "dada",
@@ -9615,9 +10714,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "racdekn": {
-    "center": "r",
-    "letters": "acdekn",
+  "157": {
+    "letters": [
+      "r",
+      "a",
+      "c",
+      "d",
+      "e",
+      "k",
+      "n"
+    ],
     "words": [
       "acre",
       "arcade",
@@ -9682,9 +10788,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "eabdgns": {
-    "center": "e",
-    "letters": "abdgns",
+  "158": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "d",
+      "g",
+      "n",
+      "s"
+    ],
     "words": [
       "abed",
       "aged",
@@ -9745,9 +10858,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "vbeilrs": {
-    "center": "v",
-    "letters": "beilrs",
+  "159": {
+    "letters": [
+      "v",
+      "b",
+      "e",
+      "i",
+      "l",
+      "r",
+      "s"
+    ],
     "words": [
       "believe",
       "believer",
@@ -9798,9 +10918,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "lacdeno": {
-    "center": "l",
-    "letters": "acdeno",
+  "160": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "d",
+      "e",
+      "n",
+      "o"
+    ],
     "words": [
       "alone",
       "call",
@@ -9868,9 +10995,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "acdelrw": {
-    "center": "a",
-    "letters": "cdelrw",
+  "161": {
+    "letters": [
+      "a",
+      "c",
+      "d",
+      "e",
+      "l",
+      "r",
+      "w"
+    ],
     "words": [
       "acre",
       "arcade",
@@ -9940,9 +11074,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "lbeimsu": {
-    "center": "l",
-    "letters": "beimsu",
+  "162": {
+    "letters": [
+      "l",
+      "b",
+      "e",
+      "i",
+      "m",
+      "s",
+      "u"
+    ],
     "words": [
       "bell",
       "belle",
@@ -10002,9 +11143,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "ecginrv": {
-    "center": "e",
-    "letters": "cginrv",
+  "163": {
+    "letters": [
+      "e",
+      "c",
+      "g",
+      "i",
+      "n",
+      "r",
+      "v"
+    ],
     "words": [
       "eerie",
       "engine",
@@ -10057,9 +11205,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "radegvy": {
-    "center": "r",
-    "letters": "adegvy",
+  "164": {
+    "letters": [
+      "r",
+      "a",
+      "d",
+      "e",
+      "g",
+      "v",
+      "y"
+    ],
     "words": [
       "agree",
       "agreed",
@@ -10118,9 +11273,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "tabeisu": {
-    "center": "t",
-    "letters": "abeisu",
+  "165": {
+    "letters": [
+      "t",
+      "a",
+      "b",
+      "e",
+      "i",
+      "s",
+      "u"
+    ],
     "words": [
       "asset",
       "assets",
@@ -10186,9 +11348,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "raefltw": {
-    "center": "r",
-    "letters": "aefltw",
+  "166": {
+    "letters": [
+      "r",
+      "a",
+      "e",
+      "f",
+      "l",
+      "t",
+      "w"
+    ],
     "words": [
       "afar",
       "after",
@@ -10249,9 +11418,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "sbemnot": {
-    "center": "s",
-    "letters": "bemnot",
+  "167": {
+    "letters": [
+      "s",
+      "b",
+      "e",
+      "m",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "beets",
       "best",
@@ -10312,9 +11488,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "eacirsz": {
-    "center": "e",
-    "letters": "acirsz",
+  "168": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "i",
+      "r",
+      "s",
+      "z"
+    ],
     "words": [
       "access",
       "acre",
@@ -10374,9 +11557,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "ibdersu": {
-    "center": "i",
-    "letters": "bdersu",
+  "169": {
+    "letters": [
+      "i",
+      "b",
+      "d",
+      "e",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "bedside",
       "berries",
@@ -10429,9 +11619,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "ienqstu": {
-    "center": "i",
-    "letters": "enqstu",
+  "170": {
+    "letters": [
+      "i",
+      "e",
+      "n",
+      "q",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "entities",
       "etiquette",
@@ -10480,9 +11677,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "hadertw": {
-    "center": "h",
-    "letters": "adertw",
+  "171": {
+    "letters": [
+      "h",
+      "a",
+      "d",
+      "e",
+      "r",
+      "t",
+      "w"
+    ],
     "words": [
       "adhere",
       "ahead",
@@ -10540,9 +11744,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "rbdeosu": {
-    "center": "r",
-    "letters": "bdeosu",
+  "172": {
+    "letters": [
+      "r",
+      "b",
+      "d",
+      "e",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "beer",
       "beers",
@@ -10603,9 +11814,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "eailmnr": {
-    "center": "e",
-    "letters": "ailmnr",
+  "173": {
+    "letters": [
+      "e",
+      "a",
+      "i",
+      "l",
+      "m",
+      "n",
+      "r"
+    ],
     "words": [
       "aerial",
       "airline",
@@ -10675,9 +11893,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "scdeilo": {
-    "center": "s",
-    "letters": "cdeilo",
+  "174": {
+    "letters": [
+      "s",
+      "c",
+      "d",
+      "e",
+      "i",
+      "l",
+      "o"
+    ],
     "words": [
       "cells",
       "cisco",
@@ -10737,9 +11962,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "ealnrtx": {
-    "center": "e",
-    "letters": "alnrtx",
+  "175": {
+    "letters": [
+      "e",
+      "a",
+      "l",
+      "n",
+      "r",
+      "t",
+      "x"
+    ],
     "words": [
       "alert",
       "alter",
@@ -10808,9 +12040,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "eadhlty": {
-    "center": "e",
-    "letters": "adhlty",
+  "176": {
+    "letters": [
+      "e",
+      "a",
+      "d",
+      "h",
+      "l",
+      "t",
+      "y"
+    ],
     "words": [
       "ahead",
       "alley",
@@ -10873,9 +12112,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "daeglnt": {
-    "center": "d",
-    "letters": "aeglnt",
+  "177": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "g",
+      "l",
+      "n",
+      "t"
+    ],
     "words": [
       "aged",
       "agenda",
@@ -10935,9 +12181,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "acegilr": {
-    "center": "a",
-    "letters": "cegilr",
+  "178": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "g",
+      "i",
+      "l",
+      "r"
+    ],
     "words": [
       "acre",
       "aerial",
@@ -11001,9 +12254,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "dehimns": {
-    "center": "d",
-    "letters": "ehimns",
+  "179": {
+    "letters": [
+      "d",
+      "e",
+      "h",
+      "i",
+      "m",
+      "n",
+      "s"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -11061,9 +12321,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "rcdelou": {
-    "center": "r",
-    "letters": "cdelou",
+  "180": {
+    "letters": [
+      "r",
+      "c",
+      "d",
+      "e",
+      "l",
+      "o",
+      "u"
+    ],
     "words": [
       "coerced",
       "colder",
@@ -11124,9 +12391,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "pacehst": {
-    "center": "p",
-    "letters": "acehst",
+  "181": {
+    "letters": [
+      "p",
+      "a",
+      "c",
+      "e",
+      "h",
+      "s",
+      "t"
+    ],
     "words": [
       "accept",
       "accepts",
@@ -11187,9 +12461,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "haelmrt": {
-    "center": "h",
-    "letters": "aelmrt",
+  "182": {
+    "letters": [
+      "h",
+      "a",
+      "e",
+      "l",
+      "m",
+      "r",
+      "t"
+    ],
     "words": [
       "ahem",
       "althea",
@@ -11250,9 +12531,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "labegrt": {
-    "center": "l",
-    "letters": "abegrt",
+  "183": {
+    "letters": [
+      "l",
+      "a",
+      "b",
+      "e",
+      "g",
+      "r",
+      "t"
+    ],
     "words": [
       "able",
       "alert",
@@ -11311,9 +12599,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "ignprsu": {
-    "center": "i",
-    "letters": "gnprsu",
+  "184": {
+    "letters": [
+      "i",
+      "g",
+      "n",
+      "p",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "grip",
       "gripping",
@@ -11359,9 +12654,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "daelnrv": {
-    "center": "d",
-    "letters": "aelnrv",
+  "185": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "l",
+      "n",
+      "r",
+      "v"
+    ],
     "words": [
       "dada",
       "dale",
@@ -11422,9 +12724,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "wadenor": {
-    "center": "w",
-    "letters": "adenor",
+  "186": {
+    "letters": [
+      "w",
+      "a",
+      "d",
+      "e",
+      "n",
+      "o",
+      "r"
+    ],
     "words": [
       "anew",
       "arrow",
@@ -11478,9 +12787,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "sabilot": {
-    "center": "s",
-    "letters": "abilot",
+  "187": {
+    "letters": [
+      "s",
+      "a",
+      "b",
+      "i",
+      "l",
+      "o",
+      "t"
+    ],
     "words": [
       "alias",
       "also",
@@ -11549,9 +12865,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "nabcdel": {
-    "center": "n",
-    "letters": "abcdel",
+  "188": {
+    "letters": [
+      "n",
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "l"
+    ],
     "words": [
       "acne",
       "anna",
@@ -11608,9 +12931,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "saeinov": {
-    "center": "s",
-    "letters": "aeinov",
+  "189": {
+    "letters": [
+      "s",
+      "a",
+      "e",
+      "i",
+      "n",
+      "o",
+      "v"
+    ],
     "words": [
       "assassin",
       "assassins",
@@ -11661,9 +12991,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "cenortu": {
-    "center": "c",
-    "letters": "enortu",
+  "190": {
+    "letters": [
+      "c",
+      "e",
+      "n",
+      "o",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "cent",
       "center",
@@ -11713,9 +13050,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "daeglst": {
-    "center": "d",
-    "letters": "aeglst",
+  "191": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "g",
+      "l",
+      "s",
+      "t"
+    ],
     "words": [
       "aged",
       "alleged",
@@ -11774,9 +13118,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "labesuv": {
-    "center": "l",
-    "letters": "abesuv",
+  "192": {
+    "letters": [
+      "l",
+      "a",
+      "b",
+      "e",
+      "s",
+      "u",
+      "v"
+    ],
     "words": [
       "able",
       "babble",
@@ -11842,9 +13193,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "dabeorw": {
-    "center": "d",
-    "letters": "abeorw",
+  "193": {
+    "letters": [
+      "d",
+      "a",
+      "b",
+      "e",
+      "o",
+      "r",
+      "w"
+    ],
     "words": [
       "abed",
       "aboard",
@@ -11906,9 +13264,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "rcdehot": {
-    "center": "r",
-    "letters": "cdehot",
+  "194": {
+    "letters": [
+      "r",
+      "c",
+      "d",
+      "e",
+      "h",
+      "o",
+      "t"
+    ],
     "words": [
       "cheer",
       "cheered",
@@ -11965,9 +13330,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "sabegln": {
-    "center": "s",
-    "letters": "abegln",
+  "195": {
+    "letters": [
+      "s",
+      "a",
+      "b",
+      "e",
+      "g",
+      "l",
+      "n"
+    ],
     "words": [
       "angeles",
       "angels",
@@ -12028,9 +13400,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "lefisty": {
-    "center": "l",
-    "letters": "efisty",
+  "196": {
+    "letters": [
+      "l",
+      "e",
+      "f",
+      "i",
+      "s",
+      "t",
+      "y"
+    ],
     "words": [
       "elite",
       "feel",
@@ -12093,9 +13472,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "echiprt": {
-    "center": "e",
-    "letters": "chiprt",
+  "197": {
+    "letters": [
+      "e",
+      "c",
+      "h",
+      "i",
+      "p",
+      "r",
+      "t"
+    ],
     "words": [
       "cheer",
       "chipper",
@@ -12156,9 +13542,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "oahrstu": {
-    "center": "o",
-    "letters": "ahrstu",
+  "198": {
+    "letters": [
+      "o",
+      "a",
+      "h",
+      "r",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "aorta",
       "aurora",
@@ -12223,9 +13616,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "timoprs": {
-    "center": "t",
-    "letters": "imoprs",
+  "199": {
+    "letters": [
+      "t",
+      "i",
+      "m",
+      "o",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "import",
       "imports",
@@ -12289,9 +13689,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "neiortu": {
-    "center": "n",
-    "letters": "eiortu",
+  "200": {
+    "letters": [
+      "n",
+      "e",
+      "i",
+      "o",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "enter",
       "entire",
@@ -12348,9 +13755,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "nabgikr": {
-    "center": "n",
-    "letters": "abgikr",
+  "201": {
+    "letters": [
+      "n",
+      "a",
+      "b",
+      "g",
+      "i",
+      "k",
+      "r"
+    ],
     "words": [
       "again",
       "aging",
@@ -12405,9 +13819,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "lceikns": {
-    "center": "l",
-    "letters": "ceikns",
+  "202": {
+    "letters": [
+      "l",
+      "c",
+      "e",
+      "i",
+      "k",
+      "n",
+      "s"
+    ],
     "words": [
       "cell",
       "cells",
@@ -12463,9 +13884,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "acelmor": {
-    "center": "a",
-    "letters": "celmor",
+  "203": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "l",
+      "m",
+      "o",
+      "r"
+    ],
     "words": [
       "acre",
       "alarm",
@@ -12538,9 +13966,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "tceimno": {
-    "center": "t",
-    "letters": "ceimno",
+  "204": {
+    "letters": [
+      "t",
+      "c",
+      "e",
+      "i",
+      "m",
+      "n",
+      "o"
+    ],
     "words": [
       "cement",
       "cent",
@@ -12595,9 +14030,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "lehrstu": {
-    "center": "l",
-    "letters": "ehrstu",
+  "205": {
+    "letters": [
+      "l",
+      "e",
+      "h",
+      "r",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "heel",
       "heels",
@@ -12655,9 +14097,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "edfintv": {
-    "center": "e",
-    "letters": "dfintv",
+  "206": {
+    "letters": [
+      "e",
+      "d",
+      "f",
+      "i",
+      "n",
+      "t",
+      "v"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -12717,9 +14166,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "aeghirt": {
-    "center": "a",
-    "letters": "eghirt",
+  "207": {
+    "letters": [
+      "a",
+      "e",
+      "g",
+      "h",
+      "i",
+      "r",
+      "t"
+    ],
     "words": [
       "agree",
       "airtight",
@@ -12783,9 +14239,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "aceiost": {
-    "center": "a",
-    "letters": "ceiost",
+  "208": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "i",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "access",
       "asset",
@@ -12841,9 +14304,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "sceimot": {
-    "center": "s",
-    "letters": "ceimot",
+  "209": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "i",
+      "m",
+      "o",
+      "t"
+    ],
     "words": [
       "cisco",
       "cities",
@@ -12898,9 +14368,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "sdelopx": {
-    "center": "s",
-    "letters": "delopx",
+  "210": {
+    "letters": [
+      "s",
+      "d",
+      "e",
+      "l",
+      "o",
+      "p",
+      "x"
+    ],
     "words": [
       "deeds",
       "deposed",
@@ -12957,9 +14434,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "ocelmps": {
-    "center": "o",
-    "letters": "celmps",
+  "211": {
+    "letters": [
+      "o",
+      "c",
+      "e",
+      "l",
+      "m",
+      "p",
+      "s"
+    ],
     "words": [
       "cello",
       "cesspool",
@@ -13031,9 +14515,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "ncdegit": {
-    "center": "n",
-    "letters": "cdegit",
+  "212": {
+    "letters": [
+      "n",
+      "c",
+      "d",
+      "e",
+      "g",
+      "i",
+      "t"
+    ],
     "words": [
       "cent",
       "decent",
@@ -13085,9 +14576,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "caeilpr": {
-    "center": "c",
-    "letters": "aeilpr",
+  "213": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "i",
+      "l",
+      "p",
+      "r"
+    ],
     "words": [
       "acre",
       "alaric",
@@ -13145,9 +14643,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "eadhnru": {
-    "center": "e",
-    "letters": "adhnru",
+  "214": {
+    "letters": [
+      "e",
+      "a",
+      "d",
+      "h",
+      "n",
+      "r",
+      "u"
+    ],
     "words": [
       "adhere",
       "ahead",
@@ -13212,9 +14717,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "ecimnot": {
-    "center": "e",
-    "letters": "cimnot",
+  "215": {
+    "letters": [
+      "e",
+      "c",
+      "i",
+      "m",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "cement",
       "cent",
@@ -13276,9 +14788,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "tcehisw": {
-    "center": "t",
-    "letters": "cehisw",
+  "216": {
+    "letters": [
+      "t",
+      "c",
+      "e",
+      "h",
+      "i",
+      "s",
+      "w"
+    ],
     "words": [
       "chest",
       "chests",
@@ -13335,9 +14854,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "meforst": {
-    "center": "m",
-    "letters": "eforst",
+  "217": {
+    "letters": [
+      "m",
+      "e",
+      "f",
+      "o",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "emmet",
       "emmett",
@@ -13396,9 +14922,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "edlnpru": {
-    "center": "e",
-    "letters": "dlnpru",
+  "218": {
+    "letters": [
+      "e",
+      "d",
+      "l",
+      "n",
+      "p",
+      "r",
+      "u"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -13462,9 +14995,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "aelorsv": {
-    "center": "a",
-    "letters": "elorsv",
+  "219": {
+    "letters": [
+      "a",
+      "e",
+      "l",
+      "o",
+      "r",
+      "s",
+      "v"
+    ],
     "words": [
       "also",
       "area",
@@ -13525,9 +15065,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "raceisz": {
-    "center": "r",
-    "letters": "aceisz",
+  "220": {
+    "letters": [
+      "r",
+      "a",
+      "c",
+      "e",
+      "i",
+      "s",
+      "z"
+    ],
     "words": [
       "acre",
       "acres",
@@ -13588,9 +15135,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "ndefhis": {
-    "center": "n",
-    "letters": "defhis",
+  "221": {
+    "letters": [
+      "n",
+      "d",
+      "e",
+      "f",
+      "h",
+      "i",
+      "s"
+    ],
     "words": [
       "defend",
       "defended",
@@ -13642,9 +15196,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "ebdloru": {
-    "center": "e",
-    "letters": "bdloru",
+  "222": {
+    "letters": [
+      "e",
+      "b",
+      "d",
+      "l",
+      "o",
+      "r",
+      "u"
+    ],
     "words": [
       "beer",
       "bell",
@@ -13710,9 +15271,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "daempst": {
-    "center": "d",
-    "letters": "aempst",
+  "223": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "m",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "adapt",
       "adapted",
@@ -13767,9 +15335,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "eabdglm": {
-    "center": "e",
-    "letters": "abdglm",
+  "224": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "d",
+      "g",
+      "l",
+      "m"
+    ],
     "words": [
       "abed",
       "able",
@@ -13836,9 +15411,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "eamprtu": {
-    "center": "e",
-    "letters": "amprtu",
+  "225": {
+    "letters": [
+      "e",
+      "a",
+      "m",
+      "p",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "amateur",
       "appear",
@@ -13906,9 +15488,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "rcehstw": {
-    "center": "r",
-    "letters": "cehstw",
+  "226": {
+    "letters": [
+      "r",
+      "c",
+      "e",
+      "h",
+      "s",
+      "t",
+      "w"
+    ],
     "words": [
       "cheer",
       "cheers",
@@ -13955,9 +15544,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "aceortv": {
-    "center": "a",
-    "letters": "ceortv",
+  "227": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "o",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "acre",
       "actor",
@@ -14017,9 +15613,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "aegnost": {
-    "center": "a",
-    "letters": "egnost",
+  "228": {
+    "letters": [
+      "a",
+      "e",
+      "g",
+      "n",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "agent",
       "agents",
@@ -14083,9 +15686,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "nadeimx": {
-    "center": "n",
-    "letters": "adeimx",
+  "229": {
+    "letters": [
+      "n",
+      "a",
+      "d",
+      "e",
+      "i",
+      "m",
+      "x"
+    ],
     "words": [
       "aiden",
       "anemia",
@@ -14144,9 +15754,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "seghnrt": {
-    "center": "s",
-    "letters": "eghnrt",
+  "230": {
+    "letters": [
+      "s",
+      "e",
+      "g",
+      "h",
+      "n",
+      "r",
+      "t"
+    ],
     "words": [
       "enters",
       "entrees",
@@ -14194,9 +15811,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "iefgnor": {
-    "center": "i",
-    "letters": "efgnor",
+  "231": {
+    "letters": [
+      "i",
+      "e",
+      "f",
+      "g",
+      "n",
+      "o",
+      "r"
+    ],
     "words": [
       "eerie",
       "engine",
@@ -14245,9 +15869,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "ldehors": {
-    "center": "l",
-    "letters": "dehors",
+  "232": {
+    "letters": [
+      "l",
+      "d",
+      "e",
+      "h",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "dell",
       "dole",
@@ -14311,9 +15942,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "hacegrs": {
-    "center": "h",
-    "letters": "acegrs",
+  "233": {
+    "letters": [
+      "h",
+      "a",
+      "c",
+      "e",
+      "g",
+      "r",
+      "s"
+    ],
     "words": [
       "ache",
       "aches",
@@ -14368,9 +16006,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "efnortu": {
-    "center": "e",
-    "letters": "fnortu",
+  "234": {
+    "letters": [
+      "e",
+      "f",
+      "n",
+      "o",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "effort",
       "enter",
@@ -14430,9 +16075,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "laciost": {
-    "center": "l",
-    "letters": "aciost",
+  "235": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "i",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "alias",
       "also",
@@ -14500,9 +16152,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "idepstu": {
-    "center": "i",
-    "letters": "depstu",
+  "236": {
+    "letters": [
+      "i",
+      "d",
+      "e",
+      "p",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "deputies",
       "desist",
@@ -14554,9 +16213,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "daegmno": {
-    "center": "d",
-    "letters": "aegmno",
+  "237": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "g",
+      "m",
+      "n",
+      "o"
+    ],
     "words": [
       "aged",
       "agenda",
@@ -14622,9 +16288,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "laeortv": {
-    "center": "l",
-    "letters": "aeortv",
+  "238": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "o",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "alert",
       "altar",
@@ -14684,9 +16357,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "cdehrsu": {
-    "center": "c",
-    "letters": "dehrsu",
+  "239": {
+    "letters": [
+      "c",
+      "d",
+      "e",
+      "h",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "cheer",
       "cheered",
@@ -14735,9 +16415,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "dceginr": {
-    "center": "d",
-    "letters": "ceginr",
+  "240": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "g",
+      "i",
+      "n",
+      "r"
+    ],
     "words": [
       "cider",
       "creed",
@@ -14791,9 +16478,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "taelorv": {
-    "center": "t",
-    "letters": "aelorv",
+  "241": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "l",
+      "o",
+      "r",
+      "v"
+    ],
     "words": [
       "alert",
       "altar",
@@ -14856,9 +16550,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "radefow": {
-    "center": "r",
-    "letters": "adefow",
+  "242": {
+    "letters": [
+      "r",
+      "a",
+      "d",
+      "e",
+      "f",
+      "o",
+      "w"
+    ],
     "words": [
       "adored",
       "afar",
@@ -14920,9 +16621,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "egnostu": {
-    "center": "e",
-    "letters": "gnostu",
+  "243": {
+    "letters": [
+      "e",
+      "g",
+      "n",
+      "o",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "eggnog",
       "gene",
@@ -14981,9 +16689,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "lacenrt": {
-    "center": "l",
-    "letters": "acenrt",
+  "244": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "e",
+      "n",
+      "r",
+      "t"
+    ],
     "words": [
       "alert",
       "altar",
@@ -15043,9 +16758,16 @@ const PUZZLES = {
     ],
     "maxScore": 275
   },
-  "nagikos": {
-    "center": "n",
-    "letters": "agikos",
+  "245": {
+    "letters": [
+      "n",
+      "a",
+      "g",
+      "i",
+      "k",
+      "o",
+      "s"
+    ],
     "words": [
       "again",
       "aging",
@@ -15104,9 +16826,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "daegrtx": {
-    "center": "d",
-    "letters": "aegrtx",
+  "246": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "g",
+      "r",
+      "t",
+      "x"
+    ],
     "words": [
       "aged",
       "agreed",
@@ -15161,9 +16890,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "ibdegrs": {
-    "center": "i",
-    "letters": "bdegrs",
+  "247": {
+    "letters": [
+      "i",
+      "b",
+      "d",
+      "e",
+      "g",
+      "r",
+      "s"
+    ],
     "words": [
       "bedside",
       "berries",
@@ -15218,9 +16954,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "eahilpr": {
-    "center": "e",
-    "letters": "ahilpr",
+  "248": {
+    "letters": [
+      "e",
+      "a",
+      "h",
+      "i",
+      "l",
+      "p",
+      "r"
+    ],
     "words": [
       "aerial",
       "apparel",
@@ -15293,9 +17036,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "telrsuv": {
-    "center": "t",
-    "letters": "elrsuv",
+  "249": {
+    "letters": [
+      "t",
+      "e",
+      "l",
+      "r",
+      "s",
+      "u",
+      "v"
+    ],
     "words": [
       "ester",
       "letter",
@@ -15349,9 +17099,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "edintuv": {
-    "center": "e",
-    "letters": "dintuv",
+  "250": {
+    "letters": [
+      "e",
+      "d",
+      "i",
+      "n",
+      "t",
+      "u",
+      "v"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -15414,9 +17171,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "nadefgi": {
-    "center": "n",
-    "letters": "adefgi",
+  "251": {
+    "letters": [
+      "n",
+      "a",
+      "d",
+      "e",
+      "f",
+      "g",
+      "i"
+    ],
     "words": [
       "again",
       "ageing",
@@ -15473,9 +17237,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "daekmrt": {
-    "center": "d",
-    "letters": "aekmrt",
+  "252": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "k",
+      "m",
+      "r",
+      "t"
+    ],
     "words": [
       "armada",
       "dada",
@@ -15533,9 +17304,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "ncekors": {
-    "center": "n",
-    "letters": "cekors",
+  "253": {
+    "letters": [
+      "n",
+      "c",
+      "e",
+      "k",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "cocoon",
       "concern",
@@ -15593,9 +17371,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "rahostu": {
-    "center": "r",
-    "letters": "ahostu",
+  "254": {
+    "letters": [
+      "r",
+      "a",
+      "h",
+      "o",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "aorta",
       "arts",
@@ -15660,9 +17445,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "odeinst": {
-    "center": "o",
-    "letters": "deinst",
+  "255": {
+    "letters": [
+      "o",
+      "d",
+      "e",
+      "i",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "denton",
       "detention",
@@ -15721,9 +17513,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "rdegnov": {
-    "center": "r",
-    "letters": "degnov",
+  "256": {
+    "letters": [
+      "r",
+      "d",
+      "e",
+      "g",
+      "n",
+      "o",
+      "v"
+    ],
     "words": [
       "deer",
       "degree",
@@ -15778,9 +17577,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "daehrty": {
-    "center": "d",
-    "letters": "aehrty",
+  "257": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "h",
+      "r",
+      "t",
+      "y"
+    ],
     "words": [
       "adhere",
       "ahead",
@@ -15839,9 +17645,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "oceintv": {
-    "center": "o",
-    "letters": "ceintv",
+  "258": {
+    "letters": [
+      "o",
+      "c",
+      "e",
+      "i",
+      "n",
+      "t",
+      "v"
+    ],
     "words": [
       "coco",
       "cocoon",
@@ -15892,9 +17705,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "reinotv": {
-    "center": "r",
-    "letters": "einotv",
+  "259": {
+    "letters": [
+      "r",
+      "e",
+      "i",
+      "n",
+      "o",
+      "t",
+      "v"
+    ],
     "words": [
       "eerie",
       "enter",
@@ -15950,9 +17770,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "tbemnor": {
-    "center": "t",
-    "letters": "bemnor",
+  "260": {
+    "letters": [
+      "t",
+      "b",
+      "e",
+      "m",
+      "n",
+      "o",
+      "r"
+    ],
     "words": [
       "beet",
       "bennet",
@@ -16015,9 +17842,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "degnorw": {
-    "center": "d",
-    "letters": "egnorw",
+  "261": {
+    "letters": [
+      "d",
+      "e",
+      "g",
+      "n",
+      "o",
+      "r",
+      "w"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -16075,9 +17909,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "laeiort": {
-    "center": "l",
-    "letters": "aeiort",
+  "262": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "i",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "aerial",
       "alert",
@@ -16142,9 +17983,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "aceklmr": {
-    "center": "a",
-    "letters": "ceklmr",
+  "263": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "k",
+      "l",
+      "m",
+      "r"
+    ],
     "words": [
       "acre",
       "alarm",
@@ -16217,9 +18065,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "rehmnos": {
-    "center": "r",
-    "letters": "ehmnos",
+  "264": {
+    "letters": [
+      "r",
+      "e",
+      "h",
+      "m",
+      "n",
+      "o",
+      "s"
+    ],
     "words": [
       "error",
       "errors",
@@ -16275,9 +18130,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "obcersu": {
-    "center": "o",
-    "letters": "bcersu",
+  "265": {
+    "letters": [
+      "o",
+      "b",
+      "c",
+      "e",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "boob",
       "boobs",
@@ -16329,9 +18191,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "mdeilos": {
-    "center": "m",
-    "letters": "deilos",
+  "266": {
+    "letters": [
+      "m",
+      "d",
+      "e",
+      "i",
+      "l",
+      "o",
+      "s"
+    ],
     "words": [
       "deem",
       "deemed",
@@ -16399,9 +18268,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "caehlns": {
-    "center": "c",
-    "letters": "aehlns",
+  "267": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "h",
+      "l",
+      "n",
+      "s"
+    ],
     "words": [
       "access",
       "ache",
@@ -16458,9 +18334,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "caeorsy": {
-    "center": "c",
-    "letters": "aeorsy",
+  "268": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "o",
+      "r",
+      "s",
+      "y"
+    ],
     "words": [
       "access",
       "accessory",
@@ -16514,9 +18397,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "idelrvy": {
-    "center": "i",
-    "letters": "delrvy",
+  "269": {
+    "letters": [
+      "i",
+      "d",
+      "e",
+      "l",
+      "r",
+      "v",
+      "y"
+    ],
     "words": [
       "deli",
       "deliver",
@@ -16572,9 +18462,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "racelnv": {
-    "center": "r",
-    "letters": "acelnv",
+  "270": {
+    "letters": [
+      "r",
+      "a",
+      "c",
+      "e",
+      "l",
+      "n",
+      "v"
+    ],
     "words": [
       "acre",
       "area",
@@ -16631,9 +18528,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "sacinpt": {
-    "center": "s",
-    "letters": "acinpt",
+  "271": {
+    "letters": [
+      "s",
+      "a",
+      "c",
+      "i",
+      "n",
+      "p",
+      "t"
+    ],
     "words": [
       "antics",
       "assassin",
@@ -16685,9 +18589,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "nacghit": {
-    "center": "n",
-    "letters": "acghit",
+  "272": {
+    "letters": [
+      "n",
+      "a",
+      "c",
+      "g",
+      "h",
+      "i",
+      "t"
+    ],
     "words": [
       "aching",
       "actin",
@@ -16740,9 +18651,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "echikns": {
-    "center": "e",
-    "letters": "chikns",
+  "273": {
+    "letters": [
+      "e",
+      "c",
+      "h",
+      "i",
+      "k",
+      "n",
+      "s"
+    ],
     "words": [
       "check",
       "checkin",
@@ -16791,9 +18709,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "rcelnot": {
-    "center": "r",
-    "letters": "celnot",
+  "274": {
+    "letters": [
+      "r",
+      "c",
+      "e",
+      "l",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "center",
       "centre",
@@ -16847,9 +18772,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "ndehrtu": {
-    "center": "n",
-    "letters": "dehrtu",
+  "275": {
+    "letters": [
+      "n",
+      "d",
+      "e",
+      "h",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "dent",
       "dented",
@@ -16904,9 +18836,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "tabdery": {
-    "center": "t",
-    "letters": "abdery",
+  "276": {
+    "letters": [
+      "t",
+      "a",
+      "b",
+      "d",
+      "e",
+      "r",
+      "y"
+    ],
     "words": [
       "artery",
       "barret",
@@ -16963,9 +18902,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "ndeimru": {
-    "center": "n",
-    "letters": "deimru",
+  "277": {
+    "letters": [
+      "n",
+      "d",
+      "e",
+      "i",
+      "m",
+      "r",
+      "u"
+    ],
     "words": [
       "denied",
       "denim",
@@ -17017,9 +18963,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "naghisw": {
-    "center": "n",
-    "letters": "aghisw",
+  "278": {
+    "letters": [
+      "n",
+      "a",
+      "g",
+      "h",
+      "i",
+      "s",
+      "w"
+    ],
     "words": [
       "again",
       "aging",
@@ -17075,9 +19028,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "teilosv": {
-    "center": "t",
-    "letters": "eilosv",
+  "279": {
+    "letters": [
+      "t",
+      "e",
+      "i",
+      "l",
+      "o",
+      "s",
+      "v"
+    ],
     "words": [
       "elite",
       "list",
@@ -17137,9 +19097,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "maegort": {
-    "center": "m",
-    "letters": "aegort",
+  "280": {
+    "letters": [
+      "m",
+      "a",
+      "e",
+      "g",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "ammo",
       "armor",
@@ -17205,9 +19172,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "meinstu": {
-    "center": "m",
-    "letters": "einstu",
+  "281": {
+    "letters": [
+      "m",
+      "e",
+      "i",
+      "n",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "eminent",
       "emit",
@@ -17269,9 +19243,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "racfost": {
-    "center": "r",
-    "letters": "acfost",
+  "282": {
+    "letters": [
+      "r",
+      "a",
+      "c",
+      "f",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "across",
       "actor",
@@ -17330,9 +19311,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "helopst": {
-    "center": "h",
-    "letters": "elopst",
+  "283": {
+    "letters": [
+      "h",
+      "e",
+      "l",
+      "o",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "heel",
       "heels",
@@ -17390,9 +19378,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "eachmnt": {
-    "center": "e",
-    "letters": "achmnt",
+  "284": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "h",
+      "m",
+      "n",
+      "t"
+    ],
     "words": [
       "accent",
       "ache",
@@ -17454,9 +19449,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "aeilpsy": {
-    "center": "a",
-    "letters": "eilpsy",
+  "285": {
+    "letters": [
+      "a",
+      "e",
+      "i",
+      "l",
+      "p",
+      "s",
+      "y"
+    ],
     "words": [
       "aisle",
       "alias",
@@ -17516,9 +19518,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "daersvy": {
-    "center": "d",
-    "letters": "aersvy",
+  "286": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "r",
+      "s",
+      "v",
+      "y"
+    ],
     "words": [
       "address",
       "addressed",
@@ -17573,9 +19582,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "sdegimu": {
-    "center": "s",
-    "letters": "degimu",
+  "287": {
+    "letters": [
+      "s",
+      "d",
+      "e",
+      "g",
+      "i",
+      "m",
+      "u"
+    ],
     "words": [
       "deeds",
       "demise",
@@ -17626,9 +19642,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "dehinrt": {
-    "center": "d",
-    "letters": "ehinrt",
+  "288": {
+    "letters": [
+      "d",
+      "e",
+      "h",
+      "i",
+      "n",
+      "r",
+      "t"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -17690,9 +19713,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "rbemotu": {
-    "center": "r",
-    "letters": "bemotu",
+  "289": {
+    "letters": [
+      "r",
+      "b",
+      "e",
+      "m",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "beer",
       "beret",
@@ -17751,9 +19781,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "eacnosu": {
-    "center": "e",
-    "letters": "acnosu",
+  "290": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "n",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "access",
       "accuse",
@@ -17807,9 +19844,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "raefnot": {
-    "center": "r",
-    "letters": "aefnot",
+  "291": {
+    "letters": [
+      "r",
+      "a",
+      "e",
+      "f",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "afar",
       "affront",
@@ -17877,9 +19921,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "acehnpr": {
-    "center": "a",
-    "letters": "cehnpr",
+  "292": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "h",
+      "n",
+      "p",
+      "r"
+    ],
     "words": [
       "ache",
       "acne",
@@ -17951,9 +20002,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "edhirtw": {
-    "center": "e",
-    "letters": "dhirtw",
+  "293": {
+    "letters": [
+      "e",
+      "d",
+      "h",
+      "i",
+      "r",
+      "t",
+      "w"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -18017,9 +20075,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "ebfginr": {
-    "center": "e",
-    "letters": "bfginr",
+  "294": {
+    "letters": [
+      "e",
+      "b",
+      "f",
+      "g",
+      "i",
+      "n",
+      "r"
+    ],
     "words": [
       "beef",
       "beer",
@@ -18073,9 +20138,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "udegist": {
-    "center": "u",
-    "letters": "degist",
+  "295": {
+    "letters": [
+      "u",
+      "d",
+      "e",
+      "g",
+      "i",
+      "s",
+      "t"
+    ],
     "words": [
       "destitute",
       "disguise",
@@ -18123,9 +20195,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "adehiln": {
-    "center": "a",
-    "letters": "dehiln",
+  "296": {
+    "letters": [
+      "a",
+      "d",
+      "e",
+      "h",
+      "i",
+      "l",
+      "n"
+    ],
     "words": [
       "ahead",
       "aide",
@@ -18189,9 +20268,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "gadhinr": {
-    "center": "g",
-    "letters": "adhinr",
+  "297": {
+    "letters": [
+      "g",
+      "a",
+      "d",
+      "h",
+      "i",
+      "n",
+      "r"
+    ],
     "words": [
       "again",
       "aging",
@@ -18244,9 +20330,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "tafhirs": {
-    "center": "t",
-    "letters": "afhirs",
+  "298": {
+    "letters": [
+      "t",
+      "a",
+      "f",
+      "h",
+      "i",
+      "r",
+      "s"
+    ],
     "words": [
       "arthritis",
       "artist",
@@ -18302,9 +20395,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "dceprst": {
-    "center": "d",
-    "letters": "ceprst",
+  "299": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "p",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "creed",
       "decree",
@@ -18350,9 +20450,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "ealqrsu": {
-    "center": "e",
-    "letters": "alqrsu",
+  "300": {
+    "letters": [
+      "e",
+      "a",
+      "l",
+      "q",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "area",
       "areas",
@@ -18414,9 +20521,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "tacefru": {
-    "center": "t",
-    "letters": "acefru",
+  "301": {
+    "letters": [
+      "t",
+      "a",
+      "c",
+      "e",
+      "f",
+      "r",
+      "u"
+    ],
     "words": [
       "accurate",
       "acute",
@@ -18475,9 +20589,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "tehilsw": {
-    "center": "t",
-    "letters": "ehilsw",
+  "302": {
+    "letters": [
+      "t",
+      "e",
+      "h",
+      "i",
+      "l",
+      "s",
+      "w"
+    ],
     "words": [
       "elite",
       "hilt",
@@ -18535,9 +20656,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "acdeilm": {
-    "center": "a",
-    "letters": "cdeilm",
+  "303": {
+    "letters": [
+      "a",
+      "c",
+      "d",
+      "e",
+      "i",
+      "l",
+      "m"
+    ],
     "words": [
       "academic",
       "acid",
@@ -18604,9 +20732,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "labdeor": {
-    "center": "l",
-    "letters": "abdeor",
+  "304": {
+    "letters": [
+      "l",
+      "a",
+      "b",
+      "d",
+      "e",
+      "o",
+      "r"
+    ],
     "words": [
       "able",
       "babble",
@@ -18672,9 +20807,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "tacinou": {
-    "center": "t",
-    "letters": "acinou",
+  "305": {
+    "letters": [
+      "t",
+      "a",
+      "c",
+      "i",
+      "n",
+      "o",
+      "u"
+    ],
     "words": [
       "account",
       "accountant",
@@ -18725,9 +20867,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "ueginst": {
-    "center": "u",
-    "letters": "eginst",
+  "306": {
+    "letters": [
+      "u",
+      "e",
+      "g",
+      "i",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "genius",
       "geniuses",
@@ -18778,9 +20927,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "rcehiot": {
-    "center": "r",
-    "letters": "cehiot",
+  "307": {
+    "letters": [
+      "r",
+      "c",
+      "e",
+      "h",
+      "i",
+      "o",
+      "t"
+    ],
     "words": [
       "cheer",
       "cheerio",
@@ -18837,9 +20993,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "rabceil": {
-    "center": "r",
-    "letters": "abceil",
+  "308": {
+    "letters": [
+      "r",
+      "a",
+      "b",
+      "c",
+      "e",
+      "i",
+      "l"
+    ],
     "words": [
       "acre",
       "aerial",
@@ -18899,9 +21062,16 @@ const PUZZLES = {
     ],
     "maxScore": 232
   },
-  "eahlosw": {
-    "center": "e",
-    "letters": "ahlosw",
+  "309": {
+    "letters": [
+      "e",
+      "a",
+      "h",
+      "l",
+      "o",
+      "s",
+      "w"
+    ],
     "words": [
       "asshole",
       "assholes",
@@ -18965,9 +21135,16 @@ const PUZZLES = {
     ],
     "maxScore": 268
   },
-  "echopst": {
-    "center": "e",
-    "letters": "chopst",
+  "310": {
+    "letters": [
+      "e",
+      "c",
+      "h",
+      "o",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "cheese",
       "cheeses",
@@ -19025,9 +21202,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "eacinsu": {
-    "center": "e",
-    "letters": "acinsu",
+  "311": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "i",
+      "n",
+      "s",
+      "u"
+    ],
     "words": [
       "access",
       "accuse",
@@ -19078,9 +21262,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "sdehmot": {
-    "center": "s",
-    "letters": "dehmot",
+  "312": {
+    "letters": [
+      "s",
+      "d",
+      "e",
+      "h",
+      "m",
+      "o",
+      "t"
+    ],
     "words": [
       "deeds",
       "dose",
@@ -19147,9 +21338,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "ecdinpt": {
-    "center": "e",
-    "letters": "cdinpt",
+  "313": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "i",
+      "n",
+      "p",
+      "t"
+    ],
     "words": [
       "cent",
       "centipede",
@@ -19210,9 +21408,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "reginsy": {
-    "center": "r",
-    "letters": "eginsy",
+  "314": {
+    "letters": [
+      "r",
+      "e",
+      "g",
+      "i",
+      "n",
+      "s",
+      "y"
+    ],
     "words": [
       "eerie",
       "energies",
@@ -19261,9 +21466,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "iaghnsw": {
-    "center": "i",
-    "letters": "aghnsw",
+  "315": {
+    "letters": [
+      "i",
+      "a",
+      "g",
+      "h",
+      "n",
+      "s",
+      "w"
+    ],
     "words": [
       "again",
       "aging",
@@ -19315,9 +21527,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "aelnopr": {
-    "center": "a",
-    "letters": "elnopr",
+  "316": {
+    "letters": [
+      "a",
+      "e",
+      "l",
+      "n",
+      "o",
+      "p",
+      "r"
+    ],
     "words": [
       "aeroplane",
       "alone",
@@ -19382,9 +21601,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "ebilmsu": {
-    "center": "e",
-    "letters": "bilmsu",
+  "317": {
+    "letters": [
+      "e",
+      "b",
+      "i",
+      "l",
+      "m",
+      "s",
+      "u"
+    ],
     "words": [
       "bell",
       "belle",
@@ -19443,9 +21669,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "obhrstu": {
-    "center": "o",
-    "letters": "bhrstu",
+  "318": {
+    "letters": [
+      "o",
+      "b",
+      "h",
+      "r",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "boob",
       "boobs",
@@ -19509,9 +21742,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "tghnosu": {
-    "center": "t",
-    "letters": "ghnosu",
+  "319": {
+    "letters": [
+      "t",
+      "g",
+      "h",
+      "n",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "ghost",
       "ghosts",
@@ -19567,9 +21807,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "ebdglno": {
-    "center": "e",
-    "letters": "bdglno",
+  "320": {
+    "letters": [
+      "e",
+      "b",
+      "d",
+      "g",
+      "l",
+      "n",
+      "o"
+    ],
     "words": [
       "bell",
       "belle",
@@ -19631,9 +21878,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "baeilns": {
-    "center": "b",
-    "letters": "aeilns",
+  "321": {
+    "letters": [
+      "b",
+      "a",
+      "e",
+      "i",
+      "l",
+      "n",
+      "s"
+    ],
     "words": [
       "able",
       "baba",
@@ -19687,9 +21941,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "cenostu": {
-    "center": "c",
-    "letters": "enostu",
+  "322": {
+    "letters": [
+      "c",
+      "e",
+      "n",
+      "o",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "cent",
       "cents",
@@ -19741,9 +22002,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "sefhiln": {
-    "center": "s",
-    "letters": "efhiln",
+  "323": {
+    "letters": [
+      "s",
+      "e",
+      "f",
+      "h",
+      "i",
+      "l",
+      "n"
+    ],
     "words": [
       "feels",
       "fess",
@@ -19797,9 +22065,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "ibcders": {
-    "center": "i",
-    "letters": "bcders",
+  "324": {
+    "letters": [
+      "i",
+      "b",
+      "c",
+      "d",
+      "e",
+      "r",
+      "s"
+    ],
     "words": [
       "bedside",
       "berries",
@@ -19853,9 +22128,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "sadeglv": {
-    "center": "s",
-    "letters": "adeglv",
+  "325": {
+    "letters": [
+      "s",
+      "a",
+      "d",
+      "e",
+      "g",
+      "l",
+      "v"
+    ],
     "words": [
       "dallas",
       "deals",
@@ -19916,9 +22198,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "daelnru": {
-    "center": "d",
-    "letters": "aelnru",
+  "326": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "l",
+      "n",
+      "r",
+      "u"
+    ],
     "words": [
       "auld",
       "dada",
@@ -19988,9 +22277,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "daegorw": {
-    "center": "d",
-    "letters": "aegorw",
+  "327": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "g",
+      "o",
+      "r",
+      "w"
+    ],
     "words": [
       "adored",
       "aged",
@@ -20054,9 +22350,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "radenuw": {
-    "center": "r",
-    "letters": "adenuw",
+  "328": {
+    "letters": [
+      "r",
+      "a",
+      "d",
+      "e",
+      "n",
+      "u",
+      "w"
+    ],
     "words": [
       "area",
       "arena",
@@ -20115,9 +22418,16 @@ const PUZZLES = {
     ],
     "maxScore": 232
   },
-  "dacelrw": {
-    "center": "d",
-    "letters": "acelrw",
+  "329": {
+    "letters": [
+      "d",
+      "a",
+      "c",
+      "e",
+      "l",
+      "r",
+      "w"
+    ],
     "words": [
       "arcade",
       "award",
@@ -20177,9 +22487,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "denprtu": {
-    "center": "d",
-    "letters": "enprtu",
+  "330": {
+    "letters": [
+      "d",
+      "e",
+      "n",
+      "p",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -20233,9 +22550,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "rdentuv": {
-    "center": "r",
-    "letters": "dentuv",
+  "331": {
+    "letters": [
+      "r",
+      "d",
+      "e",
+      "n",
+      "t",
+      "u",
+      "v"
+    ],
     "words": [
       "deer",
       "endure",
@@ -20289,9 +22613,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "tacekps": {
-    "center": "t",
-    "letters": "acekps",
+  "332": {
+    "letters": [
+      "t",
+      "a",
+      "c",
+      "e",
+      "k",
+      "p",
+      "s"
+    ],
     "words": [
       "accept",
       "accepts",
@@ -20356,9 +22687,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "raeiptz": {
-    "center": "r",
-    "letters": "aeiptz",
+  "333": {
+    "letters": [
+      "r",
+      "a",
+      "e",
+      "i",
+      "p",
+      "t",
+      "z"
+    ],
     "words": [
       "apart",
       "appear",
@@ -20424,9 +22762,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "ladegnr": {
-    "center": "l",
-    "letters": "adegnr",
+  "334": {
+    "letters": [
+      "l",
+      "a",
+      "d",
+      "e",
+      "g",
+      "n",
+      "r"
+    ],
     "words": [
       "algae",
       "alleged",
@@ -20488,9 +22833,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "vaenrst": {
-    "center": "v",
-    "letters": "aenrst",
+  "335": {
+    "letters": [
+      "v",
+      "a",
+      "e",
+      "n",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "avatar",
       "even",
@@ -20539,9 +22891,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "eagilmn": {
-    "center": "e",
-    "letters": "agilmn",
+  "336": {
+    "letters": [
+      "e",
+      "a",
+      "g",
+      "i",
+      "l",
+      "m",
+      "n"
+    ],
     "words": [
       "ageing",
       "agile",
@@ -20604,9 +22963,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "iacdenr": {
-    "center": "i",
-    "letters": "acdenr",
+  "337": {
+    "letters": [
+      "i",
+      "a",
+      "c",
+      "d",
+      "e",
+      "n",
+      "r"
+    ],
     "words": [
       "acid",
       "aide",
@@ -20664,9 +23030,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "eacdipt": {
-    "center": "e",
-    "letters": "acdipt",
+  "338": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "d",
+      "i",
+      "p",
+      "t"
+    ],
     "words": [
       "accept",
       "accepted",
@@ -20724,9 +23097,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "hcekors": {
-    "center": "h",
-    "letters": "cekors",
+  "339": {
+    "letters": [
+      "h",
+      "c",
+      "e",
+      "k",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "check",
       "checkers",
@@ -20776,9 +23156,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "gefinrt": {
-    "center": "g",
-    "letters": "efinrt",
+  "340": {
+    "letters": [
+      "g",
+      "e",
+      "f",
+      "i",
+      "n",
+      "r",
+      "t"
+    ],
     "words": [
       "engine",
       "engineer",
@@ -20822,9 +23209,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "deimops": {
-    "center": "d",
-    "letters": "eimops",
+  "341": {
+    "letters": [
+      "d",
+      "e",
+      "i",
+      "m",
+      "o",
+      "p",
+      "s"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -20881,9 +23275,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "cefoprs": {
-    "center": "c",
-    "letters": "efoprs",
+  "342": {
+    "letters": [
+      "c",
+      "e",
+      "f",
+      "o",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "coco",
       "coffee",
@@ -20932,9 +23333,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "ebmnost": {
-    "center": "e",
-    "letters": "bmnost",
+  "343": {
+    "letters": [
+      "e",
+      "b",
+      "m",
+      "n",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "beet",
       "beets",
@@ -21003,9 +23411,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "paeinrt": {
-    "center": "p",
-    "letters": "aeinrt",
+  "344": {
+    "letters": [
+      "p",
+      "a",
+      "e",
+      "i",
+      "n",
+      "r",
+      "t"
+    ],
     "words": [
       "apart",
       "appear",
@@ -21067,9 +23482,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "racemno": {
-    "center": "r",
-    "letters": "acemno",
+  "345": {
+    "letters": [
+      "r",
+      "a",
+      "c",
+      "e",
+      "m",
+      "n",
+      "o"
+    ],
     "words": [
       "acorn",
       "acre",
@@ -21135,9 +23557,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "ecdmoru": {
-    "center": "e",
-    "letters": "cdmoru",
+  "346": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "m",
+      "o",
+      "r",
+      "u"
+    ],
     "words": [
       "code",
       "coded",
@@ -21197,9 +23626,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "tdelmos": {
-    "center": "t",
-    "letters": "delmos",
+  "347": {
+    "letters": [
+      "t",
+      "d",
+      "e",
+      "l",
+      "m",
+      "o",
+      "s"
+    ],
     "words": [
       "demoted",
       "dotted",
@@ -21259,9 +23695,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "naeglry": {
-    "center": "n",
-    "letters": "aeglry",
+  "348": {
+    "letters": [
+      "n",
+      "a",
+      "e",
+      "g",
+      "l",
+      "r",
+      "y"
+    ],
     "words": [
       "aeryn",
       "angel",
@@ -21314,9 +23757,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "oemnrsw": {
-    "center": "o",
-    "letters": "emnrsw",
+  "349": {
+    "letters": [
+      "o",
+      "e",
+      "m",
+      "n",
+      "r",
+      "s",
+      "w"
+    ],
     "words": [
       "error",
       "errors",
@@ -21381,9 +23831,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "seioptv": {
-    "center": "s",
-    "letters": "eioptv",
+  "350": {
+    "letters": [
+      "s",
+      "e",
+      "i",
+      "o",
+      "p",
+      "t",
+      "v"
+    ],
     "words": [
       "oppose",
       "opposes",
@@ -21439,9 +23896,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "paeilmr": {
-    "center": "p",
-    "letters": "aeilmr",
+  "351": {
+    "letters": [
+      "p",
+      "a",
+      "e",
+      "i",
+      "l",
+      "m",
+      "r"
+    ],
     "words": [
       "apparel",
       "appeal",
@@ -21508,9 +23972,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "obemnst": {
-    "center": "o",
-    "letters": "bemnst",
+  "352": {
+    "letters": [
+      "o",
+      "b",
+      "e",
+      "m",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "benton",
       "bomb",
@@ -21579,9 +24050,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "gaenprt": {
-    "center": "g",
-    "letters": "aenprt",
+  "353": {
+    "letters": [
+      "g",
+      "a",
+      "e",
+      "n",
+      "p",
+      "r",
+      "t"
+    ],
     "words": [
       "agent",
       "agree",
@@ -21637,9 +24115,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "caeilmr": {
-    "center": "c",
-    "letters": "aeilmr",
+  "354": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "i",
+      "l",
+      "m",
+      "r"
+    ],
     "words": [
       "acre",
       "alaric",
@@ -21694,9 +24179,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "naehrst": {
-    "center": "n",
-    "letters": "aehrst",
+  "355": {
+    "letters": [
+      "n",
+      "a",
+      "e",
+      "h",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "anna",
       "antenna",
@@ -21750,9 +24242,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "racegil": {
-    "center": "r",
-    "letters": "acegil",
+  "356": {
+    "letters": [
+      "r",
+      "a",
+      "c",
+      "e",
+      "g",
+      "i",
+      "l"
+    ],
     "words": [
       "acre",
       "aerial",
@@ -21810,9 +24309,16 @@ const PUZZLES = {
     ],
     "maxScore": 229
   },
-  "eacgilr": {
-    "center": "e",
-    "letters": "acgilr",
+  "357": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "g",
+      "i",
+      "l",
+      "r"
+    ],
     "words": [
       "acre",
       "aerial",
@@ -21869,9 +24375,16 @@ const PUZZLES = {
     ],
     "maxScore": 226
   },
-  "eacdlot": {
-    "center": "e",
-    "letters": "acdlot",
+  "358": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "d",
+      "l",
+      "o",
+      "t"
+    ],
     "words": [
       "allocated",
       "allotted",
@@ -21929,9 +24442,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "dbemors": {
-    "center": "d",
-    "letters": "bemors",
+  "359": {
+    "letters": [
+      "d",
+      "b",
+      "e",
+      "m",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "bedroom",
       "bedrooms",
@@ -21990,9 +24510,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "naeiosv": {
-    "center": "n",
-    "letters": "aeiosv",
+  "360": {
+    "letters": [
+      "n",
+      "a",
+      "e",
+      "i",
+      "o",
+      "s",
+      "v"
+    ],
     "words": [
       "anna",
       "assassin",
@@ -22051,9 +24578,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "oaclmrs": {
-    "center": "o",
-    "letters": "aclmrs",
+  "361": {
+    "letters": [
+      "o",
+      "a",
+      "c",
+      "l",
+      "m",
+      "r",
+      "s"
+    ],
     "words": [
       "across",
       "also",
@@ -22114,9 +24648,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "aelnrtx": {
-    "center": "a",
-    "letters": "elnrtx",
+  "362": {
+    "letters": [
+      "a",
+      "e",
+      "l",
+      "n",
+      "r",
+      "t",
+      "x"
+    ],
     "words": [
       "alert",
       "altar",
@@ -22175,9 +24716,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "scilnot": {
-    "center": "s",
-    "letters": "cilnot",
+  "363": {
+    "letters": [
+      "s",
+      "c",
+      "i",
+      "l",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "cisco",
       "clinics",
@@ -22231,9 +24779,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "eacghnr": {
-    "center": "e",
-    "letters": "acghnr",
+  "364": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "g",
+      "h",
+      "n",
+      "r"
+    ],
     "words": [
       "ache",
       "acne",
@@ -22299,9 +24854,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "dceikns": {
-    "center": "d",
-    "letters": "ceikns",
+  "365": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "i",
+      "k",
+      "n",
+      "s"
+    ],
     "words": [
       "decide",
       "decided",
@@ -22359,9 +24921,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "rabdost": {
-    "center": "r",
-    "letters": "abdost",
+  "366": {
+    "letters": [
+      "r",
+      "a",
+      "b",
+      "d",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "aboard",
       "abort",
@@ -22424,9 +24993,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "nacdegl": {
-    "center": "n",
-    "letters": "acdegl",
+  "367": {
+    "letters": [
+      "n",
+      "a",
+      "c",
+      "d",
+      "e",
+      "g",
+      "l"
+    ],
     "words": [
       "acne",
       "agenda",
@@ -22486,9 +25062,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "ealmosu": {
-    "center": "e",
-    "letters": "almosu",
+  "368": {
+    "letters": [
+      "e",
+      "a",
+      "l",
+      "m",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "assume",
       "assumes",
@@ -22551,9 +25134,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "gadinru": {
-    "center": "g",
-    "letters": "adinru",
+  "369": {
+    "letters": [
+      "g",
+      "a",
+      "d",
+      "i",
+      "n",
+      "r",
+      "u"
+    ],
     "words": [
       "again",
       "aging",
@@ -22607,9 +25197,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "taempru": {
-    "center": "t",
-    "letters": "aempru",
+  "370": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "m",
+      "p",
+      "r",
+      "u"
+    ],
     "words": [
       "amateur",
       "apart",
@@ -22671,9 +25268,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "ngiprsu": {
-    "center": "n",
-    "letters": "giprsu",
+  "371": {
+    "letters": [
+      "n",
+      "g",
+      "i",
+      "p",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "gripping",
       "inning",
@@ -22718,9 +25322,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "ocenrtv": {
-    "center": "o",
-    "letters": "cenrtv",
+  "372": {
+    "letters": [
+      "o",
+      "c",
+      "e",
+      "n",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "coco",
       "cocoon",
@@ -22784,9 +25395,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "edmpstu": {
-    "center": "e",
-    "letters": "dmpstu",
+  "373": {
+    "letters": [
+      "e",
+      "d",
+      "m",
+      "p",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -22849,9 +25467,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "timnops": {
-    "center": "t",
-    "letters": "imnops",
+  "374": {
+    "letters": [
+      "t",
+      "i",
+      "m",
+      "n",
+      "o",
+      "p",
+      "s"
+    ],
     "words": [
       "imposition",
       "insist",
@@ -22906,9 +25531,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "ebmnrsu": {
-    "center": "e",
-    "letters": "bmnrsu",
+  "375": {
+    "letters": [
+      "e",
+      "b",
+      "m",
+      "n",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "beer",
       "beers",
@@ -22962,9 +25594,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "pdelosv": {
-    "center": "p",
-    "letters": "delosv",
+  "376": {
+    "letters": [
+      "p",
+      "d",
+      "e",
+      "l",
+      "o",
+      "s",
+      "v"
+    ],
     "words": [
       "deep",
       "deposed",
@@ -23020,9 +25659,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "maceost": {
-    "center": "m",
-    "letters": "aceost",
+  "377": {
+    "letters": [
+      "m",
+      "a",
+      "c",
+      "e",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "ammo",
       "atom",
@@ -23091,9 +25737,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "caehips": {
-    "center": "c",
-    "letters": "aehips",
+  "378": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "h",
+      "i",
+      "p",
+      "s"
+    ],
     "words": [
       "access",
       "ache",
@@ -23142,9 +25795,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "ebmorsy": {
-    "center": "e",
-    "letters": "bmorsy",
+  "379": {
+    "letters": [
+      "e",
+      "b",
+      "m",
+      "o",
+      "r",
+      "s",
+      "y"
+    ],
     "words": [
       "beer",
       "beers",
@@ -23198,9 +25858,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "eabfilr": {
-    "center": "e",
-    "letters": "abfilr",
+  "380": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "f",
+      "i",
+      "l",
+      "r"
+    ],
     "words": [
       "able",
       "aerial",
@@ -23271,9 +25938,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "radehnp": {
-    "center": "r",
-    "letters": "adehnp",
+  "381": {
+    "letters": [
+      "r",
+      "a",
+      "d",
+      "e",
+      "h",
+      "n",
+      "p"
+    ],
     "words": [
       "adhere",
       "appear",
@@ -23339,9 +26013,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "geilnrv": {
-    "center": "g",
-    "letters": "eilnrv",
+  "382": {
+    "letters": [
+      "g",
+      "e",
+      "i",
+      "l",
+      "n",
+      "r",
+      "v"
+    ],
     "words": [
       "engine",
       "engineer",
@@ -23389,9 +26070,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "idehmns": {
-    "center": "i",
-    "letters": "dehmns",
+  "383": {
+    "letters": [
+      "i",
+      "d",
+      "e",
+      "h",
+      "m",
+      "n",
+      "s"
+    ],
     "words": [
       "demise",
       "denied",
@@ -23449,9 +26137,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "oimprst": {
-    "center": "o",
-    "letters": "imprst",
+  "384": {
+    "letters": [
+      "o",
+      "i",
+      "m",
+      "p",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "import",
       "imports",
@@ -23517,9 +26212,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "dcehirs": {
-    "center": "d",
-    "letters": "cehirs",
+  "385": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "h",
+      "i",
+      "r",
+      "s"
+    ],
     "words": [
       "cheered",
       "cherished",
@@ -23574,9 +26276,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "oehimrs": {
-    "center": "o",
-    "letters": "ehimrs",
+  "386": {
+    "letters": [
+      "o",
+      "e",
+      "h",
+      "i",
+      "m",
+      "r",
+      "s"
+    ],
     "words": [
       "error",
       "errors",
@@ -23634,9 +26343,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "safhirt": {
-    "center": "s",
-    "letters": "afhirt",
+  "387": {
+    "letters": [
+      "s",
+      "a",
+      "f",
+      "h",
+      "i",
+      "r",
+      "t"
+    ],
     "words": [
       "affairs",
       "airs",
@@ -23697,9 +26413,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "sdeimrz": {
-    "center": "s",
-    "letters": "deimrz",
+  "388": {
+    "letters": [
+      "s",
+      "d",
+      "e",
+      "i",
+      "m",
+      "r",
+      "z"
+    ],
     "words": [
       "deeds",
       "demise",
@@ -23753,9 +26476,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "einortu": {
-    "center": "e",
-    "letters": "inortu",
+  "389": {
+    "letters": [
+      "e",
+      "i",
+      "n",
+      "o",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "eerie",
       "enter",
@@ -23814,9 +26544,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "nadgisv": {
-    "center": "n",
-    "letters": "adgisv",
+  "390": {
+    "letters": [
+      "n",
+      "a",
+      "d",
+      "g",
+      "i",
+      "s",
+      "v"
+    ],
     "words": [
       "advising",
       "again",
@@ -23868,9 +26605,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "rabeglm": {
-    "center": "r",
-    "letters": "abeglm",
+  "391": {
+    "letters": [
+      "r",
+      "a",
+      "b",
+      "e",
+      "g",
+      "l",
+      "m"
+    ],
     "words": [
       "agree",
       "alarm",
@@ -23931,9 +26675,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "lenostv": {
-    "center": "l",
-    "letters": "enostv",
+  "392": {
+    "letters": [
+      "l",
+      "e",
+      "n",
+      "o",
+      "s",
+      "t",
+      "v"
+    ],
     "words": [
       "eleven",
       "elves",
@@ -23997,9 +26748,16 @@ const PUZZLES = {
     ],
     "maxScore": 272
   },
-  "raeilnp": {
-    "center": "r",
-    "letters": "aeilnp",
+  "393": {
+    "letters": [
+      "r",
+      "a",
+      "e",
+      "i",
+      "l",
+      "n",
+      "p"
+    ],
     "words": [
       "aerial",
       "airline",
@@ -24066,9 +26824,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "taceisv": {
-    "center": "t",
-    "letters": "aceisv",
+  "394": {
+    "letters": [
+      "t",
+      "a",
+      "c",
+      "e",
+      "i",
+      "s",
+      "v"
+    ],
     "words": [
       "activate",
       "activates",
@@ -24117,9 +26882,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "lcekors": {
-    "center": "l",
-    "letters": "cekors",
+  "395": {
+    "letters": [
+      "l",
+      "c",
+      "e",
+      "k",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "cell",
       "cello",
@@ -24183,9 +26955,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "mceiost": {
-    "center": "m",
-    "letters": "ceiost",
+  "396": {
+    "letters": [
+      "m",
+      "c",
+      "e",
+      "i",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "come",
       "comes",
@@ -24245,9 +27024,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "nabemst": {
-    "center": "n",
-    "letters": "abemst",
+  "397": {
+    "letters": [
+      "n",
+      "a",
+      "b",
+      "e",
+      "m",
+      "s",
+      "t"
+    ],
     "words": [
       "absent",
       "anna",
@@ -24300,9 +27086,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "nbegilo": {
-    "center": "n",
-    "letters": "begilo",
+  "398": {
+    "letters": [
+      "n",
+      "b",
+      "e",
+      "g",
+      "i",
+      "l",
+      "o"
+    ],
     "words": [
       "begin",
       "beginning",
@@ -24366,9 +27159,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "dabelms": {
-    "center": "d",
-    "letters": "abelms",
+  "399": {
+    "letters": [
+      "d",
+      "a",
+      "b",
+      "e",
+      "l",
+      "m",
+      "s"
+    ],
     "words": [
       "abed",
       "assembled",
@@ -24428,9 +27228,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "uademrs": {
-    "center": "u",
-    "letters": "ademrs",
+  "400": {
+    "letters": [
+      "u",
+      "a",
+      "d",
+      "e",
+      "m",
+      "r",
+      "s"
+    ],
     "words": [
       "amused",
       "assume",
@@ -24479,9 +27286,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "habeort": {
-    "center": "h",
-    "letters": "abeort",
+  "401": {
+    "letters": [
+      "h",
+      "a",
+      "b",
+      "e",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "baht",
       "bath",
@@ -24538,9 +27352,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "gchinst": {
-    "center": "g",
-    "letters": "chinst",
+  "402": {
+    "letters": [
+      "g",
+      "c",
+      "h",
+      "i",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "ching",
       "gist",
@@ -24587,9 +27408,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "sehmorw": {
-    "center": "s",
-    "letters": "ehmorw",
+  "403": {
+    "letters": [
+      "s",
+      "e",
+      "h",
+      "m",
+      "o",
+      "r",
+      "w"
+    ],
     "words": [
       "errors",
       "hermes",
@@ -24647,9 +27475,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "rabcdeu": {
-    "center": "r",
-    "letters": "abcdeu",
+  "404": {
+    "letters": [
+      "r",
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "u"
+    ],
     "words": [
       "abracadabra",
       "acre",
@@ -24716,9 +27551,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "labemrt": {
-    "center": "l",
-    "letters": "abemrt",
+  "405": {
+    "letters": [
+      "l",
+      "a",
+      "b",
+      "e",
+      "m",
+      "r",
+      "t"
+    ],
     "words": [
       "able",
       "alarm",
@@ -24786,9 +27628,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "pceilns": {
-    "center": "p",
-    "letters": "ceilns",
+  "406": {
+    "letters": [
+      "p",
+      "c",
+      "e",
+      "i",
+      "l",
+      "n",
+      "s"
+    ],
     "words": [
       "clip",
       "clips",
@@ -24841,9 +27690,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "sdehilv": {
-    "center": "s",
-    "letters": "dehilv",
+  "407": {
+    "letters": [
+      "s",
+      "d",
+      "e",
+      "h",
+      "i",
+      "l",
+      "v"
+    ],
     "words": [
       "deeds",
       "devilish",
@@ -24898,9 +27754,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "ienostx": {
-    "center": "i",
-    "letters": "enostx",
+  "408": {
+    "letters": [
+      "i",
+      "e",
+      "n",
+      "o",
+      "s",
+      "t",
+      "x"
+    ],
     "words": [
       "entities",
       "exist",
@@ -24945,9 +27808,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "aceirsz": {
-    "center": "a",
-    "letters": "ceirsz",
+  "409": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "i",
+      "r",
+      "s",
+      "z"
+    ],
     "words": [
       "access",
       "acre",
@@ -25004,9 +27874,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "ladeimn": {
-    "center": "l",
-    "letters": "adeimn",
+  "410": {
+    "letters": [
+      "l",
+      "a",
+      "d",
+      "e",
+      "i",
+      "m",
+      "n"
+    ],
     "words": [
       "alien",
       "allied",
@@ -25074,9 +27951,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "ecginor": {
-    "center": "e",
-    "letters": "cginor",
+  "411": {
+    "letters": [
+      "e",
+      "c",
+      "g",
+      "i",
+      "n",
+      "o",
+      "r"
+    ],
     "words": [
       "cicero",
       "coercion",
@@ -25131,9 +28015,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "nadegmo": {
-    "center": "n",
-    "letters": "adegmo",
+  "412": {
+    "letters": [
+      "n",
+      "a",
+      "d",
+      "e",
+      "g",
+      "m",
+      "o"
+    ],
     "words": [
       "agenda",
       "anna",
@@ -25198,9 +28089,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "efginor": {
-    "center": "e",
-    "letters": "fginor",
+  "413": {
+    "letters": [
+      "e",
+      "f",
+      "g",
+      "i",
+      "n",
+      "o",
+      "r"
+    ],
     "words": [
       "eerie",
       "eggnog",
@@ -25257,9 +28155,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "selmopy": {
-    "center": "s",
-    "letters": "elmopy",
+  "414": {
+    "letters": [
+      "s",
+      "e",
+      "l",
+      "m",
+      "o",
+      "p",
+      "y"
+    ],
     "words": [
       "employees",
       "eyes",
@@ -25319,9 +28224,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "baeglrt": {
-    "center": "b",
-    "letters": "aeglrt",
+  "415": {
+    "letters": [
+      "b",
+      "a",
+      "e",
+      "g",
+      "l",
+      "r",
+      "t"
+    ],
     "words": [
       "able",
       "algebra",
@@ -25380,9 +28292,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "tabeglr": {
-    "center": "t",
-    "letters": "abeglr",
+  "416": {
+    "letters": [
+      "t",
+      "a",
+      "b",
+      "e",
+      "g",
+      "l",
+      "r"
+    ],
     "words": [
       "alert",
       "altar",
@@ -25443,9 +28362,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "hceiors": {
-    "center": "h",
-    "letters": "ceiors",
+  "417": {
+    "letters": [
+      "h",
+      "c",
+      "e",
+      "i",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "cheer",
       "cheerio",
@@ -25499,9 +28425,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "aceflnr": {
-    "center": "a",
-    "letters": "ceflnr",
+  "418": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "f",
+      "l",
+      "n",
+      "r"
+    ],
     "words": [
       "acne",
       "acre",
@@ -25572,9 +28505,16 @@ const PUZZLES = {
     ],
     "maxScore": 268
   },
-  "rehmosw": {
-    "center": "r",
-    "letters": "ehmosw",
+  "419": {
+    "letters": [
+      "r",
+      "e",
+      "h",
+      "m",
+      "o",
+      "s",
+      "w"
+    ],
     "words": [
       "error",
       "errors",
@@ -25624,9 +28564,16 @@ const PUZZLES = {
     ],
     "maxScore": 230
   },
-  "tacdeno": {
-    "center": "t",
-    "letters": "acdeno",
+  "420": {
+    "letters": [
+      "t",
+      "a",
+      "c",
+      "d",
+      "e",
+      "n",
+      "o"
+    ],
     "words": [
       "accent",
       "antenna",
@@ -25683,9 +28630,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "gaeimrs": {
-    "center": "g",
-    "letters": "aeimrs",
+  "421": {
+    "letters": [
+      "g",
+      "a",
+      "e",
+      "i",
+      "m",
+      "r",
+      "s"
+    ],
     "words": [
       "agree",
       "agrees",
@@ -25739,9 +28693,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "ebciprs": {
-    "center": "e",
-    "letters": "bciprs",
+  "422": {
+    "letters": [
+      "e",
+      "b",
+      "c",
+      "i",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "beer",
       "beers",
@@ -25796,9 +28757,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "ecdirsx": {
-    "center": "e",
-    "letters": "cdirsx",
+  "423": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "i",
+      "r",
+      "s",
+      "x"
+    ],
     "words": [
       "cider",
       "creed",
@@ -25852,9 +28820,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "sbelmtu": {
-    "center": "s",
-    "letters": "belmtu",
+  "424": {
+    "letters": [
+      "s",
+      "b",
+      "e",
+      "l",
+      "m",
+      "t",
+      "u"
+    ],
     "words": [
       "beetles",
       "beets",
@@ -25911,9 +28886,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "deinotv": {
-    "center": "d",
-    "letters": "einotv",
+  "425": {
+    "letters": [
+      "d",
+      "e",
+      "i",
+      "n",
+      "o",
+      "t",
+      "v"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -25970,9 +28952,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "paeimrt": {
-    "center": "p",
-    "letters": "aeimrt",
+  "426": {
+    "letters": [
+      "p",
+      "a",
+      "e",
+      "i",
+      "m",
+      "r",
+      "t"
+    ],
     "words": [
       "apart",
       "appear",
@@ -26035,9 +29024,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "negirvw": {
-    "center": "n",
-    "letters": "egirvw",
+  "427": {
+    "letters": [
+      "n",
+      "e",
+      "g",
+      "i",
+      "r",
+      "v",
+      "w"
+    ],
     "words": [
       "engine",
       "engineer",
@@ -26088,9 +29084,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "icdehrs": {
-    "center": "i",
-    "letters": "cdehrs",
+  "428": {
+    "letters": [
+      "i",
+      "c",
+      "d",
+      "e",
+      "h",
+      "r",
+      "s"
+    ],
     "words": [
       "cherish",
       "cherished",
@@ -26145,9 +29148,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "aegilnv": {
-    "center": "a",
-    "letters": "egilnv",
+  "429": {
+    "letters": [
+      "a",
+      "e",
+      "g",
+      "i",
+      "l",
+      "n",
+      "v"
+    ],
     "words": [
       "again",
       "ageing",
@@ -26210,9 +29220,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "cehnost": {
-    "center": "c",
-    "letters": "ehnost",
+  "430": {
+    "letters": [
+      "c",
+      "e",
+      "h",
+      "n",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "cent",
       "cents",
@@ -26265,9 +29282,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "ucelors": {
-    "center": "u",
-    "letters": "celors",
+  "431": {
+    "letters": [
+      "u",
+      "c",
+      "e",
+      "l",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "closure",
       "clue",
@@ -26321,9 +29345,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "odinpst": {
-    "center": "o",
-    "letters": "dinpst",
+  "432": {
+    "letters": [
+      "o",
+      "d",
+      "i",
+      "n",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "disposition",
       "dodo",
@@ -26376,9 +29407,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "scilopt": {
-    "center": "s",
-    "letters": "cilopt",
+  "433": {
+    "letters": [
+      "s",
+      "c",
+      "i",
+      "l",
+      "o",
+      "p",
+      "t"
+    ],
     "words": [
       "cisco",
       "clips",
@@ -26444,9 +29482,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "ngilosv": {
-    "center": "n",
-    "letters": "gilosv",
+  "434": {
+    "letters": [
+      "n",
+      "g",
+      "i",
+      "l",
+      "o",
+      "s",
+      "v"
+    ],
     "words": [
       "giving",
       "going",
@@ -26499,9 +29544,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "simoprt": {
-    "center": "s",
-    "letters": "imoprt",
+  "435": {
+    "letters": [
+      "s",
+      "i",
+      "m",
+      "o",
+      "p",
+      "r",
+      "t"
+    ],
     "words": [
       "imports",
       "impostor",
@@ -26558,9 +29610,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "oaeprsv": {
-    "center": "o",
-    "letters": "aeprsv",
+  "436": {
+    "letters": [
+      "o",
+      "a",
+      "e",
+      "p",
+      "r",
+      "s",
+      "v"
+    ],
     "words": [
       "approve",
       "approves",
@@ -26614,9 +29673,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "tbeinru": {
-    "center": "t",
-    "letters": "beinru",
+  "437": {
+    "letters": [
+      "t",
+      "b",
+      "e",
+      "i",
+      "n",
+      "r",
+      "u"
+    ],
     "words": [
       "beet",
       "bennet",
@@ -26677,9 +29743,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "eaglnpt": {
-    "center": "e",
-    "letters": "aglnpt",
+  "438": {
+    "letters": [
+      "e",
+      "a",
+      "g",
+      "l",
+      "n",
+      "p",
+      "t"
+    ],
     "words": [
       "agent",
       "algae",
@@ -26745,9 +29818,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "lacekns": {
-    "center": "l",
-    "letters": "acekns",
+  "439": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "e",
+      "k",
+      "n",
+      "s"
+    ],
     "words": [
       "call",
       "callen",
@@ -26809,9 +29889,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "eacistu": {
-    "center": "e",
-    "letters": "acistu",
+  "440": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "i",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "access",
       "accuse",
@@ -26867,9 +29954,16 @@ const PUZZLES = {
     ],
     "maxScore": 273
   },
-  "lacemor": {
-    "center": "l",
-    "letters": "acemor",
+  "441": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "e",
+      "m",
+      "o",
+      "r"
+    ],
     "words": [
       "alarm",
       "call",
@@ -26933,9 +30027,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "ladegnt": {
-    "center": "l",
-    "letters": "adegnt",
+  "442": {
+    "letters": [
+      "l",
+      "a",
+      "d",
+      "e",
+      "g",
+      "n",
+      "t"
+    ],
     "words": [
       "algae",
       "alleged",
@@ -26994,9 +30095,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "laenopt": {
-    "center": "l",
-    "letters": "aenopt",
+  "443": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "n",
+      "o",
+      "p",
+      "t"
+    ],
     "words": [
       "alone",
       "alto",
@@ -27066,9 +30174,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "icnostu": {
-    "center": "i",
-    "letters": "cnostu",
+  "444": {
+    "letters": [
+      "i",
+      "c",
+      "n",
+      "o",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "cisco",
       "coin",
@@ -27109,9 +30224,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "eacdhin": {
-    "center": "e",
-    "letters": "acdhin",
+  "445": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "d",
+      "h",
+      "i",
+      "n"
+    ],
     "words": [
       "ache",
       "acne",
@@ -27165,9 +30287,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "ienopsu": {
-    "center": "i",
-    "letters": "enopsu",
+  "446": {
+    "letters": [
+      "i",
+      "e",
+      "n",
+      "o",
+      "p",
+      "s",
+      "u"
+    ],
     "words": [
       "issue",
       "issues",
@@ -27213,9 +30342,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "tdefinr": {
-    "center": "t",
-    "letters": "definr",
+  "447": {
+    "letters": [
+      "t",
+      "d",
+      "e",
+      "f",
+      "i",
+      "n",
+      "r"
+    ],
     "words": [
       "definite",
       "dent",
@@ -27271,9 +30407,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "gadinrw": {
-    "center": "g",
-    "letters": "adinrw",
+  "448": {
+    "letters": [
+      "g",
+      "a",
+      "d",
+      "i",
+      "n",
+      "r",
+      "w"
+    ],
     "words": [
       "again",
       "aging",
@@ -27325,9 +30468,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "eaginos": {
-    "center": "e",
-    "letters": "aginos",
+  "449": {
+    "letters": [
+      "e",
+      "a",
+      "g",
+      "i",
+      "n",
+      "o",
+      "s"
+    ],
     "words": [
       "ageing",
       "ease",
@@ -27380,9 +30530,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "hadegrt": {
-    "center": "h",
-    "letters": "adegrt",
+  "450": {
+    "letters": [
+      "h",
+      "a",
+      "d",
+      "e",
+      "g",
+      "r",
+      "t"
+    ],
     "words": [
       "adhere",
       "ahead",
@@ -27435,9 +30592,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "oceirsu": {
-    "center": "o",
-    "letters": "ceirsu",
+  "451": {
+    "letters": [
+      "o",
+      "c",
+      "e",
+      "i",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "cicero",
       "cisco",
@@ -27485,9 +30649,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "pcdeior": {
-    "center": "p",
-    "letters": "cdeior",
+  "452": {
+    "letters": [
+      "p",
+      "c",
+      "d",
+      "e",
+      "i",
+      "o",
+      "r"
+    ],
     "words": [
       "coop",
       "cooped",
@@ -27553,9 +30724,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "oceilnt": {
-    "center": "o",
-    "letters": "ceilnt",
+  "453": {
+    "letters": [
+      "o",
+      "c",
+      "e",
+      "i",
+      "l",
+      "n",
+      "t"
+    ],
     "words": [
       "cello",
       "clone",
@@ -27619,9 +30797,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "eacfinr": {
-    "center": "e",
-    "letters": "acfinr",
+  "454": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "f",
+      "i",
+      "n",
+      "r"
+    ],
     "words": [
       "acne",
       "acre",
@@ -27684,9 +30869,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "oabdrst": {
-    "center": "o",
-    "letters": "abdrst",
+  "455": {
+    "letters": [
+      "o",
+      "a",
+      "b",
+      "d",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "abbot",
       "abbott",
@@ -27750,9 +30942,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "eagilnv": {
-    "center": "e",
-    "letters": "agilnv",
+  "456": {
+    "letters": [
+      "e",
+      "a",
+      "g",
+      "i",
+      "l",
+      "n",
+      "v"
+    ],
     "words": [
       "ageing",
       "agile",
@@ -27814,9 +31013,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "eadgrvy": {
-    "center": "e",
-    "letters": "adgrvy",
+  "457": {
+    "letters": [
+      "e",
+      "a",
+      "d",
+      "g",
+      "r",
+      "v",
+      "y"
+    ],
     "words": [
       "aged",
       "agree",
@@ -27876,9 +31082,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "iadgnrw": {
-    "center": "i",
-    "letters": "adgnrw",
+  "458": {
+    "letters": [
+      "i",
+      "a",
+      "d",
+      "g",
+      "n",
+      "r",
+      "w"
+    ],
     "words": [
       "again",
       "aging",
@@ -27931,9 +31144,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "ladeorv": {
-    "center": "l",
-    "letters": "adeorv",
+  "459": {
+    "letters": [
+      "l",
+      "a",
+      "d",
+      "e",
+      "o",
+      "r",
+      "v"
+    ],
     "words": [
       "dale",
       "deal",
@@ -27992,9 +31212,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "nbdeilo": {
-    "center": "n",
-    "letters": "bdeilo",
+  "460": {
+    "letters": [
+      "n",
+      "b",
+      "d",
+      "e",
+      "i",
+      "l",
+      "o"
+    ],
     "words": [
       "bend",
       "bennie",
@@ -28058,9 +31285,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "saceknp": {
-    "center": "s",
-    "letters": "aceknp",
+  "461": {
+    "letters": [
+      "s",
+      "a",
+      "c",
+      "e",
+      "k",
+      "n",
+      "p"
+    ],
     "words": [
       "access",
       "appease",
@@ -28119,9 +31353,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "hadelps": {
-    "center": "h",
-    "letters": "adelps",
+  "462": {
+    "letters": [
+      "h",
+      "a",
+      "d",
+      "e",
+      "l",
+      "p",
+      "s"
+    ],
     "words": [
       "ahead",
       "alpha",
@@ -28179,9 +31420,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "baelors": {
-    "center": "b",
-    "letters": "aelors",
+  "463": {
+    "letters": [
+      "b",
+      "a",
+      "e",
+      "l",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "able",
       "absorb",
@@ -28247,9 +31495,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "vbdeors": {
-    "center": "v",
-    "letters": "bdeors",
+  "464": {
+    "letters": [
+      "v",
+      "b",
+      "d",
+      "e",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "deserve",
       "deserved",
@@ -28294,9 +31549,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "rabefil": {
-    "center": "r",
-    "letters": "abefil",
+  "465": {
+    "letters": [
+      "r",
+      "a",
+      "b",
+      "e",
+      "f",
+      "i",
+      "l"
+    ],
     "words": [
       "aerial",
       "afar",
@@ -28360,9 +31622,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "tefnoru": {
-    "center": "t",
-    "letters": "efnoru",
+  "466": {
+    "letters": [
+      "t",
+      "e",
+      "f",
+      "n",
+      "o",
+      "r",
+      "u"
+    ],
     "words": [
       "effort",
       "enter",
@@ -28424,9 +31693,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "haelosw": {
-    "center": "h",
-    "letters": "aelosw",
+  "467": {
+    "letters": [
+      "h",
+      "a",
+      "e",
+      "l",
+      "o",
+      "s",
+      "w"
+    ],
     "words": [
       "aloha",
       "asshole",
@@ -28485,9 +31761,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "edgintx": {
-    "center": "e",
-    "letters": "dgintx",
+  "468": {
+    "letters": [
+      "e",
+      "d",
+      "g",
+      "i",
+      "n",
+      "t",
+      "x"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -28543,9 +31826,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "nabegrs": {
-    "center": "n",
-    "letters": "abegrs",
+  "469": {
+    "letters": [
+      "n",
+      "a",
+      "b",
+      "e",
+      "g",
+      "r",
+      "s"
+    ],
     "words": [
       "anger",
       "anna",
@@ -28604,9 +31894,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "odelpsx": {
-    "center": "o",
-    "letters": "delpsx",
+  "470": {
+    "letters": [
+      "o",
+      "d",
+      "e",
+      "l",
+      "p",
+      "s",
+      "x"
+    ],
     "words": [
       "deposed",
       "dodo",
@@ -28669,9 +31966,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "daceimt": {
-    "center": "d",
-    "letters": "aceimt",
+  "471": {
+    "letters": [
+      "d",
+      "a",
+      "c",
+      "e",
+      "i",
+      "m",
+      "t"
+    ],
     "words": [
       "academic",
       "acid",
@@ -28731,9 +32035,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "ibelstu": {
-    "center": "i",
-    "letters": "belstu",
+  "472": {
+    "letters": [
+      "i",
+      "b",
+      "e",
+      "l",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "belittle",
       "bellies",
@@ -28785,9 +32096,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "adegmno": {
-    "center": "a",
-    "letters": "degmno",
+  "473": {
+    "letters": [
+      "a",
+      "d",
+      "e",
+      "g",
+      "m",
+      "n",
+      "o"
+    ],
     "words": [
       "aged",
       "agenda",
@@ -28851,9 +32169,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "scehipt": {
-    "center": "s",
-    "letters": "cehipt",
+  "474": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "h",
+      "i",
+      "p",
+      "t"
+    ],
     "words": [
       "cheese",
       "cheeses",
@@ -28909,9 +32234,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "oabdemr": {
-    "center": "o",
-    "letters": "abdemr",
+  "475": {
+    "letters": [
+      "o",
+      "a",
+      "b",
+      "d",
+      "e",
+      "m",
+      "r"
+    ],
     "words": [
       "aboard",
       "abode",
@@ -28971,9 +32303,16 @@ const PUZZLES = {
     ],
     "maxScore": 229
   },
-  "daenpsw": {
-    "center": "d",
-    "letters": "aenpsw",
+  "476": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "n",
+      "p",
+      "s",
+      "w"
+    ],
     "words": [
       "dada",
       "dawn",
@@ -29030,9 +32369,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "nagimry": {
-    "center": "n",
-    "letters": "agimry",
+  "477": {
+    "letters": [
+      "n",
+      "a",
+      "g",
+      "i",
+      "m",
+      "r",
+      "y"
+    ],
     "words": [
       "again",
       "aging",
@@ -29085,9 +32431,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "ainostv": {
-    "center": "a",
-    "letters": "inostv",
+  "478": {
+    "letters": [
+      "a",
+      "i",
+      "n",
+      "o",
+      "s",
+      "t",
+      "v"
+    ],
     "words": [
       "anna",
       "anti",
@@ -29131,9 +32484,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "eclmops": {
-    "center": "e",
-    "letters": "clmops",
+  "479": {
+    "letters": [
+      "e",
+      "c",
+      "l",
+      "m",
+      "o",
+      "p",
+      "s"
+    ],
     "words": [
       "cell",
       "cello",
@@ -29200,9 +32560,16 @@ const PUZZLES = {
     ],
     "maxScore": 272
   },
-  "ldeimps": {
-    "center": "l",
-    "letters": "deimps",
+  "480": {
+    "letters": [
+      "l",
+      "d",
+      "e",
+      "i",
+      "m",
+      "p",
+      "s"
+    ],
     "words": [
       "deli",
       "dell",
@@ -29264,9 +32631,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "ladehin": {
-    "center": "l",
-    "letters": "adehin",
+  "481": {
+    "letters": [
+      "l",
+      "a",
+      "d",
+      "e",
+      "h",
+      "i",
+      "n"
+    ],
     "words": [
       "alien",
       "allied",
@@ -29330,9 +32704,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "rbefgin": {
-    "center": "r",
-    "letters": "befgin",
+  "482": {
+    "letters": [
+      "r",
+      "b",
+      "e",
+      "f",
+      "g",
+      "i",
+      "n"
+    ],
     "words": [
       "beer",
       "berg",
@@ -29382,9 +32763,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "laerswy": {
-    "center": "l",
-    "letters": "aerswy",
+  "483": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "r",
+      "s",
+      "w",
+      "y"
+    ],
     "words": [
       "alley",
       "alleys",
@@ -29444,9 +32832,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "sgiknrt": {
-    "center": "s",
-    "letters": "giknrt",
+  "484": {
+    "letters": [
+      "s",
+      "g",
+      "i",
+      "k",
+      "n",
+      "r",
+      "t"
+    ],
     "words": [
       "gist",
       "grits",
@@ -29496,9 +32891,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "rabegmo": {
-    "center": "r",
-    "letters": "abegmo",
+  "485": {
+    "letters": [
+      "r",
+      "a",
+      "b",
+      "e",
+      "g",
+      "m",
+      "o"
+    ],
     "words": [
       "agree",
       "amber",
@@ -29565,9 +32967,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "daelrtv": {
-    "center": "d",
-    "letters": "aelrtv",
+  "486": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "l",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "advert",
       "alerted",
@@ -29624,9 +33033,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "oachlrs": {
-    "center": "o",
-    "letters": "achlrs",
+  "487": {
+    "letters": [
+      "o",
+      "a",
+      "c",
+      "h",
+      "l",
+      "r",
+      "s"
+    ],
     "words": [
       "across",
       "alcohol",
@@ -29685,9 +33101,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "icefnos": {
-    "center": "i",
-    "letters": "cefnos",
+  "488": {
+    "letters": [
+      "i",
+      "c",
+      "e",
+      "f",
+      "n",
+      "o",
+      "s"
+    ],
     "words": [
       "cisco",
       "coffin",
@@ -29728,9 +33151,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "ndefisv": {
-    "center": "n",
-    "letters": "defisv",
+  "489": {
+    "letters": [
+      "n",
+      "d",
+      "e",
+      "f",
+      "i",
+      "s",
+      "v"
+    ],
     "words": [
       "defend",
       "defended",
@@ -29785,9 +33215,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "sdemnou": {
-    "center": "s",
-    "letters": "demnou",
+  "490": {
+    "letters": [
+      "s",
+      "d",
+      "e",
+      "m",
+      "n",
+      "o",
+      "u"
+    ],
     "words": [
       "deeds",
       "demons",
@@ -29849,9 +33286,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "dacertx": {
-    "center": "d",
-    "letters": "acertx",
+  "491": {
+    "letters": [
+      "d",
+      "a",
+      "c",
+      "e",
+      "r",
+      "t",
+      "x"
+    ],
     "words": [
       "arcade",
       "attracted",
@@ -29903,9 +33347,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "aceghnr": {
-    "center": "a",
-    "letters": "ceghnr",
+  "492": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "g",
+      "h",
+      "n",
+      "r"
+    ],
     "words": [
       "ache",
       "acne",
@@ -29975,9 +33426,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "aeglnpt": {
-    "center": "a",
-    "letters": "eglnpt",
+  "493": {
+    "letters": [
+      "a",
+      "e",
+      "g",
+      "l",
+      "n",
+      "p",
+      "t"
+    ],
     "words": [
       "agent",
       "algae",
@@ -30049,9 +33507,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "odelprv": {
-    "center": "o",
-    "letters": "delprv",
+  "494": {
+    "letters": [
+      "o",
+      "d",
+      "e",
+      "l",
+      "p",
+      "r",
+      "v"
+    ],
     "words": [
       "develop",
       "developed",
@@ -30121,9 +33586,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "ibekrst": {
-    "center": "i",
-    "letters": "bekrst",
+  "495": {
+    "letters": [
+      "i",
+      "b",
+      "e",
+      "k",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "berries",
       "bikers",
@@ -30181,9 +33653,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "caelmor": {
-    "center": "c",
-    "letters": "aelmor",
+  "496": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "l",
+      "m",
+      "o",
+      "r"
+    ],
     "words": [
       "acre",
       "call",
@@ -30247,9 +33726,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "lbemstu": {
-    "center": "l",
-    "letters": "bemstu",
+  "497": {
+    "letters": [
+      "l",
+      "b",
+      "e",
+      "m",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "beetle",
       "beetles",
@@ -30307,9 +33793,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "ueioprs": {
-    "center": "u",
-    "letters": "eioprs",
+  "498": {
+    "letters": [
+      "u",
+      "e",
+      "i",
+      "o",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "euro",
       "europe",
@@ -30359,9 +33852,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "daeimnx": {
-    "center": "d",
-    "letters": "aeimnx",
+  "499": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "i",
+      "m",
+      "n",
+      "x"
+    ],
     "words": [
       "aide",
       "aided",
@@ -30421,9 +33921,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "icdekrt": {
-    "center": "i",
-    "letters": "cdekrt",
+  "500": {
+    "letters": [
+      "i",
+      "c",
+      "d",
+      "e",
+      "k",
+      "r",
+      "t"
+    ],
     "words": [
       "cider",
       "cite",
@@ -30483,9 +33990,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "nabegim": {
-    "center": "n",
-    "letters": "abegim",
+  "501": {
+    "letters": [
+      "n",
+      "a",
+      "b",
+      "e",
+      "g",
+      "i",
+      "m"
+    ],
     "words": [
       "again",
       "ageing",
@@ -30544,9 +34058,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "iacehrs": {
-    "center": "i",
-    "letters": "acehrs",
+  "502": {
+    "letters": [
+      "i",
+      "a",
+      "c",
+      "e",
+      "h",
+      "r",
+      "s"
+    ],
     "words": [
       "airs",
       "archaic",
@@ -30599,9 +34120,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "iafgmnr": {
-    "center": "i",
-    "letters": "afgmnr",
+  "503": {
+    "letters": [
+      "i",
+      "a",
+      "f",
+      "g",
+      "m",
+      "n",
+      "r"
+    ],
     "words": [
       "affair",
       "affirm",
@@ -30656,9 +34184,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "iaghnsv": {
-    "center": "i",
-    "letters": "aghnsv",
+  "504": {
+    "letters": [
+      "i",
+      "a",
+      "g",
+      "h",
+      "n",
+      "s",
+      "v"
+    ],
     "words": [
       "again",
       "aging",
@@ -30710,9 +34245,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "baelrty": {
-    "center": "b",
-    "letters": "aelrty",
+  "505": {
+    "letters": [
+      "b",
+      "a",
+      "e",
+      "l",
+      "r",
+      "t",
+      "y"
+    ],
     "words": [
       "abbey",
       "able",
@@ -30769,9 +34311,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "daefilt": {
-    "center": "d",
-    "letters": "aefilt",
+  "506": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "f",
+      "i",
+      "l",
+      "t"
+    ],
     "words": [
       "aditi",
       "affiliated",
@@ -30836,9 +34385,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "raegmop": {
-    "center": "r",
-    "letters": "aegmop",
+  "507": {
+    "letters": [
+      "r",
+      "a",
+      "e",
+      "g",
+      "m",
+      "o",
+      "p"
+    ],
     "words": [
       "agree",
       "appear",
@@ -30907,9 +34463,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "denoruw": {
-    "center": "d",
-    "letters": "enoruw",
+  "508": {
+    "letters": [
+      "d",
+      "e",
+      "n",
+      "o",
+      "r",
+      "u",
+      "w"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -30971,9 +34534,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "eabilmt": {
-    "center": "e",
-    "letters": "abilmt",
+  "509": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "i",
+      "l",
+      "m",
+      "t"
+    ],
     "words": [
       "able",
       "amelia",
@@ -31041,9 +34611,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "ecimnps": {
-    "center": "e",
-    "letters": "cimnps",
+  "510": {
+    "letters": [
+      "e",
+      "c",
+      "i",
+      "m",
+      "n",
+      "p",
+      "s"
+    ],
     "words": [
       "eminence",
       "enemies",
@@ -31099,9 +34676,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "eaglrvy": {
-    "center": "e",
-    "letters": "aglrvy",
+  "511": {
+    "letters": [
+      "e",
+      "a",
+      "g",
+      "l",
+      "r",
+      "v",
+      "y"
+    ],
     "words": [
       "agree",
       "algae",
@@ -31166,9 +34750,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "icdelpr": {
-    "center": "i",
-    "letters": "cdelpr",
+  "512": {
+    "letters": [
+      "i",
+      "c",
+      "d",
+      "e",
+      "l",
+      "p",
+      "r"
+    ],
     "words": [
       "cider",
       "circle",
@@ -31227,9 +34818,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "scekorw": {
-    "center": "s",
-    "letters": "cekorw",
+  "513": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "k",
+      "o",
+      "r",
+      "w"
+    ],
     "words": [
       "cocks",
       "cokes",
@@ -31277,9 +34875,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "pegilns": {
-    "center": "p",
-    "letters": "egilns",
+  "514": {
+    "letters": [
+      "p",
+      "e",
+      "g",
+      "i",
+      "l",
+      "n",
+      "s"
+    ],
     "words": [
       "nipple",
       "nipples",
@@ -31329,9 +34934,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "neloprs": {
-    "center": "n",
-    "letters": "eloprs",
+  "515": {
+    "letters": [
+      "n",
+      "e",
+      "l",
+      "o",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "enroll",
       "lens",
@@ -31386,9 +34998,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "afhirst": {
-    "center": "a",
-    "letters": "fhirst",
+  "516": {
+    "letters": [
+      "a",
+      "f",
+      "h",
+      "i",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "afar",
       "affair",
@@ -31449,9 +35068,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "tcghins": {
-    "center": "t",
-    "letters": "cghins",
+  "517": {
+    "letters": [
+      "t",
+      "c",
+      "g",
+      "h",
+      "i",
+      "n",
+      "s"
+    ],
     "words": [
       "chit",
       "gist",
@@ -31498,9 +35124,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "sacdenv": {
-    "center": "s",
-    "letters": "acdenv",
+  "518": {
+    "letters": [
+      "s",
+      "a",
+      "c",
+      "d",
+      "e",
+      "n",
+      "v"
+    ],
     "words": [
       "access",
       "accessed",
@@ -31554,9 +35187,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "gadeint": {
-    "center": "g",
-    "letters": "adeint",
+  "519": {
+    "letters": [
+      "g",
+      "a",
+      "d",
+      "e",
+      "i",
+      "n",
+      "t"
+    ],
     "words": [
       "again",
       "aged",
@@ -31610,9 +35250,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "ocekrsw": {
-    "center": "o",
-    "letters": "cekrsw",
+  "520": {
+    "letters": [
+      "o",
+      "c",
+      "e",
+      "k",
+      "r",
+      "s",
+      "w"
+    ],
     "words": [
       "cock",
       "cocks",
@@ -31668,9 +35315,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "madegno": {
-    "center": "m",
-    "letters": "adegno",
+  "521": {
+    "letters": [
+      "m",
+      "a",
+      "d",
+      "e",
+      "g",
+      "n",
+      "o"
+    ],
     "words": [
       "ammo",
       "damage",
@@ -31735,9 +35389,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "elmopsy": {
-    "center": "e",
-    "letters": "lmopsy",
+  "522": {
+    "letters": [
+      "e",
+      "l",
+      "m",
+      "o",
+      "p",
+      "s",
+      "y"
+    ],
     "words": [
       "employee",
       "employees",
@@ -31800,9 +35461,16 @@ const PUZZLES = {
     ],
     "maxScore": 270
   },
-  "mdelost": {
-    "center": "m",
-    "letters": "delost",
+  "523": {
+    "letters": [
+      "m",
+      "d",
+      "e",
+      "l",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "deem",
       "deemed",
@@ -31865,9 +35533,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "leknost": {
-    "center": "l",
-    "letters": "eknost",
+  "524": {
+    "letters": [
+      "l",
+      "e",
+      "k",
+      "n",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "keel",
       "kettle",
@@ -31923,9 +35598,16 @@ const PUZZLES = {
     ],
     "maxScore": 227
   },
-  "tdeghin": {
-    "center": "t",
-    "letters": "deghin",
+  "525": {
+    "letters": [
+      "t",
+      "d",
+      "e",
+      "g",
+      "h",
+      "i",
+      "n"
+    ],
     "words": [
       "dent",
       "dented",
@@ -31977,9 +35659,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "idemrsu": {
-    "center": "i",
-    "letters": "demrsu",
+  "526": {
+    "letters": [
+      "i",
+      "d",
+      "e",
+      "m",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "demise",
       "desire",
@@ -32032,9 +35721,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "oaelrsv": {
-    "center": "o",
-    "letters": "aelrsv",
+  "527": {
+    "letters": [
+      "o",
+      "a",
+      "e",
+      "l",
+      "r",
+      "s",
+      "v"
+    ],
     "words": [
       "also",
       "error",
@@ -32089,9 +35785,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "eailrtu": {
-    "center": "e",
-    "letters": "ailrtu",
+  "528": {
+    "letters": [
+      "e",
+      "a",
+      "i",
+      "l",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "aerial",
       "alert",
@@ -32157,9 +35860,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "ngimosu": {
-    "center": "n",
-    "letters": "gimosu",
+  "529": {
+    "letters": [
+      "n",
+      "g",
+      "i",
+      "m",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "going",
       "goon",
@@ -32212,9 +35922,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "ceiprst": {
-    "center": "c",
-    "letters": "eiprst",
+  "530": {
+    "letters": [
+      "c",
+      "e",
+      "i",
+      "p",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "cite",
       "cities",
@@ -32261,9 +35978,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "scehntu": {
-    "center": "s",
-    "letters": "cehntu",
+  "531": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "h",
+      "n",
+      "t",
+      "u"
+    ],
     "words": [
       "cents",
       "cheese",
@@ -32316,9 +36040,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "daenorv": {
-    "center": "d",
-    "letters": "aenorv",
+  "532": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "n",
+      "o",
+      "r",
+      "v"
+    ],
     "words": [
       "adored",
       "adorn",
@@ -32379,9 +36110,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "deilorw": {
-    "center": "d",
-    "letters": "eilorw",
+  "533": {
+    "letters": [
+      "d",
+      "e",
+      "i",
+      "l",
+      "o",
+      "r",
+      "w"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -32449,9 +36187,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "raegilv": {
-    "center": "r",
-    "letters": "aegilv",
+  "534": {
+    "letters": [
+      "r",
+      "a",
+      "e",
+      "g",
+      "i",
+      "l",
+      "v"
+    ],
     "words": [
       "aerial",
       "agree",
@@ -32509,9 +36254,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "nadehls": {
-    "center": "n",
-    "letters": "adehls",
+  "535": {
+    "letters": [
+      "n",
+      "a",
+      "d",
+      "e",
+      "h",
+      "l",
+      "s"
+    ],
     "words": [
       "anna",
       "dean",
@@ -32566,9 +36318,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "sabcilt": {
-    "center": "s",
-    "letters": "abcilt",
+  "536": {
+    "letters": [
+      "s",
+      "a",
+      "b",
+      "c",
+      "i",
+      "l",
+      "t"
+    ],
     "words": [
       "alias",
       "assist",
@@ -32624,9 +36383,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "sbdegir": {
-    "center": "s",
-    "letters": "bdegir",
+  "537": {
+    "letters": [
+      "s",
+      "b",
+      "d",
+      "e",
+      "g",
+      "i",
+      "r"
+    ],
     "words": [
       "bedside",
       "beers",
@@ -32675,9 +36441,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "rabeilv": {
-    "center": "r",
-    "letters": "abeilv",
+  "538": {
+    "letters": [
+      "r",
+      "a",
+      "b",
+      "e",
+      "i",
+      "l",
+      "v"
+    ],
     "words": [
       "aerial",
       "area",
@@ -32736,9 +36509,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "semnorw": {
-    "center": "s",
-    "letters": "emnorw",
+  "539": {
+    "letters": [
+      "s",
+      "e",
+      "m",
+      "n",
+      "o",
+      "r",
+      "w"
+    ],
     "words": [
       "errors",
       "memos",
@@ -32795,9 +36575,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "eaimrsy": {
-    "center": "e",
-    "letters": "aimrsy",
+  "540": {
+    "letters": [
+      "e",
+      "a",
+      "i",
+      "m",
+      "r",
+      "s",
+      "y"
+    ],
     "words": [
       "area",
       "areas",
@@ -32860,9 +36647,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "heoprsw": {
-    "center": "h",
-    "letters": "eoprsw",
+  "541": {
+    "letters": [
+      "h",
+      "e",
+      "o",
+      "p",
+      "r",
+      "s",
+      "w"
+    ],
     "words": [
       "here",
       "hero",
@@ -32914,9 +36708,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "eaclnpt": {
-    "center": "e",
-    "letters": "aclnpt",
+  "542": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "l",
+      "n",
+      "p",
+      "t"
+    ],
     "words": [
       "accent",
       "accept",
@@ -32985,9 +36786,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "acdginr": {
-    "center": "a",
-    "letters": "cdginr",
+  "543": {
+    "letters": [
+      "a",
+      "c",
+      "d",
+      "g",
+      "i",
+      "n",
+      "r"
+    ],
     "words": [
       "acid",
       "again",
@@ -33047,9 +36855,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "sehoruw": {
-    "center": "s",
-    "letters": "ehoruw",
+  "544": {
+    "letters": [
+      "s",
+      "e",
+      "h",
+      "o",
+      "r",
+      "u",
+      "w"
+    ],
     "words": [
       "errors",
       "euros",
@@ -33104,9 +36919,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "silnotu": {
-    "center": "s",
-    "letters": "ilnotu",
+  "545": {
+    "letters": [
+      "s",
+      "i",
+      "l",
+      "n",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "illusion",
       "illusions",
@@ -33166,9 +36988,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "vaegirs": {
-    "center": "v",
-    "letters": "aegirs",
+  "546": {
+    "letters": [
+      "v",
+      "a",
+      "e",
+      "g",
+      "i",
+      "r",
+      "s"
+    ],
     "words": [
       "aggressive",
       "arrive",
@@ -33219,9 +37048,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "echlstu": {
-    "center": "e",
-    "letters": "chlstu",
+  "547": {
+    "letters": [
+      "e",
+      "c",
+      "h",
+      "l",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "cell",
       "cells",
@@ -33274,9 +37110,16 @@ const PUZZLES = {
     ],
     "maxScore": 230
   },
-  "edimnpt": {
-    "center": "e",
-    "letters": "dimnpt",
+  "548": {
+    "letters": [
+      "e",
+      "d",
+      "i",
+      "m",
+      "n",
+      "p",
+      "t"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -33342,9 +37185,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "aeflrtw": {
-    "center": "a",
-    "letters": "eflrtw",
+  "549": {
+    "letters": [
+      "a",
+      "e",
+      "f",
+      "l",
+      "r",
+      "t",
+      "w"
+    ],
     "words": [
       "afar",
       "after",
@@ -33411,9 +37261,16 @@ const PUZZLES = {
     ],
     "maxScore": 232
   },
-  "acdeilt": {
-    "center": "a",
-    "letters": "cdeilt",
+  "550": {
+    "letters": [
+      "a",
+      "c",
+      "d",
+      "e",
+      "i",
+      "l",
+      "t"
+    ],
     "words": [
       "acid",
       "addict",
@@ -33475,9 +37332,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "mbdeors": {
-    "center": "m",
-    "letters": "bdeors",
+  "551": {
+    "letters": [
+      "m",
+      "b",
+      "d",
+      "e",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "bedroom",
       "bedrooms",
@@ -33538,9 +37402,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "vaelrsy": {
-    "center": "v",
-    "letters": "aelrsy",
+  "552": {
+    "letters": [
+      "v",
+      "a",
+      "e",
+      "l",
+      "r",
+      "s",
+      "y"
+    ],
     "words": [
       "elves",
       "ever",
@@ -33595,9 +37466,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "cabemrs": {
-    "center": "c",
-    "letters": "abemrs",
+  "553": {
+    "letters": [
+      "c",
+      "a",
+      "b",
+      "e",
+      "m",
+      "r",
+      "s"
+    ],
     "words": [
       "abscess",
       "access",
@@ -33650,9 +37528,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "saghinr": {
-    "center": "s",
-    "letters": "aghinr",
+  "554": {
+    "letters": [
+      "s",
+      "a",
+      "g",
+      "h",
+      "i",
+      "n",
+      "r"
+    ],
     "words": [
       "airs",
       "assassin",
@@ -33709,9 +37594,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "nbdgior": {
-    "center": "n",
-    "letters": "bdgior",
+  "555": {
+    "letters": [
+      "n",
+      "b",
+      "d",
+      "g",
+      "i",
+      "o",
+      "r"
+    ],
     "words": [
       "bind",
       "binding",
@@ -33764,9 +37656,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "scefior": {
-    "center": "s",
-    "letters": "cefior",
+  "556": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "f",
+      "i",
+      "o",
+      "r"
+    ],
     "words": [
       "cisco",
       "coffees",
@@ -33814,9 +37713,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "tadelnp": {
-    "center": "t",
-    "letters": "adelnp",
+  "557": {
+    "letters": [
+      "t",
+      "a",
+      "d",
+      "e",
+      "l",
+      "n",
+      "p"
+    ],
     "words": [
       "adapt",
       "adapted",
@@ -33873,9 +37779,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "caeirtv": {
-    "center": "c",
-    "letters": "aeirtv",
+  "558": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "i",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "acre",
       "activate",
@@ -33926,9 +37839,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "eablmru": {
-    "center": "e",
-    "letters": "ablmru",
+  "559": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "l",
+      "m",
+      "r",
+      "u"
+    ],
     "words": [
       "able",
       "amber",
@@ -33992,9 +37912,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "eabgiln": {
-    "center": "e",
-    "letters": "abgiln",
+  "560": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "g",
+      "i",
+      "l",
+      "n"
+    ],
     "words": [
       "able",
       "ageing",
@@ -34054,9 +37981,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "oelmpsy": {
-    "center": "o",
-    "letters": "elmpsy",
+  "561": {
+    "letters": [
+      "o",
+      "e",
+      "l",
+      "m",
+      "p",
+      "s",
+      "y"
+    ],
     "words": [
       "employee",
       "employees",
@@ -34120,9 +38054,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "nacelrt": {
-    "center": "n",
-    "letters": "acelrt",
+  "562": {
+    "letters": [
+      "n",
+      "a",
+      "c",
+      "e",
+      "l",
+      "r",
+      "t"
+    ],
     "words": [
       "accent",
       "acne",
@@ -34181,9 +38122,16 @@ const PUZZLES = {
     ],
     "maxScore": 268
   },
-  "scehimt": {
-    "center": "s",
-    "letters": "cehimt",
+  "563": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "h",
+      "i",
+      "m",
+      "t"
+    ],
     "words": [
       "cheese",
       "cheeses",
@@ -34240,9 +38188,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "caeklns": {
-    "center": "c",
-    "letters": "aeklns",
+  "564": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "k",
+      "l",
+      "n",
+      "s"
+    ],
     "words": [
       "access",
       "acne",
@@ -34296,9 +38251,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "ncdeiov": {
-    "center": "n",
-    "letters": "cdeiov",
+  "565": {
+    "letters": [
+      "n",
+      "c",
+      "d",
+      "e",
+      "i",
+      "o",
+      "v"
+    ],
     "words": [
       "cocoon",
       "coin",
@@ -34353,9 +38315,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "echimst": {
-    "center": "e",
-    "letters": "chimst",
+  "566": {
+    "letters": [
+      "e",
+      "c",
+      "h",
+      "i",
+      "m",
+      "s",
+      "t"
+    ],
     "words": [
       "cheese",
       "cheeses",
@@ -34416,9 +38385,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "ocilpst": {
-    "center": "o",
-    "letters": "cilpst",
+  "567": {
+    "letters": [
+      "o",
+      "c",
+      "i",
+      "l",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "cisco",
       "coco",
@@ -34493,9 +38469,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "lbeirsv": {
-    "center": "l",
-    "letters": "beirsv",
+  "568": {
+    "letters": [
+      "l",
+      "b",
+      "e",
+      "i",
+      "r",
+      "s",
+      "v"
+    ],
     "words": [
       "believe",
       "believer",
@@ -34546,9 +38529,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "feilrst": {
-    "center": "f",
-    "letters": "eilrst",
+  "569": {
+    "letters": [
+      "f",
+      "e",
+      "i",
+      "l",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "feel",
       "feels",
@@ -34609,9 +38599,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "eadqrsu": {
-    "center": "e",
-    "letters": "adqrsu",
+  "570": {
+    "letters": [
+      "e",
+      "a",
+      "d",
+      "q",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "address",
       "addressed",
@@ -34674,9 +38671,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "ecdhipr": {
-    "center": "e",
-    "letters": "cdhipr",
+  "571": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "h",
+      "i",
+      "p",
+      "r"
+    ],
     "words": [
       "cheer",
       "cheered",
@@ -34742,9 +38746,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "iacderv": {
-    "center": "i",
-    "letters": "acderv",
+  "572": {
+    "letters": [
+      "i",
+      "a",
+      "c",
+      "d",
+      "e",
+      "r",
+      "v"
+    ],
     "words": [
       "acid",
       "advice",
@@ -34802,9 +38813,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "scekopt": {
-    "center": "s",
-    "letters": "cekopt",
+  "573": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "k",
+      "o",
+      "p",
+      "t"
+    ],
     "words": [
       "cocks",
       "cokes",
@@ -34864,9 +38882,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "scioprt": {
-    "center": "s",
-    "letters": "cioprt",
+  "574": {
+    "letters": [
+      "s",
+      "c",
+      "i",
+      "o",
+      "p",
+      "r",
+      "t"
+    ],
     "words": [
       "cisco",
       "corps",
@@ -34925,9 +38950,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "nbdeoru": {
-    "center": "n",
-    "letters": "bdeoru",
+  "575": {
+    "letters": [
+      "n",
+      "b",
+      "d",
+      "e",
+      "o",
+      "r",
+      "u"
+    ],
     "words": [
       "bend",
       "bender",
@@ -34988,9 +39020,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "nbgimos": {
-    "center": "n",
-    "letters": "bgimos",
+  "576": {
+    "letters": [
+      "n",
+      "b",
+      "g",
+      "i",
+      "m",
+      "o",
+      "s"
+    ],
     "words": [
       "bingo",
       "bison",
@@ -35043,9 +39082,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "saghirt": {
-    "center": "s",
-    "letters": "aghirt",
+  "577": {
+    "letters": [
+      "s",
+      "a",
+      "g",
+      "h",
+      "i",
+      "r",
+      "t"
+    ],
     "words": [
       "airs",
       "arthritis",
@@ -35104,9 +39150,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "badenrt": {
-    "center": "b",
-    "letters": "adenrt",
+  "578": {
+    "letters": [
+      "b",
+      "a",
+      "d",
+      "e",
+      "n",
+      "r",
+      "t"
+    ],
     "words": [
       "abed",
       "baba",
@@ -35168,9 +39221,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "oacfrst": {
-    "center": "o",
-    "letters": "acfrst",
+  "579": {
+    "letters": [
+      "o",
+      "a",
+      "c",
+      "f",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "across",
       "actor",
@@ -35232,9 +39292,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "ngirstw": {
-    "center": "n",
-    "letters": "girstw",
+  "580": {
+    "letters": [
+      "n",
+      "g",
+      "i",
+      "r",
+      "s",
+      "t",
+      "w"
+    ],
     "words": [
       "inning",
       "innings",
@@ -35282,9 +39349,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "eabcils": {
-    "center": "e",
-    "letters": "abcils",
+  "581": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "c",
+      "i",
+      "l",
+      "s"
+    ],
     "words": [
       "able",
       "abscess",
@@ -35346,9 +39420,16 @@ const PUZZLES = {
     ],
     "maxScore": 272
   },
-  "tegimnr": {
-    "center": "t",
-    "letters": "egimnr",
+  "582": {
+    "letters": [
+      "t",
+      "e",
+      "g",
+      "i",
+      "m",
+      "n",
+      "r"
+    ],
     "words": [
       "eminent",
       "emit",
@@ -35406,9 +39487,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "dcefnos": {
-    "center": "d",
-    "letters": "cefnos",
+  "583": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "f",
+      "n",
+      "o",
+      "s"
+    ],
     "words": [
       "code",
       "coded",
@@ -35465,9 +39553,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "oabcmst": {
-    "center": "o",
-    "letters": "abcmst",
+  "584": {
+    "letters": [
+      "o",
+      "a",
+      "b",
+      "c",
+      "m",
+      "s",
+      "t"
+    ],
     "words": [
       "abbot",
       "abbott",
@@ -35537,9 +39632,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "admnort": {
-    "center": "a",
-    "letters": "dmnort",
+  "585": {
+    "letters": [
+      "a",
+      "d",
+      "m",
+      "n",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "adamant",
       "adorn",
@@ -35603,9 +39705,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "sdehimn": {
-    "center": "s",
-    "letters": "dehimn",
+  "586": {
+    "letters": [
+      "s",
+      "d",
+      "e",
+      "h",
+      "i",
+      "m",
+      "n"
+    ],
     "words": [
       "deeds",
       "demise",
@@ -35665,9 +39774,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "negilrv": {
-    "center": "n",
-    "letters": "egilrv",
+  "587": {
+    "letters": [
+      "n",
+      "e",
+      "g",
+      "i",
+      "l",
+      "r",
+      "v"
+    ],
     "words": [
       "eleven",
       "engine",
@@ -35721,9 +39837,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "idehlrt": {
-    "center": "i",
-    "letters": "dehlrt",
+  "588": {
+    "letters": [
+      "i",
+      "d",
+      "e",
+      "h",
+      "l",
+      "r",
+      "t"
+    ],
     "words": [
       "deli",
       "diddle",
@@ -35786,9 +39909,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "tdefils": {
-    "center": "t",
-    "letters": "defils",
+  "589": {
+    "letters": [
+      "t",
+      "d",
+      "e",
+      "f",
+      "i",
+      "l",
+      "s"
+    ],
     "words": [
       "desist",
       "diet",
@@ -35849,9 +39979,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "geilnsw": {
-    "center": "g",
-    "letters": "eilnsw",
+  "590": {
+    "letters": [
+      "g",
+      "e",
+      "i",
+      "l",
+      "n",
+      "s",
+      "w"
+    ],
     "words": [
       "engine",
       "engines",
@@ -35902,9 +40039,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "scehiop": {
-    "center": "s",
-    "letters": "cehiop",
+  "591": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "h",
+      "i",
+      "o",
+      "p"
+    ],
     "words": [
       "cheese",
       "cheeses",
@@ -35959,9 +40103,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "laimrst": {
-    "center": "l",
-    "letters": "aimrst",
+  "592": {
+    "letters": [
+      "l",
+      "a",
+      "i",
+      "m",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "alarm",
       "alarms",
@@ -36029,9 +40180,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "caeprtu": {
-    "center": "c",
-    "letters": "aeprtu",
+  "593": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "p",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "accept",
       "accurate",
@@ -36083,9 +40241,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "tginrsu": {
-    "center": "t",
-    "letters": "ginrsu",
+  "594": {
+    "letters": [
+      "t",
+      "g",
+      "i",
+      "n",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "gist",
       "grit",
@@ -36137,9 +40302,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "defmors": {
-    "center": "d",
-    "letters": "efmors",
+  "595": {
+    "letters": [
+      "d",
+      "e",
+      "f",
+      "m",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -36197,9 +40369,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "ldefors": {
-    "center": "l",
-    "letters": "defors",
+  "596": {
+    "letters": [
+      "l",
+      "d",
+      "e",
+      "f",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "dell",
       "dole",
@@ -36268,9 +40447,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "abelrvy": {
-    "center": "a",
-    "letters": "belrvy",
+  "597": {
+    "letters": [
+      "a",
+      "b",
+      "e",
+      "l",
+      "r",
+      "v",
+      "y"
+    ],
     "words": [
       "abbey",
       "able",
@@ -36327,9 +40513,16 @@ const PUZZLES = {
     ],
     "maxScore": 227
   },
-  "salnort": {
-    "center": "s",
-    "letters": "alnort",
+  "598": {
+    "letters": [
+      "s",
+      "a",
+      "l",
+      "n",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "alonso",
       "also",
@@ -36392,9 +40585,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "regilnv": {
-    "center": "r",
-    "letters": "egilnv",
+  "599": {
+    "letters": [
+      "r",
+      "e",
+      "g",
+      "i",
+      "l",
+      "n",
+      "v"
+    ],
     "words": [
       "eerie",
       "engineer",
@@ -36442,9 +40642,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "iegnrvw": {
-    "center": "i",
-    "letters": "egnrvw",
+  "600": {
+    "letters": [
+      "i",
+      "e",
+      "g",
+      "n",
+      "r",
+      "v",
+      "w"
+    ],
     "words": [
       "eerie",
       "engine",
@@ -36497,9 +40704,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "gaeikns": {
-    "center": "g",
-    "letters": "aeikns",
+  "601": {
+    "letters": [
+      "g",
+      "a",
+      "e",
+      "i",
+      "k",
+      "n",
+      "s"
+    ],
     "words": [
       "again",
       "ageing",
@@ -36556,9 +40770,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "vdeilos": {
-    "center": "v",
-    "letters": "deilos",
+  "602": {
+    "letters": [
+      "v",
+      "d",
+      "e",
+      "i",
+      "l",
+      "o",
+      "s"
+    ],
     "words": [
       "devil",
       "devils",
@@ -36610,9 +40831,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "ralmost": {
-    "center": "r",
-    "letters": "almost",
+  "603": {
+    "letters": [
+      "r",
+      "a",
+      "l",
+      "m",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "alarm",
       "alarms",
@@ -36676,9 +40904,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "nacdeht": {
-    "center": "n",
-    "letters": "acdeht",
+  "604": {
+    "letters": [
+      "n",
+      "a",
+      "c",
+      "d",
+      "e",
+      "h",
+      "t"
+    ],
     "words": [
       "accent",
       "acne",
@@ -36732,9 +40967,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "ienorsu": {
-    "center": "i",
-    "letters": "enorsu",
+  "605": {
+    "letters": [
+      "i",
+      "e",
+      "n",
+      "o",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "eerie",
       "erosion",
@@ -36785,9 +41027,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "pabeirs": {
-    "center": "p",
-    "letters": "abeirs",
+  "606": {
+    "letters": [
+      "p",
+      "a",
+      "b",
+      "e",
+      "i",
+      "r",
+      "s"
+    ],
     "words": [
       "appear",
       "appears",
@@ -36844,9 +41093,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "taeoprv": {
-    "center": "t",
-    "letters": "aeoprv",
+  "607": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "o",
+      "p",
+      "r",
+      "v"
+    ],
     "words": [
       "aorta",
       "apart",
@@ -36906,9 +41162,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "eaglruy": {
-    "center": "e",
-    "letters": "aglruy",
+  "608": {
+    "letters": [
+      "e",
+      "a",
+      "g",
+      "l",
+      "r",
+      "u",
+      "y"
+    ],
     "words": [
       "agree",
       "algae",
@@ -36963,9 +41226,16 @@ const PUZZLES = {
     ],
     "maxScore": 221
   },
-  "cadelpr": {
-    "center": "c",
-    "letters": "adelpr",
+  "609": {
+    "letters": [
+      "c",
+      "a",
+      "d",
+      "e",
+      "l",
+      "p",
+      "r"
+    ],
     "words": [
       "acre",
       "arcade",
@@ -37022,9 +41292,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "abdeglm": {
-    "center": "a",
-    "letters": "bdeglm",
+  "610": {
+    "letters": [
+      "a",
+      "b",
+      "d",
+      "e",
+      "g",
+      "l",
+      "m"
+    ],
     "words": [
       "abed",
       "able",
@@ -37100,9 +41377,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "abeilnr": {
-    "center": "a",
-    "letters": "beilnr",
+  "611": {
+    "letters": [
+      "a",
+      "b",
+      "e",
+      "i",
+      "l",
+      "n",
+      "r"
+    ],
     "words": [
       "able",
       "aerial",
@@ -37175,9 +41459,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "eablosv": {
-    "center": "e",
-    "letters": "ablosv",
+  "612": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "l",
+      "o",
+      "s",
+      "v"
+    ],
     "words": [
       "able",
       "above",
@@ -37244,9 +41535,16 @@ const PUZZLES = {
     ],
     "maxScore": 274
   },
-  "scehitw": {
-    "center": "s",
-    "letters": "cehitw",
+  "613": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "h",
+      "i",
+      "t",
+      "w"
+    ],
     "words": [
       "cheese",
       "cheeses",
@@ -37297,9 +41595,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "rahinst": {
-    "center": "r",
-    "letters": "ahinst",
+  "614": {
+    "letters": [
+      "r",
+      "a",
+      "h",
+      "i",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "airs",
       "aria",
@@ -37356,9 +41661,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "pdemort": {
-    "center": "p",
-    "letters": "demort",
+  "615": {
+    "letters": [
+      "p",
+      "d",
+      "e",
+      "m",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "deep",
       "deeper",
@@ -37414,9 +41726,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "aceilrv": {
-    "center": "a",
-    "letters": "ceilrv",
+  "616": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "i",
+      "l",
+      "r",
+      "v"
+    ],
     "words": [
       "acre",
       "aerial",
@@ -37481,9 +41800,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "gacinrs": {
-    "center": "g",
-    "letters": "acinrs",
+  "617": {
+    "letters": [
+      "g",
+      "a",
+      "c",
+      "i",
+      "n",
+      "r",
+      "s"
+    ],
     "words": [
       "again",
       "aging",
@@ -37538,9 +41864,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "ielprsu": {
-    "center": "i",
-    "letters": "elprsu",
+  "618": {
+    "letters": [
+      "i",
+      "e",
+      "l",
+      "p",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "eerie",
       "iris",
@@ -37592,9 +41925,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "tcdeprs": {
-    "center": "t",
-    "letters": "cdeprs",
+  "619": {
+    "letters": [
+      "t",
+      "c",
+      "d",
+      "e",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "crest",
       "desert",
@@ -37643,9 +41983,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "madertu": {
-    "center": "m",
-    "letters": "adertu",
+  "620": {
+    "letters": [
+      "m",
+      "a",
+      "d",
+      "e",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "amateur",
       "armada",
@@ -37706,9 +42053,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "ierstuv": {
-    "center": "i",
-    "letters": "erstuv",
+  "621": {
+    "letters": [
+      "i",
+      "e",
+      "r",
+      "s",
+      "t",
+      "u",
+      "v"
+    ],
     "words": [
       "eerie",
       "iris",
@@ -37763,9 +42117,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "eginpsu": {
-    "center": "e",
-    "letters": "ginpsu",
+  "622": {
+    "letters": [
+      "e",
+      "g",
+      "i",
+      "n",
+      "p",
+      "s",
+      "u"
+    ],
     "words": [
       "engine",
       "engines",
@@ -37815,9 +42176,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "acemnor": {
-    "center": "a",
-    "letters": "cemnor",
+  "623": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "m",
+      "n",
+      "o",
+      "r"
+    ],
     "words": [
       "acne",
       "acorn",
@@ -37888,9 +42256,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "rimopst": {
-    "center": "r",
-    "letters": "imopst",
+  "624": {
+    "letters": [
+      "r",
+      "i",
+      "m",
+      "o",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "import",
       "imports",
@@ -37949,9 +42324,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "aceorsy": {
-    "center": "a",
-    "letters": "ceorsy",
+  "625": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "o",
+      "r",
+      "s",
+      "y"
+    ],
     "words": [
       "access",
       "accessory",
@@ -38009,9 +42391,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "dbeorsv": {
-    "center": "d",
-    "letters": "beorsv",
+  "626": {
+    "letters": [
+      "d",
+      "b",
+      "e",
+      "o",
+      "r",
+      "s",
+      "v"
+    ],
     "words": [
       "border",
       "borders",
@@ -38066,9 +42455,16 @@ const PUZZLES = {
     ],
     "maxScore": 269
   },
-  "haeilrt": {
-    "center": "h",
-    "letters": "aeilrt",
+  "627": {
+    "letters": [
+      "h",
+      "a",
+      "e",
+      "i",
+      "l",
+      "r",
+      "t"
+    ],
     "words": [
       "althea",
       "athlete",
@@ -38127,9 +42523,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "raefimn": {
-    "center": "r",
-    "letters": "aefimn",
+  "628": {
+    "letters": [
+      "r",
+      "a",
+      "e",
+      "f",
+      "i",
+      "m",
+      "n"
+    ],
     "words": [
       "afar",
       "affair",
@@ -38194,9 +42597,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "echipst": {
-    "center": "e",
-    "letters": "chipst",
+  "629": {
+    "letters": [
+      "e",
+      "c",
+      "h",
+      "i",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "cheese",
       "cheeses",
@@ -38253,9 +42663,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "taegiln": {
-    "center": "t",
-    "letters": "aegiln",
+  "630": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "g",
+      "i",
+      "l",
+      "n"
+    ],
     "words": [
       "agent",
       "antenna",
@@ -38311,9 +42728,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "iegnorv": {
-    "center": "i",
-    "letters": "egnorv",
+  "631": {
+    "letters": [
+      "i",
+      "e",
+      "g",
+      "n",
+      "o",
+      "r",
+      "v"
+    ],
     "words": [
       "eerie",
       "engine",
@@ -38365,9 +42789,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "icenosu": {
-    "center": "i",
-    "letters": "cenosu",
+  "632": {
+    "letters": [
+      "i",
+      "c",
+      "e",
+      "n",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "cisco",
       "coin",
@@ -38407,9 +42838,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "ucdehrs": {
-    "center": "u",
-    "letters": "cdehrs",
+  "633": {
+    "letters": [
+      "u",
+      "c",
+      "d",
+      "e",
+      "h",
+      "r",
+      "s"
+    ],
     "words": [
       "church",
       "churches",
@@ -38467,9 +42905,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "segilot": {
-    "center": "s",
-    "letters": "egilot",
+  "634": {
+    "letters": [
+      "s",
+      "e",
+      "g",
+      "i",
+      "l",
+      "o",
+      "t"
+    ],
     "words": [
       "geologist",
       "geologists",
@@ -38533,9 +42978,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "deilrvy": {
-    "center": "d",
-    "letters": "eilrvy",
+  "635": {
+    "letters": [
+      "d",
+      "e",
+      "i",
+      "l",
+      "r",
+      "v",
+      "y"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -38589,9 +43041,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "haelrty": {
-    "center": "h",
-    "letters": "aelrty",
+  "636": {
+    "letters": [
+      "h",
+      "a",
+      "e",
+      "l",
+      "r",
+      "t",
+      "y"
+    ],
     "words": [
       "althea",
       "athlete",
@@ -38648,9 +43107,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "icdegln": {
-    "center": "i",
-    "letters": "cdegln",
+  "637": {
+    "letters": [
+      "i",
+      "c",
+      "d",
+      "e",
+      "g",
+      "l",
+      "n"
+    ],
     "words": [
       "ceiling",
       "cling",
@@ -38701,9 +43167,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "ediostu": {
-    "center": "e",
-    "letters": "diostu",
+  "638": {
+    "letters": [
+      "e",
+      "d",
+      "i",
+      "o",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -38758,9 +43231,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "scdeipt": {
-    "center": "s",
-    "letters": "cdeipt",
+  "639": {
+    "letters": [
+      "s",
+      "c",
+      "d",
+      "e",
+      "i",
+      "p",
+      "t"
+    ],
     "words": [
       "cities",
       "decides",
@@ -38811,9 +43291,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "laefrsu": {
-    "center": "l",
-    "letters": "aefrsu",
+  "640": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "f",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "earl",
       "fall",
@@ -38879,9 +43366,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "laenort": {
-    "center": "l",
-    "letters": "aenort",
+  "641": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "n",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "alert",
       "alone",
@@ -38945,9 +43439,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "ocinprs": {
-    "center": "o",
-    "letters": "cinprs",
+  "642": {
+    "letters": [
+      "o",
+      "c",
+      "i",
+      "n",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "cisco",
       "coco",
@@ -39001,9 +43502,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "efghirt": {
-    "center": "e",
-    "letters": "fghirt",
+  "643": {
+    "letters": [
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "r",
+      "t"
+    ],
     "words": [
       "eerie",
       "eight",
@@ -39051,9 +43559,16 @@ const PUZZLES = {
     ],
     "maxScore": 228
   },
-  "meilpst": {
-    "center": "m",
-    "letters": "eilpst",
+  "644": {
+    "letters": [
+      "m",
+      "e",
+      "i",
+      "l",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "emit",
       "emits",
@@ -39116,9 +43631,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "oeprsux": {
-    "center": "o",
-    "letters": "eprsux",
+  "645": {
+    "letters": [
+      "o",
+      "e",
+      "p",
+      "r",
+      "s",
+      "u",
+      "x"
+    ],
     "words": [
       "error",
       "errors",
@@ -39174,9 +43696,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "iaeglrs": {
-    "center": "i",
-    "letters": "aeglrs",
+  "646": {
+    "letters": [
+      "i",
+      "a",
+      "e",
+      "g",
+      "l",
+      "r",
+      "s"
+    ],
     "words": [
       "aerial",
       "agile",
@@ -39233,9 +43762,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "sdefnot": {
-    "center": "s",
-    "letters": "defnot",
+  "647": {
+    "letters": [
+      "s",
+      "d",
+      "e",
+      "f",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "deeds",
       "defends",
@@ -39296,9 +43832,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "ncdemot": {
-    "center": "n",
-    "letters": "cdemot",
+  "648": {
+    "letters": [
+      "n",
+      "c",
+      "d",
+      "e",
+      "m",
+      "o",
+      "t"
+    ],
     "words": [
       "cement",
       "cent",
@@ -39360,9 +43903,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "caelpst": {
-    "center": "c",
-    "letters": "aelpst",
+  "649": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "l",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "accept",
       "accepts",
@@ -39418,9 +43968,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "caehlos": {
-    "center": "c",
-    "letters": "aehlos",
+  "650": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "h",
+      "l",
+      "o",
+      "s"
+    ],
     "words": [
       "access",
       "ache",
@@ -39482,9 +44039,16 @@ const PUZZLES = {
     ],
     "maxScore": 268
   },
-  "oilnrst": {
-    "center": "o",
-    "letters": "ilnrst",
+  "651": {
+    "letters": [
+      "o",
+      "i",
+      "l",
+      "n",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "intro",
       "iron",
@@ -39552,9 +44116,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "labeirv": {
-    "center": "l",
-    "letters": "abeirv",
+  "652": {
+    "letters": [
+      "l",
+      "a",
+      "b",
+      "e",
+      "i",
+      "r",
+      "v"
+    ],
     "words": [
       "able",
       "aerial",
@@ -39613,9 +44184,16 @@ const PUZZLES = {
     ],
     "maxScore": 230
   },
-  "nagimrw": {
-    "center": "n",
-    "letters": "agimrw",
+  "653": {
+    "letters": [
+      "n",
+      "a",
+      "g",
+      "i",
+      "m",
+      "r",
+      "w"
+    ],
     "words": [
       "again",
       "aging",
@@ -39670,9 +44248,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "eacdfin": {
-    "center": "e",
-    "letters": "acdfin",
+  "654": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "d",
+      "f",
+      "i",
+      "n"
+    ],
     "words": [
       "acne",
       "aide",
@@ -39733,9 +44318,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "laegnry": {
-    "center": "l",
-    "letters": "aegnry",
+  "655": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "g",
+      "n",
+      "r",
+      "y"
+    ],
     "words": [
       "algae",
       "allergy",
@@ -39787,9 +44379,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "echiops": {
-    "center": "e",
-    "letters": "chiops",
+  "656": {
+    "letters": [
+      "e",
+      "c",
+      "h",
+      "i",
+      "o",
+      "p",
+      "s"
+    ],
     "words": [
       "cheese",
       "cheeses",
@@ -39840,9 +44439,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "eaimnpr": {
-    "center": "e",
-    "letters": "aimnpr",
+  "657": {
+    "letters": [
+      "e",
+      "a",
+      "i",
+      "m",
+      "n",
+      "p",
+      "r"
+    ],
     "words": [
       "anemia",
       "anime",
@@ -39909,9 +44515,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "acdinot": {
-    "center": "a",
-    "letters": "cdinot",
+  "658": {
+    "letters": [
+      "a",
+      "c",
+      "d",
+      "i",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "acid",
       "actin",
@@ -39961,9 +44574,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "uefhrst": {
-    "center": "u",
-    "letters": "efhrst",
+  "659": {
+    "letters": [
+      "u",
+      "e",
+      "f",
+      "h",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "fetus",
       "further",
@@ -40022,9 +44642,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "rdehntu": {
-    "center": "r",
-    "letters": "dehntu",
+  "660": {
+    "letters": [
+      "r",
+      "d",
+      "e",
+      "h",
+      "n",
+      "t",
+      "u"
+    ],
     "words": [
       "deer",
       "endure",
@@ -40077,9 +44704,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "radelnv": {
-    "center": "r",
-    "letters": "adelnv",
+  "661": {
+    "letters": [
+      "r",
+      "a",
+      "d",
+      "e",
+      "l",
+      "n",
+      "v"
+    ],
     "words": [
       "area",
       "arena",
@@ -40136,9 +44770,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "eaghost": {
-    "center": "e",
-    "letters": "aghost",
+  "662": {
+    "letters": [
+      "e",
+      "a",
+      "g",
+      "h",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "asset",
       "assets",
@@ -40189,9 +44830,16 @@ const PUZZLES = {
     ],
     "maxScore": 218
   },
-  "ibefgnr": {
-    "center": "i",
-    "letters": "befgnr",
+  "663": {
+    "letters": [
+      "i",
+      "b",
+      "e",
+      "f",
+      "g",
+      "n",
+      "r"
+    ],
     "words": [
       "begin",
       "beginning",
@@ -40238,9 +44886,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "mceirst": {
-    "center": "m",
-    "letters": "ceirst",
+  "664": {
+    "letters": [
+      "m",
+      "c",
+      "e",
+      "i",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "cemeteries",
       "crime",
@@ -40299,9 +44954,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "dcegint": {
-    "center": "d",
-    "letters": "cegint",
+  "665": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "g",
+      "i",
+      "n",
+      "t"
+    ],
     "words": [
       "cited",
       "decent",
@@ -40350,9 +45012,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "rabefot": {
-    "center": "r",
-    "letters": "abefot",
+  "666": {
+    "letters": [
+      "r",
+      "a",
+      "b",
+      "e",
+      "f",
+      "o",
+      "t"
+    ],
     "words": [
       "abort",
       "afar",
@@ -40425,9 +45094,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "raeimnp": {
-    "center": "r",
-    "letters": "aeimnp",
+  "667": {
+    "letters": [
+      "r",
+      "a",
+      "e",
+      "i",
+      "m",
+      "n",
+      "p"
+    ],
     "words": [
       "amir",
       "appear",
@@ -40495,9 +45171,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "dcehrsu": {
-    "center": "d",
-    "letters": "cehrsu",
+  "668": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "h",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "cheered",
       "creed",
@@ -40553,9 +45236,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "pcelosu": {
-    "center": "p",
-    "letters": "celosu",
+  "669": {
+    "letters": [
+      "p",
+      "c",
+      "e",
+      "l",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "cesspool",
       "coop",
@@ -40620,9 +45310,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "taelnrx": {
-    "center": "t",
-    "letters": "aelnrx",
+  "670": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "l",
+      "n",
+      "r",
+      "x"
+    ],
     "words": [
       "alert",
       "altar",
@@ -40676,9 +45373,16 @@ const PUZZLES = {
     ],
     "maxScore": 223
   },
-  "acegnor": {
-    "center": "a",
-    "letters": "cegnor",
+  "671": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "g",
+      "n",
+      "o",
+      "r"
+    ],
     "words": [
       "acne",
       "acorn",
@@ -40745,9 +45449,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "habcers": {
-    "center": "h",
-    "letters": "abcers",
+  "672": {
+    "letters": [
+      "h",
+      "a",
+      "b",
+      "c",
+      "e",
+      "r",
+      "s"
+    ],
     "words": [
       "ache",
       "aches",
@@ -40806,9 +45517,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "adeimnx": {
-    "center": "a",
-    "letters": "deimnx",
+  "673": {
+    "letters": [
+      "a",
+      "d",
+      "e",
+      "i",
+      "m",
+      "n",
+      "x"
+    ],
     "words": [
       "aide",
       "aided",
@@ -40871,9 +45589,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "daefgin": {
-    "center": "d",
-    "letters": "aefgin",
+  "674": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "f",
+      "g",
+      "i",
+      "n"
+    ],
     "words": [
       "aged",
       "agenda",
@@ -40926,9 +45651,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "icemnps": {
-    "center": "i",
-    "letters": "cemnps",
+  "675": {
+    "letters": [
+      "i",
+      "c",
+      "e",
+      "m",
+      "n",
+      "p",
+      "s"
+    ],
     "words": [
       "eminence",
       "enemies",
@@ -40981,9 +45713,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "caelnry": {
-    "center": "c",
-    "letters": "aelnry",
+  "676": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "l",
+      "n",
+      "r",
+      "y"
+    ],
     "words": [
       "acne",
       "acre",
@@ -41036,9 +45775,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "teinsvy": {
-    "center": "t",
-    "letters": "einsvy",
+  "677": {
+    "letters": [
+      "t",
+      "e",
+      "i",
+      "n",
+      "s",
+      "v",
+      "y"
+    ],
     "words": [
       "entities",
       "entity",
@@ -41089,9 +45835,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "naeglmt": {
-    "center": "n",
-    "letters": "aeglmt",
+  "678": {
+    "letters": [
+      "n",
+      "a",
+      "e",
+      "g",
+      "l",
+      "m",
+      "t"
+    ],
     "words": [
       "agent",
       "angel",
@@ -41145,9 +45898,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "obeglns": {
-    "center": "o",
-    "letters": "beglns",
+  "679": {
+    "letters": [
+      "o",
+      "b",
+      "e",
+      "g",
+      "l",
+      "n",
+      "s"
+    ],
     "words": [
       "bello",
       "belong",
@@ -41214,9 +45974,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "aehipst": {
-    "center": "a",
-    "letters": "ehipst",
+  "680": {
+    "letters": [
+      "a",
+      "e",
+      "h",
+      "i",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "appease",
       "appetite",
@@ -41280,9 +46047,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "echiort": {
-    "center": "e",
-    "letters": "chiort",
+  "681": {
+    "letters": [
+      "e",
+      "c",
+      "h",
+      "i",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "cheer",
       "cheerio",
@@ -41336,9 +46110,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "eahrtvw": {
-    "center": "e",
-    "letters": "ahrtvw",
+  "682": {
+    "letters": [
+      "e",
+      "a",
+      "h",
+      "r",
+      "t",
+      "v",
+      "w"
+    ],
     "words": [
       "area",
       "earth",
@@ -41397,9 +46178,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "ebdgiln": {
-    "center": "e",
-    "letters": "bdgiln",
+  "683": {
+    "letters": [
+      "e",
+      "b",
+      "d",
+      "g",
+      "i",
+      "l",
+      "n"
+    ],
     "words": [
       "bedding",
       "begin",
@@ -41460,9 +46248,16 @@ const PUZZLES = {
     ],
     "maxScore": 267
   },
-  "rbelmst": {
-    "center": "r",
-    "letters": "belmst",
+  "684": {
+    "letters": [
+      "r",
+      "b",
+      "e",
+      "l",
+      "m",
+      "s",
+      "t"
+    ],
     "words": [
       "beer",
       "beers",
@@ -41509,9 +46304,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "sacfint": {
-    "center": "s",
-    "letters": "acfint",
+  "685": {
+    "letters": [
+      "s",
+      "a",
+      "c",
+      "f",
+      "i",
+      "n",
+      "t"
+    ],
     "words": [
       "antics",
       "assassin",
@@ -41554,9 +46356,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "hfginst": {
-    "center": "h",
-    "letters": "fginst",
+  "686": {
+    "letters": [
+      "h",
+      "f",
+      "g",
+      "i",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "fifth",
       "fight",
@@ -41603,9 +46412,16 @@ const PUZZLES = {
     ],
     "maxScore": 225
   },
-  "mabenst": {
-    "center": "m",
-    "letters": "abenst",
+  "687": {
+    "letters": [
+      "m",
+      "a",
+      "b",
+      "e",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "assessment",
       "basement",
@@ -41665,9 +46481,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "edghist": {
-    "center": "e",
-    "letters": "dghist",
+  "688": {
+    "letters": [
+      "e",
+      "d",
+      "g",
+      "h",
+      "i",
+      "s",
+      "t"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -41722,9 +46545,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "semnotv": {
-    "center": "s",
-    "letters": "emnotv",
+  "689": {
+    "letters": [
+      "s",
+      "e",
+      "m",
+      "n",
+      "o",
+      "t",
+      "v"
+    ],
     "words": [
       "esteem",
       "events",
@@ -41782,9 +46612,16 @@ const PUZZLES = {
     ],
     "maxScore": 230
   },
-  "ignrstv": {
-    "center": "i",
-    "letters": "gnrstv",
+  "690": {
+    "letters": [
+      "i",
+      "g",
+      "n",
+      "r",
+      "s",
+      "t",
+      "v"
+    ],
     "words": [
       "gist",
       "giving",
@@ -41832,9 +46669,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "oadelpr": {
-    "center": "o",
-    "letters": "adelpr",
+  "691": {
+    "letters": [
+      "o",
+      "a",
+      "d",
+      "e",
+      "l",
+      "p",
+      "r"
+    ],
     "words": [
       "adored",
       "dodo",
@@ -41900,9 +46744,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "tilnosu": {
-    "center": "t",
-    "letters": "ilnosu",
+  "692": {
+    "letters": [
+      "t",
+      "i",
+      "l",
+      "n",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "insist",
       "insists",
@@ -41961,9 +46812,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "nadehrs": {
-    "center": "n",
-    "letters": "adehrs",
+  "693": {
+    "letters": [
+      "n",
+      "a",
+      "d",
+      "e",
+      "h",
+      "r",
+      "s"
+    ],
     "words": [
       "anna",
       "arena",
@@ -42018,9 +46876,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "aeoprsv": {
-    "center": "a",
-    "letters": "eoprsv",
+  "694": {
+    "letters": [
+      "a",
+      "e",
+      "o",
+      "p",
+      "r",
+      "s",
+      "v"
+    ],
     "words": [
       "appear",
       "appears",
@@ -42079,9 +46944,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "acdemor": {
-    "center": "a",
-    "letters": "cdemor",
+  "695": {
+    "letters": [
+      "a",
+      "c",
+      "d",
+      "e",
+      "m",
+      "o",
+      "r"
+    ],
     "words": [
       "accord",
       "acre",
@@ -42147,9 +47019,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "gaeorst": {
-    "center": "g",
-    "letters": "aeorst",
+  "696": {
+    "letters": [
+      "g",
+      "a",
+      "e",
+      "o",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "agree",
       "agrees",
@@ -42207,9 +47086,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "ndemort": {
-    "center": "n",
-    "letters": "demort",
+  "697": {
+    "letters": [
+      "n",
+      "d",
+      "e",
+      "m",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "demon",
       "dent",
@@ -42274,9 +47160,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "eimprtv": {
-    "center": "e",
-    "letters": "imprtv",
+  "698": {
+    "letters": [
+      "e",
+      "i",
+      "m",
+      "p",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "eerie",
       "emir",
@@ -42338,9 +47231,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "tcehrsw": {
-    "center": "t",
-    "letters": "cehrsw",
+  "699": {
+    "letters": [
+      "t",
+      "c",
+      "e",
+      "h",
+      "r",
+      "s",
+      "w"
+    ],
     "words": [
       "chest",
       "chester",
@@ -42389,9 +47289,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "ocdehls": {
-    "center": "o",
-    "letters": "cdehls",
+  "700": {
+    "letters": [
+      "o",
+      "c",
+      "d",
+      "e",
+      "h",
+      "l",
+      "s"
+    ],
     "words": [
       "cello",
       "choose",
@@ -42457,9 +47364,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "ndehrsu": {
-    "center": "n",
-    "letters": "dehrsu",
+  "701": {
+    "letters": [
+      "n",
+      "d",
+      "e",
+      "h",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "dundee",
       "dune",
@@ -42509,9 +47423,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "veinors": {
-    "center": "v",
-    "letters": "einors",
+  "702": {
+    "letters": [
+      "v",
+      "e",
+      "i",
+      "n",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "even",
       "evenin",
@@ -42561,9 +47482,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "aeilnsy": {
-    "center": "a",
-    "letters": "eilnsy",
+  "703": {
+    "letters": [
+      "a",
+      "e",
+      "i",
+      "l",
+      "n",
+      "s",
+      "y"
+    ],
     "words": [
       "aisle",
       "alias",
@@ -42618,9 +47546,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "eackmpr": {
-    "center": "e",
-    "letters": "ackmpr",
+  "704": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "k",
+      "m",
+      "p",
+      "r"
+    ],
     "words": [
       "acre",
       "appear",
@@ -42686,9 +47621,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "ehimost": {
-    "center": "e",
-    "letters": "himost",
+  "705": {
+    "letters": [
+      "e",
+      "h",
+      "i",
+      "m",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "emit",
       "emits",
@@ -42750,9 +47692,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "icelnot": {
-    "center": "i",
-    "letters": "celnot",
+  "706": {
+    "letters": [
+      "i",
+      "c",
+      "e",
+      "l",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "cite",
       "client",
@@ -42803,9 +47752,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "taeflry": {
-    "center": "t",
-    "letters": "aeflry",
+  "707": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "f",
+      "l",
+      "r",
+      "y"
+    ],
     "words": [
       "after",
       "alert",
@@ -42864,9 +47820,16 @@ const PUZZLES = {
     ],
     "maxScore": 230
   },
-  "sdegimt": {
-    "center": "s",
-    "letters": "degimt",
+  "708": {
+    "letters": [
+      "s",
+      "d",
+      "e",
+      "g",
+      "i",
+      "m",
+      "t"
+    ],
     "words": [
       "deeds",
       "demise",
@@ -42921,9 +47884,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "idgnorw": {
-    "center": "i",
-    "letters": "dgnorw",
+  "709": {
+    "letters": [
+      "i",
+      "d",
+      "g",
+      "n",
+      "o",
+      "r",
+      "w"
+    ],
     "words": [
       "ding",
       "dinging",
@@ -42970,9 +47940,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "ldefirt": {
-    "center": "l",
-    "letters": "defirt",
+  "710": {
+    "letters": [
+      "l",
+      "d",
+      "e",
+      "f",
+      "i",
+      "r",
+      "t"
+    ],
     "words": [
       "defile",
       "defiled",
@@ -43034,9 +48011,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "echistw": {
-    "center": "e",
-    "letters": "chistw",
+  "711": {
+    "letters": [
+      "e",
+      "c",
+      "h",
+      "i",
+      "s",
+      "t",
+      "w"
+    ],
     "words": [
       "cheese",
       "cheeses",
@@ -43086,9 +48070,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "nailsty": {
-    "center": "n",
-    "letters": "ailsty",
+  "712": {
+    "letters": [
+      "n",
+      "a",
+      "i",
+      "l",
+      "s",
+      "t",
+      "y"
+    ],
     "words": [
       "analysis",
       "analyst",
@@ -43134,9 +48125,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "ecdlrtu": {
-    "center": "e",
-    "letters": "cdlrtu",
+  "713": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "l",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "cell",
       "clue",
@@ -43199,9 +48197,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "ndertuv": {
-    "center": "n",
-    "letters": "dertuv",
+  "714": {
+    "letters": [
+      "n",
+      "d",
+      "e",
+      "r",
+      "t",
+      "u",
+      "v"
+    ],
     "words": [
       "dent",
       "dented",
@@ -43260,9 +48265,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "ideopst": {
-    "center": "i",
-    "letters": "deopst",
+  "715": {
+    "letters": [
+      "i",
+      "d",
+      "e",
+      "o",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "deposit",
       "deposited",
@@ -43309,9 +48321,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "dceloru": {
-    "center": "d",
-    "letters": "celoru",
+  "716": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "l",
+      "o",
+      "r",
+      "u"
+    ],
     "words": [
       "cloud",
       "clouded",
@@ -43374,9 +48393,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "lacehks": {
-    "center": "l",
-    "letters": "acehks",
+  "717": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "e",
+      "h",
+      "k",
+      "s"
+    ],
     "words": [
       "call",
       "calls",
@@ -43443,9 +48469,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "gaelnos": {
-    "center": "g",
-    "letters": "aelnos",
+  "718": {
+    "letters": [
+      "g",
+      "a",
+      "e",
+      "l",
+      "n",
+      "o",
+      "s"
+    ],
     "words": [
       "algae",
       "along",
@@ -43508,9 +48541,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "ndgiorw": {
-    "center": "n",
-    "letters": "dgiorw",
+  "719": {
+    "letters": [
+      "n",
+      "d",
+      "g",
+      "i",
+      "o",
+      "r",
+      "w"
+    ],
     "words": [
       "ding",
       "dinging",
@@ -43564,9 +48604,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "cadehor": {
-    "center": "c",
-    "letters": "adehor",
+  "720": {
+    "letters": [
+      "c",
+      "a",
+      "d",
+      "e",
+      "h",
+      "o",
+      "r"
+    ],
     "words": [
       "accord",
       "ache",
@@ -43624,9 +48671,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "saceirz": {
-    "center": "s",
-    "letters": "aceirz",
+  "721": {
+    "letters": [
+      "s",
+      "a",
+      "c",
+      "e",
+      "i",
+      "r",
+      "z"
+    ],
     "words": [
       "access",
       "acres",
@@ -43678,9 +48732,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "caefrsu": {
-    "center": "c",
-    "letters": "aefrsu",
+  "722": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "f",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "access",
       "accuse",
@@ -43736,9 +48797,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "icgknst": {
-    "center": "i",
-    "letters": "cgknst",
+  "723": {
+    "letters": [
+      "i",
+      "c",
+      "g",
+      "k",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "gist",
       "icing",
@@ -43794,9 +48862,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "nagiswy": {
-    "center": "n",
-    "letters": "agiswy",
+  "724": {
+    "letters": [
+      "n",
+      "a",
+      "g",
+      "i",
+      "s",
+      "w",
+      "y"
+    ],
     "words": [
       "again",
       "aging",
@@ -43851,9 +48926,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "adginor": {
-    "center": "a",
-    "letters": "dginor",
+  "725": {
+    "letters": [
+      "a",
+      "d",
+      "g",
+      "i",
+      "n",
+      "o",
+      "r"
+    ],
     "words": [
       "adoring",
       "adorn",
@@ -43914,9 +48996,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "cadertx": {
-    "center": "c",
-    "letters": "adertx",
+  "726": {
+    "letters": [
+      "c",
+      "a",
+      "d",
+      "e",
+      "r",
+      "t",
+      "x"
+    ],
     "words": [
       "acre",
       "arcade",
@@ -43964,9 +49053,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "oemnstu": {
-    "center": "o",
-    "letters": "emnstu",
+  "727": {
+    "letters": [
+      "o",
+      "e",
+      "m",
+      "n",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "memento",
       "memo",
@@ -44030,9 +49126,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "aelnopt": {
-    "center": "a",
-    "letters": "elnopt",
+  "728": {
+    "letters": [
+      "a",
+      "e",
+      "l",
+      "n",
+      "o",
+      "p",
+      "t"
+    ],
     "words": [
       "alone",
       "alto",
@@ -44097,9 +49200,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "iefnstu": {
-    "center": "i",
-    "letters": "efnstu",
+  "729": {
+    "letters": [
+      "i",
+      "e",
+      "f",
+      "n",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "entities",
       "fife",
@@ -44150,9 +49260,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "einqstu": {
-    "center": "e",
-    "letters": "inqstu",
+  "730": {
+    "letters": [
+      "e",
+      "i",
+      "n",
+      "q",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "entities",
       "etiquette",
@@ -44208,9 +49325,16 @@ const PUZZLES = {
     ],
     "maxScore": 269
   },
-  "ecfnprs": {
-    "center": "e",
-    "letters": "cfnprs",
+  "731": {
+    "letters": [
+      "e",
+      "c",
+      "f",
+      "n",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "creep",
       "creeper",
@@ -44260,9 +49384,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "ecdhlsu": {
-    "center": "e",
-    "letters": "cdhlsu",
+  "732": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "h",
+      "l",
+      "s",
+      "u"
+    ],
     "words": [
       "cell",
       "cells",
@@ -44317,9 +49448,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "naciotu": {
-    "center": "n",
-    "letters": "aciotu",
+  "733": {
+    "letters": [
+      "n",
+      "a",
+      "c",
+      "i",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "account",
       "accountant",
@@ -44370,9 +49508,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "labeisz": {
-    "center": "l",
-    "letters": "abeisz",
+  "734": {
+    "letters": [
+      "l",
+      "a",
+      "b",
+      "e",
+      "i",
+      "s",
+      "z"
+    ],
     "words": [
       "ablaze",
       "able",
@@ -44432,9 +49577,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "deimnot": {
-    "center": "d",
-    "letters": "eimnot",
+  "735": {
+    "letters": [
+      "d",
+      "e",
+      "i",
+      "m",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -44496,9 +49648,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "ebdgirt": {
-    "center": "e",
-    "letters": "bdgirt",
+  "736": {
+    "letters": [
+      "e",
+      "b",
+      "d",
+      "g",
+      "i",
+      "r",
+      "t"
+    ],
     "words": [
       "beer",
       "beet",
@@ -44564,9 +49723,16 @@ const PUZZLES = {
     ],
     "maxScore": 268
   },
-  "ehimnos": {
-    "center": "e",
-    "letters": "himnos",
+  "737": {
+    "letters": [
+      "e",
+      "h",
+      "i",
+      "m",
+      "n",
+      "o",
+      "s"
+    ],
     "words": [
       "emissions",
       "enemies",
@@ -44625,9 +49791,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "aeinstx": {
-    "center": "a",
-    "letters": "einstx",
+  "738": {
+    "letters": [
+      "a",
+      "e",
+      "i",
+      "n",
+      "s",
+      "t",
+      "x"
+    ],
     "words": [
       "anna",
       "annex",
@@ -44681,9 +49854,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "geinprt": {
-    "center": "g",
-    "letters": "einprt",
+  "739": {
+    "letters": [
+      "g",
+      "e",
+      "i",
+      "n",
+      "p",
+      "r",
+      "t"
+    ],
     "words": [
       "engine",
       "engineer",
@@ -44729,9 +49909,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "icenstz": {
-    "center": "i",
-    "letters": "censtz",
+  "740": {
+    "letters": [
+      "i",
+      "c",
+      "e",
+      "n",
+      "s",
+      "t",
+      "z"
+    ],
     "words": [
       "cite",
       "cities",
@@ -44778,9 +49965,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "cemnors": {
-    "center": "c",
-    "letters": "emnors",
+  "741": {
+    "letters": [
+      "c",
+      "e",
+      "m",
+      "n",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "coco",
       "cocoon",
@@ -44831,9 +50025,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "tbeikrs": {
-    "center": "t",
-    "letters": "beikrs",
+  "742": {
+    "letters": [
+      "t",
+      "b",
+      "e",
+      "i",
+      "k",
+      "r",
+      "s"
+    ],
     "words": [
       "beet",
       "beets",
@@ -44893,9 +50094,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "eabilnr": {
-    "center": "e",
-    "letters": "abilnr",
+  "743": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "i",
+      "l",
+      "n",
+      "r"
+    ],
     "words": [
       "able",
       "aerial",
@@ -44963,9 +50171,16 @@ const PUZZLES = {
     ],
     "maxScore": 268
   },
-  "ecdgino": {
-    "center": "e",
-    "letters": "cdgino",
+  "744": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "g",
+      "i",
+      "n",
+      "o"
+    ],
     "words": [
       "code",
       "coded",
@@ -45019,9 +50234,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "laehmrt": {
-    "center": "l",
-    "letters": "aehmrt",
+  "745": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "h",
+      "m",
+      "r",
+      "t"
+    ],
     "words": [
       "alarm",
       "alert",
@@ -45083,9 +50305,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "hceopst": {
-    "center": "h",
-    "letters": "ceopst",
+  "746": {
+    "letters": [
+      "h",
+      "c",
+      "e",
+      "o",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "cheese",
       "cheeses",
@@ -45141,9 +50370,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "nacdiot": {
-    "center": "n",
-    "letters": "acdiot",
+  "747": {
+    "letters": [
+      "n",
+      "a",
+      "c",
+      "d",
+      "i",
+      "o",
+      "t"
+    ],
     "words": [
       "actin",
       "action",
@@ -45190,9 +50426,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "saelrwy": {
-    "center": "s",
-    "letters": "aelrwy",
+  "748": {
+    "letters": [
+      "s",
+      "a",
+      "e",
+      "l",
+      "r",
+      "w",
+      "y"
+    ],
     "words": [
       "alleys",
       "always",
@@ -45253,9 +50496,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "ainostu": {
-    "center": "a",
-    "letters": "inostu",
+  "749": {
+    "letters": [
+      "a",
+      "i",
+      "n",
+      "o",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "anna",
       "anti",
@@ -45298,9 +50548,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "hadersw": {
-    "center": "h",
-    "letters": "adersw",
+  "750": {
+    "letters": [
+      "h",
+      "a",
+      "d",
+      "e",
+      "r",
+      "s",
+      "w"
+    ],
     "words": [
       "adhere",
       "ahead",
@@ -45358,9 +50615,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "aegirsv": {
-    "center": "a",
-    "letters": "egirsv",
+  "751": {
+    "letters": [
+      "a",
+      "e",
+      "g",
+      "i",
+      "r",
+      "s",
+      "v"
+    ],
     "words": [
       "aggressive",
       "agree",
@@ -45420,9 +50684,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "saceitv": {
-    "center": "s",
-    "letters": "aceitv",
+  "752": {
+    "letters": [
+      "s",
+      "a",
+      "c",
+      "e",
+      "i",
+      "t",
+      "v"
+    ],
     "words": [
       "access",
       "activates",
@@ -45480,9 +50751,16 @@ const PUZZLES = {
     ],
     "maxScore": 272
   },
-  "dacekrt": {
-    "center": "d",
-    "letters": "acekrt",
+  "753": {
+    "letters": [
+      "d",
+      "a",
+      "c",
+      "e",
+      "k",
+      "r",
+      "t"
+    ],
     "words": [
       "arcade",
       "attacked",
@@ -45540,9 +50818,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "ocdemps": {
-    "center": "o",
-    "letters": "cdemps",
+  "754": {
+    "letters": [
+      "o",
+      "c",
+      "d",
+      "e",
+      "m",
+      "p",
+      "s"
+    ],
     "words": [
       "coco",
       "code",
@@ -45604,9 +50889,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "iacdgnr": {
-    "center": "i",
-    "letters": "acdgnr",
+  "755": {
+    "letters": [
+      "i",
+      "a",
+      "c",
+      "d",
+      "g",
+      "n",
+      "r"
+    ],
     "words": [
       "acid",
       "again",
@@ -45657,9 +50949,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "eacdhmt": {
-    "center": "e",
-    "letters": "acdhmt",
+  "756": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "d",
+      "h",
+      "m",
+      "t"
+    ],
     "words": [
       "ache",
       "achmed",
@@ -45725,9 +51024,16 @@ const PUZZLES = {
     ],
     "maxScore": 267
   },
-  "edhmost": {
-    "center": "e",
-    "letters": "dhmost",
+  "757": {
+    "letters": [
+      "e",
+      "d",
+      "h",
+      "m",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -45795,9 +51101,16 @@ const PUZZLES = {
     ],
     "maxScore": 269
   },
-  "lerstuv": {
-    "center": "l",
-    "letters": "erstuv",
+  "758": {
+    "letters": [
+      "l",
+      "e",
+      "r",
+      "s",
+      "t",
+      "u",
+      "v"
+    ],
     "words": [
       "elves",
       "less",
@@ -45847,9 +51160,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "dceimno": {
-    "center": "d",
-    "letters": "ceimno",
+  "759": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "i",
+      "m",
+      "n",
+      "o"
+    ],
     "words": [
       "code",
       "coded",
@@ -45906,9 +51226,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "cbeorsu": {
-    "center": "c",
-    "letters": "beorsu",
+  "760": {
+    "letters": [
+      "c",
+      "b",
+      "e",
+      "o",
+      "r",
+      "s",
+      "u"
+    ],
     "words": [
       "bosco",
       "coco",
@@ -45955,9 +51282,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "acilnsv": {
-    "center": "a",
-    "letters": "cilnsv",
+  "761": {
+    "letters": [
+      "a",
+      "c",
+      "i",
+      "l",
+      "n",
+      "s",
+      "v"
+    ],
     "words": [
       "alias",
       "anna",
@@ -46010,9 +51344,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "edfintu": {
-    "center": "e",
-    "letters": "dfintu",
+  "762": {
+    "letters": [
+      "e",
+      "d",
+      "f",
+      "i",
+      "n",
+      "t",
+      "u"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -46071,9 +51412,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "sghnotu": {
-    "center": "s",
-    "letters": "ghnotu",
+  "763": {
+    "letters": [
+      "s",
+      "g",
+      "h",
+      "n",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "ghost",
       "ghosts",
@@ -46126,9 +51474,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "ocenstu": {
-    "center": "o",
-    "letters": "censtu",
+  "764": {
+    "letters": [
+      "o",
+      "c",
+      "e",
+      "n",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "coco",
       "coconut",
@@ -46190,9 +51545,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "rcdeitu": {
-    "center": "r",
-    "letters": "cdeitu",
+  "765": {
+    "letters": [
+      "r",
+      "c",
+      "d",
+      "e",
+      "i",
+      "t",
+      "u"
+    ],
     "words": [
       "cider",
       "circuit",
@@ -46251,9 +51613,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "neiqstu": {
-    "center": "n",
-    "letters": "eiqstu",
+  "766": {
+    "letters": [
+      "n",
+      "e",
+      "i",
+      "q",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "entities",
       "inquest",
@@ -46308,9 +51677,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "tabilos": {
-    "center": "t",
-    "letters": "abilos",
+  "767": {
+    "letters": [
+      "t",
+      "a",
+      "b",
+      "i",
+      "l",
+      "o",
+      "s"
+    ],
     "words": [
       "abbot",
       "abbott",
@@ -46375,9 +51751,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "sbeilmu": {
-    "center": "s",
-    "letters": "beilmu",
+  "768": {
+    "letters": [
+      "s",
+      "b",
+      "e",
+      "i",
+      "l",
+      "m",
+      "u"
+    ],
     "words": [
       "bellies",
       "bells",
@@ -46427,9 +51810,16 @@ const PUZZLES = {
     ],
     "maxScore": 229
   },
-  "nacipst": {
-    "center": "n",
-    "letters": "acipst",
+  "769": {
+    "letters": [
+      "n",
+      "a",
+      "c",
+      "i",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "actin",
       "anna",
@@ -46483,9 +51873,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "aeflrty": {
-    "center": "a",
-    "letters": "eflrty",
+  "770": {
+    "letters": [
+      "a",
+      "e",
+      "f",
+      "l",
+      "r",
+      "t",
+      "y"
+    ],
     "words": [
       "afar",
       "after",
@@ -46559,9 +51956,16 @@ const PUZZLES = {
     ],
     "maxScore": 272
   },
-  "hegostu": {
-    "center": "h",
-    "letters": "egostu",
+  "771": {
+    "letters": [
+      "h",
+      "e",
+      "g",
+      "o",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "ghetto",
       "ghost",
@@ -46612,9 +52016,16 @@ const PUZZLES = {
     ],
     "maxScore": 215
   },
-  "taeghin": {
-    "center": "t",
-    "letters": "aeghin",
+  "772": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "g",
+      "h",
+      "i",
+      "n"
+    ],
     "words": [
       "agent",
       "antenna",
@@ -46668,9 +52079,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "caeortv": {
-    "center": "c",
-    "letters": "aeortv",
+  "773": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "o",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "acre",
       "actor",
@@ -46725,9 +52143,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "eadilrz": {
-    "center": "e",
-    "letters": "adilrz",
+  "774": {
+    "letters": [
+      "e",
+      "a",
+      "d",
+      "i",
+      "l",
+      "r",
+      "z"
+    ],
     "words": [
       "aerial",
       "aide",
@@ -46792,9 +52217,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "tilnors": {
-    "center": "t",
-    "letters": "ilnors",
+  "775": {
+    "letters": [
+      "t",
+      "i",
+      "l",
+      "n",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "insist",
       "insists",
@@ -46856,9 +52288,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "iacgkln": {
-    "center": "i",
-    "letters": "acgkln",
+  "776": {
+    "letters": [
+      "i",
+      "a",
+      "c",
+      "g",
+      "k",
+      "l",
+      "n"
+    ],
     "words": [
       "again",
       "aging",
@@ -46909,9 +52348,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "deilmos": {
-    "center": "d",
-    "letters": "eilmos",
+  "777": {
+    "letters": [
+      "d",
+      "e",
+      "i",
+      "l",
+      "m",
+      "o",
+      "s"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -46977,9 +52423,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "idegstu": {
-    "center": "i",
-    "letters": "degstu",
+  "778": {
+    "letters": [
+      "i",
+      "d",
+      "e",
+      "g",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "desist",
       "destitute",
@@ -47030,9 +52483,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "tcdehis": {
-    "center": "t",
-    "letters": "cdehis",
+  "779": {
+    "letters": [
+      "t",
+      "c",
+      "d",
+      "e",
+      "h",
+      "i",
+      "s"
+    ],
     "words": [
       "chest",
       "chests",
@@ -47087,9 +52547,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "ienrtvw": {
-    "center": "i",
-    "letters": "enrtvw",
+  "780": {
+    "letters": [
+      "i",
+      "e",
+      "n",
+      "r",
+      "t",
+      "v",
+      "w"
+    ],
     "words": [
       "eerie",
       "entire",
@@ -47142,9 +52609,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "teinorv": {
-    "center": "t",
-    "letters": "einorv",
+  "781": {
+    "letters": [
+      "t",
+      "e",
+      "i",
+      "n",
+      "o",
+      "r",
+      "v"
+    ],
     "words": [
       "enter",
       "entire",
@@ -47200,9 +52674,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "sdghint": {
-    "center": "s",
-    "letters": "dghint",
+  "782": {
+    "letters": [
+      "s",
+      "d",
+      "g",
+      "h",
+      "i",
+      "n",
+      "t"
+    ],
     "words": [
       "digits",
       "digs",
@@ -47253,9 +52734,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "sinortu": {
-    "center": "s",
-    "letters": "inortu",
+  "783": {
+    "letters": [
+      "s",
+      "i",
+      "n",
+      "o",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "insist",
       "insists",
@@ -47312,9 +52800,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "oegilnr": {
-    "center": "o",
-    "letters": "egilnr",
+  "784": {
+    "letters": [
+      "o",
+      "e",
+      "g",
+      "i",
+      "l",
+      "n",
+      "r"
+    ],
     "words": [
       "eggnog",
       "enroll",
@@ -47377,9 +52872,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "dcegino": {
-    "center": "d",
-    "letters": "cegino",
+  "785": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "g",
+      "i",
+      "n",
+      "o"
+    ],
     "words": [
       "code",
       "coded",
@@ -47430,9 +52932,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "eacdilm": {
-    "center": "e",
-    "letters": "acdilm",
+  "786": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "d",
+      "i",
+      "l",
+      "m"
+    ],
     "words": [
       "academic",
       "aide",
@@ -47499,9 +53008,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "acinpst": {
-    "center": "a",
-    "letters": "cinpst",
+  "787": {
+    "letters": [
+      "a",
+      "c",
+      "i",
+      "n",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "actin",
       "anna",
@@ -47561,9 +53077,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "achmost": {
-    "center": "a",
-    "letters": "chmost",
+  "788": {
+    "letters": [
+      "a",
+      "c",
+      "h",
+      "m",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "ammo",
       "asthma",
@@ -47629,9 +53152,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "gcdeinr": {
-    "center": "g",
-    "letters": "cdeinr",
+  "789": {
+    "letters": [
+      "g",
+      "c",
+      "d",
+      "e",
+      "i",
+      "n",
+      "r"
+    ],
     "words": [
       "deciding",
       "degree",
@@ -47675,9 +53205,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "eafnort": {
-    "center": "e",
-    "letters": "afnort",
+  "790": {
+    "letters": [
+      "e",
+      "a",
+      "f",
+      "n",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "after",
       "afternoon",
@@ -47742,9 +53279,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "oehlpsy": {
-    "center": "o",
-    "letters": "ehlpsy",
+  "791": {
+    "letters": [
+      "o",
+      "e",
+      "h",
+      "l",
+      "p",
+      "s",
+      "y"
+    ],
     "words": [
       "hellhole",
       "hello",
@@ -47813,9 +53357,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "iceknrs": {
-    "center": "i",
-    "letters": "ceknrs",
+  "792": {
+    "letters": [
+      "i",
+      "c",
+      "e",
+      "k",
+      "n",
+      "r",
+      "s"
+    ],
     "words": [
       "crisis",
       "eerie",
@@ -47874,9 +53425,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "eacimnt": {
-    "center": "e",
-    "letters": "acimnt",
+  "793": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "i",
+      "m",
+      "n",
+      "t"
+    ],
     "words": [
       "accent",
       "acne",
@@ -47940,9 +53498,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "eacistv": {
-    "center": "e",
-    "letters": "acistv",
+  "794": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "i",
+      "s",
+      "t",
+      "v"
+    ],
     "words": [
       "access",
       "activate",
@@ -47992,9 +53557,16 @@ const PUZZLES = {
     ],
     "maxScore": 222
   },
-  "oceginr": {
-    "center": "o",
-    "letters": "ceginr",
+  "795": {
+    "letters": [
+      "o",
+      "c",
+      "e",
+      "g",
+      "i",
+      "n",
+      "r"
+    ],
     "words": [
       "cicero",
       "coco",
@@ -48052,9 +53624,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "gaemnst": {
-    "center": "g",
-    "letters": "aemnst",
+  "796": {
+    "letters": [
+      "g",
+      "a",
+      "e",
+      "m",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "agent",
       "agents",
@@ -48105,9 +53684,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "aceistu": {
-    "center": "a",
-    "letters": "ceistu",
+  "797": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "i",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "access",
       "accuse",
@@ -48160,9 +53746,16 @@ const PUZZLES = {
     ],
     "maxScore": 269
   },
-  "gadertu": {
-    "center": "g",
-    "letters": "adertu",
+  "798": {
+    "letters": [
+      "g",
+      "a",
+      "d",
+      "e",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "aged",
       "agree",
@@ -48219,9 +53812,16 @@ const PUZZLES = {
     ],
     "maxScore": 271
   },
-  "railmst": {
-    "center": "r",
-    "letters": "ailmst",
+  "799": {
+    "letters": [
+      "r",
+      "a",
+      "i",
+      "l",
+      "m",
+      "s",
+      "t"
+    ],
     "words": [
       "airs",
       "alarm",
@@ -48283,9 +53883,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "aefgirs": {
-    "center": "a",
-    "letters": "efgirs",
+  "800": {
+    "letters": [
+      "a",
+      "e",
+      "f",
+      "g",
+      "i",
+      "r",
+      "s"
+    ],
     "words": [
       "afar",
       "affair",
@@ -48348,9 +53955,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "paelmrt": {
-    "center": "p",
-    "letters": "aelmrt",
+  "801": {
+    "letters": [
+      "p",
+      "a",
+      "e",
+      "l",
+      "m",
+      "r",
+      "t"
+    ],
     "words": [
       "apart",
       "apparel",
@@ -48416,9 +54030,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "abcilst": {
-    "center": "a",
-    "letters": "bcilst",
+  "802": {
+    "letters": [
+      "a",
+      "b",
+      "c",
+      "i",
+      "l",
+      "s",
+      "t"
+    ],
     "words": [
       "alias",
       "assist",
@@ -48481,9 +54102,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "daeilrz": {
-    "center": "d",
-    "letters": "aeilrz",
+  "803": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "i",
+      "l",
+      "r",
+      "z"
+    ],
     "words": [
       "aide",
       "aided",
@@ -48549,9 +54177,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "tcdeilr": {
-    "center": "t",
-    "letters": "cdeilr",
+  "804": {
+    "letters": [
+      "t",
+      "c",
+      "d",
+      "e",
+      "i",
+      "l",
+      "r"
+    ],
     "words": [
       "cite",
       "cited",
@@ -48607,9 +54242,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "scehnru": {
-    "center": "s",
-    "letters": "cehnru",
+  "805": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "h",
+      "n",
+      "r",
+      "u"
+    ],
     "words": [
       "cheers",
       "cheese",
@@ -48663,9 +54305,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "oacinpt": {
-    "center": "o",
-    "letters": "acinpt",
+  "806": {
+    "letters": [
+      "o",
+      "a",
+      "c",
+      "i",
+      "n",
+      "p",
+      "t"
+    ],
     "words": [
       "action",
       "anticipation",
@@ -48720,9 +54369,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "pbeilos": {
-    "center": "p",
-    "letters": "beilos",
+  "807": {
+    "letters": [
+      "p",
+      "b",
+      "e",
+      "i",
+      "l",
+      "o",
+      "s"
+    ],
     "words": [
       "blip",
       "lollipop",
@@ -48781,9 +54437,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "ceilnst": {
-    "center": "c",
-    "letters": "eilnst",
+  "808": {
+    "letters": [
+      "c",
+      "e",
+      "i",
+      "l",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "cell",
       "cells",
@@ -48830,9 +54493,16 @@ const PUZZLES = {
     ],
     "maxScore": 270
   },
-  "eabirtv": {
-    "center": "e",
-    "letters": "abirtv",
+  "809": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "i",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "area",
       "arrive",
@@ -48895,9 +54565,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "maeilrt": {
-    "center": "m",
-    "letters": "aeilrt",
+  "810": {
+    "letters": [
+      "m",
+      "a",
+      "e",
+      "i",
+      "l",
+      "r",
+      "t"
+    ],
     "words": [
       "alarm",
       "amelia",
@@ -48973,9 +54650,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "adelnrv": {
-    "center": "a",
-    "letters": "delnrv",
+  "811": {
+    "letters": [
+      "a",
+      "d",
+      "e",
+      "l",
+      "n",
+      "r",
+      "v"
+    ],
     "words": [
       "anna",
       "area",
@@ -49046,9 +54730,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "iacdems": {
-    "center": "i",
-    "letters": "acdems",
+  "812": {
+    "letters": [
+      "i",
+      "a",
+      "c",
+      "d",
+      "e",
+      "m",
+      "s"
+    ],
     "words": [
       "academic",
       "academics",
@@ -49102,9 +54793,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "ceikors": {
-    "center": "c",
-    "letters": "eikors",
+  "813": {
+    "letters": [
+      "c",
+      "e",
+      "i",
+      "k",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "cicero",
       "cisco",
@@ -49158,9 +54856,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "teginps": {
-    "center": "t",
-    "letters": "eginps",
+  "814": {
+    "letters": [
+      "t",
+      "e",
+      "g",
+      "i",
+      "n",
+      "p",
+      "s"
+    ],
     "words": [
       "entities",
       "gent",
@@ -49215,9 +54920,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "hadefrt": {
-    "center": "h",
-    "letters": "adefrt",
+  "815": {
+    "letters": [
+      "h",
+      "a",
+      "d",
+      "e",
+      "f",
+      "r",
+      "t"
+    ],
     "words": [
       "adhere",
       "ahead",
@@ -49273,9 +54985,16 @@ const PUZZLES = {
     ],
     "maxScore": 270
   },
-  "eadnorv": {
-    "center": "e",
-    "letters": "adnorv",
+  "816": {
+    "letters": [
+      "e",
+      "a",
+      "d",
+      "n",
+      "o",
+      "r",
+      "v"
+    ],
     "words": [
       "adored",
       "adorned",
@@ -49346,9 +55065,16 @@ const PUZZLES = {
     ],
     "maxScore": 269
   },
-  "taciopr": {
-    "center": "t",
-    "letters": "aciopr",
+  "817": {
+    "letters": [
+      "t",
+      "a",
+      "c",
+      "i",
+      "o",
+      "p",
+      "r"
+    ],
     "words": [
       "actor",
       "airport",
@@ -49409,9 +55135,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "naegprt": {
-    "center": "n",
-    "letters": "aegprt",
+  "818": {
+    "letters": [
+      "n",
+      "a",
+      "e",
+      "g",
+      "p",
+      "r",
+      "t"
+    ],
     "words": [
       "agent",
       "anger",
@@ -49470,9 +55203,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "eadfgin": {
-    "center": "e",
-    "letters": "adfgin",
+  "819": {
+    "letters": [
+      "e",
+      "a",
+      "d",
+      "f",
+      "g",
+      "i",
+      "n"
+    ],
     "words": [
       "aged",
       "ageing",
@@ -49526,9 +55266,16 @@ const PUZZLES = {
     ],
     "maxScore": 232
   },
-  "naimotu": {
-    "center": "n",
-    "letters": "aimotu",
+  "820": {
+    "letters": [
+      "n",
+      "a",
+      "i",
+      "m",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "amino",
       "ammonia",
@@ -49579,9 +55326,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "naceilp": {
-    "center": "n",
-    "letters": "aceilp",
+  "821": {
+    "letters": [
+      "n",
+      "a",
+      "c",
+      "e",
+      "i",
+      "l",
+      "p"
+    ],
     "words": [
       "acne",
       "alien",
@@ -49637,9 +55391,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "oghnstu": {
-    "center": "o",
-    "letters": "ghnstu",
+  "822": {
+    "letters": [
+      "o",
+      "g",
+      "h",
+      "n",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "ghost",
       "ghosts",
@@ -49691,9 +55452,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "ialnstu": {
-    "center": "i",
-    "letters": "alnstu",
+  "823": {
+    "letters": [
+      "i",
+      "a",
+      "l",
+      "n",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "alias",
       "anti",
@@ -49748,9 +55516,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "cahlors": {
-    "center": "c",
-    "letters": "ahlors",
+  "824": {
+    "letters": [
+      "c",
+      "a",
+      "h",
+      "l",
+      "o",
+      "r",
+      "s"
+    ],
     "words": [
       "across",
       "alcohol",
@@ -49803,9 +55578,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "legiost": {
-    "center": "l",
-    "letters": "egiost",
+  "825": {
+    "letters": [
+      "l",
+      "e",
+      "g",
+      "i",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "elite",
       "geologist",
@@ -49873,9 +55655,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "laceipr": {
-    "center": "l",
-    "letters": "aceipr",
+  "826": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "e",
+      "i",
+      "p",
+      "r"
+    ],
     "words": [
       "aerial",
       "alaric",
@@ -49933,9 +55722,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "oacgint": {
-    "center": "o",
-    "letters": "acgint",
+  "827": {
+    "letters": [
+      "o",
+      "a",
+      "c",
+      "g",
+      "i",
+      "n",
+      "t"
+    ],
     "words": [
       "action",
       "agitation",
@@ -49986,9 +55782,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "igknrst": {
-    "center": "i",
-    "letters": "gknrst",
+  "828": {
+    "letters": [
+      "i",
+      "g",
+      "k",
+      "n",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "gist",
       "grit",
@@ -50048,9 +55851,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "obcdekr": {
-    "center": "o",
-    "letters": "bcdekr",
+  "829": {
+    "letters": [
+      "o",
+      "b",
+      "c",
+      "d",
+      "e",
+      "k",
+      "r"
+    ],
     "words": [
       "bedrock",
       "boob",
@@ -50109,9 +55919,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "lehopsy": {
-    "center": "l",
-    "letters": "ehopsy",
+  "830": {
+    "letters": [
+      "l",
+      "e",
+      "h",
+      "o",
+      "p",
+      "s",
+      "y"
+    ],
     "words": [
       "heel",
       "heels",
@@ -50178,9 +55995,16 @@ const PUZZLES = {
     ],
     "maxScore": 272
   },
-  "dacehnt": {
-    "center": "d",
-    "letters": "acehnt",
+  "831": {
+    "letters": [
+      "d",
+      "a",
+      "c",
+      "e",
+      "h",
+      "n",
+      "t"
+    ],
     "words": [
       "ahead",
       "attached",
@@ -50237,9 +56061,16 @@ const PUZZLES = {
     ],
     "maxScore": 273
   },
-  "tacehmn": {
-    "center": "t",
-    "letters": "acehmn",
+  "832": {
+    "letters": [
+      "t",
+      "a",
+      "c",
+      "e",
+      "h",
+      "m",
+      "n"
+    ],
     "words": [
       "accent",
       "antenna",
@@ -50294,9 +56125,16 @@ const PUZZLES = {
     ],
     "maxScore": 232
   },
-  "rcegins": {
-    "center": "r",
-    "letters": "cegins",
+  "833": {
+    "letters": [
+      "r",
+      "c",
+      "e",
+      "g",
+      "i",
+      "n",
+      "s"
+    ],
     "words": [
       "crisis",
       "eerie",
@@ -50348,9 +56186,16 @@ const PUZZLES = {
     ],
     "maxScore": 268
   },
-  "iaegntv": {
-    "center": "i",
-    "letters": "aegntv",
+  "834": {
+    "letters": [
+      "i",
+      "a",
+      "e",
+      "g",
+      "n",
+      "t",
+      "v"
+    ],
     "words": [
       "again",
       "ageing",
@@ -50399,9 +56244,16 @@ const PUZZLES = {
     ],
     "maxScore": 250
   },
-  "deimnru": {
-    "center": "d",
-    "letters": "eimnru",
+  "835": {
+    "letters": [
+      "d",
+      "e",
+      "i",
+      "m",
+      "n",
+      "r",
+      "u"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -50460,9 +56312,16 @@ const PUZZLES = {
     ],
     "maxScore": 270
   },
-  "tabflos": {
-    "center": "t",
-    "letters": "abflos",
+  "836": {
+    "letters": [
+      "t",
+      "a",
+      "b",
+      "f",
+      "l",
+      "o",
+      "s"
+    ],
     "words": [
       "abbot",
       "abbott",
@@ -50531,9 +56390,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "adginrw": {
-    "center": "a",
-    "letters": "dginrw",
+  "837": {
+    "letters": [
+      "a",
+      "d",
+      "g",
+      "i",
+      "n",
+      "r",
+      "w"
+    ],
     "words": [
       "again",
       "aging",
@@ -50594,9 +56460,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "pefirst": {
-    "center": "p",
-    "letters": "efirst",
+  "838": {
+    "letters": [
+      "p",
+      "e",
+      "f",
+      "i",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "peep",
       "peeps",
@@ -50651,9 +56524,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "egilost": {
-    "center": "e",
-    "letters": "gilost",
+  "839": {
+    "letters": [
+      "e",
+      "g",
+      "i",
+      "l",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "elite",
       "geologist",
@@ -50703,9 +56583,16 @@ const PUZZLES = {
     ],
     "maxScore": 230
   },
-  "ceinpst": {
-    "center": "c",
-    "letters": "einpst",
+  "840": {
+    "letters": [
+      "c",
+      "e",
+      "i",
+      "n",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "cent",
       "cents",
@@ -50747,9 +56634,16 @@ const PUZZLES = {
     ],
     "maxScore": 229
   },
-  "sceimnp": {
-    "center": "s",
-    "letters": "ceimnp",
+  "841": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "i",
+      "m",
+      "n",
+      "p"
+    ],
     "words": [
       "enemies",
       "essence",
@@ -50799,9 +56693,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "gehilns": {
-    "center": "g",
-    "letters": "ehilns",
+  "842": {
+    "letters": [
+      "g",
+      "e",
+      "h",
+      "i",
+      "l",
+      "n",
+      "s"
+    ],
     "words": [
       "engine",
       "engines",
@@ -50852,9 +56753,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "eaflrtw": {
-    "center": "e",
-    "letters": "aflrtw",
+  "843": {
+    "letters": [
+      "e",
+      "a",
+      "f",
+      "l",
+      "r",
+      "t",
+      "w"
+    ],
     "words": [
       "after",
       "alert",
@@ -50928,9 +56836,16 @@ const PUZZLES = {
     ],
     "maxScore": 274
   },
-  "edloruv": {
-    "center": "e",
-    "letters": "dloruv",
+  "844": {
+    "letters": [
+      "e",
+      "d",
+      "l",
+      "o",
+      "r",
+      "u",
+      "v"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -50991,9 +56906,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "raelopv": {
-    "center": "r",
-    "letters": "aelopv",
+  "845": {
+    "letters": [
+      "r",
+      "a",
+      "e",
+      "l",
+      "o",
+      "p",
+      "v"
+    ],
     "words": [
       "apparel",
       "appear",
@@ -51059,9 +56981,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "eacilnp": {
-    "center": "e",
-    "letters": "acilnp",
+  "846": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "i",
+      "l",
+      "n",
+      "p"
+    ],
     "words": [
       "acne",
       "alien",
@@ -51125,9 +57054,16 @@ const PUZZLES = {
     ],
     "maxScore": 268
   },
-  "dbeilno": {
-    "center": "d",
-    "letters": "beilno",
+  "847": {
+    "letters": [
+      "d",
+      "b",
+      "e",
+      "i",
+      "l",
+      "n",
+      "o"
+    ],
     "words": [
       "bend",
       "bide",
@@ -51188,9 +57124,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "tadegru": {
-    "center": "t",
-    "letters": "adegru",
+  "848": {
+    "letters": [
+      "t",
+      "a",
+      "d",
+      "e",
+      "g",
+      "r",
+      "u"
+    ],
     "words": [
       "dart",
       "data",
@@ -51240,9 +57183,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "tacilps": {
-    "center": "t",
-    "letters": "acilps",
+  "849": {
+    "letters": [
+      "t",
+      "a",
+      "c",
+      "i",
+      "l",
+      "p",
+      "s"
+    ],
     "words": [
       "assist",
       "atlas",
@@ -51295,9 +57245,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "waelrst": {
-    "center": "w",
-    "letters": "aelrst",
+  "850": {
+    "letters": [
+      "w",
+      "a",
+      "e",
+      "l",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "saltwater",
       "seawater",
@@ -51350,9 +57307,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "tcemnos": {
-    "center": "t",
-    "letters": "cemnos",
+  "851": {
+    "letters": [
+      "t",
+      "c",
+      "e",
+      "m",
+      "n",
+      "o",
+      "s"
+    ],
     "words": [
       "cement",
       "cent",
@@ -51417,9 +57381,16 @@ const PUZZLES = {
     ],
     "maxScore": 273
   },
-  "iemoprs": {
-    "center": "i",
-    "letters": "emoprs",
+  "852": {
+    "letters": [
+      "i",
+      "e",
+      "m",
+      "o",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "eerie",
       "emir",
@@ -51475,9 +57446,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "dceinpt": {
-    "center": "d",
-    "letters": "ceinpt",
+  "853": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "i",
+      "n",
+      "p",
+      "t"
+    ],
     "words": [
       "centipede",
       "cited",
@@ -51524,9 +57502,16 @@ const PUZZLES = {
     ],
     "maxScore": 232
   },
-  "nelostv": {
-    "center": "n",
-    "letters": "elostv",
+  "854": {
+    "letters": [
+      "n",
+      "e",
+      "l",
+      "o",
+      "s",
+      "t",
+      "v"
+    ],
     "words": [
       "eleven",
       "even",
@@ -51585,9 +57570,16 @@ const PUZZLES = {
     ],
     "maxScore": 225
   },
-  "lbegins": {
-    "center": "l",
-    "letters": "begins",
+  "855": {
+    "letters": [
+      "l",
+      "b",
+      "e",
+      "g",
+      "i",
+      "n",
+      "s"
+    ],
     "words": [
       "bell",
       "belle",
@@ -51642,9 +57634,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "iehlstw": {
-    "center": "i",
-    "letters": "ehlstw",
+  "856": {
+    "letters": [
+      "i",
+      "e",
+      "h",
+      "l",
+      "s",
+      "t",
+      "w"
+    ],
     "words": [
       "elite",
       "hellish",
@@ -51704,9 +57703,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "ndgiosu": {
-    "center": "n",
-    "letters": "dgiosu",
+  "857": {
+    "letters": [
+      "n",
+      "d",
+      "g",
+      "i",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "ding",
       "dinging",
@@ -51759,9 +57765,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "eginrvw": {
-    "center": "e",
-    "letters": "ginrvw",
+  "858": {
+    "letters": [
+      "e",
+      "g",
+      "i",
+      "n",
+      "r",
+      "v",
+      "w"
+    ],
     "words": [
       "eerie",
       "engine",
@@ -51819,9 +57832,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "mabcers": {
-    "center": "m",
-    "letters": "abcers",
+  "859": {
+    "letters": [
+      "m",
+      "a",
+      "b",
+      "c",
+      "e",
+      "r",
+      "s"
+    ],
     "words": [
       "amber",
       "arms",
@@ -51878,9 +57898,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "simnopt": {
-    "center": "s",
-    "letters": "imnopt",
+  "860": {
+    "letters": [
+      "s",
+      "i",
+      "m",
+      "n",
+      "o",
+      "p",
+      "t"
+    ],
     "words": [
       "imposition",
       "insist",
@@ -51938,9 +57965,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "pdeilsu": {
-    "center": "p",
-    "letters": "deilsu",
+  "861": {
+    "letters": [
+      "p",
+      "d",
+      "e",
+      "i",
+      "l",
+      "s",
+      "u"
+    ],
     "words": [
       "deep",
       "despised",
@@ -51994,9 +58028,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "iaeflst": {
-    "center": "i",
-    "letters": "aeflst",
+  "862": {
+    "letters": [
+      "i",
+      "a",
+      "e",
+      "f",
+      "l",
+      "s",
+      "t"
+    ],
     "words": [
       "aisle",
       "alias",
@@ -52058,9 +58099,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "nadelmo": {
-    "center": "n",
-    "letters": "adelmo",
+  "863": {
+    "letters": [
+      "n",
+      "a",
+      "d",
+      "e",
+      "l",
+      "m",
+      "o"
+    ],
     "words": [
       "almond",
       "alone",
@@ -52130,9 +58178,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "yaelprs": {
-    "center": "y",
-    "letters": "aelprs",
+  "864": {
+    "letters": [
+      "y",
+      "a",
+      "e",
+      "l",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "alley",
       "alleys",
@@ -52181,9 +58236,16 @@ const PUZZLES = {
     ],
     "maxScore": 228
   },
-  "oceimnt": {
-    "center": "o",
-    "letters": "ceimnt",
+  "865": {
+    "letters": [
+      "o",
+      "c",
+      "e",
+      "i",
+      "m",
+      "n",
+      "t"
+    ],
     "words": [
       "coco",
       "cocoon",
@@ -52244,9 +58306,16 @@ const PUZZLES = {
     ],
     "maxScore": 268
   },
-  "oabdelr": {
-    "center": "o",
-    "letters": "abdelr",
+  "866": {
+    "letters": [
+      "o",
+      "a",
+      "b",
+      "d",
+      "e",
+      "l",
+      "r"
+    ],
     "words": [
       "aboard",
       "abode",
@@ -52307,9 +58376,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "tceloru": {
-    "center": "t",
-    "letters": "celoru",
+  "867": {
+    "letters": [
+      "t",
+      "c",
+      "e",
+      "l",
+      "o",
+      "r",
+      "u"
+    ],
     "words": [
       "clout",
       "clutter",
@@ -52368,9 +58444,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "eadnruw": {
-    "center": "e",
-    "letters": "adnruw",
+  "868": {
+    "letters": [
+      "e",
+      "a",
+      "d",
+      "n",
+      "r",
+      "u",
+      "w"
+    ],
     "words": [
       "anew",
       "area",
@@ -52438,9 +58521,16 @@ const PUZZLES = {
     ],
     "maxScore": 271
   },
-  "tacdeil": {
-    "center": "t",
-    "letters": "acdeil",
+  "869": {
+    "letters": [
+      "t",
+      "a",
+      "c",
+      "d",
+      "e",
+      "i",
+      "l"
+    ],
     "words": [
       "addict",
       "addicted",
@@ -52498,9 +58588,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "laemnrt": {
-    "center": "l",
-    "letters": "aemnrt",
+  "870": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "m",
+      "n",
+      "r",
+      "t"
+    ],
     "words": [
       "alarm",
       "alert",
@@ -52561,9 +58658,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "acefrtu": {
-    "center": "a",
-    "letters": "cefrtu",
+  "871": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "f",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "accurate",
       "acre",
@@ -52622,9 +58726,16 @@ const PUZZLES = {
     ],
     "maxScore": 229
   },
-  "caelpsu": {
-    "center": "c",
-    "letters": "aelpsu",
+  "872": {
+    "letters": [
+      "c",
+      "a",
+      "e",
+      "l",
+      "p",
+      "s",
+      "u"
+    ],
     "words": [
       "access",
       "accuse",
@@ -52679,9 +58790,16 @@ const PUZZLES = {
     ],
     "maxScore": 267
   },
-  "gilnosw": {
-    "center": "g",
-    "letters": "ilnosw",
+  "873": {
+    "letters": [
+      "g",
+      "i",
+      "l",
+      "n",
+      "o",
+      "s",
+      "w"
+    ],
     "words": [
       "gigolo",
       "gill",
@@ -52737,9 +58855,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "sginrtw": {
-    "center": "s",
-    "letters": "ginrtw",
+  "874": {
+    "letters": [
+      "s",
+      "g",
+      "i",
+      "n",
+      "r",
+      "t",
+      "w"
+    ],
     "words": [
       "gist",
       "grits",
@@ -52787,9 +58912,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "naelmrt": {
-    "center": "n",
-    "letters": "aelmrt",
+  "875": {
+    "letters": [
+      "n",
+      "a",
+      "e",
+      "l",
+      "m",
+      "r",
+      "t"
+    ],
     "words": [
       "alternate",
       "anna",
@@ -52840,9 +58972,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "labeimt": {
-    "center": "l",
-    "letters": "abeimt",
+  "876": {
+    "letters": [
+      "l",
+      "a",
+      "b",
+      "e",
+      "i",
+      "m",
+      "t"
+    ],
     "words": [
       "able",
       "amelia",
@@ -52910,9 +59049,16 @@ const PUZZLES = {
     ],
     "maxScore": 223
   },
-  "taehnpr": {
-    "center": "t",
-    "letters": "aehnpr",
+  "877": {
+    "letters": [
+      "t",
+      "a",
+      "e",
+      "h",
+      "n",
+      "p",
+      "r"
+    ],
     "words": [
       "antenna",
       "apart",
@@ -52978,9 +59124,16 @@ const PUZZLES = {
     ],
     "maxScore": 273
   },
-  "ndeoruw": {
-    "center": "n",
-    "letters": "deoruw",
+  "878": {
+    "letters": [
+      "n",
+      "d",
+      "e",
+      "o",
+      "r",
+      "u",
+      "w"
+    ],
     "words": [
       "done",
       "donner",
@@ -53035,9 +59188,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "ldeimos": {
-    "center": "l",
-    "letters": "deimos",
+  "879": {
+    "letters": [
+      "l",
+      "d",
+      "e",
+      "i",
+      "m",
+      "o",
+      "s"
+    ],
     "words": [
       "deli",
       "dell",
@@ -53111,9 +59271,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "eacilmr": {
-    "center": "e",
-    "letters": "acilmr",
+  "880": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "i",
+      "l",
+      "m",
+      "r"
+    ],
     "words": [
       "acre",
       "aerial",
@@ -53180,9 +59347,16 @@ const PUZZLES = {
     ],
     "maxScore": 275
   },
-  "ndeiotv": {
-    "center": "n",
-    "letters": "deiotv",
+  "881": {
+    "letters": [
+      "n",
+      "d",
+      "e",
+      "i",
+      "o",
+      "t",
+      "v"
+    ],
     "words": [
       "denied",
       "dent",
@@ -53238,9 +59412,16 @@ const PUZZLES = {
     ],
     "maxScore": 228
   },
-  "meginst": {
-    "center": "m",
-    "letters": "eginst",
+  "882": {
+    "letters": [
+      "m",
+      "e",
+      "g",
+      "i",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "eminent",
       "emit",
@@ -53296,9 +59477,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "naeglsu": {
-    "center": "n",
-    "letters": "aeglsu",
+  "883": {
+    "letters": [
+      "n",
+      "a",
+      "e",
+      "g",
+      "l",
+      "s",
+      "u"
+    ],
     "words": [
       "angel",
       "angela",
@@ -53354,9 +59542,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "madeinx": {
-    "center": "m",
-    "letters": "adeinx",
+  "884": {
+    "letters": [
+      "m",
+      "a",
+      "d",
+      "e",
+      "i",
+      "n",
+      "x"
+    ],
     "words": [
       "anemia",
       "anime",
@@ -53421,9 +59616,16 @@ const PUZZLES = {
     ],
     "maxScore": 257
   },
-  "oadmrst": {
-    "center": "o",
-    "letters": "admrst",
+  "885": {
+    "letters": [
+      "o",
+      "a",
+      "d",
+      "m",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "ammo",
       "aorta",
@@ -53491,9 +59693,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "icdegnv": {
-    "center": "i",
-    "letters": "cdegnv",
+  "886": {
+    "letters": [
+      "i",
+      "c",
+      "d",
+      "e",
+      "g",
+      "n",
+      "v"
+    ],
     "words": [
       "deceive",
       "deceived",
@@ -53540,9 +59749,16 @@ const PUZZLES = {
     ],
     "maxScore": 225
   },
-  "saeghot": {
-    "center": "s",
-    "letters": "aeghot",
+  "887": {
+    "letters": [
+      "s",
+      "a",
+      "e",
+      "g",
+      "h",
+      "o",
+      "t"
+    ],
     "words": [
       "asset",
       "assets",
@@ -53610,9 +59826,16 @@ const PUZZLES = {
     ],
     "maxScore": 279
   },
-  "rdehint": {
-    "center": "r",
-    "letters": "dehint",
+  "888": {
+    "letters": [
+      "r",
+      "d",
+      "e",
+      "h",
+      "i",
+      "n",
+      "t"
+    ],
     "words": [
       "deer",
       "dieter",
@@ -53675,9 +59898,16 @@ const PUZZLES = {
     ],
     "maxScore": 278
   },
-  "reimotv": {
-    "center": "r",
-    "letters": "eimotv",
+  "889": {
+    "letters": [
+      "r",
+      "e",
+      "i",
+      "m",
+      "o",
+      "t",
+      "v"
+    ],
     "words": [
       "eerie",
       "emir",
@@ -53741,9 +59971,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "acdehor": {
-    "center": "a",
-    "letters": "cdehor",
+  "890": {
+    "letters": [
+      "a",
+      "c",
+      "d",
+      "e",
+      "h",
+      "o",
+      "r"
+    ],
     "words": [
       "accord",
       "ache",
@@ -53806,9 +60043,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "sacnotu": {
-    "center": "s",
-    "letters": "acnotu",
+  "891": {
+    "letters": [
+      "s",
+      "a",
+      "c",
+      "n",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "accountants",
       "accounts",
@@ -53860,9 +60104,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "abeklmr": {
-    "center": "a",
-    "letters": "beklmr",
+  "892": {
+    "letters": [
+      "a",
+      "b",
+      "e",
+      "k",
+      "l",
+      "m",
+      "r"
+    ],
     "words": [
       "able",
       "alarm",
@@ -53933,9 +60184,16 @@ const PUZZLES = {
     ],
     "maxScore": 226
   },
-  "agimnrw": {
-    "center": "a",
-    "letters": "gimnrw",
+  "893": {
+    "letters": [
+      "a",
+      "g",
+      "i",
+      "m",
+      "n",
+      "r",
+      "w"
+    ],
     "words": [
       "again",
       "aging",
@@ -53995,9 +60253,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "deinosv": {
-    "center": "d",
-    "letters": "einosv",
+  "894": {
+    "letters": [
+      "d",
+      "e",
+      "i",
+      "n",
+      "o",
+      "s",
+      "v"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -54055,9 +60320,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "saefmor": {
-    "center": "s",
-    "letters": "aefmor",
+  "895": {
+    "letters": [
+      "s",
+      "a",
+      "e",
+      "f",
+      "m",
+      "o",
+      "r"
+    ],
     "words": [
       "areas",
       "arms",
@@ -54120,9 +60392,16 @@ const PUZZLES = {
     ],
     "maxScore": 253
   },
-  "eabcdru": {
-    "center": "e",
-    "letters": "abcdru",
+  "896": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "c",
+      "d",
+      "r",
+      "u"
+    ],
     "words": [
       "abed",
       "acre",
@@ -54186,9 +60465,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "cabelrt": {
-    "center": "c",
-    "letters": "abelrt",
+  "897": {
+    "letters": [
+      "c",
+      "a",
+      "b",
+      "e",
+      "l",
+      "r",
+      "t"
+    ],
     "words": [
       "acre",
       "attract",
@@ -54235,9 +60521,16 @@ const PUZZLES = {
     ],
     "maxScore": 226
   },
-  "acejkst": {
-    "center": "a",
-    "letters": "cejkst",
+  "898": {
+    "letters": [
+      "a",
+      "c",
+      "e",
+      "j",
+      "k",
+      "s",
+      "t"
+    ],
     "words": [
       "access",
       "asset",
@@ -54292,9 +60585,16 @@ const PUZZLES = {
     ],
     "maxScore": 220
   },
-  "abegost": {
-    "center": "a",
-    "letters": "begost",
+  "899": {
+    "letters": [
+      "a",
+      "b",
+      "e",
+      "g",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "abbot",
       "abbott",
@@ -54352,9 +60652,16 @@ const PUZZLES = {
     ],
     "maxScore": 215
   },
-  "sachmot": {
-    "center": "s",
-    "letters": "achmot",
+  "900": {
+    "letters": [
+      "s",
+      "a",
+      "c",
+      "h",
+      "m",
+      "o",
+      "t"
+    ],
     "words": [
       "asthma",
       "atoms",
@@ -54414,9 +60721,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "dehorsw": {
-    "center": "d",
-    "letters": "ehorsw",
+  "901": {
+    "letters": [
+      "d",
+      "e",
+      "h",
+      "o",
+      "r",
+      "s",
+      "w"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -54474,9 +60788,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "acnostu": {
-    "center": "a",
-    "letters": "cnostu",
+  "902": {
+    "letters": [
+      "a",
+      "c",
+      "n",
+      "o",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "account",
       "accountant",
@@ -54527,9 +60848,16 @@ const PUZZLES = {
     ],
     "maxScore": 243
   },
-  "cadehnt": {
-    "center": "c",
-    "letters": "adehnt",
+  "903": {
+    "letters": [
+      "c",
+      "a",
+      "d",
+      "e",
+      "h",
+      "n",
+      "t"
+    ],
     "words": [
       "accent",
       "ache",
@@ -54582,9 +60910,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "oinrstu": {
-    "center": "o",
-    "letters": "inrstu",
+  "904": {
+    "letters": [
+      "o",
+      "i",
+      "n",
+      "r",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "institution",
       "institutions",
@@ -54641,9 +60976,16 @@ const PUZZLES = {
     ],
     "maxScore": 248
   },
-  "tademru": {
-    "center": "t",
-    "letters": "ademru",
+  "905": {
+    "letters": [
+      "t",
+      "a",
+      "d",
+      "e",
+      "m",
+      "r",
+      "u"
+    ],
     "words": [
       "amateur",
       "dart",
@@ -54707,9 +61049,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "ecdnprt": {
-    "center": "e",
-    "letters": "cdnprt",
+  "906": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "n",
+      "p",
+      "r",
+      "t"
+    ],
     "words": [
       "cent",
       "center",
@@ -54768,9 +61117,16 @@ const PUZZLES = {
     ],
     "maxScore": 271
   },
-  "naefrst": {
-    "center": "n",
-    "letters": "aefrst",
+  "907": {
+    "letters": [
+      "n",
+      "a",
+      "e",
+      "f",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "anna",
       "antenna",
@@ -54822,9 +61178,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "raemnsu": {
-    "center": "r",
-    "letters": "aemnsu",
+  "908": {
+    "letters": [
+      "r",
+      "a",
+      "e",
+      "m",
+      "n",
+      "s",
+      "u"
+    ],
     "words": [
       "area",
       "areas",
@@ -54884,9 +61247,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "neklost": {
-    "center": "n",
-    "letters": "eklost",
+  "909": {
+    "letters": [
+      "n",
+      "e",
+      "k",
+      "l",
+      "o",
+      "s",
+      "t"
+    ],
     "words": [
       "keen",
       "knee",
@@ -54944,9 +61314,16 @@ const PUZZLES = {
     ],
     "maxScore": 225
   },
-  "radeqsu": {
-    "center": "r",
-    "letters": "adeqsu",
+  "910": {
+    "letters": [
+      "r",
+      "a",
+      "d",
+      "e",
+      "q",
+      "s",
+      "u"
+    ],
     "words": [
       "address",
       "addressed",
@@ -54999,9 +61376,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "demnort": {
-    "center": "d",
-    "letters": "emnort",
+  "911": {
+    "letters": [
+      "d",
+      "e",
+      "m",
+      "n",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -55061,9 +61445,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "aegmnot": {
-    "center": "a",
-    "letters": "egmnot",
+  "912": {
+    "letters": [
+      "a",
+      "e",
+      "g",
+      "m",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "agent",
       "ammo",
@@ -55124,9 +61515,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "rabgins": {
-    "center": "r",
-    "letters": "abgins",
+  "913": {
+    "letters": [
+      "r",
+      "a",
+      "b",
+      "g",
+      "i",
+      "n",
+      "s"
+    ],
     "words": [
       "airing",
       "airs",
@@ -55184,9 +61582,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "iaeghnt": {
-    "center": "i",
-    "letters": "aeghnt",
+  "914": {
+    "letters": [
+      "i",
+      "a",
+      "e",
+      "g",
+      "h",
+      "n",
+      "t"
+    ],
     "words": [
       "again",
       "ageing",
@@ -55237,9 +61642,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "rehimos": {
-    "center": "r",
-    "letters": "ehimos",
+  "915": {
+    "letters": [
+      "r",
+      "e",
+      "h",
+      "i",
+      "m",
+      "o",
+      "s"
+    ],
     "words": [
       "eerie",
       "emir",
@@ -55300,9 +61712,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "ocdeilr": {
-    "center": "o",
-    "letters": "cdeilr",
+  "916": {
+    "letters": [
+      "o",
+      "c",
+      "d",
+      "e",
+      "i",
+      "l",
+      "r"
+    ],
     "words": [
       "cello",
       "cicero",
@@ -55365,9 +61784,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "oadimnt": {
-    "center": "o",
-    "letters": "adimnt",
+  "917": {
+    "letters": [
+      "o",
+      "a",
+      "d",
+      "i",
+      "m",
+      "n",
+      "t"
+    ],
     "words": [
       "addition",
       "amino",
@@ -55415,9 +61841,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "racilst": {
-    "center": "r",
-    "letters": "acilst",
+  "918": {
+    "letters": [
+      "r",
+      "a",
+      "c",
+      "i",
+      "l",
+      "s",
+      "t"
+    ],
     "words": [
       "airs",
       "alaric",
@@ -55476,9 +61909,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "sabegrv": {
-    "center": "s",
-    "letters": "abegrv",
+  "919": {
+    "letters": [
+      "s",
+      "a",
+      "b",
+      "e",
+      "g",
+      "r",
+      "v"
+    ],
     "words": [
       "agrees",
       "areas",
@@ -55534,9 +61974,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "ecdhlos": {
-    "center": "e",
-    "letters": "cdhlos",
+  "920": {
+    "letters": [
+      "e",
+      "c",
+      "d",
+      "h",
+      "l",
+      "o",
+      "s"
+    ],
     "words": [
       "cell",
       "cello",
@@ -55605,9 +62052,16 @@ const PUZZLES = {
     ],
     "maxScore": 269
   },
-  "eahinps": {
-    "center": "e",
-    "letters": "ahinps",
+  "921": {
+    "letters": [
+      "e",
+      "a",
+      "h",
+      "i",
+      "n",
+      "p",
+      "s"
+    ],
     "words": [
       "appease",
       "aspen",
@@ -55659,9 +62113,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "eaginry": {
-    "center": "e",
-    "letters": "aginry",
+  "922": {
+    "letters": [
+      "e",
+      "a",
+      "g",
+      "i",
+      "n",
+      "r",
+      "y"
+    ],
     "words": [
       "aeryn",
       "ageing",
@@ -55719,9 +62180,16 @@ const PUZZLES = {
     ],
     "maxScore": 269
   },
-  "eabirtu": {
-    "center": "e",
-    "letters": "abirtu",
+  "923": {
+    "letters": [
+      "e",
+      "a",
+      "b",
+      "i",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "area",
       "attire",
@@ -55780,9 +62248,16 @@ const PUZZLES = {
     ],
     "maxScore": 230
   },
-  "legimns": {
-    "center": "l",
-    "letters": "egimns",
+  "924": {
+    "letters": [
+      "l",
+      "e",
+      "g",
+      "i",
+      "m",
+      "n",
+      "s"
+    ],
     "words": [
       "gill",
       "gilles",
@@ -55834,9 +62309,16 @@ const PUZZLES = {
     ],
     "maxScore": 230
   },
-  "iadegnv": {
-    "center": "i",
-    "letters": "adegnv",
+  "925": {
+    "letters": [
+      "i",
+      "a",
+      "d",
+      "e",
+      "g",
+      "n",
+      "v"
+    ],
     "words": [
       "again",
       "ageing",
@@ -55892,9 +62374,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "odelmst": {
-    "center": "o",
-    "letters": "delmst",
+  "926": {
+    "letters": [
+      "o",
+      "d",
+      "e",
+      "l",
+      "m",
+      "s",
+      "t"
+    ],
     "words": [
       "demoted",
       "dodo",
@@ -55970,9 +62459,16 @@ const PUZZLES = {
     ],
     "maxScore": 261
   },
-  "dceistv": {
-    "center": "d",
-    "letters": "ceistv",
+  "927": {
+    "letters": [
+      "d",
+      "c",
+      "e",
+      "i",
+      "s",
+      "t",
+      "v"
+    ],
     "words": [
       "cited",
       "deceive",
@@ -56021,9 +62517,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "oadelnr": {
-    "center": "o",
-    "letters": "adelnr",
+  "928": {
+    "letters": [
+      "o",
+      "a",
+      "d",
+      "e",
+      "l",
+      "n",
+      "r"
+    ],
     "words": [
       "adored",
       "adorn",
@@ -56090,9 +62593,16 @@ const PUZZLES = {
     ],
     "maxScore": 260
   },
-  "paeilnr": {
-    "center": "p",
-    "letters": "aeilnr",
+  "929": {
+    "letters": [
+      "p",
+      "a",
+      "e",
+      "i",
+      "l",
+      "n",
+      "r"
+    ],
     "words": [
       "airplane",
       "alpine",
@@ -56156,9 +62666,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "laemosu": {
-    "center": "l",
-    "letters": "aemosu",
+  "930": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "m",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "alms",
       "also",
@@ -56225,9 +62742,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "padeimr": {
-    "center": "p",
-    "letters": "adeimr",
+  "931": {
+    "letters": [
+      "p",
+      "a",
+      "d",
+      "e",
+      "i",
+      "m",
+      "r"
+    ],
     "words": [
       "appear",
       "appeared",
@@ -56291,9 +62815,16 @@ const PUZZLES = {
     ],
     "maxScore": 262
   },
-  "padelnt": {
-    "center": "p",
-    "letters": "adelnt",
+  "932": {
+    "letters": [
+      "p",
+      "a",
+      "d",
+      "e",
+      "l",
+      "n",
+      "t"
+    ],
     "words": [
       "adapt",
       "adapted",
@@ -56350,9 +62881,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "gbeimnr": {
-    "center": "g",
-    "letters": "beimnr",
+  "933": {
+    "letters": [
+      "g",
+      "b",
+      "e",
+      "i",
+      "m",
+      "n",
+      "r"
+    ],
     "words": [
       "begin",
       "beginning",
@@ -56397,9 +62935,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "abdinst": {
-    "center": "a",
-    "letters": "bdinst",
+  "934": {
+    "letters": [
+      "a",
+      "b",
+      "d",
+      "i",
+      "n",
+      "s",
+      "t"
+    ],
     "words": [
       "abstain",
       "aditi",
@@ -56452,9 +62997,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "reintvw": {
-    "center": "r",
-    "letters": "eintvw",
+  "935": {
+    "letters": [
+      "r",
+      "e",
+      "i",
+      "n",
+      "t",
+      "v",
+      "w"
+    ],
     "words": [
       "eerie",
       "enter",
@@ -56504,9 +63056,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "tehnosu": {
-    "center": "t",
-    "letters": "ehnosu",
+  "936": {
+    "letters": [
+      "t",
+      "e",
+      "h",
+      "n",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "honest",
       "hoot",
@@ -56577,9 +63136,16 @@ const PUZZLES = {
     ],
     "maxScore": 268
   },
-  "lacdegn": {
-    "center": "l",
-    "letters": "acdegn",
+  "937": {
+    "letters": [
+      "l",
+      "a",
+      "c",
+      "d",
+      "e",
+      "g",
+      "n"
+    ],
     "words": [
       "algae",
       "alleged",
@@ -56637,9 +63203,16 @@ const PUZZLES = {
     ],
     "maxScore": 229
   },
-  "schiort": {
-    "center": "s",
-    "letters": "chiort",
+  "938": {
+    "letters": [
+      "s",
+      "c",
+      "h",
+      "i",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "cisco",
       "cost",
@@ -56694,9 +63267,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "deforst": {
-    "center": "d",
-    "letters": "eforst",
+  "939": {
+    "letters": [
+      "d",
+      "e",
+      "f",
+      "o",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -56754,9 +63334,16 @@ const PUZZLES = {
     ],
     "maxScore": 274
   },
-  "ucelprs": {
-    "center": "u",
-    "letters": "celprs",
+  "940": {
+    "letters": [
+      "u",
+      "c",
+      "e",
+      "l",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "clue",
       "clueless",
@@ -56815,9 +63402,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "badeglr": {
-    "center": "b",
-    "letters": "adeglr",
+  "941": {
+    "letters": [
+      "b",
+      "a",
+      "d",
+      "e",
+      "g",
+      "l",
+      "r"
+    ],
     "words": [
       "abed",
       "able",
@@ -56878,9 +63472,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "sefilty": {
-    "center": "s",
-    "letters": "efilty",
+  "942": {
+    "letters": [
+      "s",
+      "e",
+      "f",
+      "i",
+      "l",
+      "t",
+      "y"
+    ],
     "words": [
       "eyes",
       "feels",
@@ -56934,9 +63535,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "bademrs": {
-    "center": "b",
-    "letters": "ademrs",
+  "943": {
+    "letters": [
+      "b",
+      "a",
+      "d",
+      "e",
+      "m",
+      "r",
+      "s"
+    ],
     "words": [
       "abed",
       "amber",
@@ -56989,9 +63597,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "eagilnp": {
-    "center": "e",
-    "letters": "agilnp",
+  "944": {
+    "letters": [
+      "e",
+      "a",
+      "g",
+      "i",
+      "l",
+      "n",
+      "p"
+    ],
     "words": [
       "ageing",
       "agile",
@@ -57049,9 +63664,16 @@ const PUZZLES = {
     ],
     "maxScore": 236
   },
-  "daceknr": {
-    "center": "d",
-    "letters": "aceknr",
+  "945": {
+    "letters": [
+      "d",
+      "a",
+      "c",
+      "e",
+      "k",
+      "n",
+      "r"
+    ],
     "words": [
       "arcade",
       "cadence",
@@ -57112,9 +63734,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "nabegit": {
-    "center": "n",
-    "letters": "abegit",
+  "946": {
+    "letters": [
+      "n",
+      "a",
+      "b",
+      "e",
+      "g",
+      "i",
+      "t"
+    ],
     "words": [
       "again",
       "ageing",
@@ -57174,9 +63803,16 @@ const PUZZLES = {
     ],
     "maxScore": 267
   },
-  "gaimnsu": {
-    "center": "g",
-    "letters": "aimnsu",
+  "947": {
+    "letters": [
+      "g",
+      "a",
+      "i",
+      "m",
+      "n",
+      "s",
+      "u"
+    ],
     "words": [
       "again",
       "aging",
@@ -57227,9 +63863,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "icdegnt": {
-    "center": "i",
-    "letters": "cdegnt",
+  "948": {
+    "letters": [
+      "i",
+      "c",
+      "d",
+      "e",
+      "g",
+      "n",
+      "t"
+    ],
     "words": [
       "cite",
       "cited",
@@ -57279,9 +63922,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "sghiknt": {
-    "center": "s",
-    "letters": "ghiknt",
+  "949": {
+    "letters": [
+      "s",
+      "g",
+      "h",
+      "i",
+      "k",
+      "n",
+      "t"
+    ],
     "words": [
       "gist",
       "highs",
@@ -57336,9 +63986,16 @@ const PUZZLES = {
     ],
     "maxScore": 271
   },
-  "sacfirt": {
-    "center": "s",
-    "letters": "acfirt",
+  "950": {
+    "letters": [
+      "s",
+      "a",
+      "c",
+      "f",
+      "i",
+      "r",
+      "t"
+    ],
     "words": [
       "affairs",
       "airs",
@@ -57394,9 +64051,16 @@ const PUZZLES = {
     ],
     "maxScore": 265
   },
-  "scemotu": {
-    "center": "s",
-    "letters": "cemotu",
+  "951": {
+    "letters": [
+      "s",
+      "c",
+      "e",
+      "m",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "comes",
       "comets",
@@ -57449,9 +64113,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "idgnopr": {
-    "center": "i",
-    "letters": "dgnopr",
+  "952": {
+    "letters": [
+      "i",
+      "d",
+      "g",
+      "n",
+      "o",
+      "p",
+      "r"
+    ],
     "words": [
       "ding",
       "dinging",
@@ -57500,9 +64171,16 @@ const PUZZLES = {
     ],
     "maxScore": 252
   },
-  "ighnosw": {
-    "center": "i",
-    "letters": "ghnosw",
+  "953": {
+    "letters": [
+      "i",
+      "g",
+      "h",
+      "n",
+      "o",
+      "s",
+      "w"
+    ],
     "words": [
       "going",
       "high",
@@ -57549,9 +64227,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "ealmpsx": {
-    "center": "e",
-    "letters": "almpsx",
+  "954": {
+    "letters": [
+      "e",
+      "a",
+      "l",
+      "m",
+      "p",
+      "s",
+      "x"
+    ],
     "words": [
       "apex",
       "appeal",
@@ -57618,9 +64303,16 @@ const PUZZLES = {
     ],
     "maxScore": 274
   },
-  "sabegnr": {
-    "center": "s",
-    "letters": "abegnr",
+  "955": {
+    "letters": [
+      "s",
+      "a",
+      "b",
+      "e",
+      "g",
+      "n",
+      "r"
+    ],
     "words": [
       "agrees",
       "areas",
@@ -57675,9 +64367,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "dbegiln": {
-    "center": "d",
-    "letters": "begiln",
+  "956": {
+    "letters": [
+      "d",
+      "b",
+      "e",
+      "g",
+      "i",
+      "l",
+      "n"
+    ],
     "words": [
       "bedding",
       "bend",
@@ -57729,9 +64428,16 @@ const PUZZLES = {
     ],
     "maxScore": 238
   },
-  "ignopsu": {
-    "center": "i",
-    "letters": "gnopsu",
+  "957": {
+    "letters": [
+      "i",
+      "g",
+      "n",
+      "o",
+      "p",
+      "s",
+      "u"
+    ],
     "words": [
       "going",
       "gossip",
@@ -57777,9 +64483,16 @@ const PUZZLES = {
     ],
     "maxScore": 251
   },
-  "ecginpr": {
-    "center": "e",
-    "letters": "cginpr",
+  "958": {
+    "letters": [
+      "e",
+      "c",
+      "g",
+      "i",
+      "n",
+      "p",
+      "r"
+    ],
     "words": [
       "creep",
       "creeper",
@@ -57830,9 +64543,16 @@ const PUZZLES = {
     ],
     "maxScore": 224
   },
-  "rbcdesu": {
-    "center": "r",
-    "letters": "bcdesu",
+  "959": {
+    "letters": [
+      "r",
+      "b",
+      "c",
+      "d",
+      "e",
+      "s",
+      "u"
+    ],
     "words": [
       "beer",
       "beers",
@@ -57887,9 +64607,16 @@ const PUZZLES = {
     ],
     "maxScore": 244
   },
-  "radelov": {
-    "center": "r",
-    "letters": "adelov",
+  "960": {
+    "letters": [
+      "r",
+      "a",
+      "d",
+      "e",
+      "l",
+      "o",
+      "v"
+    ],
     "words": [
       "adored",
       "area",
@@ -57955,9 +64682,16 @@ const PUZZLES = {
     ],
     "maxScore": 272
   },
-  "ieflnos": {
-    "center": "i",
-    "letters": "eflnos",
+  "961": {
+    "letters": [
+      "i",
+      "e",
+      "f",
+      "l",
+      "n",
+      "o",
+      "s"
+    ],
     "words": [
       "feelin",
       "feline",
@@ -58014,9 +64748,16 @@ const PUZZLES = {
     ],
     "maxScore": 246
   },
-  "haeopst": {
-    "center": "h",
-    "letters": "aeopst",
+  "962": {
+    "letters": [
+      "h",
+      "a",
+      "e",
+      "o",
+      "p",
+      "s",
+      "t"
+    ],
     "words": [
       "hash",
       "haste",
@@ -58078,9 +64819,16 @@ const PUZZLES = {
     ],
     "maxScore": 232
   },
-  "baelmrt": {
-    "center": "b",
-    "letters": "aelmrt",
+  "963": {
+    "letters": [
+      "b",
+      "a",
+      "e",
+      "l",
+      "m",
+      "r",
+      "t"
+    ],
     "words": [
       "able",
       "amber",
@@ -58137,9 +64885,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "maegiln": {
-    "center": "m",
-    "letters": "aegiln",
+  "964": {
+    "letters": [
+      "m",
+      "a",
+      "e",
+      "g",
+      "i",
+      "l",
+      "n"
+    ],
     "words": [
       "amelia",
       "anemia",
@@ -58202,9 +64957,16 @@ const PUZZLES = {
     ],
     "maxScore": 256
   },
-  "ehlnstu": {
-    "center": "e",
-    "letters": "hlnstu",
+  "965": {
+    "letters": [
+      "e",
+      "h",
+      "l",
+      "n",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "heel",
       "heels",
@@ -58258,9 +65020,16 @@ const PUZZLES = {
     ],
     "maxScore": 218
   },
-  "sadenpw": {
-    "center": "s",
-    "letters": "adenpw",
+  "966": {
+    "letters": [
+      "s",
+      "a",
+      "d",
+      "e",
+      "n",
+      "p",
+      "w"
+    ],
     "words": [
       "appease",
       "aspen",
@@ -58321,9 +65090,16 @@ const PUZZLES = {
     ],
     "maxScore": 255
   },
-  "edfmnru": {
-    "center": "e",
-    "letters": "dfmnru",
+  "967": {
+    "letters": [
+      "e",
+      "d",
+      "f",
+      "m",
+      "n",
+      "r",
+      "u"
+    ],
     "words": [
       "deed",
       "deedee",
@@ -58382,9 +65158,16 @@ const PUZZLES = {
     ],
     "maxScore": 241
   },
-  "iaceprs": {
-    "center": "i",
-    "letters": "aceprs",
+  "968": {
+    "letters": [
+      "i",
+      "a",
+      "c",
+      "e",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "airs",
       "airspace",
@@ -58445,9 +65228,16 @@ const PUZZLES = {
     ],
     "maxScore": 278
   },
-  "uaelprs": {
-    "center": "u",
-    "letters": "aelprs",
+  "969": {
+    "letters": [
+      "u",
+      "a",
+      "e",
+      "l",
+      "p",
+      "r",
+      "s"
+    ],
     "words": [
       "applause",
       "assure",
@@ -58503,9 +65293,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "hacestw": {
-    "center": "h",
-    "letters": "acestw",
+  "970": {
+    "letters": [
+      "h",
+      "a",
+      "c",
+      "e",
+      "s",
+      "t",
+      "w"
+    ],
     "words": [
       "ache",
       "aches",
@@ -58561,9 +65358,16 @@ const PUZZLES = {
     ],
     "maxScore": 232
   },
-  "ngikrst": {
-    "center": "n",
-    "letters": "gikrst",
+  "971": {
+    "letters": [
+      "n",
+      "g",
+      "i",
+      "k",
+      "r",
+      "s",
+      "t"
+    ],
     "words": [
       "inning",
       "innings",
@@ -58610,9 +65414,16 @@ const PUZZLES = {
     ],
     "maxScore": 232
   },
-  "rbdenou": {
-    "center": "r",
-    "letters": "bdenou",
+  "972": {
+    "letters": [
+      "r",
+      "b",
+      "d",
+      "e",
+      "n",
+      "o",
+      "u"
+    ],
     "words": [
       "beer",
       "bender",
@@ -58673,9 +65484,16 @@ const PUZZLES = {
     ],
     "maxScore": 264
   },
-  "radenov": {
-    "center": "r",
-    "letters": "adenov",
+  "973": {
+    "letters": [
+      "r",
+      "a",
+      "d",
+      "e",
+      "n",
+      "o",
+      "v"
+    ],
     "words": [
       "adored",
       "adorn",
@@ -58734,9 +65552,16 @@ const PUZZLES = {
     ],
     "maxScore": 228
   },
-  "eacfins": {
-    "center": "e",
-    "letters": "acfins",
+  "974": {
+    "letters": [
+      "e",
+      "a",
+      "c",
+      "f",
+      "i",
+      "n",
+      "s"
+    ],
     "words": [
       "access",
       "acne",
@@ -58791,9 +65616,16 @@ const PUZZLES = {
     ],
     "maxScore": 239
   },
-  "sehnoty": {
-    "center": "s",
-    "letters": "ehnoty",
+  "975": {
+    "letters": [
+      "s",
+      "e",
+      "h",
+      "n",
+      "o",
+      "t",
+      "y"
+    ],
     "words": [
       "eyes",
       "honest",
@@ -58850,9 +65682,16 @@ const PUZZLES = {
     ],
     "maxScore": 227
   },
-  "ebgimnr": {
-    "center": "e",
-    "letters": "bgimnr",
+  "976": {
+    "letters": [
+      "e",
+      "b",
+      "g",
+      "i",
+      "m",
+      "n",
+      "r"
+    ],
     "words": [
       "beer",
       "begin",
@@ -58904,9 +65743,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "dabcehr": {
-    "center": "d",
-    "letters": "abcehr",
+  "977": {
+    "letters": [
+      "d",
+      "a",
+      "b",
+      "c",
+      "e",
+      "h",
+      "r"
+    ],
     "words": [
       "abed",
       "abracadabra",
@@ -58964,9 +65810,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "pehlosy": {
-    "center": "p",
-    "letters": "ehlosy",
+  "978": {
+    "letters": [
+      "p",
+      "e",
+      "h",
+      "l",
+      "o",
+      "s",
+      "y"
+    ],
     "words": [
       "help",
       "helps",
@@ -59025,9 +65878,16 @@ const PUZZLES = {
     ],
     "maxScore": 234
   },
-  "nagilru": {
-    "center": "n",
-    "letters": "agilru",
+  "979": {
+    "letters": [
+      "n",
+      "a",
+      "g",
+      "i",
+      "l",
+      "r",
+      "u"
+    ],
     "words": [
       "again",
       "aging",
@@ -59080,9 +65940,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "reinotu": {
-    "center": "r",
-    "letters": "einotu",
+  "980": {
+    "letters": [
+      "r",
+      "e",
+      "i",
+      "n",
+      "o",
+      "t",
+      "u"
+    ],
     "words": [
       "eerie",
       "enter",
@@ -59145,9 +66012,16 @@ const PUZZLES = {
     ],
     "maxScore": 263
   },
-  "ebhlort": {
-    "center": "e",
-    "letters": "bhlort",
+  "981": {
+    "letters": [
+      "e",
+      "b",
+      "h",
+      "l",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "beer",
       "beet",
@@ -59206,9 +66080,16 @@ const PUZZLES = {
     ],
     "maxScore": 221
   },
-  "fdeinrs": {
-    "center": "f",
-    "letters": "deinrs",
+  "982": {
+    "letters": [
+      "f",
+      "d",
+      "e",
+      "i",
+      "n",
+      "r",
+      "s"
+    ],
     "words": [
       "defend",
       "defended",
@@ -59260,9 +66141,16 @@ const PUZZLES = {
     ],
     "maxScore": 249
   },
-  "nefistu": {
-    "center": "n",
-    "letters": "efistu",
+  "983": {
+    "letters": [
+      "n",
+      "e",
+      "f",
+      "i",
+      "s",
+      "t",
+      "u"
+    ],
     "words": [
       "entities",
       "fine",
@@ -59317,9 +66205,16 @@ const PUZZLES = {
     ],
     "maxScore": 258
   },
-  "aeilort": {
-    "center": "a",
-    "letters": "eilort",
+  "984": {
+    "letters": [
+      "a",
+      "e",
+      "i",
+      "l",
+      "o",
+      "r",
+      "t"
+    ],
     "words": [
       "aerial",
       "alert",
@@ -59384,9 +66279,16 @@ const PUZZLES = {
     ],
     "maxScore": 266
   },
-  "ebdlosu": {
-    "center": "e",
-    "letters": "bdlosu",
+  "985": {
+    "letters": [
+      "e",
+      "b",
+      "d",
+      "l",
+      "o",
+      "s",
+      "u"
+    ],
     "words": [
       "bell",
       "belle",
@@ -59445,9 +66347,16 @@ const PUZZLES = {
     ],
     "maxScore": 235
   },
-  "abelnot": {
-    "center": "a",
-    "letters": "belnot",
+  "986": {
+    "letters": [
+      "a",
+      "b",
+      "e",
+      "l",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "abalone",
       "abbot",
@@ -59508,9 +66417,16 @@ const PUZZLES = {
     ],
     "maxScore": 240
   },
-  "daehnru": {
-    "center": "d",
-    "letters": "aehnru",
+  "987": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "h",
+      "n",
+      "r",
+      "u"
+    ],
     "words": [
       "adhere",
       "ahead",
@@ -59570,9 +66486,16 @@ const PUZZLES = {
     ],
     "maxScore": 231
   },
-  "ocdehrt": {
-    "center": "o",
-    "letters": "cdehrt",
+  "988": {
+    "letters": [
+      "o",
+      "c",
+      "d",
+      "e",
+      "h",
+      "r",
+      "t"
+    ],
     "words": [
       "chord",
       "coco",
@@ -59630,9 +66553,16 @@ const PUZZLES = {
     ],
     "maxScore": 245
   },
-  "gdeinru": {
-    "center": "g",
-    "letters": "deinru",
+  "989": {
+    "letters": [
+      "g",
+      "d",
+      "e",
+      "i",
+      "n",
+      "r",
+      "u"
+    ],
     "words": [
       "degree",
       "digger",
@@ -59685,9 +66615,16 @@ const PUZZLES = {
     ],
     "maxScore": 269
   },
-  "saceinv": {
-    "center": "s",
-    "letters": "aceinv",
+  "990": {
+    "letters": [
+      "s",
+      "a",
+      "c",
+      "e",
+      "i",
+      "n",
+      "v"
+    ],
     "words": [
       "access",
       "assassin",
@@ -59739,9 +66676,16 @@ const PUZZLES = {
     ],
     "maxScore": 254
   },
-  "laeginv": {
-    "center": "l",
-    "letters": "aeginv",
+  "991": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "g",
+      "i",
+      "n",
+      "v"
+    ],
     "words": [
       "agile",
       "ailing",
@@ -59801,9 +66745,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "vcdeior": {
-    "center": "v",
-    "letters": "cdeior",
+  "992": {
+    "letters": [
+      "v",
+      "c",
+      "d",
+      "e",
+      "i",
+      "o",
+      "r"
+    ],
     "words": [
       "cove",
       "cover",
@@ -59849,9 +66800,16 @@ const PUZZLES = {
     ],
     "maxScore": 227
   },
-  "icdelps": {
-    "center": "i",
-    "letters": "cdelps",
+  "993": {
+    "letters": [
+      "i",
+      "c",
+      "d",
+      "e",
+      "l",
+      "p",
+      "s"
+    ],
     "words": [
       "clip",
       "clipped",
@@ -59906,9 +66864,16 @@ const PUZZLES = {
     ],
     "maxScore": 242
   },
-  "daegrtv": {
-    "center": "d",
-    "letters": "aegrtv",
+  "994": {
+    "letters": [
+      "d",
+      "a",
+      "e",
+      "g",
+      "r",
+      "t",
+      "v"
+    ],
     "words": [
       "advert",
       "aged",
@@ -59965,9 +66930,16 @@ const PUZZLES = {
     ],
     "maxScore": 259
   },
-  "laenopr": {
-    "center": "l",
-    "letters": "aenopr",
+  "995": {
+    "letters": [
+      "l",
+      "a",
+      "e",
+      "n",
+      "o",
+      "p",
+      "r"
+    ],
     "words": [
       "aeroplane",
       "alone",
@@ -60030,9 +67002,16 @@ const PUZZLES = {
     ],
     "maxScore": 237
   },
-  "naegikl": {
-    "center": "n",
-    "letters": "aegikl",
+  "996": {
+    "letters": [
+      "n",
+      "a",
+      "e",
+      "g",
+      "i",
+      "k",
+      "l"
+    ],
     "words": [
       "again",
       "ageing",
@@ -60090,9 +67069,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "icemnot": {
-    "center": "i",
-    "letters": "cemnot",
+  "997": {
+    "letters": [
+      "i",
+      "c",
+      "e",
+      "m",
+      "n",
+      "o",
+      "t"
+    ],
     "words": [
       "cite",
       "coin",
@@ -60141,9 +67127,16 @@ const PUZZLES = {
     ],
     "maxScore": 233
   },
-  "gailnsv": {
-    "center": "g",
-    "letters": "ailnsv",
+  "998": {
+    "letters": [
+      "g",
+      "a",
+      "i",
+      "l",
+      "n",
+      "s",
+      "v"
+    ],
     "words": [
       "again",
       "aging",
@@ -60198,9 +67191,16 @@ const PUZZLES = {
     ],
     "maxScore": 247
   },
-  "ocdertu": {
-    "center": "o",
-    "letters": "cdertu",
+  "999": {
+    "letters": [
+      "o",
+      "c",
+      "d",
+      "e",
+      "r",
+      "t",
+      "u"
+    ],
     "words": [
       "coco",
       "code",

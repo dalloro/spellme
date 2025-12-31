@@ -122,11 +122,9 @@ puzzles.sort((a, b) => a.score - b.score);
 const finalPuzzles = {};
 const picked = puzzles.slice(0, TARGET_PUZZLE_COUNT);
 
-picked.forEach(p => {
-    const key = `${p.center}${p.letters}`;
-    finalPuzzles[key] = {
-        center: p.center,
-        letters: p.letters,
+picked.forEach((p, idx) => {
+    finalPuzzles[idx] = {
+        letters: [p.center, ...p.letters.split('')],
         words: p.words,
         maxScore: p.qbScore
     };
