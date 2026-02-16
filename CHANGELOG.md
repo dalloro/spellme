@@ -1,3 +1,10 @@
+## [4.13.7](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.6...v4.13.7) (2026-02-16)
+
+
+### Bug Fixes
+
+* replace broken corsproxy.io with codetabs.com CORS proxy ([5f882a1](https://github.com/dalloro/spelling-bee-extension/commit/5f882a10c16ad2d3be6e9137dd25d86d572d6e34))
+
 ## [4.13.6](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.5...v4.13.6) (2025-12-31)
 
 
