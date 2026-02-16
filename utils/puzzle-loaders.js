@@ -15,7 +15,7 @@
  */
 export async function fetchNYTDailyPuzzle(useProxy = false) {
     const baseUrl = 'https://nytbee.com/';
-    const url = useProxy ? `https://corsproxy.io/?${encodeURIComponent(baseUrl)}` : baseUrl;
+    const url = useProxy ? `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(baseUrl)}` : baseUrl;
 
     const response = await fetch(url);
     if (!response.ok) throw new Error("Failed to fetch NYT puzzle");
@@ -85,7 +85,7 @@ export async function fetchNYTDailyPuzzle(useProxy = false) {
  */
 export async function fetchApegrammaDailyPuzzle(useProxy = false) {
     const baseUrl = 'https://www.laregione.ch/giochi/apegramma';
-    const url = useProxy ? `https://corsproxy.io/?${encodeURIComponent(baseUrl)}` : baseUrl;
+    const url = useProxy ? `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(baseUrl)}` : baseUrl;
 
     const response = await fetch(url);
     if (!response.ok) throw new Error("Fetch failed");
