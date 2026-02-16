@@ -569,7 +569,7 @@ async function loadDailyPuzzle(shouldBroadcast = true) {
     }
 }
 
-// Load Italian "Apegramma" using shared fetcher with local fallback
+// Load Italian "Apegramma" using shared fetcher
 async function loadApegrammaDailyPuzzle(shouldBroadcast = true) {
     showMessage(t('fetchingApegramma'), 2000);
     try {
@@ -598,43 +598,9 @@ async function loadApegrammaDailyPuzzle(shouldBroadcast = true) {
             syncPuzzleToFirebase(state.puzzleId);
         }
 
-    } catch (scrapeErr) {
-        console.warn("Scraping failed, trying local fallback", scrapeErr);
-        try {
-            // Fallback: Deterministic local puzzle
-            const today = new Date();
-            const puzzles = getCurrentPuzzles();
-            const count = Object.keys(puzzles).length;
-            if (count === 0) throw new Error("No Italian puzzles loaded");
-
-            const idx = (today.getFullYear() * 366 + today.getMonth() * 31 + today.getDate()) % count;
-            const puzzle = puzzles[idx];
-
-            const dateStr = new Date().toISOString().split('T')[0];
-            const pid = 'apegramma-' + dateStr;
-
-            state.puzzleId = pid;
-            state.puzzle = { ...puzzle, id: pid, author: 'Apegramma Daily (Offline)' };
-
-            state.foundWords = [];
-            state.score = 0;
-            state.currentInput = '';
-
-            saveLocalState();
-            renderPuzzle();
-            updateScoreUI();
-            renderFoundWords();
-            renderMultiplayerBanner();
-            updateLanguageUI();
-            showMessage(t('apegrammLoaded'), 2000);
-
-            if (shouldBroadcast && state.multiplayer.roomCode) {
-                syncPuzzleToFirebase(state.puzzleId);
-            }
-        } catch (localErr) {
-            console.error(localErr);
-            showMessage(t('errorLoadingApegramma'), 3000);
-        }
+    } catch (e) {
+        console.error("Apegramma Load Error:", e);
+        showMessage(t('errorLoadingApegramma'), 3000);
     }
 }
 

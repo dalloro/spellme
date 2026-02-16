@@ -9,18 +9,57 @@
  */
 
 /**
+ * CORS proxy fallback chain.
+ * Tried in order; first successful response wins.
+ */
+const CORS_PROXIES = [
+    (url) => `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(url)}`,
+    (url) => `https://corsyou.livio-ba2.workers.dev/?url=${encodeURIComponent(url)}`,
+];
+
+/**
+ * Fetch a URL through the CORS proxy fallback chain.
+ * Each proxy is tried with a 5-second timeout.
+ * @param {string} baseUrl - The target URL to fetch
+ * @returns {Promise<string>} - The response HTML text
+ */
+async function fetchWithProxyFallback(baseUrl) {
+    const errors = [];
+    for (const proxyFn of CORS_PROXIES) {
+        const proxyUrl = proxyFn(baseUrl);
+        try {
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 5000);
+            const response = await fetch(proxyUrl, { signal: controller.signal });
+            clearTimeout(timeout);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return await response.text();
+        } catch (err) {
+            const msg = `Proxy failed (${proxyUrl}): ${err.message}`;
+            console.warn(msg);
+            errors.push(msg);
+        }
+    }
+    throw new Error(`All CORS proxies failed:\n${errors.join('\n')}`);
+}
+
+/**
  * Fetch and parse NYT daily puzzle from nytbee.com
  * @param {boolean} useProxy - Whether to use CORS proxy (needed for mobile)
  * @returns {Promise<{puzzleId: string, puzzle: Object}>}
  */
 export async function fetchNYTDailyPuzzle(useProxy = false) {
     const baseUrl = 'https://nytbee.com/';
-    const url = useProxy ? `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(baseUrl)}` : baseUrl;
 
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Failed to fetch NYT puzzle");
+    let html;
+    if (useProxy) {
+        html = await fetchWithProxyFallback(baseUrl);
+    } else {
+        const response = await fetch(baseUrl);
+        if (!response.ok) throw new Error("Failed to fetch NYT puzzle");
+        html = await response.text();
+    }
 
-    const html = await response.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
 
@@ -85,12 +124,16 @@ export async function fetchNYTDailyPuzzle(useProxy = false) {
  */
 export async function fetchApegrammaDailyPuzzle(useProxy = false) {
     const baseUrl = 'https://www.laregione.ch/giochi/apegramma';
-    const url = useProxy ? `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(baseUrl)}` : baseUrl;
 
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Fetch failed");
+    let html;
+    if (useProxy) {
+        html = await fetchWithProxyFallback(baseUrl);
+    } else {
+        const response = await fetch(baseUrl);
+        if (!response.ok) throw new Error("Fetch failed");
+        html = await response.text();
+    }
 
-    const html = await response.text();
     const match = html.match(/<div[^>]*id="jsonDati"[^>]*>(.*?)<\/div>/);
     if (!match) throw new Error("Data not found");
 
