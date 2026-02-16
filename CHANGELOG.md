@@ -1,3 +1,10 @@
+## [4.13.8](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.7...v4.13.8) (2026-02-16)
+
+
+### Bug Fixes
+
+* add CORS proxy fallback chain and remove silent Italian puzzle fallback ([8f69ee6](https://github.com/dalloro/spelling-bee-extension/commit/8f69ee63891b9157173511894101325c2181640d))
+
 ## [4.13.7](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.6...v4.13.7) (2026-02-16)
 
 
