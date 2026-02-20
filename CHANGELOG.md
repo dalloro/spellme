@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/dalloro/spelling-bee-extension/compare/v5.0.0...v5.1.0) (2026-02-20)
+
+
+### Features
+
+* gate daily puzzle behind Firebase Auth ([033ebf1](https://github.com/dalloro/spelling-bee-extension/commit/033ebf1fdf429e45b4728334b14722233ff7c3ea))
+
 # [5.0.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.8...v5.0.0) (2026-02-20)
 
 
