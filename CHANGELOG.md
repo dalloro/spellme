@@ -1,3 +1,13 @@
+# [5.0.0](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.8...v5.0.0) (2026-02-20)
+
+
+* refactor!: rebrand color scheme and clean up codebase ([75af948](https://github.com/dalloro/spelling-bee-extension/commit/75af9487ed2bb1e806373e092165f45cf9b17c73)), closes [#00BFAE](https://github.com/dalloro/spelling-bee-extension/issues/00BFAE)
+
+
+### BREAKING CHANGES
+
+* color scheme and internal naming conventions updated
+
 ## [4.13.8](https://github.com/dalloro/spelling-bee-extension/compare/v4.13.7...v4.13.8) (2026-02-16)
 
 
