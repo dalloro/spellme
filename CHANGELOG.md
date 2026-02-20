@@ -1,3 +1,10 @@
+## [5.1.2](https://github.com/dalloro/spellme/compare/v5.1.1...v5.1.2) (2026-02-20)
+
+
+### Bug Fixes
+
+* **ci:** pass FIREBASE_API_KEY to semantic-release step ([f24da01](https://github.com/dalloro/spellme/commit/f24da01a981d1e22218099d75d66392fba159859))
+
 ## [5.1.1](https://github.com/dalloro/spellme/compare/v5.1.0...v5.1.1) (2026-02-20)
 
 

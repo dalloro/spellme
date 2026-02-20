@@ -1,6 +1,6 @@
 {
     "name": "spellme",
-    "version": "5.1.1",
+    "version": "5.1.2",
     "author": "Livio Dalloro <livio@dalloro.org>",
     "repository": "https://github.com/dalloro/spellme.git",
     "description": "Chrome extension for the Spelling Bee game",
