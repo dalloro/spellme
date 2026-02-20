@@ -57,4 +57,4 @@ jobs:
       - name: Deploy Mobile Web App (Host)
         run: |
           cd mobile
-          firebase deploy --only hosting --project "${{ secrets.HOSTING_PROJECT_ID }}" --token "${{ secrets.FIREBASE_TOKEN }}"
+          firebase deploy --only hosting --site spellme --project "${{ secrets.HOSTING_PROJECT_ID }}" --token "${{ secrets.FIREBASE_TOKEN }}"

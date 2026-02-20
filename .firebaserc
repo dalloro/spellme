@@ -1,6 +1,6 @@
 {
   "projects": {
     "default": "spelling-bee-relay-1025",
-    "mobile": "spellme"
+    "mobile": "spelling-bee-mobile"
   }
 }
