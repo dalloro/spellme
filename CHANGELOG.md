@@ -1,3 +1,10 @@
+## [5.1.3](https://github.com/dalloro/spellme/compare/v5.1.2...v5.1.3) (2026-02-20)
+
+
+### Bug Fixes
+
+* load random puzzle for new users and rebrand to Spellme ([b097324](https://github.com/dalloro/spellme/commit/b09732427d222eca46bb898c8ef37f91b246d378))
+
 ## [5.1.2](https://github.com/dalloro/spellme/compare/v5.1.1...v5.1.2) (2026-02-20)
 
 
