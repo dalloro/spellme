@@ -14,6 +14,7 @@ import { validateWord as coreValidateWord, findWordsForLetters } from '../utils/
 import { LEVELS, LANGUAGE_CONFIG } from '../utils/constants.js';
 import { generateRoomCode } from '../utils/multiplayer.js';
 import { fetchDailyPuzzle, fetchApegrammaDailyPuzzle } from '../utils/puzzle-loaders.js';
+import { initDailyAuth, requireDailyAuth } from '../utils/daily-auth.js';
 import { submitWordToFirebase as coreSubmitWord, syncPuzzleToFirebase as coreSyncPuzzle, sendHeartbeat as coreSendHeartbeat } from '../utils/firebase-sync.js';
 import { createRoom as coreCreateRoom, addPlayerToRoom, removePlayerFromRoom } from '../utils/room-manager.js';
 import { copyToClipboard as coreCopyToClipboard } from '../utils/clipboard.js';
@@ -27,6 +28,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+initDailyAuth(app);
 
 // --- ENVIRONMENT CONFIGURATION ---
 const useEmulator = localStorage.getItem('sb_use_emulator') === 'true';
@@ -314,9 +316,10 @@ function setupEventListeners() {
     };
 
     els.dailyBtn = document.getElementById('daily-btn');
-    els.dailyBtn.onclick = () => {
+    els.dailyBtn.onclick = async () => {
         if (state.multiplayer.roomCode && !confirm(t('confirmChangeGame'))) return;
-        loadDailyPuzzle();
+        const authed = await requireDailyAuth();
+        if (authed) loadDailyPuzzle();
     };
 
     // Language selector
