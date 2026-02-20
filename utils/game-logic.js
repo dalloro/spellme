@@ -25,7 +25,7 @@ export function validateWord(word, puzzle, foundWords, validWords) {
     }
 
     // Dictionary check
-    // puzzle.words is the list of valid words for this specific puzzle (NYT or generated)
+    // puzzle.words is the list of valid words for this specific puzzle
     // validWords is the global dictionary (for loose check or fallback)
 
     // Strict check against puzzle words (authoritative source)

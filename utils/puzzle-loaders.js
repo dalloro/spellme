@@ -4,7 +4,7 @@
 
 /**
  * Puzzle Loaders
- * Shared puzzle fetching logic for NYT and Apegramma daily puzzles
+ * Shared puzzle fetching logic for daily puzzles
  * Used by both Chrome Extension and Mobile Web App
  */
 
@@ -44,11 +44,11 @@ async function fetchWithProxyFallback(baseUrl) {
 }
 
 /**
- * Fetch and parse NYT daily puzzle from nytbee.com
+ * Fetch and parse daily puzzle from nytbee.com
  * @param {boolean} useProxy - Whether to use CORS proxy (needed for mobile)
  * @returns {Promise<{puzzleId: string, puzzle: Object}>}
  */
-export async function fetchNYTDailyPuzzle(useProxy = false) {
+export async function fetchDailyPuzzle(useProxy = false) {
     const baseUrl = 'https://nytbee.com/';
 
     let html;
@@ -56,7 +56,7 @@ export async function fetchNYTDailyPuzzle(useProxy = false) {
         html = await fetchWithProxyFallback(baseUrl);
     } else {
         const response = await fetch(baseUrl);
-        if (!response.ok) throw new Error("Failed to fetch NYT puzzle");
+        if (!response.ok) throw new Error("Failed to fetch daily puzzle");
         html = await response.text();
     }
 
@@ -112,7 +112,7 @@ export async function fetchNYTDailyPuzzle(useProxy = false) {
             letters: foundLetters,
             words: wordList,
             maxScore: maxScore,
-            author: 'NYT Daily'
+            author: 'Daily'
         }
     };
 }

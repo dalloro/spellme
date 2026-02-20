@@ -13,7 +13,7 @@ import {
 import { validateWord as coreValidateWord, findWordsForLetters } from '../utils/game-logic.js';
 import { LEVELS, LANGUAGE_CONFIG } from '../utils/constants.js';
 import { generateRoomCode } from '../utils/multiplayer.js';
-import { fetchNYTDailyPuzzle, fetchApegrammaDailyPuzzle } from '../utils/puzzle-loaders.js';
+import { fetchDailyPuzzle, fetchApegrammaDailyPuzzle } from '../utils/puzzle-loaders.js';
 import { submitWordToFirebase as coreSubmitWord, syncPuzzleToFirebase as coreSyncPuzzle, sendHeartbeat as coreSendHeartbeat } from '../utils/firebase-sync.js';
 import { createRoom as coreCreateRoom, addPlayerToRoom, removePlayerFromRoom } from '../utils/room-manager.js';
 import { copyToClipboard as coreCopyToClipboard } from '../utils/clipboard.js';
@@ -215,7 +215,7 @@ function saveLocalState() {
 
 function loadPuzzleById(id) {
     if (typeof id === 'string' && id.startsWith('nyt-')) {
-        if (state.puzzleId !== id) loadNYTDailyPuzzle(false);
+        if (state.puzzleId !== id) loadDailyEnglishPuzzle(false);
         return;
     }
     if (typeof id === 'string' && id.startsWith('apegramma-')) {
@@ -313,8 +313,8 @@ function setupEventListeners() {
         selectRandomPuzzle();
     };
 
-    els.nytDailyBtn = document.getElementById('nyt-daily-btn');
-    els.nytDailyBtn.onclick = () => {
+    els.dailyBtn = document.getElementById('daily-btn');
+    els.dailyBtn.onclick = () => {
         if (state.multiplayer.roomCode && !confirm(t('confirmChangeGame'))) return;
         loadDailyPuzzle();
     };
@@ -535,10 +535,10 @@ function getDisplayName(pid, players) {
     return `${nick} (#${idx + 1})`;
 }
 
-async function loadNYTDailyPuzzle(sync = true) {
+async function loadDailyEnglishPuzzle(sync = true) {
     try {
         // Use shared fetcher with proxy (required for mobile)
-        const { puzzleId, puzzle } = await fetchNYTDailyPuzzle(true);
+        const { puzzleId, puzzle } = await fetchDailyPuzzle(true);
 
         const isNewPuzzle = state.puzzleId !== puzzleId;
         state.puzzleId = puzzleId;
@@ -552,11 +552,11 @@ async function loadNYTDailyPuzzle(sync = true) {
         renderPuzzle();
         updateScoreUI();
         renderFoundWords();
-        showMessage(t('nytDailyLoaded'), 2000);
+        showMessage(t('dailyLoaded'), 2000);
         if (sync && state.multiplayer.roomCode) syncPuzzleToFirebase(state.puzzleId);
     } catch (e) {
-        console.error("NYT Load Error:", e);
-        showMessage(t('nytLoadFailed'), 2000);
+        console.error("Daily Load Error:", e);
+        showMessage(t('dailyLoadFailed'), 2000);
     }
 }
 
@@ -565,7 +565,7 @@ async function loadDailyPuzzle(shouldBroadcast = true) {
     if (state.language === 'it') {
         await loadApegrammaDailyPuzzle(shouldBroadcast);
     } else {
-        await loadNYTDailyPuzzle(shouldBroadcast);
+        await loadDailyEnglishPuzzle(shouldBroadcast);
     }
 }
 
@@ -639,7 +639,7 @@ function updateLanguageUI() {
     const flagEl = document.getElementById('lang-flag');
     if (flagEl) flagEl.textContent = config.flag;
 
-    const dailyBtn = document.getElementById('nyt-daily-btn');
+    const dailyBtn = document.getElementById('daily-btn');
     // Use localized title or generic
     if (dailyBtn) dailyBtn.title = config.dailyName;
 

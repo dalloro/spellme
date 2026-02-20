@@ -19,16 +19,17 @@ const STRINGS = {
         pangram: "Pangram!",
         nice: "Nice!",
         newRandomPuzzle: "New Random Puzzle!",
-        nytDailyLoaded: "NYT Daily Loaded!",
+        dailyLoaded: "Daily Loaded!",
         apegrammLoaded: "Apegramma Loaded!",
         roomCodeCopied: "Room code copied!",
 
         // Loading messages
-        fetchingNYT: "Fetching NYT Daily...",
+        fetchingDaily: "Fetching Daily...",
         fetchingApegramma: "Fetching Apegramma...",
 
         // Error messages
-        errorLoadingNYT: "Error loading NYT Daily",
+        errorLoadingDaily: "Error loading Daily",
+        dailyLoadFailed: "Daily load failed",
         errorLoadingApegramma: "Error loading Apegramma",
         roomNotFound: "Room not found",
 
@@ -109,16 +110,17 @@ const STRINGS = {
         pangram: "Pangram!",
         nice: "Bene!",
         newRandomPuzzle: "Nuovo puzzle casuale!",
-        nytDailyLoaded: "NYT Daily caricato!",
+        dailyLoaded: "Giornaliero caricato!",
         apegrammLoaded: "Apegramma caricato!",
         roomCodeCopied: "Codice stanza copiato!",
 
         // Loading messages
-        fetchingNYT: "Caricamento NYT Daily...",
+        fetchingDaily: "Caricamento giornaliero...",
         fetchingApegramma: "Caricamento Apegramma...",
 
         // Error messages
-        errorLoadingNYT: "Errore caricamento NYT Daily",
+        errorLoadingDaily: "Errore caricamento giornaliero",
+        dailyLoadFailed: "Caricamento giornaliero fallito",
         errorLoadingApegramma: "Errore caricamento Apegramma",
         roomNotFound: "Stanza non trovata",
 

@@ -10,8 +10,7 @@ const LANGUAGES = {
         code: 'en',
         name: 'English',
         flag: '🇺🇸',
-        dailySource: 'https://nytbee.com/',
-        dailyName: 'NYT Daily',
+        dailyName: 'Daily',
         minWordLength: 4,
         hasPuzzleDatabase: true,
         // Characters that are forbidden in puzzles (none for English)
@@ -21,7 +20,7 @@ const LANGUAGES = {
         code: 'it',
         name: 'Italiano',
         flag: '🇮🇹',
-        dailySource: 'https://www.corriere.it/giochi/apegramma/',
+
         dailyName: 'Apegramma',
         minWordLength: 4,
         hasPuzzleDatabase: true,

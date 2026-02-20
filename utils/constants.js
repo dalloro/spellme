@@ -23,6 +23,6 @@ export const LEVELS = [
 
 // Language configuration
 export const LANGUAGE_CONFIG = {
-    en: { name: 'English', flag: '🇺🇸', dailyName: 'NYT Daily' },
+    en: { name: 'English', flag: '🇺🇸', dailyName: 'Daily' },
     it: { name: 'Italiano', flag: '🇮🇹', dailyName: 'Apegramma' }
 };

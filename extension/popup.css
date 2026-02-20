@@ -8,16 +8,16 @@ See LICENSE file for details.
   --bg-color: #121212;
   --text-color: #ffffff;
   --hive-color: #333333;
-  --center-color: #f7da21;
+  --center-color: #00BFAE;
   --hive-text-color: #e6e6e6;
-  --center-text-color: #000000;
+  --center-text-color: #ffffff;
   --btn-bg: #121212;
   --btn-border: #565656;
   --btn-text: #ffffff;
-  --message-bg: #f7da21;
+  --message-bg: #00BFAE;
   --message-text: #000;
   --level-bar-bg: #333;
-  --highlight-color: #f7da21;
+  --highlight-color: #00BFAE;
 }
 
 /* Total Words Row Style */
@@ -301,12 +301,12 @@ header {
 }
 
 .banner-icon {
-  color: #f7da21;
-  /* Match the center letter yellow */
+  color: #00BFAE;
+  /* Match the center letter teal */
 }
 
 .banner-text #banner-room-code {
-  color: #f7da21;
+  color: #00BFAE;
   font-weight: 600;
 }
 
@@ -546,14 +546,14 @@ header {
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #f7da21;
+  color: #00BFAE;
   letter-spacing: 2px;
 }
 
 .cursor {
   width: 2px;
   height: 24px;
-  background-color: #f7da21;
+  background-color: #00BFAE;
   margin-left: 5px;
   animation: blink 1.2s infinite;
 }

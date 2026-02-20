@@ -1,6 +1,6 @@
 # Spelling Bee Project (Extension & Mobile)
 
-A clean, modern implementation of the Spelling Bee word game, featuring official NYT Daily puzzle integration, random puzzles, and **Real-Time Multiplayer**.
+A clean, modern implementation of the Spelling Bee word game, featuring random puzzles and **Real-Time Multiplayer**.
 
 ## 📥 Download & Install
 ### **Chrome Extension**
@@ -128,11 +128,8 @@ The generator automatically tracks existing puzzles to ensure no duplicates are 
 ---
 ## 🙏 Credits & Acknowledgements
 
-This project is inspired by the **New York Times Spelling Bee**. Use this extension to practice or play with friends!
+Use this extension to practice or play with friends!
 
-We gratefully acknowledge the following sources for our Daily Puzzle data:
-- **[NYT Spelling Bee Answers and Analysis (nytbee.com)](https://nytbee.com/)**: Source for the English daily letters.
-- **[Apegramma (La Regione)](https://www.laregione.ch/giochi/apegramma)**: Source for the Italian daily letters.
 - **[Morph-it!](https://docs.sslmit.unibo.it/doku.php?id=resources:morph-it)**: Italian morphological lexicon (SSLMIT, University of Bologna).
 - **[CoLFIS](https://www.istc.cnr.it/en/grouppage/PresGen)**: Frequency corpus for Written Italian (CNR).
 

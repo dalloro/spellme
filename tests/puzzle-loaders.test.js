@@ -6,7 +6,7 @@
  * @vitest-environment jsdom
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { fetchNYTDailyPuzzle, fetchApegrammaDailyPuzzle } from '../utils/puzzle-loaders.js';
+import { fetchDailyPuzzle, fetchApegrammaDailyPuzzle } from '../utils/puzzle-loaders.js';
 
 describe('Puzzle Loaders', () => {
 
@@ -18,8 +18,8 @@ describe('Puzzle Loaders', () => {
         vi.restoreAllMocks();
     });
 
-    describe('fetchNYTDailyPuzzle', () => {
-        it('should fetch and parse NYT daily puzzle correctly from HTML', async () => {
+    describe('fetchDailyPuzzle', () => {
+        it('should fetch and parse daily puzzle correctly from HTML', async () => {
             // minimal HTML that satisfies the parser logic
             const mockHtml = `
                 <html>
@@ -43,7 +43,7 @@ describe('Puzzle Loaders', () => {
                 </html>
             `;
 
-            // Note: The NYT logic infers center letter from intersection of all words.
+            // Note: The logic infers center letter from intersection of all words.
             // CENTER, RECENT, ENTER -> Intersecting chars: C,E,N,T,R. 
             // Wait, logic says: 
             // 1. commonChars = Set(wordList[0]) -> C,E,N,T,R
@@ -88,7 +88,7 @@ describe('Puzzle Loaders', () => {
                 text: () => Promise.resolve(mockHtml2)
             });
 
-            const result = await fetchNYTDailyPuzzle(false); // direct fetch
+            const result = await fetchDailyPuzzle(false); // direct fetch
 
             // Expectation:
             // One of {A,C,N,E} is picked as center.
@@ -101,7 +101,7 @@ describe('Puzzle Loaders', () => {
 
         it('should handle fetch errors', async () => {
             global.fetch.mockResolvedValue({ ok: false });
-            await expect(fetchNYTDailyPuzzle(false)).rejects.toThrow();
+            await expect(fetchDailyPuzzle(false)).rejects.toThrow();
         });
     });
 

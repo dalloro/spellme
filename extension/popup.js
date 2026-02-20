@@ -10,7 +10,7 @@ import {
 import { validateWord as coreValidateWord, findWordsForLetters } from '../utils/game-logic.js';
 import { LEVELS, LANGUAGE_CONFIG } from '../utils/constants.js';
 import { generateRoomCode } from '../utils/multiplayer.js';
-import { fetchNYTDailyPuzzle, fetchApegrammaDailyPuzzle } from '../utils/puzzle-loaders.js';
+import { fetchDailyPuzzle, fetchApegrammaDailyPuzzle } from '../utils/puzzle-loaders.js';
 import { submitWordToFirebase as coreSubmitWord, syncPuzzleToFirebase as coreSyncPuzzle, sendHeartbeat as coreSendHeartbeat } from '../utils/firebase-sync.js';
 import { createRoom as coreCreateRoom, addPlayerToRoom, removePlayerFromRoom } from '../utils/room-manager.js';
 import { copyToClipboard as coreCopyToClipboard } from '../utils/clipboard.js';
@@ -253,9 +253,9 @@ function loadPuzzle(indexOrId) {
     id = indexOrId;
     puzzle = puzzles[id];
   } else if (typeof indexOrId === 'string' && indexOrId.startsWith('nyt-')) {
-    // NYT daily puzzle ID - re-fetch if different
+    // Daily puzzle ID - re-fetch if different
     if (state.puzzleId !== indexOrId) {
-      loadNYTDailyPuzzle(false);
+      loadDailyEnglishPuzzle(false);
     }
     return;
   } else if (typeof indexOrId === 'string' && indexOrId.startsWith('apegramma-')) {
@@ -406,11 +406,11 @@ function handleEnter() {
   }, 500);
 }
 
-async function loadNYTDailyPuzzle(shouldBroadcast = true) {
-  showMessage(t('fetchingNYT'), 2000);
+async function loadDailyEnglishPuzzle(shouldBroadcast = true) {
+  showMessage(t('fetchingDaily'), 2000);
   try {
     // Use shared fetcher (no proxy for extension - has host permissions)
-    const { puzzleId, puzzle } = await fetchNYTDailyPuzzle(false);
+    const { puzzleId, puzzle } = await fetchDailyPuzzle(false);
 
     const isNewPuzzle = state.puzzleId !== puzzleId;
     state.puzzleId = puzzleId;
@@ -427,16 +427,16 @@ async function loadNYTDailyPuzzle(shouldBroadcast = true) {
     updateScoreUI();
     renderFoundWords();
     renderMultiplayerBanner();
-    showMessage(t('nytDailyLoaded'), 2000);
+    showMessage(t('dailyLoaded'), 2000);
 
     if (shouldBroadcast && state.multiplayer.roomCode) {
-      console.log("Broadcasting NYT puzzle sync...");
+      console.log("Broadcasting daily puzzle sync...");
       syncPuzzleToFirebase(state.puzzleId);
     }
 
   } catch (err) {
     console.error(err);
-    showMessage(t('errorLoadingNYT') + ": " + err.message, 3000);
+    showMessage(t('errorLoadingDaily') + ": " + err.message, 3000);
   }
 }
 
@@ -579,7 +579,7 @@ function updateLanguageUI() {
   const multiBtn = document.getElementById('multiplayer-btn');
   if (multiBtn) multiBtn.title = t('multiplayer');
 
-  const dailyBtn = document.getElementById('nyt-daily-btn');
+  const dailyBtn = document.getElementById('daily-btn');
   if (dailyBtn) dailyBtn.title = t('loadDailyPuzzleTitle');
 
   const restartBtn = document.getElementById('restart-btn');
@@ -595,7 +595,7 @@ async function loadDailyPuzzle(shouldBroadcast = true) {
   if (state.language === 'it') {
     await loadApegrammaDailyPuzzle(shouldBroadcast);
   } else {
-    await loadNYTDailyPuzzle(shouldBroadcast);
+    await loadDailyEnglishPuzzle(shouldBroadcast);
   }
 }
 
@@ -1224,7 +1224,7 @@ function setupEventListeners() {
   }
 
   // Daily puzzle button - loads language-specific daily puzzle
-  const dailyBtn = document.getElementById('nyt-daily-btn');
+  const dailyBtn = document.getElementById('daily-btn');
   if (dailyBtn) {
     dailyBtn.addEventListener('click', loadDailyPuzzle);
   }
