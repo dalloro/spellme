@@ -723,7 +723,7 @@ async function handleShareRoom(e) {
   }
 
   // Point to the mobile web app URL for sharing
-  const url = `https://spelling-bee-mobile.web.app/?room=${code}`;
+  const url = `https://spellme.web.app/?room=${code}`;
   console.log("Constructed share URL:", url);
 
   copyToClipboard(url);

@@ -19,7 +19,7 @@ const packageJson = require(path.join(ROOT_DIR, 'package.json'));
 const version = packageJson.version;
 
 // Support versioned zip name via env or fallback to default
-const ZIP_NAME = process.env.ZIP_NAME || `spelling-bee-extension-v${version}.zip`;
+const ZIP_NAME = process.env.ZIP_NAME || `spellme-v${version}.zip`;
 const ZIP_FILE = path.join(ROOT_DIR, ZIP_NAME);
 
 // Clean up any old zips first

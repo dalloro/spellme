@@ -14,8 +14,8 @@ if (fs.existsSync(readmePath)) {
     let content = fs.readFileSync(readmePath, 'utf8');
 
     // Regex to find any versioned zip name in the README
-    const regex = /spelling-bee-extension-v[\d\.]+\.zip/g;
-    const newName = `spelling-bee-extension-v${version}.zip`;
+    const regex = /spellme-v[\d\.]+\.zip/g;
+    const newName = `spellme-v${version}.zip`;
 
     if (content.match(regex)) {
         content = content.replace(regex, newName);

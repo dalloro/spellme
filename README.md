@@ -5,7 +5,7 @@ A clean, modern implementation of the Spelling Bee word game, featuring random p
 ## 📥 Download & Install
 ### **Chrome Extension**
 The easiest way to play is to install the Chrome Extension:
-[![Download Latest ZIP](https://img.shields.io/badge/Download-Latest%20ZIP-brightgreen?style=for-the-badge&logo=github)](https://github.com/dalloro/spelling-bee-extension/releases/latest/download/spelling-bee-extension-v5.1.0.zip)
+[![Download Latest ZIP](https://img.shields.io/badge/Download-Latest%20ZIP-brightgreen?style=for-the-badge&logo=github)](https://github.com/dalloro/spellme/releases/latest/download/spellme-v5.1.0.zip)
 
 *To install: Download the zip, extract it into a folder, go to `chrome://extensions/`, enable "Developer Mode", and click "Load unpacked" on the folder.*
 
@@ -18,7 +18,7 @@ A dedicated Firebase backend that acts as the multiplayer engine. It manages liv
 
 ### 2. 📱 Mobile-First Web App
 A fully responsive web application optimized for mobile browsers, but equally functional on desktop. It allows users to play directly in their browser without any installation.
-🔗 **Live at: [https://spelling-bee-mobile.web.app/](https://spelling-bee-mobile.web.app/)**
+🔗 **Live at: [https://spellme.web.app/](https://spellme.web.app/)**
 
 ### 3. 🧩 Chrome Extension
 A companion extension that provides instant, embedded access to the game via a browser action popup. It’s the perfect way to jump into a puzzle quickly while browsing.
@@ -32,7 +32,7 @@ Deployments are automated via **GitHub Actions** whenever you push to `main`.
 To enable this, ensure the following **GitHub Secrets** are configured:
 - `FIREBASE_TOKEN`: Your Firebase CI login token (`firebase login:ci`).
 - `RELAY_PROJECT_ID`: The ID of your Firestore project.
-- `HOSTING_PROJECT_ID`: The ID of your Hosting project (`spelling-bee-mobile`).
+- `HOSTING_PROJECT_ID`: The ID of your Hosting project (`spellme`).
 - `FIREBASE_API_KEY`: Your Firebase Web API Key.
 
 ### 2. Manual (CLI)
@@ -42,7 +42,7 @@ If you need to deploy manually from your local machine:
 ```bash
 cd mobile
 npm run build
-firebase deploy --only hosting --project spelling-bee-mobile
+firebase deploy --only hosting --project spellme
 ```
 
 **Deploy Firestore Rules:**
@@ -87,7 +87,7 @@ This command:
 
 ### 📁 Folder Structure
 ```
-spelling-bee-extension/
+spellme/
 ├── extension/          # Chrome extension source
 │   ├── popup.js        # Main extension logic
 │   ├── popup.html      
