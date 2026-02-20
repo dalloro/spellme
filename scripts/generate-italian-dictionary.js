@@ -98,7 +98,7 @@ async function processWords() {
     const sortedWords = Array.from(wordSet).sort();
 
     // Generate JavaScript file
-    const jsContent = `// Italian Word Dictionary for Spelling Bee
+    const jsContent = `// Italian Word Dictionary for Spellme
 // Generated from hunspell-it and other public domain sources
 // Words with accents, apostrophes, or fewer than 4 letters are excluded
 // Total words: ${sortedWords.length}

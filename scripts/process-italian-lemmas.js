@@ -158,7 +158,7 @@ async function processWords() {
 
     // 3. Write Output
     const sortedWords = Array.from(finalSet).sort();
-    const jsContent = `// Italian Lemma Dictionary for Spelling Bee
+    const jsContent = `// Italian Lemma Dictionary for Spellme
 // Generated from Morph-it! (0.48) and CoLFIS
 // Criteria:
 // - POS: Infinitive Verbs, Masc/Sing Nouns & Adjectives

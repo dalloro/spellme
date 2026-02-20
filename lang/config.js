@@ -2,7 +2,7 @@
 // Copyright (c) 2025 Livio Dalloro
 // See LICENSE file for details.
 
-// Language Configuration for Multi-Language Spelling Bee
+// Language Configuration for Multi-Language Spellme
 // This module provides language-specific settings and utilities
 
 const LANGUAGES = {

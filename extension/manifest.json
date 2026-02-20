@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Spelling Bee",
+  "name": "Spellme",
   "version": "5.1.2",
-  "description": "A NYT-style Spelling Bee game.",
+  "description": "A word puzzle game with multiplayer.",
   "permissions": [
     "storage",
     "clipboardWrite"

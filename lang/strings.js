@@ -1,4 +1,4 @@
-// UI String Localization for Multi-Language Spelling Bee
+// UI String Localization for Multi-Language Spellme
 // Contains all user-facing strings in English and Italian
 
 // MIT License

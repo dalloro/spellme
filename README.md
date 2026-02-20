@@ -1,6 +1,6 @@
-# Spelling Bee Project (Extension & Mobile)
+# Spellme Project (Extension & Mobile)
 
-A clean, modern implementation of the Spelling Bee word game, featuring random puzzles and **Real-Time Multiplayer**.
+A clean, modern implementation of the Spellme word game, featuring random puzzles and **Real-Time Multiplayer**.
 
 ## 📥 Download & Install
 ### **Chrome Extension**

@@ -5,7 +5,7 @@
 /**
  * Puzzle Balancer Utility
  * 
- * Logic to select a balanced set of words for a Spelling Bee puzzle.
+ * Logic to select a balanced set of words for a Spellme puzzle.
  * - Targets 35-45 words per game (if starting with > 45).
  * - Maintains 50% Common, 30% Medium, 20% Rare distribution.
  * - Preserves natural difficulty for smaller puzzles.
@@ -121,7 +121,7 @@ function balancePuzzle(allValidWords, freqMap, totalFreqWords, targetRange = [35
     // Actually, we don't have the center letter passed in clearly here, 
     // but the words are already pre-validated for a specific puzzle, so they share a center.
     // However, for Pangram detection, we definitely need to know which words are pangrams.
-    // In Spelling Bee, a pangram uses ALL 7 letters.
+    // In Spellme, a pangram uses ALL 7 letters.
     // We can infer the 7 letters from the set of unique letters in the longest words (or union of all words).
 
     // const uniqueLetters = new Set(allValidWords.join('').split(''));

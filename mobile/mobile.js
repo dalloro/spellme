@@ -4,7 +4,7 @@
 
 // Firebase Imports - v4.13.5
 const APP_VERSION = '4.13.6';
-console.log(`🚀 Spelling Bee Mobile v${APP_VERSION} starting...`);
+console.log(`🚀 Spellme Mobile v${APP_VERSION} starting...`);
 
 import { initializeApp } from 'firebase/app';
 import {
@@ -144,7 +144,7 @@ async function initGame() {
         loadLocalState();
 
         if (!state.puzzle) {
-            await loadDailyPuzzle();
+            selectRandomPuzzle();
         } else {
             // Redundant but safe check to populate state.puzzle if somehow missing while puzzleId exists
             const puzzles = getCurrentPuzzles();
@@ -824,7 +824,7 @@ async function handleShareRoom() {
 
     if (navigator.share) {
         navigator.share({
-            title: 'Spelling Bee Team Play',
+            title: 'Spellme Team Play',
             url: url
         }).catch(() => copyToClipboard(url));
     } else {

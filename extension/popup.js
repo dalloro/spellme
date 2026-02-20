@@ -178,7 +178,7 @@ async function initGame() {
 
   try {
     if (!state.puzzle) {
-      await loadDailyPuzzle(); // Language-aware daily puzzle
+      selectRandomPuzzle(); // Load random puzzle for new users
     } else {
       // Redundant but safe check to populate state.puzzle if somehow missing while puzzleId exists
       const puzzles = getCurrentPuzzles();
