@@ -1,3 +1,10 @@
+## [5.1.1](https://github.com/dalloro/spellme/compare/v5.1.0...v5.1.1) (2026-02-20)
+
+
+### Bug Fixes
+
+* **ci:** use site field in firebase.json for spellme hosting ([ad9da58](https://github.com/dalloro/spellme/commit/ad9da58ffcebeeac986bb6b5e7175734791ea45f))
+
 # [5.1.0](https://github.com/dalloro/spelling-bee-extension/compare/v5.0.0...v5.1.0) (2026-02-20)
 
 
